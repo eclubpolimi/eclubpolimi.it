@@ -1,0 +1,57 @@
+.button-joinus {
+  background-color: var(--orange);
+  padding: 0.3em 3em;
+  border-radius: 1em;
+  color: white;
+}
+
+.button-joinus:hover {
+  background-color: #ff5833;
+}
+
+nav {
+  height: 65px;
+  padding: 0 40px;
+  overflow: hidden;
+}
+
+li {
+  white-space: nowrap;
+}
+
+li a.nav-action {
+  position: relative;
+  text-decoration: none;
+  color: white;
+}
+
+li a.nav-action:before {
+  content: "";
+  position: absolute;
+  height: 3px;
+  bottom: -6px;
+  width: 100%;
+  background-color: var(--orange);
+  opacity: 0;
+  -webkit-transition: opacity 0.1s linear;
+  transition: opacity 0.1s linear;
+}
+
+li a.nav-action:hover:before {
+  opacity: 1;
+}
+
+img {
+  height: 65px;
+}
+
+ul {
+  display: -ms-grid;
+  display: grid;
+  grid-template-columns: 1fr repeat(6, auto);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 50px;
+          column-gap: 50px;
+}

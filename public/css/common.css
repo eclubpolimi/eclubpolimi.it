@@ -1,0 +1,26 @@
+:root {
+  --blue: #120068;
+  --grey: #b2bfcc;
+  --orange: #fc3f1a;
+}
+
+body {
+  font-family: 'San Francisco', 'Segoe UI', Arial, Helvetica, sans-serif;
+}
+
+.bg-blue {
+  background-color: var(--blue);
+}
+
+.bg-orange {
+  background-color: var(--orange);
+}
+
+.bg-grey {
+  background-color: var(--grey);
+}
+
+button {
+  cursor: pointer;
+  white-space: nowrap;
+}
