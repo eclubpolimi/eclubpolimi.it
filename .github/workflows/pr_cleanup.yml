@@ -20,7 +20,7 @@ jobs:
     steps:
       # Delete dev build folder via FTP
       - name: 🧹 Cleanup development deploy folder
-        uses: StephanThierry/ftp-delete-action@v1
+        uses: sspacelynx/ftp-delete-action@v1.1-fix
         with:
           host: ftp.eclubpolimi.it
           user: git@eclubpolimi.it
