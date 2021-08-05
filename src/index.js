@@ -1,14 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
 
-import Navbar from './components/navbar.js';
+import Navbar from './components/Navbar'
 
-class Site extends React.Component {
-  render() {
-    return (
-      <Navbar />
-    );
-  }
+function Site() {
+  return (
+    <Navbar />
+  )
 }
 
 ReactDOM.render(<Site />, document.getElementById("root"));

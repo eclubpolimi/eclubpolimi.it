@@ -6,6 +6,12 @@
 
 body {
   font-family: 'San Francisco', 'Segoe UI', Arial, Helvetica, sans-serif;
+  color: #fff;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
 }
 
 .bg-blue {
