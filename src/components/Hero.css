@@ -1,0 +1,33 @@
+.hero {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-img {
+    position: absolute;
+    min-width: 100%;
+    z-index: -1;
+}
+
+.hero-content {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.hero-content-img {
+    width: 50%;
+}
+
+@media screen and (max-width: 992px) {
+    .hero-content-img {
+        width: 80%;
+    }
+}
+
