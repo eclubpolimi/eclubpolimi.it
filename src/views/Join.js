@@ -3,6 +3,6 @@ import styles from "./Join.module.css";
 
 export default class Join extends Component {
   render() {
-    return <div>Join</div>;
+    return <div className={styles.join}>Join</div>;
   }
 }

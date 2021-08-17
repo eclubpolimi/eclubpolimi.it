@@ -3,6 +3,6 @@ import styles from "./PassionInAction.module.css";
 
 export default class PassionInAction extends Component {
   render() {
-    return <div>PassionInAction</div>;
+    return <div className={styles.passionInAction}>PassionInAction</div>;
   }
 }

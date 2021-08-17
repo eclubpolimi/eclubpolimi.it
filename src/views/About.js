@@ -3,6 +3,6 @@ import styles from "./About.module.css";
 
 export default class About extends Component {
   render() {
-    return <div>About</div>;
+    return <div className={styles.about}>About</div>;
   }
 }
