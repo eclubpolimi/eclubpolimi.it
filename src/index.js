@@ -14,10 +14,11 @@ function Site() {
   const baseName = process.env.REACT_APP_GITHUB_HEAD_REF;
   const pathName = window.location.pathname;
 
-  console.log(`Basename: ${baseName}`);
-  console.log(`PathName: ${pathName}`)
   return (
     <Router basename={baseName}>
+
+      <p>Basename: {baseName}</p>
+      <p>Pathname: {pathName}</p>
       <Navbar />
       <Switch>
         <Route exact path="/" component={Home}></Route>
