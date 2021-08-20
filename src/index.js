@@ -12,7 +12,7 @@ import Hosts from "./views/Hosts";
 
 function Site() {
   return (
-    <Router basename={process.env.PUBLIC_URL}>
+    <Router basename={process.env.REACT_APP_GITHUB_HEAD_REF}>
       <Navbar />
       <Switch>
         <Route exact path="/" component={Home}></Route>
