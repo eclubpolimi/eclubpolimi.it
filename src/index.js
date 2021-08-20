@@ -11,14 +11,10 @@ import Join from "./views/Join";
 import Hosts from "./views/Hosts";
 
 function Site() {
-  const baseName = process.env.REACT_APP_GITHUB_HEAD_REF;
   const pathName = window.location.pathname;
 
   return (
-    <Router basename={baseName}>
-
-      <p>Basename: {baseName}</p>
-      <p>Pathname: {pathName}</p>
+    <Router basename={pathName}>
       <Navbar />
       <Switch>
         <Route exact path="/" component={Home}></Route>
