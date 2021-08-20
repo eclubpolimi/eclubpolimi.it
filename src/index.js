@@ -10,6 +10,8 @@ import PassionInAction from "./views/PassionInAction";
 import Join from "./views/Join";
 import Hosts from "./views/Hosts";
 
+import "./common.css";
+
 function Site() {
   const pathName = window.location.pathname;
   
