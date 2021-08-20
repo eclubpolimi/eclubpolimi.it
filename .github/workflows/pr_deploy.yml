@@ -28,7 +28,7 @@ jobs:
       - name: 🔨 Build project
         run: |
           node -v
-          npm ci
+          npm ci --production
           npm run build
 
       - name: 🚀 Upload to Netsons
