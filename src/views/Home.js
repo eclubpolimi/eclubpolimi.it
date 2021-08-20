@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import styles from "./Home.module.css";
+import "./Home.css";
 
 export default class Home extends Component {
   render() {
-    return <div className={styles.home}>Home</div>;
+    return <div className="home">Home</div>;
   }
 }

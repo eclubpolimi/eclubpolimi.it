@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import styles from "./Events.module.css";
+import "./Events.css";
 
 export default class Events extends Component {
   render() {
-    return <div className={styles.events}>Events</div>;
+    return <div className="events">Events</div>;
   }
 }

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import styles from "./PassionInAction.module.css";
+import "./PassionInAction.css";
 
 export default class PassionInAction extends Component {
   render() {
-    return <div className={styles.passionInAction}>PassionInAction</div>;
+    return <div className="passion-in-action">PassionInAction</div>;
   }
 }

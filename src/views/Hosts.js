@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import styles from "./Hosts.module.css";
+import "./Hosts.css";
 
 export default class Hosts extends Component {
   render() {
-    return <div className={styles.hosts}>Hosts</div>;
+    return <div className="hosts">Hosts</div>;
   }
 }
