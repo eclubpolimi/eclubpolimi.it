@@ -11,7 +11,7 @@ import Join from "./views/Join";
 import Hosts from "./views/Hosts";
 
 function Site() {
-  const baseName = process.env.PUBLIC_URL;
+  const baseName = process.env.REACT_APP_GITHUB_HEAD_REF;
   
   return (
     <Router {...(baseName ? {basename: baseName} : {})}>
