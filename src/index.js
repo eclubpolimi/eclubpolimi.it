@@ -11,8 +11,10 @@ import Join from "./views/Join";
 import Hosts from "./views/Hosts";
 
 function Site() {
+  const baseName = process.env.PUBLIC_URL;
+  
   return (
-    <Router>
+    <Router {...(baseName ? {basename: baseName} : {})}>
       <Navbar />
       <Switch>
         <Route exact path="/" component={Home}></Route>

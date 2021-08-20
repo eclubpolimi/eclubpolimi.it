@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import logo_white from "../assets/logo_white.svg";
 
@@ -7,27 +7,27 @@ import "./Navbar.css";
 const MenuItems = [
   {
     title: "About",
-    target: "About",
+    target: "/About",
     cName: "nav-link",
   },
   {
     title: "Eventi",
-    target: "Events",
+    target: "/Events",
     cName: "nav-link",
   },
   {
     title: "Ospiti",
-    target: "Hosts",
+    target: "/Hosts",
     cName: "nav-link",
   },
   {
     title: "Passion in action",
-    target: "PassionInAction",
+    target: "/PassionInAction",
     cName: "nav-link",
   },
 ];
 
-class Navbar extends React.Component {
+export default class Navbar extends Component {
   state = {
     clicked: false,
   };
@@ -74,5 +74,3 @@ class Navbar extends React.Component {
     );
   }
 }
-
-export default Navbar;
