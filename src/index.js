@@ -12,7 +12,7 @@ import Hosts from "./views/Hosts";
 
 function Site() {
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <Navbar />
       <Switch>
         <Route exact path="/" component={Home}></Route>
