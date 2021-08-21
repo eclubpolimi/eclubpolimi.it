@@ -66,7 +66,7 @@ export default class Navbar extends Component {
         </ul>
         <div className="menu-icon">
           <i
-            className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}
+            className={this.state.clicked ? "fa fa-times" : "fa fa-bars"}
             onClick={this.handleMenu}
           ></i>
         </div>

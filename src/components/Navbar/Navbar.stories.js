@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Navbar from './Navbar';
-import './Navbar.css';
+import "font-awesome/css/font-awesome.min.css"
 import './../../common.css'
 
 export default {

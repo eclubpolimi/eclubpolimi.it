@@ -10,6 +10,7 @@ import PassionInAction from "./views/PassionInAction";
 import Join from "./views/Join";
 import Hosts from "./views/Hosts";
 
+import "../node_modules/font-awesome/css/font-awesome.min.css"
 import "./common.css";
 
 function Site() {
