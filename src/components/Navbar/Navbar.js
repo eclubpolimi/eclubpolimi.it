@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import logo_white from "../assets/logo_white.svg";
+import logo_white from "../../assets/logo_white.svg";
 
 import "./Navbar.css";
 
