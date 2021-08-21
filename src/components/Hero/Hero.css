@@ -1,0 +1,26 @@
+.hero {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-text {
+    color: white;
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.hero-logo {
+    width: 40vw;
+}
+
+@media screen and (max-width: 992px) {
+    .hero-text {
+        font-size: 28px;    
+    }
+
+    .hero-logo {
+        width: 80vw;
+    }
+}
