@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import logo_white from "../../assets/logo_white.svg";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes, faBars } from "@fortawesome/free-solid-svg-icons";
+
 import "./Navbar.css";
 
 const MenuItems = [
@@ -61,14 +64,17 @@ export default class Navbar extends Component {
             );
           })}
           <li>
-            <Link to="/Join" className="button-joinus">Join us</Link>
+            <Link to="/Join" className="button-joinus">
+              Join us
+            </Link>
           </li>
         </ul>
         <div className="menu-icon">
-          <i
-            className={this.state.clicked ? "fa fa-times" : "fa fa-bars"}
-            onClick={this.handleMenu}
-          ></i>
+          {this.state.clicked ? (
+            <FontAwesomeIcon icon={faTimes} onClick={this.handleMenu} />
+          ) : (
+            <FontAwesomeIcon icon={faBars} onClick={this.handleMenu} />
+          )}
         </div>
       </nav>
     );
