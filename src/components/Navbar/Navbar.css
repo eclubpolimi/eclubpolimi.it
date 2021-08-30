@@ -22,10 +22,12 @@
 .menu-icon {
   font-size: 2rem;
   display: none;
+  color: white;
 }
 
 .nav-link {
   text-align: center;
+  margin: 0 20px;
 }
 
 .nav-link a {
@@ -52,7 +54,6 @@
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 40px;
 }
 
 .button-joinus {
@@ -75,6 +76,10 @@
 
   .menu-icon {
     display: block;
+  }
+
+  .nav-link {
+    margin: 20px 0;
   }
 
   .nav-links {
