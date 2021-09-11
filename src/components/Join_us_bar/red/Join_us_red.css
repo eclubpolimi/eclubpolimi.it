@@ -1,0 +1,35 @@
+
+/*Problema da risolvere: centrare e ordine il bottone e il testo*/
+.join_us_bar {
+    background-color: #fc3f1a;
+    height: 156px;
+    justify-content:center;
+    align-items: center;
+    text-align: center;
+}
+
+.join_us_button {
+  background-color: white;
+  color: black;
+  padding: 0.4em 1.7em;
+  border-radius: 1em;
+  text-align: center;
+  cursor: pointer;
+  margin-top: 0.5em;
+
+}
+
+.join_us_button:hover {
+    background-color: #e5e5e5;
+
+  }
+
+/*try also f92c03 and c72303 */
+
+.call_to_action {
+  color: white;
+  font-weight: bold;
+  font-size: 36px;
+  text-align: center;
+  padding-top: 1.1em;
+}
