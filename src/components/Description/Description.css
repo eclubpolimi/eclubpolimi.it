@@ -1,0 +1,41 @@
+
+.description_bar {
+    background-color: white;
+    height: 256px;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    justify-content:center;
+    align-items: center;
+    text-align: center;
+}
+
+.description_title {
+  font-size: 2em;
+  font-weight: bolder;
+  padding-bottom: 0.5em;
+  justify-content:center;
+  align-items: center;
+  text-align: center;
+}
+
+.description_paragraph {
+
+  text-align: left;
+  margin-left: 4em;
+  margin-right: 4em;
+  line-height: 32px;
+}
+
+@media screen and (max-width: 600px) {
+
+  .description_paragraph {
+    color: #6A727A;
+    line-height: 28px;
+
+  }
+
+  .description_title {
+    color: #B2BFCC;
+  }
+
+}
