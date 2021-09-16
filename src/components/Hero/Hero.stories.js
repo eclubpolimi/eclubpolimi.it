@@ -1,7 +1,6 @@
 import React from "react";
 
 import Hero from "./Hero";
-import "font-awesome/css/font-awesome.min.css";
 import "./../../common.css";
 
 import homepageHero from "../../assets/homepage_hero.jpg";
