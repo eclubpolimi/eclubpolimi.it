@@ -1,0 +1,36 @@
+.teams {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.team {
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.team-title {
+  padding-top: 20px;
+}
+
+.team-components {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 20px;
+  row-gap: 20px;
+}
+
+.component-card {
+  height: calc(100vw * 0.5625 / 2);
+}
+
+@media screen and (max-width: 860px) {
+  .team-components {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .component-card {
+    height: calc(100vw * 0.5625);
+  }
+}
