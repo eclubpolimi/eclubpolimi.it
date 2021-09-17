@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
+import Description from "./components/Description";
 import Home from "./views/Home";
 import About from "./views/About";
 import Events from "./views/Events";
@@ -11,6 +12,7 @@ import Join from "./views/Join";
 import Hosts from "./views/Hosts";
 
 import "./common.css";
+
 
 function Site() {
   const pathName = window.location.pathname;

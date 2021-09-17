@@ -26,7 +26,7 @@
   line-height: 32px;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 992px) {
 
   .description_paragraph {
     color: #6A727A;
