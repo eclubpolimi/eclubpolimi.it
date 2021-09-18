@@ -1,32 +1,31 @@
 
 /*Problema da risolvere: centrare e ordine il bottone e il testo*/
 .join_us_bar {
-    background-color: #fc3f1a;
+    background-color: #fc3f1a; /*#120068;*/
     height: 156px;
     justify-content:center;
     align-items: center;
     text-align: center;
 }
 
-.join_us_button {
-  background-color: white;
+.JSB_button {
+  background-color: white; /*#fc3f1a;*/
   color: black;
-  padding: 0.4em 1.7em;
+  padding: 0.4em 5em;
   border-radius: 1em;
   text-align: center;
   cursor: pointer;
   margin-top: 0.5em;
-
 }
 
-.join_us_button:hover {
+.JSB_button:active {
     background-color: #e5e5e5;
 
   }
 
 /*try also f92c03 and c72303 */
 
-.call_to_action {
+.JSB_call_to_action {
   color: white;
   font-weight: bold;
   font-size: 36px;
