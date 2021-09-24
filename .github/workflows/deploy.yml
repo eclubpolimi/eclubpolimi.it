@@ -30,6 +30,7 @@ jobs:
       - name: 🔨 Build project
         run: |
           node -v
+          npm -v
           npm ci --production
           npm run build
 
