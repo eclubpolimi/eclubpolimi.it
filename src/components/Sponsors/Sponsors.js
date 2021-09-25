@@ -1,26 +1,30 @@
 import React, { Component } from "react";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTimes, faBars } from "@fortawesome/free-solid-svg-icons";
-
+import PropTypes from "prop-types";
 import "./Sponsors.css";
 //array che contiene le immagini degli sponsor
-const arr = [
-  { src: "", href: "", alt: "" },
-  { src: "", href: "", alt: "" },
-];
 
 export default class Sponsors extends Component {
+
+  static propTypes = {
+    // arrLogos: Array of images
+    arrLogos: PropTypes.arrayOf(
+      PropTypes.objectOf(
+        PropTypes.string
+      )
+    )
+  };
+
   render() {
     return (
-      <div className="sponsor-row">
-        <div className="sponsor-row"> Sponsored By </div>
-        {arr.forEach((el) => (
-          <div className="sponsor-column">
-            <image src={el.src} href={el.href} alt={el.alt}>
-            </image>
-          </div>
-        ))}
+      <div className="sponsor-component">
+        <div className="sponsor-title"> Sponsored By </div>
+        <div className="sponsor-table">
+          {this.props.arrLogos.map((el) => (
+            <div className="sponsor-column">
+              <img src={el.src} href={el.href} alt={el.alt}></img>
+            </div>
+          ))}
+        </div>
       </div>
     );
   }
