@@ -20,12 +20,11 @@ button {
   background: transparent;
   border: none;
   outline: none;
-  padding: 10px 20px ;
+  padding: 10px 20px;
   cursor: pointer;
-  color: rgba(0,0,0,.4);
-  transition: all ease-in-out .2s;
+  color: rgba(0, 0, 0, 0.4);
+  transition: all ease-in-out 0.2s;
   border-bottom: 2px solid transparent;
-  
 }
 
 .lessons-pia-active {
@@ -35,7 +34,6 @@ button {
 
 .lessons-pia-description-container {
   display: flex;
-  /* flex-wrap: wrap; */ /* to add after column divisioning */
   align-items: center;
   justify-content: center;
 }

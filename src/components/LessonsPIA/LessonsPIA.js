@@ -1,103 +1,81 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import "./LessonsPIA.css";
-import icon from '../../assets/img-lessons-pia-346x220.jpg';
 
 export default class LessonsPIA extends Component {
-  render () {
-    return (
-      <div> {/* External div */}
-        <div className="lessons-pia-tabs">
-          <h1 className="lessons-pia-title">Lezioni</h1>
-          <Tabs>
-            <Tab label="Lezione 1">
-              <div>
-                <h2>Lezione 1</h2>
-                <div className="lessons-pia-description-container">
-                  <div className="lessons-pia-image"><img src={icon} alt="Passion in Action lesson image" width="100%" height="100%"></img></div>
-                  <div className="lessons-pia-description">TODO: Inserire descrizione</div>
-                </div>
-              </div>
-            </Tab>
-            <Tab label="Lezione 2">
-              <div>
-                <h2>Lezione 2</h2>
-                <div className="lessons-pia-description-container">
-                  <div className="lessons-pia-image"><img src={icon} alt="Passion in Action lesson image" width="100%" height="100%"></img></div>
-                  <div className="lessons-pia-description">TODO: Inserire descrizione</div>
-                </div>
-              </div>
-            </Tab>
-            <Tab label="Lezione 3">
-              <div>
-                <h2>Lezione 3</h2>
-                <div className="lessons-pia-description-container">
-                  <div className="lessons-pia-image"><img src={icon} alt="Passion in Action lesson image" width="100%" height="100%"></img></div>
-                  <div className="lessons-pia-description">TODO: Inserire descrizione</div>
-                </div>
-              </div>
-            </Tab>
-            <Tab label="Lezione 4">
-              <div>
-                <h2>Lezione 4</h2>
-                <div className="lessons-pia-description-container">
-                  <div className="lessons-pia-image"><img src={icon} alt="Passion in Action lesson image" width="100%" height="100%"></img></div>
-                  <div className="lessons-pia-description">TODO: Inserire descrizione</div>
-                </div>
-              </div>
-            </Tab>
-            <Tab label="Lezione 5">
-              <div>
-                <h2>Lezione 5</h2>
-                <div className="lessons-pia-description-container">
-                  <div className="lessons-pia-image"><img src={icon} alt="Passion in Action lesson image" width="100%" height="100%"></img></div>
-                  <div className="lessons-pia-description">TODO: Inserire descrizione</div>
-                </div>
-              </div>
-            </Tab>
-          </Tabs>
-        </div>
-      </div> /* End external div */
-    )
-  }
-}
-
-class Tabs extends React.Component{
-  state = {
-    activeTab: this.props.children[0].props.label
-  }
-  changeTab = (tab) => {
-    this.setState({activeTab: tab});
+  static propTypes = {
+    //arrLessons: Array of PIA Lessons
+    arrLessons: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)),
   };
-  render () {
-    let content;
-    let buttons = [];
+
+  constructor(props) {
+    super(props);
+    this.state = { activeTabID: this.props.arrLessons[0].id };
+  }
+
+  //to change the state of a button based on the click
+  changeTab = (tabID) => {
+    this.setState({ activeTabID: tabID });
+  };
+
+  render() {
+    const activeTab = this.props.arrLessons[this.state.activeTabID - 1];
     return (
       <div>
-        {React.Children.map(this.props.children, child => {
-          buttons.push(child.props.label)
-          if (child.props.label === this.state.activeTab) content = child.props.children
-        })}
-        <TabButtons activeTab={this.state.activeTab} buttons={buttons} changeTab={this.changeTab}/>
-        <div className="lessons-pia-tab-content">{content}</div>
-      </div>
+        {/* External div */}
+        <div className="lessons-pia-tabs">
+          <h1 className="lessons-pia-title">Lezioni</h1>
+          {/* to set up all the buttons */}
+          <TabButtons
+            activeTabID={this.state.activeTabID}
+            changeTabFunc={this.changeTab}
+            arrLessons={this.props.arrLessons}
+          />
+          {/* to define the lesson content of the selected button */}
+          <div className="lessons-pia-tab-content">
+            <div label={activeTab.name}>
+              <div>
+                <h2>{activeTab.name}</h2>
+                <div className="lessons-pia-description-container">
+                  <div className="lessons-pia-image">
+                    <img
+                      src={activeTab.image}
+                      alt={activeTab.alt}
+                      width="100%"
+                      height="100%"
+                    ></img>
+                  </div>
+                  <div className="lessons-pia-description">
+                    {activeTab.description}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> /* End external div */
     );
   }
 }
 
-const TabButtons = ({buttons, changeTab, activeTab}) => {
+const TabButtons = ({ changeTabFunc, activeTabID, arrLessons }) => {
   return (
     <div className="lessons-pia-tab-buttons">
-    {buttons.map(button => {
-       return <button className={button === activeTab? 'lessons-pia-active': ''} onClick={()=>changeTab(button)}>{button}</button>
-    })}
+      {/* to map all the lessons to their correspondig button */}
+      {arrLessons.map((lesson) => {
+        return (
+          <button
+            className={
+              lesson.id === activeTabID
+                ? "lessons-pia-active"
+                : "lessons-pia-inactive"
+            }
+            onClick={() => changeTabFunc(lesson.id)}
+          >
+            {lesson.name}
+          </button>
+        );
+      })}
     </div>
-  )
-}
-
-const Tab = props => {
-  return (
-    <React.Fragment>
-      {props.children}
-    </React.Fragment>
-  )
-}
+  );
+};
