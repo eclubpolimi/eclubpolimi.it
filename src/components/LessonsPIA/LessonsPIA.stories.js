@@ -1,7 +1,7 @@
 import React from "react";
 
 import LessonsPIA from "./LessonsPIA";
-import icon from "../img-lessons-pia-346x220.jpg";
+import icon from "../../assets/img-lessons-pia-346x220.jpg";
 
 import "./../../common.css";
 

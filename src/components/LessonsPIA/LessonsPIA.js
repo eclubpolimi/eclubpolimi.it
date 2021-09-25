@@ -24,7 +24,6 @@ export default class LessonsPIA extends Component {
       <div>
         {/* External div */}
         <div className="lessons-pia-tabs">
-          <h1 className="lessons-pia-title">Lezioni</h1>
           {/* to set up all the buttons */}
           <TabButtons
             activeTabID={this.state.activeTabID}
