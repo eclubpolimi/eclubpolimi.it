@@ -1,216 +1,63 @@
-.main-description-title {
-  font-style: italic;
-  font-weight: bold;
-  font-size: 7vw;
-  line-height: 1.5;
-  border: 0.5vmax solid transparent;
-}
-
-.main-description-text {
-  text-align: justify;
-  border: 1vmax solid transparent;
-}
-
-.main-description-row {
+.main-description-container {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: row;
   width: 100%;
   align-items: center;
   justify-content: center;
 }
 
-/********** Large devices only **********/
-@media (min-width: 1200px) {
-  /** Columns scaling **/
-  .main-description-col-lg-1 {
-      width: 8.33%;
-  }
-  .main-description-col-lg-2 {
-      width: 16.66%;
-  }
-  .main-description-col-lg-3 {
-      width: 25%;
-  }
-  .main-description-col-lg-4 {
-      width: 33.33%;
-  }
-  .main-description-col-lg-5 {
-      width: 41.66%;
-  }
-  .main-description-col-lg-6 {
-      width: 50%;
-  }
-  .main-description-col-lg-7 {
-      width: 58.33%;
-  }
-  .main-description-col-lg-8 {
-      width: 66.66%;
-  }
-  .main-description-col-lg-9 {
-      width: 74.99%;
-  }
-  .main-description-col-lg-10 {
-      width: 83.33%;
-  }
-  .main-description-col-lg-11 {
-      width: 91.66%;
-  }
-  .main-description-col-lg-12 {
-      width: 100%;
-  }
-  /** End Columns scaling **/
+.main-description-logo-container {
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  align-items: center;
+  justify-content: center;
+}
 
-  /** Settings based on the scaling **/
+.main-description-title {
+  font-style: italic;
+  font-weight: bold;
+  font-size: 5vw;
+  line-height: 1.5;
+}
+
+.main-description-text-container {
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-description-text {
+  text-align: justify;
+  margin: 2vmax 6vmax 2vmax 6vmax;
+  font-size: 1.1em;
+}
+
+@media screen and (max-width: 760px) {
+  .main-description-container {
+    flex-direction: column;
+  }
+
+  .main-description-logo-container {
+    width: 100%;
+  }
+
   .main-description-title {
-    font-size: 3vw;
+    font-size: 9vw;
+    margin-right: 14%;
+    text-align: center;
   }
-  
+
+  .main-description-text-container {
+    width: 100%;
+  }
+
   .main-description-text {
-    border-right: 4vmax solid transparent;
+    text-align: justify;
+    margin: 1vmax 2vmax 6vmax 2vmax;
+    font-size: 1.2em;
   }
-  /** End Settings based on the scaling **/
-}
-
-/********** Medium devices only **********/
-@media (min-width: 992px) and (max-width: 1199px) {
-  /** Columns scaling **/
-  .main-description-col-md-1 {
-      width: 8.33%;
-  }
-  .main-description-col-md-2 {
-      width: 16.66%;
-  }
-  .main-description-col-md-3 {
-      width: 25%;
-  }
-  .main-description-col-md-4 {
-      width: 33.33%;
-  }
-  .main-description-col-md-5 {
-      width: 41.66%;
-  }
-  .main-description-col-md-6 {
-      width: 50%;
-  }
-  .main-description-col-md-7 {
-      width: 58.33%;
-  }
-  .main-description-col-md-8 {
-      width: 66.66%;
-  }
-  .main-description-col-md-9 {
-      width: 74.99%;
-  }
-  .main-description-col-md-10 {
-      width: 83.33%;
-  }
-  .main-description-col-md-11 {
-      width: 91.66%;
-  }
-  .main-description-col-md-12 {
-      width: 100%;
-  }
-  /** End Columns scaling **/
-  
-  /** Settings based on the scaling **/
-  .main-description-title {
-    font-size: 4vw;
-  }
-  
-  .main-description-text {
-    border-right: 3vmax solid transparent;
-  }
-  /** End Settings based on the scaling **/
-}
-
-/********** Small devices only **********/
-@media (min-width: 768px) and (max-width: 991px) {
-  /** Columns scaling **/
-  .main-description-col-sm-1 {
-      width: 8.33%;
-  }
-  .main-description-col-sm-2 {
-      width: 16.66%;
-  }
-  .main-description-col-sm-3 {
-      width: 25%;
-  }
-  .main-description-col-sm-4 {
-      width: 33.33%;
-  }
-  .main-description-col-sm-5 {
-      width: 41.66%;
-  }
-  .main-description-col-sm-6 {
-      width: 50%;
-  }
-  .main-description-col-sm-7 {
-      width: 58.33%;
-  }
-  .main-description-col-sm-8 {
-      width: 66.66%;
-  }
-  .main-description-col-sm-9 {
-      width: 74.99%;
-  }
-  .main-description-col-sm-10 {
-      width: 83.33%;
-  }
-  .main-description-col-sm-11 {
-      width: 91.66%;
-  }
-  .main-description-col-sm-12 {
-      width: 100%;
-  }
-  /** End Columns scaling **/
-
-  /** Settings based on the scaling **/
-
-  /** End Settings based on the scaling **/
-}
-
-/********** Extra small devices only **********/
-@media (max-width: 767px) {
-  /** Columns scaling **/
-  .main-description-col-xs-1 {
-      width: 8.33%;
-  }
-  .main-description-col-xs-2 {
-      width: 16.66%;
-  }
-  .main-description-col-xs-3 {
-      width: 25%;
-  }
-  .main-description-col-xs-4 {
-      width: 33.33%;
-  }
-  .main-description-col-xs-5 {
-      width: 41.66%;
-  }
-  .main-description-col-xs-6 {
-      width: 50%;
-  }
-  .main-description-col-xs-7 {
-      width: 58.33%;
-  }
-  .main-description-col-xs-8 {
-      width: 66.66%;
-  }
-  .main-description-col-xs-9 {
-      width: 74.99%;
-  }
-  .main-description-col-xs-10 {
-      width: 83.33%;
-  }
-  .main-description-col-xs-11 {
-      width: 91.66%;
-  }
-  .main-description-col-xs-12 {
-      width: 100%;
-  }
-  /** End Columns scaling **/
-
-  /** Settings based on the scaling **/
-
-  /** End Settings based on the scaling **/
 }
