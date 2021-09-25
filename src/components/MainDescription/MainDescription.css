@@ -33,7 +33,6 @@
 .main-description-text {
   text-align: justify;
   margin: 2vmax 6vmax 2vmax 6vmax;
-  font-size: 1.1em;
 }
 
 @media screen and (max-width: 760px) {
@@ -58,6 +57,5 @@
   .main-description-text {
     text-align: justify;
     margin: 1vmax 2vmax 6vmax 2vmax;
-    font-size: 1.2em;
   }
 }
