@@ -14,30 +14,29 @@ export default class JoinUsCard extends Component {
     // advantages: advantages on applying
     advantages: PropTypes.array,
   };
+
   render() {
+    const proPhrases = this.props.advantages;
+    const list = proPhrases.map((pro) => <li key={pro}> {pro} </li>);
     return (
       <div
         className="join-card-container"
         style={{ height: this.props.height, width: this.props.width }}
       >
-        <div className="join-card-text">
-            <h1 className="join-card-title">{this.props.role}</h1>
-            <ul className="join-card-list">
-            <li>{this.props.advantages}</li>
-            </ul>
+        <div className="join-card-text-container">
+          <h1 className="join-card-title">{this.props.role}</h1>
+          <ul className="join-card-list">{list}</ul>
         </div>
         <div className="join-card-button-container">
-            <div
+          <div
             className={`${
-                this.props.closed == true
+              this.props.closed == true
                 ? "join-card-closed-button"
                 : "join-card-button"
             }`}
-            >
-            {this.props.closed == true ? "Closed"
-                : "Apply Now!"
-            }
-            </div>
+          >
+            {this.props.closed == true ? "Closed" : "Apply Now!"}
+          </div>
         </div>
       </div>
     );

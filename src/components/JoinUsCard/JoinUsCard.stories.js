@@ -16,7 +16,7 @@ Primary.args = {
   role: "Role",
   height: "300px",
   width: "250px",
-  advantages: ["", "", "", ""],
+  advantages: [""],
   label: "Join Us",
   closed: true,
 };

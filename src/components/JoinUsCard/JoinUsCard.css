@@ -3,32 +3,37 @@
 .join-card-container {
   background-color: white;
   flex-direction: column;
-  display: flex ;
+  display: flex;
   height: 100%;
   width: 100%;
 }
 
-.join-card-text {
-    flex-direction: column;
-    flex: 3;
-    display: flex;
-
+.join-card-text-container {
+  flex-direction: column;
+  flex: 3;
+  display: flex;
 }
 
 .join-card-title {
-
   font-weight: bold;
   font-size: large;
-    text-align: center;
-    margin-top: 5%;
-    
+  text-align: center;
+  margin-top: 5%;
+  color: #494b4d;
 }
 
-.join-card-button-container{
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.join-card-button-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.join-card-list {
+  line-height: 28px;
+  margin-left: 12px;
+  margin-right: 12px;
+  color: #787c80;
 }
 
 .join-card-button {
@@ -42,15 +47,15 @@
 }
 
 .join-card-button:hover {
-    opacity: 70%;
+  opacity: 70%;
 }
 
 .join-card-closed-button {
-    color: black;
-    font-weight: bold;
-    background-color: grey;
-    padding: 4px 44px;
-    border-radius: 22px;
-    text-align: center;
-    cursor: pointer;
+  color: black;
+  font-weight: bold;
+  background-color: grey;
+  padding: 4px 44px;
+  border-radius: 22px;
+  text-align: center;
+  cursor: pointer;
 }
