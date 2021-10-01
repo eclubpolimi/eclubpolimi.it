@@ -8,4 +8,10 @@ export default {
   title: "Components/JoinUsBar",
 };
 
-export const Primary = () => <JoinUsBar />
+const Template = (args) => <JoinUsBar {...args} />
+
+export const Primary = Template.bind({});
+
+Primary.args = {
+  color: "red"
+}
