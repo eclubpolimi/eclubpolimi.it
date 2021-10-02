@@ -10,7 +10,6 @@ import Events from "./views/Events";
 import PassionInAction from "./views/PassionInAction";
 import Join from "./views/Join";
 import Hosts from "./views/Hosts";
-
 import "./common.css";
 
 
