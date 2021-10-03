@@ -31,16 +31,18 @@
 }
 
 .footer-facebook a:hover {
-    color: #3B5998;
-    transition: .2s;
+  color: #3b5998;
+  transition: 0.2s;
 }
+
 .footer-instagram a:hover {
-    color: #DD2A7B;
-    transition: .2s;
+  color: #dd2a7b;
+  transition: 0.2s;
 }
+
 .footer-linkedin a:hover {
-    color: #0E76A8;
-    transition: .2s;
+  color: #0e76a8;
+  transition: 0.2s;
 }
 
 .footer-copyright {
