@@ -1,0 +1,49 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px;
+}
+
+.footer-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-logo {
+  height: 80px;
+}
+
+.footer-social {
+  display: flex;
+  flex-direction: row;
+}
+
+.footer-social-icon {
+  padding: 16px;
+}
+
+.footer-social-icon a {
+  color: white;
+}
+
+.footer-facebook a:hover {
+    color: #3B5998;
+    transition: .2s;
+}
+.footer-instagram a:hover {
+    color: #DD2A7B;
+    transition: .2s;
+}
+.footer-linkedin a:hover {
+    color: #0E76A8;
+    transition: .2s;
+}
+
+.footer-copyright {
+  color: white;
+  font-size: 12px;
+}
