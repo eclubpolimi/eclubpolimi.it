@@ -1,0 +1,64 @@
+.lessons-pia-tabs {
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+  margin-top: 15vh;
+}
+
+.lessons-pia-tab-buttons {
+  margin-bottom: 50px;
+}
+
+button {
+  margin-right: 15px;
+  font-size: 20px;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.4);
+  transition: all ease-in-out 0.2s;
+  border-bottom: 2px solid transparent;
+}
+
+.lessons-pia-active {
+  border-bottom: 2px solid var(--orange);
+  color: black;
+}
+
+.lessons-pia-tab-content {
+  width: 100%;
+}
+
+.lessons-pia-description-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.lessons-pia-image {
+  width: 50%;
+}
+
+.lessons-pia-description {
+  width: 50%;
+  line-height: 1.5;
+  text-align: left;
+  padding-left: 20px;
+}
+
+@media screen and (max-width: 760px) {
+  .lessons-pia-description-container {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .lessons-pia-image {
+    width: 100%;
+  }
+
+  .lessons-pia-description {
+    width: 100%;
+    padding-top: 20px;
+  }
+}
