@@ -12,7 +12,7 @@
   flex-direction: row;
   width: 50%;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 .main-description-title {
@@ -31,8 +31,8 @@
 }
 
 .main-description-text {
-  text-align: justify;
   margin: 2vmax 6vmax 2vmax 6vmax;
+  font-size: clamp(1em, 2vw, 2em);
 }
 
 @media screen and (max-width: 760px) {
@@ -55,7 +55,6 @@
   }
 
   .main-description-text {
-    text-align: justify;
     margin: 1vmax 2vmax 6vmax 2vmax;
   }
 }
