@@ -3,6 +3,12 @@ import PropTypes from "prop-types";
 import "./Description.css";
 
 export default class Description extends Component {
+  static propTypes = {
+    // title of this paragraph
+    title: PropTypes.string,
+    // text of this paragraph
+    text: PropTypes.string,
+  };
   render() {
     return (
       <div className="description-bar">
