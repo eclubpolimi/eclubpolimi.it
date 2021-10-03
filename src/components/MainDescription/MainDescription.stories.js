@@ -1,7 +1,7 @@
 import React from "react";
 
 import MainDescription from "./MainDescription";
-import logo from "../logo-512x512.png";
+import logo from "../../assets/logo-512x512.png";
 
 import "./../../common.css";
 

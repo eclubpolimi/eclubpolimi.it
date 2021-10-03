@@ -36,11 +36,6 @@ export default class MainDescription extends Component {
             <div className="main-description-text">{mainDescr.text}</div>
           </div>
         </div>
-        <div>
-          <h1>Dummy block! Dummy block! Dummy block! Dummy block!</h1>
-          <button>Button 1</button>
-          <button>Button 2</button>
-        </div>
       </div> /* End external div */
     );
   }
