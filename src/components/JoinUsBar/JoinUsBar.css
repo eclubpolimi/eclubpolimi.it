@@ -1,0 +1,34 @@
+@import url(../../common.css);
+
+/*Problema da risolvere: centrare e ordine il bottone e il testo*/
+.join-us-bar {
+  height: 156px;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.JSB-button {
+  color: black;
+  padding: 4px 60px;
+  border-radius: 1em;
+  text-align: center;
+  cursor: pointer;
+}
+
+.JSB-white {
+  background-color: white;
+}
+
+.JSB-button:hover {
+  opacity: 90%;
+}
+
+.JSB-call-to-action {
+  color: white;
+  font-weight: bold;
+  font-size: 36px;
+  text-align: center;
+}
