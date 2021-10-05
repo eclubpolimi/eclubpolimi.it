@@ -14,7 +14,7 @@ import "./common.css";
 
 function Site() {
   const pathName = window.location.pathname;
-  
+
   return (
     <Router basename={pathName}>
       <Navbar />

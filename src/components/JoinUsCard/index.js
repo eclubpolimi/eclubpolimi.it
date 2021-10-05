@@ -1,1 +1,1 @@
-export {default} from "./JoinUsCard";
+export { default } from "./JoinUsCard";

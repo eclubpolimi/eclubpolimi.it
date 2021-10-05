@@ -1,1 +1,1 @@
-export {default} from "./Hosts"
+export { default } from "./Hosts";

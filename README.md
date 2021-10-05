@@ -8,7 +8,7 @@ Follow the steps below to get the website up and running for development.
 
 ### Prerequisites
 
-* Node.js  
+- Node.js  
   Get the latest LTS version for your platform [here](https://nodejs.org/it/download/).
 
 ### Installation
@@ -26,10 +26,13 @@ Follow the steps below to get the website up and running for development.
 ## Usage
 
 From inside the root project folder, you can run the live webserver with
+
 ```sh
 npm start
 ```
+
 or build the website with
+
 ```sh
 npm run build
 ```

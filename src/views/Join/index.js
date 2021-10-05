@@ -1,1 +1,1 @@
-export {default} from "./Join"
+export { default } from "./Join";

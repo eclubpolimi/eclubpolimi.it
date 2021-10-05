@@ -4,14 +4,9 @@ import "./Sponsors.css";
 //array che contiene le immagini degli sponsor
 
 export default class Sponsors extends Component {
-
   static propTypes = {
     // arrLogos: Array of images
-    arrLogos: PropTypes.arrayOf(
-      PropTypes.objectOf(
-        PropTypes.string
-      )
-    )
+    arrLogos: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)),
   };
 
   render() {

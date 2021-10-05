@@ -1,11 +1,11 @@
-import React from 'react';
-import Navbar from './Navbar';
+import React from "react";
+import Navbar from "./Navbar";
 
-import './../../common.css'
+import "./../../common.css";
 
 export default {
   component: Navbar,
-  title: 'Components/Navbar',
-}
+  title: "Components/Navbar",
+};
 
-export const Primary = () => <Navbar/>;
+export const Primary = () => <Navbar />;
