@@ -1,9 +1,7 @@
-
 .paragraph-title-bar {
   background-color: var(--blue);
-  
 }
-.paragraph-title-text{
+.paragraph-title-text {
   font-size: 24px;
   font-weight: 600;
   color: #fff;

@@ -5,7 +5,7 @@ name: Deploy to prod
 on:
   # Triggers the workflow on push events only for the master branch
   push:
-    branches: [ master ]
+    branches: [master]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:

@@ -2,7 +2,12 @@
     Timeline "Basic" & General style
     timeline | date + text
 ----------------------------------------------*/
-h1,h2,h3,h4,h5,h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin-top: 0;
 }
 
@@ -15,7 +20,12 @@ h1,h2,h3,h4,h5,h6 {
   padding: 0;
   width: 100%;
 }
-.timeline h1, .timeline h2, .timeline h3, .timeline h4, .timeline h5, .timeline h6 {
+.timeline h1,
+.timeline h2,
+.timeline h3,
+.timeline h4,
+.timeline h5,
+.timeline h6 {
   line-height: inherit;
 }
 
@@ -122,14 +132,17 @@ h1,h2,h3,h4,h5,h6 {
     date | timeline | text
 ----------------------------------------------*/
 @media (min-width: 768px) {
-  .timeline-split .timeline, .timeline-centered .timeline {
+  .timeline-split .timeline,
+  .timeline-centered .timeline {
     display: table;
   }
-  .timeline-split .timeline-item, .timeline-centered .timeline-item {
+  .timeline-split .timeline-item,
+  .timeline-centered .timeline-item {
     display: table-row;
     padding: 0;
   }
-  .timeline-split .timeline-info, .timeline-centered .timeline-info,
+  .timeline-split .timeline-info,
+  .timeline-centered .timeline-info,
   .timeline-split .timeline-marker,
   .timeline-centered .timeline-marker,
   .timeline-split .timeline-content,
@@ -138,16 +151,20 @@ h1,h2,h3,h4,h5,h6 {
     display: table-cell;
     vertical-align: top;
   }
-  .timeline-split .timeline-marker, .timeline-centered .timeline-marker {
+  .timeline-split .timeline-marker,
+  .timeline-centered .timeline-marker {
     position: relative;
   }
-  .timeline-split .timeline-content, .timeline-centered .timeline-content {
+  .timeline-split .timeline-content,
+  .timeline-centered .timeline-content {
     padding-left: 30px;
   }
-  .timeline-split .timeline-info, .timeline-centered .timeline-info {
+  .timeline-split .timeline-info,
+  .timeline-centered .timeline-info {
     padding-right: 30px;
   }
-  .timeline-split .period .timeline-title, .timeline-centered .period .timeline-title {
+  .timeline-split .period .timeline-title,
+  .timeline-centered .period .timeline-title {
     position: relative;
     left: -45px;
   }

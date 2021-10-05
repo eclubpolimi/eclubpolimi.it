@@ -1,1 +1,1 @@
-export {default} from "./PassionInAction"
+export { default } from "./PassionInAction";

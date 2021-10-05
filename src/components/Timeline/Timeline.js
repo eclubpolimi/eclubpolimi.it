@@ -11,7 +11,7 @@ export default class Timeline extends Component {
   };
 
   getStyle() {
-    switch(this.props.style) {
+    switch (this.props.style) {
       case "centered":
         return "timeline-centered";
       case "basic":
@@ -23,7 +23,7 @@ export default class Timeline extends Component {
   }
 
   render() {
-    return(
+    return (
       <ul className={`timeline ${this.getStyle()}`}>
         {this.props.data.map((item) => {
           return (

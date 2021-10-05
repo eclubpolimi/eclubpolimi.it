@@ -11,10 +11,12 @@ export default {
   title: "Components/Sponsors",
 };
 
-export const Primary = () => (<Sponsors 
-  arrLogos={[
-    { src: Image1, href: "#", alt: "Test1" },
-    { src: Image2, href: "#", alt: "Test2" },
-    { src: Image3, href: "#", alt: "Test3" }
+export const Primary = () => (
+  <Sponsors
+    arrLogos={[
+      { src: Image1, href: "#", alt: "Test1" },
+      { src: Image2, href: "#", alt: "Test2" },
+      { src: Image3, href: "#", alt: "Test3" },
     ]}
-/>);
+  />
+);
