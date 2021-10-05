@@ -32,3 +32,20 @@ jobs:
           npm -v
           npm ci --production
           npm run build
+
+  prettier:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🚚 Get latest source code
+        uses: actions/checkout@v2
+
+      - name: 🧰 Setup Node.js environment
+        uses: actions/setup-node@v2
+
+      # Run Prettier in check mode
+      - name: ✏️ Run Prettier
+        run: |
+          node -v
+          npm -v
+          npm ci
+          npm run format-check
