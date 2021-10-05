@@ -1,40 +1,117 @@
-:root {
-    --blue: #120068;
-    --grey: #b2bfcc;
-    --orange: #fc3f1a;
-  }
-  
-  body {
-    font-family: 'San Francisco', 'Segoe UI', Arial, Helvetica, sans-serif;
-    box-sizing: border-box;
-  }
-  
-  * {
-    box-sizing: border-box;
-  }
+/*---------------------------
+    Effra font
+---------------------------*/
+@font-face {
+  font-family: 'Effra';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Effra Light'), url('./assets/fonts/Effra Light.woff') format('woff');
+}
 
-  ::after, ::before {
-    box-sizing: border-box;
-  }
-  
-  a {
-    text-decoration: none;
-  }
-  
-  .bg-blue {
-    background-color: var(--blue);
-  }
-  
-  .bg-orange {
-    background-color: var(--orange);
-  }
-  
-  .bg-grey {
-    background-color: var(--grey);
-  }
-  
-  button {
-    cursor: pointer;
-    white-space: nowrap;
-  }
+@font-face {
+  font-family: 'Effra';
+  font-style: italic;
+  font-weight: 300;
+  src: local('Effra Light Italic'), url('./assets/fonts/Effra Light Italic.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Effra';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Effra'), url('./assets/fonts/Effra Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Effra';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Effra Italic'), url('./assets/fonts/Effra Italic.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Effra';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Effra Medium'), url('./assets/fonts/Effra Medium.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Effra';
+  font-style: italic;
+  font-weight: 500;
+  src: local('Effra Medium Italic'), url('./assets/fonts/Effra Medium Italic.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Effra';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Effra Bold'), url('./assets/fonts/Effra Bold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Effra';
+  font-style: italic;
+  font-weight: 700;
+  src: local('Effra Bold Italic'), url('./assets/fonts/Effra Bold Italic.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Effra';
+  font-style: normal;
+  font-weight: 900;
+  src: local('Effra Heavy'), url('./assets/fonts/Effra Heavy.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Effra';
+  font-style: italic;
+  font-weight: 900;
+  src: local('Effra Heavy Italic'), url('./assets/fonts/Effra Heavy Italic.woff') format('woff');
+}
+
+/*---------------------------
+    Common
+---------------------------*/
+:root {
+  --blue: #120068;
+  --grey: #b2bfcc;
+  --orange: #fc3f1a;
+}
+
+body {
+  color: #768390;
+  font-family: 'Effra', 'San Francisco', 'Segoe UI', Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::after, ::before {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+.bg-blue {
+  background-color: var(--blue);
+}
+
+.bg-orange {
+  background-color: var(--orange);
+}
+
+.bg-grey {
+  background-color: var(--grey);
+}
+
+button {
+  cursor: pointer;
+  white-space: nowrap;
+}
   
