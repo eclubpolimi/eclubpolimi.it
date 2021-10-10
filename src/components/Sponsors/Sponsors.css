@@ -31,6 +31,7 @@
     text-align: center;
     content: "";
     display: flex;
+    flex-wrap: wrap;
     clear: both;
     width: 100%;
   }
