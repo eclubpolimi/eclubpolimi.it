@@ -2,7 +2,8 @@ import React from "react";
 
 import Footer from "./Footer";
 
-import Logo from "../../assets/logo_white.svg";
+import OrgLogo from "../../assets/logo_white.svg";
+import PolimiLogo from "../../assets/polimi_logo_white.png"
 
 import "./../../common.css";
 
@@ -13,7 +14,8 @@ export default {
 
 export const Primary = () => (
   <Footer
-    logo={Logo}
+    polimiLogo={PolimiLogo}
+    organizationLogo={OrgLogo}
     copyrightName={"E-club Polimi"}
     facebookUrl={"https://facebook.com/"}
     instagramUrl={"https://instagram.com/"}
