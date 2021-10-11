@@ -1,4 +1,5 @@
 .react-card-flip {
+<<<<<<< HEAD
   height: 100%;
   width: 100%;
 }
@@ -41,3 +42,48 @@
   padding: 20px;
   line-height: 1.5;
 }
+=======
+    height: 100%;
+    width: 100%;
+  }
+  
+  .card-flip-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    border-radius: 4px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  }
+  
+  .card-flip-content-back {
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+    height: 100%;
+    border-radius: 4px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  }
+  
+  .card-image {
+    height: 100%;
+    width: 100%;
+  }
+  
+  .card-front-text {
+    padding: 12px 0;
+  }
+  
+  .card-back-title {
+    padding-top: 8px;
+    font-weight: 600;
+  }
+  
+  .card-back-text {
+    padding-top: 8px;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+  
+>>>>>>> e99f6cb (Created TabSelector component,)
