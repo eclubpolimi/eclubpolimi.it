@@ -1,31 +1,31 @@
 .team-container {
-    width: 100%;
+  width: 100%;
 }
 
 .team-name {
-    font-size: 20px;
-    font-weight: 600;
-    padding-bottom: 20px;
-    text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  padding-bottom: 20px;
+  text-align: center;
 }
 
 .team {
-    display: grid;
-    width: 100%;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
 }
 
 .team-component {
-    height: 30vw;
+  height: 30vw;
 }
 
 @media screen and (max-width: 690px) {
-    .team {
-        grid-template-columns: repeat(2, 1fr);
-    }
+  .team {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
-    .team-component {
-        height: 60vw;
-    }
+  .team-component {
+    height: 60vw;
+  }
 }

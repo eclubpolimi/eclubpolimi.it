@@ -9,39 +9,39 @@ export default {
 };
 
 const team = {
-    teamName: "Team test 2",
-    teamComponents: [
-      {
-        name: "Nome cognome",
-        image: Img,
-        description: "Lorem ipsum dolor sit amet...",
-      },
-      {
-        name: "Nome cognome",
-        image: Img,
-        description: "Lorem ipsum dolor sit amet...",
-      },
-      {
-        name: "Nome cognome",
-        image: Img,
-        description: "Lorem ipsum dolor sit amet...",
-      },
-      {
-        name: "Nome cognome",
-        image: Img,
-        description: "Lorem ipsum dolor sit amet...",
-      },
-      {
-        name: "Nome cognome",
-        image: Img,
-        description: "Lorem ipsum dolor sit amet...",
-      },
-      {
-        name: "Nome cognome",
-        image: Img,
-        description: "Lorem ipsum dolor sit amet...",
-      },
-    ],
-  }
+  teamName: "Team test 2",
+  teamComponents: [
+    {
+      name: "Nome cognome",
+      image: Img,
+      description: "Lorem ipsum dolor sit amet...",
+    },
+    {
+      name: "Nome cognome",
+      image: Img,
+      description: "Lorem ipsum dolor sit amet...",
+    },
+    {
+      name: "Nome cognome",
+      image: Img,
+      description: "Lorem ipsum dolor sit amet...",
+    },
+    {
+      name: "Nome cognome",
+      image: Img,
+      description: "Lorem ipsum dolor sit amet...",
+    },
+    {
+      name: "Nome cognome",
+      image: Img,
+      description: "Lorem ipsum dolor sit amet...",
+    },
+    {
+      name: "Nome cognome",
+      image: Img,
+      description: "Lorem ipsum dolor sit amet...",
+    },
+  ],
+};
 
-export const Primary = () => <Team team={team}/>;
+export const Primary = () => <Team team={team} />;

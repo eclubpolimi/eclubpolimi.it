@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import "./Teams.css";
 
 import TabSelector from "../TabSelector";
-import Team from "../Team"
+import Team from "../Team";
 
 export default class Teams extends Component {
   propTypes = {
@@ -14,11 +14,13 @@ export default class Teams extends Component {
   render() {
     return (
       <div className="teams" style={{ background: this.props.background }}>
-        <TabSelector tabs={this.props.teams.map((team, index) => ({
-          id: index,
-          name: team.teamName,
-          content: <Team team={team} />
-        }))}/>
+        <TabSelector
+          tabs={this.props.teams.map((team, index) => ({
+            id: index,
+            name: team.teamName,
+            content: <Team team={team} />,
+          }))}
+        />
       </div>
     );
   }
