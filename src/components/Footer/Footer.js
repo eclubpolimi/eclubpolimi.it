@@ -25,7 +25,11 @@ export default class Hero extends Component {
     return (
       <div class="footer bg-blue">
         <div class="footer-content">
-          <img class="footer-logo" src={this.props.organizationLogo} alt="Logo" />
+          <img
+            class="footer-logo"
+            src={this.props.organizationLogo}
+            alt="Logo"
+          />
           <div class="footer-social">
             <div className="footer-social-icon footer-facebook">
               <a href={this.props.facebookUrl} target="_blank">
