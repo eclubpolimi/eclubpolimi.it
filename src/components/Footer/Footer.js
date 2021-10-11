@@ -25,7 +25,7 @@ export default class Hero extends Component {
     return (
       <div class="footer bg-blue">
         <div class="footer-content">
-          <img class="footer-logo" src={this.props.logo} alt="Logo" />
+          <img class="footer-logo" src={this.props.organizationLogo} alt="Logo" />
           <div class="footer-social">
             <div className="footer-social-icon footer-facebook">
               <a href={this.props.facebookUrl} target="_blank">
@@ -43,6 +43,7 @@ export default class Hero extends Component {
               </a>
             </div>
           </div>
+          <img class="footer-logo" src={this.props.polimiLogo} alt="Logo" />
         </div>
         <div class="footer-copyright">
           Copyright © 2021 - 2021 {this.props.copyrightName}. All rights
