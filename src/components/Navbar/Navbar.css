@@ -56,14 +56,17 @@
   align-items: center;
 }
 
-.button-joinus {
+.button {
   background-color: var(--orange);
-  padding: 0.3em 3em;
+  padding: 4.8px 48px;
   border-radius: 1em;
   color: #fff;
 }
+.button a {
+  color: inherit;
+}
 
-.button-joinus:hover {
+.button:hover {
   color: var(--orange);
   background-color: #fff;
 }
@@ -81,6 +84,10 @@
     margin: 20px 0;
   }
 
+  .button {
+    margin: 15.2px 0;
+  }
+
   .nav-links {
     position: fixed;
     right: -100%;
@@ -88,7 +95,7 @@
     height: 100%;
     flex-direction: column;
     text-align: center;
-    padding: 1.4em 2em;
+    padding: 0 2em;
     transition: all 0.45s linear;
   }
 

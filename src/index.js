@@ -10,6 +10,7 @@ import PassionInAction from "./views/PassionInAction";
 import Join from "./views/Join";
 import Hosts from "./views/Hosts";
 
+import SiteData from "./Data";
 import "./common.css";
 
 function Site() {
@@ -17,18 +18,14 @@ function Site() {
 
   return (
     <Router basename={pathName}>
-      <Navbar />
+      <Navbar items={SiteData.NavbarItems} />
       <Switch>
-        <Route exact path="/" component={Home}></Route>
-        <Route exact path="/About" component={About}></Route>
-        <Route exact path="/Events" component={Events}></Route>
-        <Route exact path="/Hosts" component={Hosts}></Route>
-        <Route
-          exact
-          path="/PassionInAction"
-          component={PassionInAction}
-        ></Route>
-        <Route exact path="/Join" component={Join}></Route>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/About" component={About} />
+        <Route exact path="/Events" component={Events} />
+        <Route exact path="/Hosts" component={Hosts} />
+        <Route exact path="/PassionInAction" component={PassionInAction} />
+        <Route exact path="/Join" component={Join} />
       </Switch>
     </Router>
   );

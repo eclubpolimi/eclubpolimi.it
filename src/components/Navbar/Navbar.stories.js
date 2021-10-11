@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "./Navbar";
 
+import SiteData from "./../../Data";
 import "./../../common.css";
 
 export default {
@@ -8,4 +9,4 @@ export default {
   title: "Components/Navbar",
 };
 
-export const Primary = () => <Navbar />;
+export const Primary = () => <Navbar items={SiteData.NavbarItems} />;

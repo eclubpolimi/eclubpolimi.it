@@ -23,5 +23,8 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# reset.css (prettier doesn't play well with that)
+reset.css
+
 # ignore static public folder
 /public
