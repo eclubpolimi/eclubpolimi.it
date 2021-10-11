@@ -3,7 +3,7 @@ import React from "react";
 import Footer from "./Footer";
 
 import OrgLogo from "../../assets/logo_white.svg";
-import PolimiLogo from "../../assets/polimi_logo_white.png"
+import PolimiLogo from "../../assets/polimi_logo_white.png";
 
 import "./../../common.css";
 
