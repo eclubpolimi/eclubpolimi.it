@@ -1,6 +1,6 @@
 .tab-selector-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   position: relative;
   --tab-height: 40px;
 }
@@ -10,11 +10,16 @@
   width: max-content;
   height: var(--tab-height);
   padding: 0 20px;
+  margin: 0 4px;
   display: flex;
   justify-content: center;
   align-items: center;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   cursor: pointer;
+}
+
+.tab-selector-btn-selected {
+  border: 1px solid var(--grey);
 }
 
 .tab-selector-btn:hover {

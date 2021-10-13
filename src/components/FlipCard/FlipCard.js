@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import "./FlipCard.css";
 
 export default class FlipCard extends Component {
-  propTypes = {
+  static propTypes = {
     // backgroundColor: expressed in HEX
     backgroundColor: PropTypes.string,
     // frontImage: the image displayed on the front of the card above the text

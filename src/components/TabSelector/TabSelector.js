@@ -7,7 +7,7 @@ export default class TabSelector extends Component {
     super(props);
     this.state = {
       showTab: true,
-      activeTab: this.props.tabs.length > 0 ? this.props.tabs[0] : [],
+      activeTab: this.props.tabs.length > 0 ? this.props.tabs[0] : {},
     };
   }
 
@@ -35,7 +35,14 @@ export default class TabSelector extends Component {
       <div className="tab-selector-container">
         {this.props.tabs.map((tab, index) => (
           <div key={index}>
-            <div className="tab-selector-btn" onClick={() => changeTab(index)}>
+            <div
+              className={`tab-selector-btn ${
+                this.state.activeTab.id == index
+                  ? "tab-selector-btn-selected"
+                  : ""
+              }`}
+              onClick={() => changeTab(index)}
+            >
               {tab.name}
             </div>
             {tab.id === this.state.activeTab.id && this.state.showTab ? (
