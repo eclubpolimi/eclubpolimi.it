@@ -1,8 +1,8 @@
 import React from "react";
 import Navbar from "./Navbar";
 
-import SiteData from "./../../Data";
-import "./../../common.css";
+import SiteData from "Data";
+import "common.css";
 
 export default {
   component: Navbar,

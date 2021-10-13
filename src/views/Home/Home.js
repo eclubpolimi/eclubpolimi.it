@@ -1,8 +1,31 @@
 import React, { Component } from "react";
+
+import Hero from "components/Hero";
+import MainDescription from "components/MainDescription";
+import JoinUsBar from "components/JoinUsBar";
+import Sponsors from "components/Sponsors";
+
 import "./Home.css";
+
+import SiteData from "Data";
 
 export default class Home extends Component {
   render() {
-    return <div className="home">Home</div>;
+    return (
+      <div className="home">
+        <Hero
+          backgroundImage={SiteData.HomepageHeroBackground}
+          height="500px"
+          darkness={0.5}
+          contentType="img"
+          logo={SiteData.LogoWhite}
+        />
+        <div className="md:px-10">
+          <MainDescription mainDescriptions={SiteData.MainDescription} />
+        </div>
+        <JoinUsBar link="/Join" color="red" />
+        <Sponsors arrLogos={SiteData.Sponsors} />
+      </div>
+    );
   }
 }
