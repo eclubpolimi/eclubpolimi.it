@@ -2,7 +2,7 @@ import React from "react";
 
 import ParagraphTitle from "./ParagraphTitle";
 import "./ParagraphTitle.css";
-import "./../../common.css";
+import "common.css";
 
 export default {
   component: ParagraphTitle,

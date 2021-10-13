@@ -9,8 +9,8 @@ import {
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
 
-export default class Hero extends Component {
-  propTypes = {
+export default class Footer extends Component {
+  static propTypes = {
     // Logo of the footer
     logo: PropTypes.string,
     // Social URLs
@@ -32,24 +32,28 @@ export default class Hero extends Component {
           />
           <div class="footer-social">
             <div className="footer-social-icon footer-facebook">
-              <a href={this.props.facebookUrl} target="_blank">
+              <a href={this.props.facebookUrl} target="_blank" rel="noreferrer">
                 <FontAwesomeIcon size="3x" icon={faFacebookSquare} />
               </a>
             </div>
             <div className="footer-social-icon footer-instagram">
-              <a href={this.props.instagramUrl} target="_blank">
+              <a
+                href={this.props.instagramUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
                 <FontAwesomeIcon size="3x" icon={faInstagramSquare} />
               </a>
             </div>
             <div className="footer-social-icon footer-linkedin">
-              <a href={this.props.linkedinUrl} target="_blank">
+              <a href={this.props.linkedinUrl} target="_blank" rel="noreferrer">
                 <FontAwesomeIcon size="3x" icon={faLinkedin} />
               </a>
             </div>
           </div>
           <img class="footer-logo" src={this.props.polimiLogo} alt="Logo" />
         </div>
-        <div class="footer-copyright">
+        <div className="footer-copyright">
           Copyright © 2021 - 2021 {this.props.copyrightName}. All rights
           reserved.
         </div>

@@ -1,9 +1,9 @@
 import React from "react";
 
 import FlipCard from "./FlipCard";
-import "./../../common.css";
+import "common.css";
 
-import Image from "../../assets/who_we_are_img_1.jpg";
+import Image from "assets/who_we_are_img_1.jpg";
 
 export default {
   component: FlipCard,

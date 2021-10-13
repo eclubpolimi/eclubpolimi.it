@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "./Teams.css";
 
-import FlipCard from "../FlipCard";
+import FlipCard from "components/FlipCard";
 
 export default class Teams extends Component {
   propTypes = {

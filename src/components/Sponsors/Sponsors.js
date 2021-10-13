@@ -6,7 +6,8 @@ import "./Sponsors.css";
 export default class Sponsors extends Component {
   static propTypes = {
     // arrLogos: Array of images
-    arrLogos: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)),
+    arrLogos: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string))
+      .isRequired,
   };
 
   render() {
@@ -14,8 +15,8 @@ export default class Sponsors extends Component {
       <div className="sponsor-component">
         <div className="sponsor-title"> Sponsored By </div>
         <div className="sponsor-table">
-          {this.props.arrLogos.map((el) => (
-            <div className="sponsor-column">
+          {this.props.arrLogos.map((el, index) => (
+            <div key={index} className="sponsor-column">
               <img src={el.src} href={el.href} alt={el.alt}></img>
             </div>
           ))}

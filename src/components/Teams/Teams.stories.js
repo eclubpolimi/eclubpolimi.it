@@ -1,8 +1,8 @@
 import React from "react";
 
 import Teams from "./Teams";
-import Img from "../../assets/who_we_are_img_1.jpg";
-import "./../../common.css";
+import Img from "assets/who_we_are_img_1.jpg";
+import "common.css";
 
 export default {
   component: Teams,

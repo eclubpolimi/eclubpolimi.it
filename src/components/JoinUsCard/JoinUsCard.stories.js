@@ -1,7 +1,7 @@
 import React from "react";
 
 import JoinUsCard from "./JoinUsCard";
-import "./../../common.css";
+import "common.css";
 
 export default {
   component: JoinUsCard,

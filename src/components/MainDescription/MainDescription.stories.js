@@ -1,9 +1,9 @@
 import React from "react";
 
 import MainDescription from "./MainDescription";
-import logo from "../../assets/logo-512x512.png";
 
-import "./../../common.css";
+import "common.css";
+import SiteData from "Data";
 
 export default {
   component: MainDescription,
@@ -11,13 +11,5 @@ export default {
 };
 
 export const Primary = () => (
-  <MainDescription
-    mainDescriptions={{
-      logo: logo,
-      title0: "Learn",
-      title1: "Network",
-      title2: "Build",
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    }}
-  />
+  <MainDescription mainDescriptions={SiteData.MainDescription} />
 );

@@ -1,7 +1,7 @@
 import React from "react";
 
 import Timeline from "./Timeline";
-import "./../../common.css";
+import "common.css";
 
 export default {
   component: Timeline,

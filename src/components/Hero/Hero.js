@@ -33,7 +33,7 @@ export default class Hero extends Component {
         {this.props.contentType === "text" ? (
           <div className="hero-text">{this.props.text}</div>
         ) : (
-          <img className="hero-logo" src={this.props.logo} />
+          <img className="hero-logo" src={this.props.logo} alt="" />
         )}
       </div>
     );

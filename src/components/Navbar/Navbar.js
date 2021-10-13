@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import logo_white from "../../assets/logo_white.svg";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes, faBars } from "@fortawesome/free-solid-svg-icons";
 
 import "./Navbar.css";
+import SiteData from "Data";
 
 export default class Navbar extends Component {
   static propTypes = {
@@ -30,7 +30,7 @@ export default class Navbar extends Component {
       <nav className="navbar-items bg-blue">
         <h1 className="navbar-logo">
           <Link to="/">
-            <img src={logo_white} alt="Entrepreneurship Club Polimi" />
+            <img src={SiteData.LogoWhite} alt="Entrepreneurship Club Polimi" />
           </Link>
         </h1>
         <ul

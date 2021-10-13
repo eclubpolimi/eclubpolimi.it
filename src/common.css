@@ -1,4 +1,14 @@
+/*---------------------------
+    CSS Reset
+---------------------------*/
 @import url("./assets/reset.css");
+
+/*---------------------------
+    Tailwind CSS
+---------------------------*/
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 /*---------------------------
     Common

@@ -1,7 +1,7 @@
 import React from "react";
 
 import JoinUsBar from "./JoinUsBar";
-import "./../../common.css";
+import "common.css";
 
 export default {
   component: JoinUsBar,

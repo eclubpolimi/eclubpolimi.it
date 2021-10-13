@@ -7,6 +7,10 @@
   justify-content: center;
 }
 
+.main-description-logo-icon {
+  height: 100%;
+}
+
 .main-description-logo-container {
   display: flex;
   flex-direction: row;
@@ -18,7 +22,7 @@
 .main-description-title {
   font-style: italic;
   font-weight: bold;
-  font-size: 5vw;
+  font-size: 60px;
   line-height: 1.5;
 }
 
@@ -32,12 +36,14 @@
 
 .main-description-text {
   margin: 2vmax 6vmax 2vmax 6vmax;
-  font-size: clamp(1em, 2vw, 2em);
+  font-size: 16px;
+  line-height: 1.5;
 }
 
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 468px) {
   .main-description-container {
     flex-direction: column;
+    justify-content: center;
   }
 
   .main-description-logo-container {
@@ -46,7 +52,6 @@
 
   .main-description-title {
     font-size: 9vw;
-    margin-right: 14%;
     text-align: center;
   }
 
