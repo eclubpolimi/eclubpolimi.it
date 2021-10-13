@@ -16,7 +16,7 @@ export const Primary = () => (
   <Footer
     polimiLogo={PolimiLogo}
     organizationLogo={OrgLogo}
-    copyrightName={"E-club Polimi"}
+    copyrightName="E-club Polimi"
     facebookUrl="https://facebook.com/"
     instagramUrl="https://instagram.com/"
     linkedinUrl="https://linkedin.com/"
