@@ -10,6 +10,12 @@ export default class TabSelector extends Component {
     default: PropTypes.number,
     // class: CSS classes to apply to the outer div
     class: PropTypes.string,
+    // breakpoint: CSS class prefix (see Tailwind) that control when the layout changes to mobile friendly
+    breakpoint: PropTypes.oneOf(["sm", "md", "lg", "xl"]),
+  };
+
+  static defaultProps = {
+    breakpoint: "md",
   };
 
   constructor(props) {
@@ -21,8 +27,9 @@ export default class TabSelector extends Component {
   }
 
   onTabClick = (event) => {
-    if (event.target.value !== this.state.activeTab) {
-      this.setState({ activeTab: event.target.value });
+    let intValue = parseInt(event.target.value);
+    if (intValue !== this.state.activeTab) {
+      this.setState({ activeTab: intValue });
     }
   };
 
@@ -30,7 +37,7 @@ export default class TabSelector extends Component {
     return (
       <div className={this.props.class}>
         <div className="text-center">
-          <ul className="tabs">
+          <ul className={`${this.props.breakpoint}:tabs-row`}>
             {this.props.tabs.map((item, index) => {
               return (
                 <li
@@ -45,6 +52,15 @@ export default class TabSelector extends Component {
               );
             })}
           </ul>
+          <select
+            className={`${this.props.breakpoint}:tabs-select`}
+            value={this.state.activeTab}
+            onChange={this.onTabClick}
+          >
+            {this.props.tabs.map((item, index) => {
+              return <option value={index}>{item.name}</option>;
+            })}
+          </select>
         </div>
         <div className="tab-content">
           {this.props.tabs[this.state.activeTab].content}
