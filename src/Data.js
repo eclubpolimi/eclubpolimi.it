@@ -1,6 +1,7 @@
 import Image1 from "assets/test1.png";
 import Image2 from "assets/test2.png";
 import Image3 from "assets/test3.png";
+import Img from "assets/who_we_are_img_1.jpg";
 
 import descriptionLogo from "assets/logo-512x512.png";
 import homepageHeroBackground from "assets/homepage_hero.jpg";
@@ -91,6 +92,65 @@ export default class SiteData {
   };
 
   static HomepageHeroBackground = homepageHeroBackground;
+
+  // ABOUT US
+  static AboutDescription = {
+    title: "Our mission",
+    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+  };
+
+  static Teams = [
+    {
+      teamName: "Team test 1",
+      teamComponents: [
+        {
+          name: "Nome cognome",
+          image: Img,
+          description: "Lorem ipsum dolor sit amet...",
+        },
+        {
+          name: "Nome cognome",
+          image: Img,
+          description: "Lorem ipsum dolor sit amet...",
+        },
+        {
+          name: "Nome cognome",
+          image: Img,
+          description: "Lorem ipsum dolor sit amet...",
+        },
+        {
+          name: "Nome cognome",
+          image: Img,
+          description: "Lorem ipsum dolor sit amet...",
+        },
+        {
+          name: "Nome cognome",
+          image: Img,
+          description: "Lorem ipsum dolor sit amet...",
+        },
+      ],
+    },
+    {
+      teamName: "Team test 1",
+      teamComponents: [
+        {
+          name: "Nome cognome",
+          image: Img,
+          description: "Lorem ipsum dolor sit amet...",
+        },
+      ],
+    },
+    {
+      teamName: "Team test 1",
+      teamComponents: [
+        {
+          name: "Nome cognome",
+          image: Img,
+          description: "Lorem ipsum dolor sit amet...",
+        },
+      ],
+    },
+  ];
 
   // LESSONS PIA (placeholder)
 
