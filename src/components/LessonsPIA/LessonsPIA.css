@@ -1,12 +1,22 @@
+.lessons-pia-banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #120068;
+  color: white;
+  font-size: 1.2em;
+}
+
 .lessons-pia-tabs {
   margin: 0 auto;
   width: 100%;
   text-align: center;
-  margin-top: 15vh;
+  margin: 20px 0px 40px 0px;
+  /* background-color: #f1f1f1; */
 }
 
 .lessons-pia-tab-buttons {
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
 
 button {
@@ -31,9 +41,18 @@ button {
   width: 100%;
 }
 
+.lessons-pia-title {
+  margin: 0px 0px 10px 0px;
+  text-align: left;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
 .lessons-pia-description-container {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .lessons-pia-image {
