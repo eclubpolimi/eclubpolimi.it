@@ -17,6 +17,16 @@
   --blue: #120068;
   --grey: #b2bfcc;
   --orange: #fc3f1a;
+  --orange-gradient: linear-gradient(
+    60deg,
+    rgba(255, 96, 38, 1) 10%,
+    rgba(252, 63, 26, 1) 90%
+  );
+  --orange-gradient-hover: linear-gradient(
+    60deg,
+    rgba(255, 96, 38, 0.2) 10%,
+    rgba(252, 63, 26, 0.2) 90%
+  );
 }
 
 body {
