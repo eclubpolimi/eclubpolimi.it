@@ -23,14 +23,14 @@ export default class Footer extends Component {
 
   render() {
     return (
-      <div class="footer bg-blue">
-        <div class="footer-content">
+      <div className="footer bg-blue">
+        <div className="footer-content">
           <img
-            class="footer-logo"
+            className="footer-logo"
             src={this.props.organizationLogo}
             alt="Logo"
           />
-          <div class="footer-social">
+          <div className="footer-social">
             <div className="footer-social-icon footer-facebook">
               <a href={this.props.facebookUrl} target="_blank" rel="noreferrer">
                 <FontAwesomeIcon size="3x" icon={faFacebookSquare} />
@@ -51,7 +51,7 @@ export default class Footer extends Component {
               </a>
             </div>
           </div>
-          <img class="footer-logo" src={this.props.polimiLogo} alt="Logo" />
+          <img className="footer-logo" src={this.props.polimiLogo} alt="Logo" />
         </div>
         <div className="footer-copyright">
           Copyright © 2021 - 2021 {this.props.copyrightName}. All rights
