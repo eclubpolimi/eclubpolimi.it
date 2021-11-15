@@ -20,9 +20,10 @@ export default class Home extends Component {
           contentType="img"
           logo={SiteData.LogoWhite}
         />
-        <div className="md:px-10">
-          <MainDescription mainDescriptions={SiteData.MainDescription} />
-        </div>
+        <MainDescription
+          className="md:px-10"
+          mainDescriptions={SiteData.MainDescription}
+        />
         <JoinUsBar link="/Join" color="red" />
         <Sponsors arrLogos={SiteData.Sponsors} />
       </div>

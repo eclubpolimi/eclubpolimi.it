@@ -5,14 +5,14 @@ import "./MainDescription.css";
 export default class MainDescription extends Component {
   static propTypes = {
     mainDescr: PropTypes.object,
+    // className: CSS classes to apply to the outer div
+    className: PropTypes.string,
   };
 
   render() {
     const mainDescr = this.props.mainDescriptions;
     return (
-      <div>
-        {" "}
-        {/* External div */}
+      <div className={this.props.class}>
         <div className="main-description-container">
           <div className="main-description-logo-container">
             <div className="main-description-logo-icon">
@@ -36,7 +36,7 @@ export default class MainDescription extends Component {
             <div className="main-description-text">{mainDescr.text}</div>
           </div>
         </div>
-      </div> /* End external div */
+      </div>
     );
   }
 }

@@ -8,6 +8,8 @@ export default class Timeline extends Component {
     style: PropTypes.oneOf(["basic", "split", "centered"]),
     // an array containing the list of events
     data: PropTypes.array.isRequired,
+    // className: CSS classes to apply to the outer div
+    className: PropTypes.string,
   };
 
   getStyle() {
@@ -24,22 +26,24 @@ export default class Timeline extends Component {
 
   render() {
     return (
-      <ul className={`timeline ${this.getStyle()}`}>
-        {this.props.data.map((item) => {
-          return (
-            <li className="timeline-item">
-              <div className="timeline-info">
-                <span>{item.date}</span>
-              </div>
-              <div className="timeline-marker"></div>
-              <div className="timeline-content">
-                <h3 className="timeline-title">{item.title}</h3>
-                <p>{item.body}</p>
-              </div>
-            </li>
-          );
-        })}
-      </ul>
+      <div className={this.props.class}>
+        <ul className={`timeline ${this.getStyle()}`}>
+          {this.props.data.map((item) => {
+            return (
+              <li className="timeline-item">
+                <div className="timeline-info">
+                  <span>{item.date}</span>
+                </div>
+                <div className="timeline-marker"></div>
+                <div className="timeline-content">
+                  <h3 className="timeline-title">{item.title}</h3>
+                  <p>{item.body}</p>
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     );
   }
 }
