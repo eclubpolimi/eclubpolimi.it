@@ -11,6 +11,11 @@
 @tailwind utilities;
 
 /*---------------------------
+    Font
+---------------------------*/
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap");
+
+/*---------------------------
     Common
 ---------------------------*/
 :root {
@@ -30,9 +35,29 @@
 }
 
 body {
-  color: #768390;
-  font-family: "San Francisco", "Segoe UI", Helvetica, Arial, sans-serif;
+  color: #121212;
+  font-family: "Inter", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
   box-sizing: border-box;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 32px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+h3 {
+  font-size: 20px;
 }
 
 * {

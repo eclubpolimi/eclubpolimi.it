@@ -2,9 +2,6 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTimes, faBars } from "@fortawesome/free-solid-svg-icons";
-
 import "./Navbar.css";
 import SiteData from "Data";
 
@@ -13,9 +10,12 @@ export default class Navbar extends Component {
     items: PropTypes.array.isRequired,
   };
 
-  state = {
-    clicked: false,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      clicked: false,
+    };
+  }
 
   handleMenu = () => {
     this.setState({ clicked: !this.state.clicked });
@@ -46,13 +46,21 @@ export default class Navbar extends Component {
             );
           })}
         </ul>
-        <div className="menu-icon">
-          {this.state.clicked ? (
-            <FontAwesomeIcon icon={faTimes} onClick={this.handleMenu} />
-          ) : (
-            <FontAwesomeIcon icon={faBars} onClick={this.handleMenu} />
-          )}
-        </div>
+        <svg
+          className={`ham hamRotate ${this.state.clicked ? "active" : ""}`}
+          viewBox="0 0 100 100"
+          onClick={this.handleMenu}
+        >
+          <path
+            className="line top"
+            d="m 70,33 h -40 c 0,0 -8.5,-0.149796 -8.5,8.5 0,8.649796 8.5,8.5 8.5,8.5 h 20 v -20"
+          />
+          <path className="line middle" d="m 70,50 h -40" />
+          <path
+            className="line bottom"
+            d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20"
+          />
+        </svg>
       </nav>
     );
   }
