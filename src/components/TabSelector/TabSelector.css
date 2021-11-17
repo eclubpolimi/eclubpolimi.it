@@ -4,10 +4,7 @@
   --box-shadow: 0px 0px 20px -10px rgb(0, 0, 0, 0.4);
 }
 
-.sm\:tabs-row,
-.md\:tabs-row,
-.lg\:tabs-row,
-.xl\:tabs-row {
+[class$="tabs-row"] {
   display: inline-flex;
   background-color: white;
   border-radius: var(--border-radius);
@@ -15,10 +12,7 @@
   box-shadow: var(--box-shadow);
 }
 
-.sm\:tabs-select,
-.md\:tabs-select,
-.lg\:tabs-select,
-.xl\:tabs-select {
+[class$="tabs-select"] {
   display: none;
   width: 100%;
   position: relative;
@@ -26,6 +20,11 @@
   box-shadow: var(--box-shadow);
   border-radius: var(--border-radius);
   padding: var(--margin);
+}
+
+[class$="tabs-select"]:focus-visible,
+[class$="tabs-select"]:focus {
+  outline: none;
 }
 
 .tab {
@@ -40,12 +39,12 @@
 }
 .tab:hover {
   cursor: pointer;
-  /* color: #ffffff; */
+  color: var(--text-color-onorangehover);
   background: var(--orange-gradient-hover);
 }
 
 .selected {
-  color: white;
+  color: white !important;
   background: var(--orange-gradient) !important;
   border-radius: var(--border-radius);
 }

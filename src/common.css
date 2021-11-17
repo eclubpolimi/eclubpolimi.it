@@ -29,13 +29,15 @@
   );
   --orange-gradient-hover: linear-gradient(
     60deg,
-    rgba(255, 96, 38, 0.2) 10%,
-    rgba(252, 63, 26, 0.2) 90%
+    rgba(255, 96, 38, 0.5) 10%,
+    rgba(252, 63, 26, 0.5) 90%
   );
+  --text-color: #121212;
+  --text-color-onorangehover: white;
 }
 
 body {
-  color: #121212;
+  color: var(--text-color);
   font-family: "Inter", Helvetica, Arial, sans-serif;
   font-size: 16px;
   font-weight: 400;
