@@ -41,7 +41,7 @@ const teams = [
     ],
   },
   {
-    teamName: "Team test 1",
+    teamName: "Team test 2",
     teamComponents: [
       {
         name: "Nome cognome",
@@ -51,7 +51,7 @@ const teams = [
     ],
   },
   {
-    teamName: "Team test 1",
+    teamName: "Team test 3",
     teamComponents: [
       {
         name: "Nome cognome",

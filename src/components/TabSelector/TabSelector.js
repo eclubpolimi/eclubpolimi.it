@@ -8,14 +8,24 @@ export default class TabSelector extends Component {
     tabs: PropTypes.array.isRequired,
     // Default selected tab (default: 0)
     default: PropTypes.number,
-    // class: CSS classes to apply to the outer div
-    class: PropTypes.string,
+    // className: CSS classes to apply to the outer div
+    className: PropTypes.string,
     // breakpoint: CSS class prefix (see Tailwind) that control when the layout changes to mobile friendly
     breakpoint: PropTypes.oneOf(["sm", "md", "lg", "xl"]),
   };
 
+  /* Tabs prop
+  [
+    {
+      name: string,
+      content: <jsx content>,
+    },
+  ]
+  */
+
   static defaultProps = {
     breakpoint: "md",
+    className: "w-full",
   };
 
   constructor(props) {
@@ -35,7 +45,7 @@ export default class TabSelector extends Component {
 
   render() {
     return (
-      <div className={this.props.class}>
+      <div className={this.props.className}>
         <div className="text-center">
           <ul className={`${this.props.breakpoint}:tabs-row`}>
             {this.props.tabs.map((item, index) => {

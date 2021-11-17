@@ -5,32 +5,30 @@
   align-items: center;
 }
 
-.team {
+.teams-header {
+  margin-bottom: 16px;
+}
+
+.team-members {
   width: 100%;
-  margin-bottom: 40px;
-}
-
-.team-title {
-  padding-top: 20px;
-}
-
-.team-components {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   column-gap: 20px;
   row-gap: 20px;
 }
 
-.component-card {
+.member-card {
   height: calc(100vw * 0.5625 / 2);
 }
 
 @media screen and (max-width: 860px) {
-  .team-components {
+  .team-members {
     grid-template-columns: repeat(2, 1fr);
+    column-gap: 10px;
+    row-gap: 10px;
   }
 
-  .component-card {
+  .member-card {
     height: calc(100vw * 0.5625);
   }
 }
