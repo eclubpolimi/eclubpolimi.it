@@ -56,6 +56,7 @@ export default class FlipCard extends Component {
                 backgroundPosition: "center",
                 backgroundSize: "cover",
                 backgroundRepeat: "no-repeat",
+                borderRadius: "4px 4px 0 0",
               }}
             ></div>
             <div className="card-front-text">{this.props.frontText}</div>
