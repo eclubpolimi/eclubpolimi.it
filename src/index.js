@@ -15,10 +15,8 @@ import SiteData from "Data";
 import "common.css";
 
 function Site() {
-  const pathName = window.location.pathname;
-
   return (
-    <Router basename={pathName}>
+    <Router>
       <Navbar items={SiteData.NavbarItems} />
       <Switch>
         <Route exact path="/" component={Home} />
