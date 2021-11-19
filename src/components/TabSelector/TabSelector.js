@@ -43,7 +43,7 @@ export default class TabSelector extends Component {
                 <li
                   value={index}
                   className={`tab ${
-                    index === this.state.activeTab ? "active" : ""
+                    index === this.state.activeTab ? "selected" : null
                   }`}
                   onClick={this.onTabClick}
                 >

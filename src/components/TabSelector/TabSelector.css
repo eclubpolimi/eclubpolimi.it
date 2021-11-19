@@ -44,7 +44,7 @@
   background: var(--orange-gradient-hover);
 }
 
-.active {
+.selected {
   color: white;
   background: var(--orange-gradient) !important;
   border-radius: var(--border-radius);
