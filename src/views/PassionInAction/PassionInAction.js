@@ -16,7 +16,10 @@ export default class PassionInAction extends Component {
         <div className="md:px-10">
           <DescriptionPIA descriptionPIA={SiteData.DescriptionPIA} />
         </div>
-        <LessonsPIA lessons={SiteData.LessonsPIA} />
+        <LessonsPIA
+          lessons={SiteData.LessonsPIA}
+          className="w-3/4 mx-auto mb-16"
+        />
       </div>
     );
   }
