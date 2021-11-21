@@ -9,6 +9,9 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+# Disallow multiple instances of this action to run at the same time (for ftp upload to work correctly)
+concurrency: deploy
+
 jobs:
   prod-deploy:
     runs-on: ubuntu-latest
