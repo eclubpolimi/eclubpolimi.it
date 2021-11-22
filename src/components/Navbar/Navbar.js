@@ -28,7 +28,7 @@ export default class Navbar extends Component {
   render() {
     return (
       <nav className="navbar-items bg-blue">
-        <Link to="/" className="navbar-logo">
+        <Link to={SiteData.HomeTarget} className="navbar-logo">
           <img src={SiteData.LogoWhite} alt="Entrepreneurship Club Polimi" />
         </Link>
         <ul
