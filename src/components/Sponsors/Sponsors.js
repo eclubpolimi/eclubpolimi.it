@@ -1,24 +1,39 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+
 import "./Sponsors.css";
-//array che contiene le immagini degli sponsor
 
 export default class Sponsors extends Component {
   static propTypes = {
-    // arrLogos: Array of images
-    arrLogos: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string))
-      .isRequired,
+    // logos: array of sponsor logo
+    logos: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)).isRequired,
+    // className: CSS classes to apply to the outer div
+    className: PropTypes.string,
   };
+
+  /* logos prop
+  [
+    {
+      src: string,
+      href: link,
+      alt: string,
+    },
+  ]
+  */
 
   render() {
     return (
-      <div className="sponsor-component">
-        <div className="sponsor-title"> Sponsored By </div>
-        <div className="sponsor-table">
-          {this.props.arrLogos.map((el, index) => (
-            <div key={index} className="sponsor-column">
-              <img src={el.src} href={el.href} alt={el.alt}></img>
-            </div>
+      <div className={this.props.className}>
+        <h2>Sponsors</h2>
+        <div className="sponsor-grid">
+          {this.props.logos.map((logo, index) => (
+            <img
+              className="sponsor-logo"
+              src={logo.src}
+              href={logo.href}
+              alt={logo.alt}
+              key={index}
+            />
           ))}
         </div>
       </div>

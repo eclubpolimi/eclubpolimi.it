@@ -48,18 +48,22 @@ h1,
 h2,
 h3 {
   font-weight: 700;
+  text-align: center;
 }
 
 h1 {
   font-size: 32px;
+  margin-bottom: 22px;
 }
 
 h2 {
-  font-size: 24px;
+  font-size: 26px;
+  margin-bottom: 16px;
 }
 
 h3 {
   font-size: 20px;
+  margin-bottom: 10px;
 }
 
 * {
@@ -90,4 +94,12 @@ a {
 button {
   cursor: pointer;
   white-space: nowrap;
+}
+
+@media screen and (max-width: 786px) {
+  h1,
+  h2,
+  h3 {
+    text-align: unset;
+  }
 }
