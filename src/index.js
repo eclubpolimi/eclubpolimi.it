@@ -19,12 +19,12 @@ function Site() {
     <Router>
       <Navbar items={SiteData.NavbarItems} />
       <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/About" component={About} />
-        <Route exact path="/Events" component={Events} />
-        <Route exact path="/Hosts" component={Hosts} />
-        <Route exact path="/PassionInAction" component={PassionInAction} />
-        <Route exact path="/Join" component={Join} />
+        <Route exact path={SiteData.HomeTarget} component={Home} />
+        <Route exact path={SiteData.AboutUsTarget} component={About} />
+        <Route exact path={SiteData.EventsTarget} component={Events} />
+        <Route exact path={SiteData.GuestsTarget} component={Hosts} />
+        <Route exact path={SiteData.PiaTarget} component={PassionInAction} />
+        <Route exact path={SiteData.JoinTarget} component={Join} />
       </Switch>
       <Footer
         organizationLogo={SiteData.LogoWhite}

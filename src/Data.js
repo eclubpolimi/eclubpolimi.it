@@ -19,42 +19,52 @@ export default class SiteData {
   static LogoWhite = logoWhite;
   static LogoPolimi = logoPolimi;
 
+  // SUBPAGE TARGETS
+  static HomeTarget = "/";
+  static AboutUsTarget = "/about";
+  static EventsTarget = "/events";
+  static TravelTarget = "/target";
+  static GuestsTarget = "/guests";
+  static PiaTarget = "/passion-in-action";
+  static NetworkTarget = "/network";
+  static JoinTarget = "/join";
+
   // NAVBAR
 
   static NavbarItems = [
     {
       title: "About Us",
-      target: "/About",
+      target: this.AboutUsTarget,
       type: "nav-link",
     },
     {
       title: "Events",
-      target: "/Events",
+      target: this.EventsTarget,
       type: "nav-link",
     },
     {
       title: "Travel",
-      target: "/Travel",
+      target: this.TravelTarget,
       type: "nav-link",
     },
     /*{
       title: "Guests",
-      target: "/Guests",
+      target: this.GuestsTarget,
       type: "nav-link",
     }*/
     {
       title: "Passion in action",
-      target: "/PassionInAction",
+      target: this.PiaTarget,
       type: "nav-link",
     },
     {
       title: "Network",
-      target: "/Network",
+      target: this.NetworkTarget,
       type: "nav-link",
     },
     {
       title: "Join Us",
-      target: "/Join",
+      target: this.JoinTarget,
       type: "button",
     },
   ];
