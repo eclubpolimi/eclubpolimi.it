@@ -19,14 +19,17 @@ export default class About extends Component {
           contentType="img"
           logo={SiteData.LogoWhite}
         />
-        <div className="md:px-10">
+        <div className="max-w-screen-lg lg:mx-auto px-5 lg:px-0">
           <Description
             title={SiteData.AboutDescription.title}
             text={SiteData.AboutDescription.text}
           />
         </div>
         <JoinUsBar />
-        <Teams teams={SiteData.Teams} className="md:w-3/4 md:mx-auto pt-8 pb-12" />
+        <Teams
+          teams={SiteData.Teams}
+          className="max-w-screen-lg lg:mx-auto px-5 lg:px-0 pt-8 pb-12"
+        />
       </div>
     );
   }
