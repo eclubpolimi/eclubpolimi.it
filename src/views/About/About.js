@@ -26,9 +26,7 @@ export default class About extends Component {
           />
         </div>
         <JoinUsBar />
-        <div className="md:px-10">
-          <Teams teams={SiteData.Teams} />
-        </div>
+        <Teams teams={SiteData.Teams} className="md:w-3/4 md:mx-auto pt-8 pb-12" />
       </div>
     );
   }

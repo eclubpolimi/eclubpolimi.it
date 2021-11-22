@@ -1,36 +1,8 @@
 .description-bar {
   background-color: white;
-  height: 256px;
   padding-top: 2em;
   padding-bottom: 2em;
   justify-content: center;
   align-items: center;
   text-align: center;
-}
-
-.description-title {
-  font-size: 2em;
-  font-weight: bolder;
-  padding-bottom: 0.5em;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.description-paragraph {
-  text-align: left;
-  margin-left: 4em;
-  margin-right: 4em;
-  line-height: 32px;
-}
-
-@media screen and (max-width: 992px) {
-  .description-paragraph {
-    color: #6a727a;
-    line-height: 28px;
-  }
-
-  .description-title {
-    color: #b2bfcc;
-  }
 }
