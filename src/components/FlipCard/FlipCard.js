@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-import ReactCardFlip from "react-card-flip";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-import "./FlipCard.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faAt,
@@ -13,9 +11,7 @@ import {
 import { faInstagram, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 
 export default class FlipCard extends Component {
-  propTypes = {
-    // backgroundColor: expressed in HEX
-    backgroundColor: PropTypes.string,
+  static propTypes = {
     // frontImage: the image displayed on the front of the card above the text
     frontImage: PropTypes.any,
     // height: height expressed in px
@@ -30,108 +26,79 @@ export default class FlipCard extends Component {
       quoteAuthor: PropTypes.string,
       marksColor: PropTypes.string,
       email: PropTypes.string,
-      linkedIn: PropTypes.string,
-      Instagram: PropTypes.string,
+      linkedinUrl: PropTypes.string,
+      instagramUrl: PropTypes.string,
     }),
-  };
-
-  state = {
-    isFlipped: false,
-  };
-
-  flipCard = (e) => {
-    e.preventDefault();
-    this.setState((prevState) => ({ isFlipped: !prevState.isFlipped }));
   };
 
   render() {
     return (
       // TODO: handle mobile tapping
       <div
-        className="card"
+        className="group m-4 relative flex flex-col items-center border-solid border-2 border-gray-100 rounded-lg shadow-xl"
         style={{
           height: this.props.height,
           width: this.props.width,
         }}
-        onMouseEnter={(e) => this.flipCard(e)}
-        onMouseLeave={(e) => this.flipCard(e)}
       >
-        <ReactCardFlip
-          isFlipped={this.state.isFlipped}
-          flipDirection="horizontal"
-        >
-          <div
-            className="card-flip-content"
-            style={{ backgroundColor: this.props.backgroundColor }}
-          >
-            <div
-              className="card-image"
-              style={{
-                backgroundImage: `url(${this.props.frontImage})`,
-                backgroundPosition: "center",
-                backgroundSize: "cover",
-                backgroundRepeat: "no-repeat",
-                borderRadius: "4px 4px 0 0",
-              }}
-            ></div>
-            <div className="card-front-text">
-              {this.props.cardText.nameSurname}
-            </div>
+        <div
+          className="h-full w-full"
+          style={{
+            backgroundImage: `url(${this.props.frontImage})`,
+            backgroundPosition: "center",
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+            borderRadius: "4px 4px 0 0",
+          }}
+        ></div>
+        <div className="absolute bg-white bottom-0 left-0 right-0 w-full transition-height duration-500 h-20 group-hover:h-full overflow-hidden flex flex-col items-center">
+          <div className="text-lg font-semibold pt-4">
+            {this.props.cardText.nameSurname}
           </div>
-          <div
-            className="card-flip-content-back"
-            style={{ backgroundColor: this.props.backgroundColor }}
-          >
-            <div className="card-back-title">
-              {this.props.cardText.nameSurname}
+          <div className="text-gray-400">{this.props.cardText.role}</div>
+
+          <div className="p-8 relative h-full w-full">
+            <div className="flex flex-row">
+              <FontAwesomeIcon
+                icon={faQuoteLeft}
+                size="2x"
+                color={this.props.cardText.marksColor}
+              />
+              <div className="ml-2 text-xs">
+                <div className="">{this.props.cardText.quote}</div>
+                <div className="w-full  text-gray-400 text-left">
+                  - {this.props.cardText.quoteAuthor}
+                </div>
+              </div>
             </div>
-            <div className="card-back-text">
-              <div className="card-back-role">{this.props.cardText.role}</div>
-              <div className="card-back-quote">
+
+            <div className="flex flex-row justify-evenly absolute bottom-0 right-0 left-0 pb-5">
+              <Link to="#">
                 <FontAwesomeIcon
-                  icon={faQuoteLeft}
-                  size="3x"
-                  color={this.props.cardText.marksColor}
+                  icon={faEnvelope}
+                  size="2x"
+                  className="transition duration-200 text-gray-300 hover:text-gray-500"
                 />
-                <div className="card-back-quote-text">
-                  {this.props.cardText.quote}
-                </div>
-              </div>
-              <div className="card-back-quote-author">
-                {this.props.cardText.quoteAuthor}
-              </div>
-              <div className="card-back-contacts">
-                <div className="card-back-contacts-icon">
-                  <Link to="#">
-                    <FontAwesomeIcon
-                      icon={faEnvelope}
-                      size="3x"
-                      color="#b2bfcc"
-                    />
-                  </Link>
-                </div>
-                <div className="card-back-contacts-icon">
-                  <Link to="#">
-                    <FontAwesomeIcon
-                      icon={faInstagram}
-                      size="3x"
-                      color="#b2bfcc"
-                    />
-                  </Link>
-                </div>
-                <div className="card-back-contacts-icon">
-                  <Link to="#">
-                    <FontAwesomeIcon
-                      icon={faLinkedinIn}
-                      size="3x"
-                      color="#b2bfcc"
-                    />
-                  </Link>
-                </div>
-              </div>
+              </Link>
+
+              <Link to={this.props.cardText.instagramUrl}>
+                <FontAwesomeIcon
+                  icon={faInstagram}
+                  size="2x"
+                  className="transition duration-200 text-gray-300 hover:text-gray-500"
+                />
+              </Link>
+
+              <Link to={this.props.cardText.linkedinUrl}>
+                <FontAwesomeIcon
+                  icon={faLinkedinIn}
+                  size="2x"
+                  className="transition duration-200 text-gray-300 hover:text-gray-500"
+                />
+              </Link>
             </div>
           </div>
-        </ReactCardFlip>
+        </div>
       </div>
     );
   }
