@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
-import FlipCard from "components/FlipCard";
+import SlideCard from "components/SlideCard";
 
 export default class Teams extends Component {
   static propTypes = {
@@ -22,7 +22,7 @@ export default class Teams extends Component {
         <div className="grid align-middle sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
           {this.props.members.map((member, index) => (
             <div key={index} className="flex justify-center items-center">
-              <FlipCard
+              <SlideCard
                 frontImage={member.image}
                 height={this.cardSize.height}
                 width={this.cardSize.width}

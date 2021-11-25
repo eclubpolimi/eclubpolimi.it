@@ -1,17 +1,17 @@
 import React from "react";
 
-import FlipCard from "./FlipCard";
+import SlideCard from "./SlideCard";
 import "common.css";
 
 import Image from "assets/who_we_are_img_1.jpg";
 
 export default {
-  component: FlipCard,
-  title: "Components/FlipCard",
+  component: SlideCard,
+  title: "Components/SlideCard",
 };
 
 export const Primary = () => (
-  <FlipCard
+  <SlideCard
     frontImage={Image}
     height="400px"
     width="300px"

@@ -10,7 +10,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { faInstagram, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 
-export default class FlipCard extends Component {
+export default class SlideCard extends Component {
   static propTypes = {
     // frontImage: the image displayed on the front of the card above the text
     frontImage: PropTypes.any,
