@@ -19,7 +19,7 @@ export default class Teams extends Component {
   render() {
     return (
       <div className="h-full w-full flex flex-col justify-center">
-        <div className="grid align-middle sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+        <div className="grid align-middle sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {this.props.members.map((member, index) => (
             <div key={index} className="flex justify-center items-center">
               <SlideCard

@@ -26,10 +26,14 @@ export default class About extends Component {
           />
         </div>
         <JoinUsBar />
-        <Teams
-          teams={SiteData.Teams}
-          className="max-w-screen-lg lg:mx-auto px-5 lg:px-0 pt-8 pb-12"
-        />
+        <div className="bg-gray-200">
+          <div className="max-w-screen-lg lg:mx-auto px-5 lg:px-0">
+            <Teams
+              teams={SiteData.Teams}
+              className="max-w-screen-lg lg:mx-auto px-5 lg:px-0 pt-8 pb-12"
+            />
+          </div>
+        </div>
       </div>
     );
   }
