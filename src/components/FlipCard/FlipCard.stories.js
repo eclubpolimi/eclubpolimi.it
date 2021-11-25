@@ -15,10 +15,15 @@ export const Primary = () => (
     frontImage={Image}
     height="400px"
     width="300px"
-    frontText="Name Surname"
-    backText="Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi 
-              ut aliquip ex ea commodo consequat. "
+    cardText={{
+      nameSurname: "Valeria Amato",
+      role: "IT Coordinator",
+      quote:
+        "I think it is possible for ordinary people to choose to be extraordinary",
+      quoteAuthor: "Elon Musk",
+      email: "valeria.amato@eclubpolimi.it",
+      linkedIn: "#",
+      Instagram: "#",
+    }}
   />
 );
