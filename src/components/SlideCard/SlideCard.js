@@ -3,11 +3,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faAt,
-  faEnvelope,
-  faQuoteLeft,
-} from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope, faQuoteLeft } from "@fortawesome/free-solid-svg-icons";
 import { faInstagram, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 
 export default class SlideCard extends Component {

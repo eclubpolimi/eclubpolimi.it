@@ -2,7 +2,6 @@ import React, { Component } from "react";
 
 import Team from "components/Team";
 import TabSelector from "components/TabSelector";
-import ParagraphTitle from "components/ParagraphTitle";
 
 export default class Teams extends Component {
   render() {
