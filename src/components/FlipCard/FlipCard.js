@@ -91,7 +91,7 @@ export default class FlipCard extends Component {
                 <FontAwesomeIcon
                   icon={faQuoteLeft}
                   size="3x"
-                  color="#7b0432" /*{this.props.cardText.marksColor}*/
+                  color={this.props.cardText.marksColor}
                 />
                 <div className="card-back-quote-text">
                   {this.props.cardText.quote}
