@@ -7,16 +7,14 @@ export default class JoinUsCard extends Component {
     // role: name of the eclub position
     role: PropTypes.string,
     // height: height expressed in px
-    height: PropTypes.string,
+    height: PropTypes.number,
     // width: width expressed in px
-    width: PropTypes.string,
+    width: PropTypes.number,
     // advantages: advantages on applying
-    advantages: PropTypes.array,
+    advantages: PropTypes.arrayOf(PropTypes.string).isRequired,
   };
 
   render() {
-    const proPhrases = this.props.advantages;
-    const list = proPhrases.map((pro) => <li key={pro}> {pro} </li>);
     return (
       <div
         className="join-card-container"
@@ -24,17 +22,21 @@ export default class JoinUsCard extends Component {
       >
         <div className="join-card-text-container">
           <h1 className="join-card-title">{this.props.role}</h1>
-          <ul className="join-card-list">{list}</ul>
+          <ul className="join-card-list">
+            {this.props.advantages.map((pro, index) => (
+              <li key={index}>{pro}</li>
+            ))}
+          </ul>
         </div>
         <div className="join-card-button-container">
           <div
             className={`${
-              this.props.closed == true
+              this.props.closed === true
                 ? "join-card-closed-button"
                 : "join-card-button"
             }`}
           >
-            {this.props.closed == true ? "Closed" : "Apply Now!"}
+            {this.props.closed === true ? "Closed" : "Apply Now!"}
           </div>
         </div>
       </div>
