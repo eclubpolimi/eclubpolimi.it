@@ -9,4 +9,10 @@ export default {
   title: "Components/Navbar",
 };
 
-export const Primary = () => <Navbar items={SiteData.NavbarItems} />;
+const Template = (args) => <Navbar {...args} />;
+
+export const Primary = Template.bind({});
+
+Primary.args = {
+  items: SiteData.NavbarItems,
+};

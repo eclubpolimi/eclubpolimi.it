@@ -10,6 +10,15 @@ export default class Navbar extends Component {
     items: PropTypes.array.isRequired,
   };
 
+  /* items prop
+  [
+    {
+      content: JSX object [<Link />, <Button />],
+      type: oneOf["link", "button"],
+    },
+  ]
+  */
+
   constructor(props) {
     super(props);
     this.state = {
@@ -32,20 +41,25 @@ export default class Navbar extends Component {
           <img src={SiteData.LogoWhite} alt="Entrepreneurship Club Polimi" />
         </Link>
         <ul
-          className={`nav-links bg-blue ${this.state.clicked ? "active" : ""}`}
+          className={`nav-links bg-blue ${
+            this.state.clicked ? "nav-active" : ""
+          }`}
         >
           {this.props.items.map((item, index) => {
+            if (!item.type) {
+              console.error(
+                `Navbar item ${index} has no type field! Rendering errors may occur, make sure to set a type for each navbar element.`
+              );
+            }
             return (
-              <li key={index} className={item.type}>
-                <Link to={item.target} onClick={this.closeMenu}>
-                  {item.title}
-                </Link>
+              <li key={index} className={`nav-${item.type}`}>
+                {item.content}
               </li>
             );
           })}
         </ul>
         <svg
-          className={`ham hamRotate ${this.state.clicked ? "active" : ""}`}
+          className={`ham hamRotate ${this.state.clicked ? "nav-active" : ""}`}
           viewBox="0 0 100 100"
           onClick={this.handleMenu}
         >
