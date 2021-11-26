@@ -327,4 +327,25 @@ export default class SiteData {
     textPIA:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   };
+
+  // JOIN US CARD EXPLORER
+  static explorerAdvantages = [
+    "Membership Badge",
+    "Priority bookings for limited seats",
+    "Access members-only events",
+    "Exclusive interaction with guests",
+  ];
+
+  // JOIN US CARD DRIVER
+  static driverAdvantages = [
+    "Be involved in the organisation of E-Club Polimi activities",
+    "Partecipate in dedicated trainings",
+    "Unique personal and professional growth opportunity",
+  ];
+
+  // JOIN US CARD SPONSORS
+  static sponsorAdvantages = [
+    "Do you want to support us?",
+    "Do you want to share your entrepreneurial experience - failure or success - with the firt entrepreneurial community of Polimi?",
+  ];
 }
