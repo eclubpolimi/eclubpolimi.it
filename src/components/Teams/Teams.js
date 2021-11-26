@@ -2,7 +2,6 @@ import React, { Component } from "react";
 
 import Team from "components/Team";
 import TabSelector from "components/TabSelector";
-import ParagraphTitle from "components/ParagraphTitle";
 
 export default class Teams extends Component {
   render() {
@@ -14,8 +13,8 @@ export default class Teams extends Component {
     });
 
     return (
-      <div className="bg-gray-100 pb-10">
-        <ParagraphTitle text="Eclub teams" />
+      <div className="pb-10">
+        <h2>Eclub teams</h2>
         <TabSelector tabs={tabs} />
       </div>
     );
