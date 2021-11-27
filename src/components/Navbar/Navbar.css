@@ -121,10 +121,12 @@
     display: block;
   }
 
-  .nav-link {
+  .nav-link,
+  .nav-button {
     margin-bottom: var(--link-margin);
   }
-  .nav-link:first-child {
+  .nav-link:first-child,
+  .nav-button:first-child {
     margin-top: var(--link-margin);
   }
 
