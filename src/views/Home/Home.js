@@ -24,7 +24,7 @@ export default class Home extends Component {
           className="md:px-10"
           mainDescriptions={SiteData.MainDescription}
         />
-        <JoinUsBar link={SiteData.JoinTarget} color="red" />
+        <JoinUsBar to={SiteData.JoinTarget} color="orange" />
         <Sponsors
           className="px-4 md:px-0 md:w-5/6 mx-auto mt-8 mb-14"
           logos={SiteData.Sponsors}

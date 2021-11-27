@@ -1,35 +1,17 @@
-@import url(../../common.css);
-
 .join-us-bar {
   height: 156px;
   flex-direction: column;
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
 }
 
-.JSB-button {
-  color: black;
-  padding: 4px 80px;
-  border-radius: 1em;
-  text-align: center;
-  font-weight: 900;
-  font-size: medium;
-  cursor: pointer;
-}
-
-.JSB-white {
-  background-color: white;
-}
-
-.JSB-button:hover {
-  opacity: 95%;
-}
-
-.JSB-call-to-action {
+.jsb-call-to-action {
   color: white;
-  font-weight: bold;
+  font-weight: 700;
   font-size: 36px;
-  text-align: center;
+}
+
+.join-us-bar.bg-white h1 {
+  color: black;
 }

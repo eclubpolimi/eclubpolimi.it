@@ -1,30 +1,43 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+
+import { LinkButton } from "components/Button";
 import "./JoinUsBar.css";
+
 export default class JoinUsBar extends Component {
   static propTypes = {
-    color: PropTypes.string,
-    link: PropTypes.string.isRequired,
+    // color: background color
+    color: PropTypes.oneOf(["orange", "blue", "white"]),
+    // to: target to navigate to when the button is clicked
+    to: PropTypes.string.isRequired,
+    // className: CSS classes to apply to the outer div
+    className: PropTypes.string,
+  };
+
+  static defaultProps = {
+    color: "orange",
+    className: "",
+  };
+
+  getButtonColor = () => {
+    return (
+      {
+        orange: "light",
+        blue: "light",
+        white: "normal",
+      }[this.props.color] || "normal"
+    );
   };
 
   render() {
     return (
       <div
-        className={`join-us-bar ${
-          this.props.color === "red" ? "bg-orange" : "bg-blue"
-        }`}
+        className={`join-us-bar bg-${this.props.color} ${this.props.className}`}
       >
-        <h1 className="JSB-call-to-action">Become one of us!</h1>
-        <Link to={this.props.link}>
-          <div
-            className={`JSB-button ${
-              this.props.color === "red" ? "JSB-white" : "bg-orange"
-            }`}
-          >
-            Join us
-          </div>
-        </Link>
+        <h1 className="jsb-call-to-action">Become one of us!</h1>
+        <LinkButton to={this.props.to} theme={this.getButtonColor()}>
+          Join us
+        </LinkButton>
       </div>
     );
   }

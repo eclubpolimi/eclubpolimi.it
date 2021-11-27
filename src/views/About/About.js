@@ -25,7 +25,7 @@ export default class About extends Component {
             text={SiteData.AboutDescription.text}
           />
         </div>
-        <JoinUsBar />
+        <JoinUsBar to={SiteData.JoinTarget} />
         <div className="bg-gray-200">
           <div className="max-w-screen-lg lg:mx-auto px-5 lg:px-0">
             <Teams
