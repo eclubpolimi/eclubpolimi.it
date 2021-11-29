@@ -25,11 +25,7 @@ export default class Footer extends Component {
     return (
       <div className="footer bg-blue">
         <div className="footer-content">
-          <img
-            className="footer-logo"
-            src={this.props.organizationLogo}
-            alt="Logo"
-          />
+          <img className="footer-logo" src={this.props.logo} alt="Logo" />
           <div className="footer-social">
             <div className="footer-social-icon footer-facebook">
               <a href={this.props.facebookUrl} target="_blank" rel="noreferrer">
@@ -51,11 +47,9 @@ export default class Footer extends Component {
               </a>
             </div>
           </div>
-          <img className="footer-logo" src={this.props.polimiLogo} alt="Logo" />
         </div>
         <div className="footer-copyright">
-          Copyright © 2021 - 2021 {this.props.copyrightName}. All rights
-          reserved.
+          Copyright © 2021 {this.props.copyrightName}. All rights reserved.
         </div>
       </div>
     );

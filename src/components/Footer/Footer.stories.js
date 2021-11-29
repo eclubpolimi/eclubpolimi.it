@@ -12,8 +12,7 @@ export default {
 
 export const Primary = () => (
   <Footer
-    polimiLogo={SiteData.LogoPolimi}
-    organizationLogo={SiteData.LogoWhite}
+    logo={SiteData.LogoWhite}
     copyrightName="E-club Polimi"
     facebookUrl="https://facebook.com/"
     instagramUrl="https://instagram.com/"

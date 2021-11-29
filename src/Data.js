@@ -3,13 +3,17 @@ import Image2 from "assets/test2.png";
 import Image3 from "assets/test3.png";
 import Img from "assets/who_we_are_img_1.jpg";
 
-import descriptionLogo from "assets/logo-512x512.png";
+import logoLearnNetworkBuild from "assets/logo_learn_network_build.svg";
 import homepageHeroBackground from "assets/homepage_hero.jpg";
 import logoWhite from "assets/logo_white.svg";
-import logoPolimi from "assets/polimi_logo_white.png";
 
 import image1LessonPIA from "assets/img-lessons-pia-346x220.jpg";
 import imageLogoPIA from "assets/img-lessons-pia-346x220.jpg";
+
+import networkHeroImage from "assets/eclub-network.png";
+import logo1 from "assets/logo-colors.png";
+import logo2 from "assets/img-eclub-bocconi.png";
+import logo3 from "assets/img-eclub-pavia.png";
 
 /**
  * @description This class holds global, static data, to avoid duplication between production code and tests
@@ -18,7 +22,6 @@ import imageLogoPIA from "assets/img-lessons-pia-346x220.jpg";
 export default class SiteData {
   // COMMON
   static LogoWhite = logoWhite;
-  static LogoPolimi = logoPolimi;
 
   // SUBPAGE TARGETS
   static HomeTarget = "/";
@@ -84,11 +87,9 @@ export default class SiteData {
   ];
 
   static MainDescription = {
-    logo: descriptionLogo,
-    title0: "Learn",
-    title1: "Network",
-    title2: "Build",
-    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    logo: logoLearnNetworkBuild,
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
   };
 
   static HomepageHeroBackground = homepageHeroBackground;
@@ -347,5 +348,36 @@ export default class SiteData {
   static sponsorAdvantages = [
     "Do you want to support us?",
     "Do you want to share your entrepreneurial experience - failure or success - with the firt entrepreneurial community of Polimi?",
+  ];
+
+  //NETWORK
+
+  static NetworkHeroImage = networkHeroImage;
+
+  static NetworkSlogan = [
+    "Coming together is a beginning",
+    "Staying together is a progress",
+    "Working together is a success",
+  ];
+
+  static NetworkAbout = {
+    title: "About our network",
+    text: "The Entrepreneurship Club Network is a community of thinkers and doers motivated by the same passion for innovation and disruption. Our network of clubs aims at spreading the entrepreneurial spirit and supporting students in their entrepreneurial journey by connecting and exchanging skills and thoughts. We bring together future and established entrepreneurs who strive to make an impact. Our work focuses on providing our ecosystem with opportunities for connection and ideas contamination. In doing so, we strongly believe that expanding and nurturing our network is key to the well being of our mission.",
+  };
+
+  static NetworkPartnersDescription = {
+    title: "Enterpreneurship clubs in Italy",
+    text: "The first Entrepreneurship Club was founded in 2011 in Bocconi University in Milan. The core values (Learn, Network, Build) remained present ever since and are everyday refined by our experiences. Throughout the years, E-Club Bocconi was able to establish strong connections with similar entities around Italy and Europe. This international culture characterised the E-Club community from day one and mirrors its ambition to expand beyond Italian borders. The network was born in 2020 with the establishment of the Entrepreneurship Club Polimi at Politecnico di Milano. This important step will allow the community to grow further. Thanks to motivated actors who share our vision and embrace our values, we are helping the spread of the entrepreneurial spirit.",
+  };
+
+  static NetworkMembers = [
+    { alt: "E-Club Polimi", href: "https://www.eclubpolimi.it/", src: logo1 },
+    {
+      alt: "E-Club Bocconi",
+      href: "https://www.unibocconi.it/wps/wcm/connect/bocconi/sitopubblico_it/albero+di+navigazione/home/corsi+di+studio/studenti+iscritti/campus+life/attivita+studentesche/associazioni+studentesche/elenco+annuale/e-club",
+
+      src: logo2,
+    },
+    { alt: "E-Club Pavia", href: "https://www.eclubpavia.it/", src: logo3 },
   ];
 }

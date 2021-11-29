@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
-import "./Sponsors.css";
-
 export default class Sponsors extends Component {
   static propTypes = {
+    // title
+    title: PropTypes.string,
     // logos: array of sponsor logo
     logos: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)).isRequired,
     // className: CSS classes to apply to the outer div
@@ -24,11 +24,13 @@ export default class Sponsors extends Component {
   render() {
     return (
       <div className={this.props.className}>
-        <h2>Sponsors</h2>
-        <div className="sponsor-grid">
+        <h2 className="text-center">
+          {this.props.title ? this.props.title : "Sponsors"}
+        </h2>
+        <div className="flex flex-wrap items-center justify-center">
           {this.props.logos.map((logo, index) => (
             <img
-              className="sponsor-logo"
+              className="w-60 m-10"
               src={logo.src}
               href={logo.href}
               alt={logo.alt}

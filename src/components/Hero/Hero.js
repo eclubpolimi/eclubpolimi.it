@@ -16,6 +16,9 @@ export default class Hero extends Component {
     // text: (optional) text inside hero
     text: PropTypes.string,
     // logo: imported logo image
+    logo: PropTypes.any,
+    // logoWidth: width of the logo
+    logoWidth: PropTypes.string,
   };
 
   render() {
@@ -33,7 +36,12 @@ export default class Hero extends Component {
         {this.props.contentType === "text" ? (
           <div className="hero-text">{this.props.text}</div>
         ) : (
-          <img className="hero-logo" src={this.props.logo} alt="" />
+          <img
+            style={{ width: this.props.logoWidth, aspectRatio: 1 }}
+            className="hero-logo"
+            src={this.props.logo}
+            alt=""
+          />
         )}
       </div>
     );
