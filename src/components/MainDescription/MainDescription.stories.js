@@ -11,5 +11,5 @@ export default {
 };
 
 export const Primary = () => (
-  <MainDescription mainDescriptions={SiteData.MainDescription} />
+  <MainDescription mainDescription={SiteData.MainDescription} />
 );
