@@ -7,9 +7,10 @@ import Home from "views/Home";
 import About from "views/About";
 import Events from "views/Events";
 import PassionInAction from "views/PassionInAction";
+import Network from "views/Network";
 import Join from "views/Join";
 import Hosts from "views/Hosts";
-import Footer from "components/Footer/Footer";
+import Footer from "components/Footer";
 
 import SiteData from "Data";
 import "common.css";
@@ -24,6 +25,7 @@ function Site() {
         <Route exact path={SiteData.EventsTarget} component={Events} />
         <Route exact path={SiteData.GuestsTarget} component={Hosts} />
         <Route exact path={SiteData.PiaTarget} component={PassionInAction} />
+        <Route exact path={SiteData.NetworkTarget} component={Network} />
         <Route exact path={SiteData.JoinTarget} component={Join} />
       </Switch>
       <Footer
