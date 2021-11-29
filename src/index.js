@@ -29,8 +29,7 @@ function Site() {
         <Route exact path={SiteData.JoinTarget} component={Join} />
       </Switch>
       <Footer
-        organizationLogo={SiteData.LogoWhite}
-        polimiLogo={SiteData.LogoPolimi}
+        logo={SiteData.LogoWhite}
         copyrightName="E-club Polimi"
         facebookUrl="https://facebook.com/"
         instagramUrl="https://instagram.com/"

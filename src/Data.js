@@ -22,7 +22,6 @@ import logo3 from "assets/img-eclub-pavia.png";
 export default class SiteData {
   // COMMON
   static LogoWhite = logoWhite;
-  static LogoPolimi = logoPolimi;
 
   // SUBPAGE TARGETS
   static HomeTarget = "/";
