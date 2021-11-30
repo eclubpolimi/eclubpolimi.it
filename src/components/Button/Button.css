@@ -1,0 +1,34 @@
+.btn,
+.btn--link {
+  border-radius: var(--button-border-radius);
+  padding: var(--button-padding);
+  display: inline-block;
+  line-height: 1.15;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn--normal {
+  color: white;
+  background: var(--orange-gradient);
+}
+.btn--normal:hover {
+  color: white;
+  background: var(--orange-gradient-hover);
+}
+
+.btn--light {
+  color: var(--orange);
+  background: white;
+}
+.btn--light:hover {
+  opacity: 0.9;
+}
+
+.btn--dark {
+  color: white;
+  background: #242424;
+}
+.btn--dark:hover {
+  opacity: #2424240f;
+}

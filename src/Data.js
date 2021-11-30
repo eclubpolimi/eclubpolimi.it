@@ -1,3 +1,6 @@
+import { Link } from "react-router-dom";
+import { LinkButton } from "components/Button";
+
 import Image1 from "assets/test1.png";
 import Image2 from "assets/test2.png";
 import Image3 from "assets/test3.png";
@@ -37,38 +40,27 @@ export default class SiteData {
 
   static NavbarItems = [
     {
-      title: "About Us",
-      target: this.AboutUsTarget,
-      type: "nav-link",
+      content: <Link to={this.AboutUsTarget}>About us</Link>,
+      type: "link",
     },
     {
-      title: "Events",
-      target: this.EventsTarget,
-      type: "nav-link",
+      content: <Link to={this.EventsTarget}>Events</Link>,
+      type: "link",
     },
     {
-      title: "Travel",
-      target: this.TravelTarget,
-      type: "nav-link",
-    },
-    /*{
-      title: "Guests",
-      target: this.GuestsTarget,
-      type: "nav-link",
-    }*/
-    {
-      title: "Passion in action",
-      target: this.PiaTarget,
-      type: "nav-link",
+      content: <Link to={this.TravelTarget}>Travel</Link>,
+      type: "link",
     },
     {
-      title: "Network",
-      target: this.NetworkTarget,
-      type: "nav-link",
+      content: <Link to={this.PiaTarget}>Passion in action</Link>,
+      type: "link",
     },
     {
-      title: "Join Us",
-      target: this.JoinTarget,
+      content: <Link to={this.NetworkTarget}>Network</Link>,
+      type: "link",
+    },
+    {
+      content: <LinkButton to={this.JoinTarget}>Join us</LinkButton>,
       type: "button",
     },
   ];

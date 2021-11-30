@@ -19,19 +19,6 @@
   margin-bottom: 40px;
 }
 
-button {
-  margin-right: 15px;
-  font-size: 20px;
-  background: transparent;
-  border: none;
-  outline: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  color: rgba(0, 0, 0, 0.4);
-  transition: all ease-in-out 0.2s;
-  border-bottom: 2px solid transparent;
-}
-
 .lessons-pia-active {
   border-bottom: 2px solid var(--orange);
   color: black;

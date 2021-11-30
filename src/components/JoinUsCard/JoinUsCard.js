@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+
+import { Button } from "components/Button";
 import "./JoinUsCard.css";
 
 export default class JoinUsCard extends Component {
-  propTypes = {
+  static propTypes = {
     // role: name of the eclub position
     role: PropTypes.string,
     // height: height expressed in px
@@ -28,17 +30,9 @@ export default class JoinUsCard extends Component {
             ))}
           </ul>
         </div>
-        <div className="join-card-button-container">
-          <div
-            className={`${
-              this.props.closed === true
-                ? "join-card-closed-button"
-                : "join-card-button"
-            }`}
-          >
-            {this.props.closed === true ? "Closed" : "Apply Now!"}
-          </div>
-        </div>
+        <Button theme="normal">
+          {this.props.closed ? "Closed" : "Apply Now!"}
+        </Button>
       </div>
     );
   }

@@ -51,9 +51,10 @@ export default class TabSelector extends Component {
             {this.props.tabs.map((item, index) => {
               return (
                 <li
+                  key={index}
                   value={index}
                   className={`tab ${
-                    index === this.state.activeTab ? "selected" : null
+                    index === this.state.activeTab ? "selected" : ""
                   }`}
                   onClick={this.onTabClick}
                 >

@@ -13,5 +13,6 @@ const Template = (args) => <JoinUsBar {...args} />;
 export const Primary = Template.bind({});
 
 Primary.args = {
-  color: "red",
+  color: "orange",
+  to: "",
 };

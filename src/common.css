@@ -34,6 +34,9 @@
   );
   --text-color: #121212;
   --text-color-onorangehover: white;
+
+  --button-border-radius: 48px;
+  --button-padding: 9px 32px 8px;
 }
 
 body {
@@ -89,11 +92,6 @@ a {
 
 .bg-grey {
   background-color: var(--grey);
-}
-
-button {
-  cursor: pointer;
-  white-space: nowrap;
 }
 
 @media screen and (max-width: 786px) {

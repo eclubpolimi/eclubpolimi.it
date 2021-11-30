@@ -31,7 +31,7 @@
   -ms-user-select: none;
   user-select: none;
 }
-.hamRotate.active {
+.hamRotate.nav-active {
   transform: rotate(45deg);
 }
 .line {
@@ -47,23 +47,31 @@
 .ham .bottom {
   stroke-dasharray: 40 121;
 }
-.ham.active .top {
+.ham.nav-active .top {
   stroke-dashoffset: -68px;
 }
-.ham.active .bottom {
+.ham.nav-active .bottom {
   stroke-dashoffset: -68px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+.nav-link,
+.nav-button {
+  margin: 0 20px;
 }
 
 .nav-link {
   text-align: center;
-  margin: 0 20px;
 }
 
 .nav-link a {
   position: relative;
   color: #fff;
 }
-
 .nav-link a:before {
   content: "";
   position: absolute;
@@ -82,27 +90,7 @@
   opacity: 1;
 }
 .nav-link a:hover {
-  opacity: 0.8;
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-}
-
-.button {
-  background-color: var(--orange);
-  padding: 4.8px 48px;
-  border-radius: 1em;
-  color: #fff;
-}
-.button a {
-  color: inherit;
-}
-
-.button:hover {
-  color: var(--orange);
-  background-color: #fff;
+  opacity: 0.9;
 }
 
 @media screen and (max-width: 992px) {
@@ -121,15 +109,13 @@
     display: block;
   }
 
-  .nav-link {
+  .nav-link,
+  .nav-button {
     margin-bottom: var(--link-margin);
   }
-  .nav-link:first-child {
+  .nav-link:first-child,
+  .nav-button:first-child {
     margin-top: var(--link-margin);
-  }
-
-  .button {
-    margin-bottom: calc(var(--link-margin) - 4.8px);
   }
 
   .nav-links {
@@ -146,7 +132,7 @@
     transition: all 0.5s ease-out;
   }
 
-  .nav-links.active {
+  .nav-links.nav-active {
     max-height: 100vh;
     transition: all 0.5s ease-in;
   }
