@@ -2,11 +2,10 @@ import React, { Component } from "react";
 
 import LessonsPIA from "components/LessonsPIA";
 
-import "./PassionInAction.css";
-
 import SiteData from "Data";
 import Hero from "components/Hero";
 import Description from "components/Description";
+import ParagraphTitle from "components/ParagraphTitle";
 
 export default class PassionInAction extends Component {
   render() {
@@ -25,11 +24,9 @@ export default class PassionInAction extends Component {
             text={SiteData.DescriptionPIA.text}
           />
         </div>
+        <ParagraphTitle text="Lezioni passion in action" />
         <div className="max-w-screen-lg lg:mx-auto px-5 lg:px-0">
-          <LessonsPIA
-            lessons={SiteData.LessonsPIA}
-            className="w-3/4 mx-auto mb-16"
-          />
+          <LessonsPIA lessons={SiteData.LessonsPIA} />
         </div>
       </div>
     );
