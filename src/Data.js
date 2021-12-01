@@ -30,7 +30,7 @@ export default class SiteData {
   static HomeTarget = "/";
   static AboutUsTarget = "/about";
   static EventsTarget = "/events";
-  static TravelTarget = "/target";
+  static TripsTarget = "/trips";
   static GuestsTarget = "/guests";
   static PiaTarget = "/passion-in-action";
   static NetworkTarget = "/network";
@@ -45,10 +45,6 @@ export default class SiteData {
     },
     {
       content: <Link to={this.EventsTarget}>Events</Link>,
-      type: "link",
-    },
-    {
-      content: <Link to={this.TravelTarget}>Travel</Link>,
       type: "link",
     },
     {
