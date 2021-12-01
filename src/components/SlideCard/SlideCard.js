@@ -31,7 +31,7 @@ export default class SlideCard extends Component {
     return (
       // TODO: handle mobile tapping
       <div
-        className="group m-4 relative flex flex-col items-center border-solid border-2 border-gray-100 rounded-lg shadow-xl"
+        className="group m-4 relative flex flex-col items-center border-solid border-2 border-gray-100 rounded-lg shadow-xl overflow-hidden"
         style={{
           height: this.props.height,
           width: this.props.width,
