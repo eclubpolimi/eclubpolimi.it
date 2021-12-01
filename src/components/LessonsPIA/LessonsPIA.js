@@ -22,7 +22,7 @@ export default class LessonsPIA extends Component {
     });
 
     return (
-      <div className={this.props.className}>
+      <div className={`${this.props.className} my-12`}>
         <TabSelector tabs={tabs} />
       </div>
     );

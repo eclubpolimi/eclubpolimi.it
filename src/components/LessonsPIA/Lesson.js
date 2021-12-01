@@ -23,7 +23,6 @@ export default class Lesson extends Component {
   render() {
     return (
       <div className={this.props.className}>
-        <div className="lessons-pia-title">{this.props.lessonData.title}</div>
         <div className="lessons-pia-description-container">
           <div className="lessons-pia-image">
             <img
@@ -34,6 +33,9 @@ export default class Lesson extends Component {
             ></img>
           </div>
           <div className="lessons-pia-description">
+            <div className="lessons-pia-title">
+              {this.props.lessonData.title}
+            </div>
             {this.props.lessonData.description}
           </div>
         </div>
