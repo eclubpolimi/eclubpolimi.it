@@ -37,7 +37,11 @@ export default class Navbar extends Component {
   render() {
     return (
       <nav className="navbar-items bg-blue">
-        <Link to={SiteData.HomeTarget} className="navbar-logo">
+        <Link
+          to={SiteData.HomeTarget}
+          className="navbar-logo"
+          onClick={this.closeMenu}
+        >
           <img src={SiteData.LogoWhite} alt="Entrepreneurship Club Polimi" />
         </Link>
         <ul
@@ -52,7 +56,11 @@ export default class Navbar extends Component {
               );
             }
             return (
-              <li key={index} className={`nav-${item.type}`}>
+              <li
+                key={index}
+                className={`nav-${item.type}`}
+                onClick={this.closeMenu}
+              >
                 {item.content}
               </li>
             );
