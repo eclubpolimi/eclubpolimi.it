@@ -8,11 +8,11 @@
   white-space: nowrap;
 }
 
-.btn--normal {
+.btn--orange {
   color: white;
   background: var(--orange-gradient);
 }
-.btn--normal:hover {
+.btn--orange:hover {
   color: white;
   background: var(--orange-gradient-hover);
 }

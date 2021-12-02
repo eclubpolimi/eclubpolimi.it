@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { LinkButton } from "components/Button";
+import Button from "components/Button";
 
 import Image1 from "assets/test1.png";
 import Image2 from "assets/test2.png";
@@ -56,7 +56,7 @@ export default class SiteData {
       type: "link",
     },
     {
-      content: <LinkButton to={this.JoinTarget}>Join us</LinkButton>,
+      content: <Button to={this.JoinTarget}>Join us</Button>,
       type: "button",
     },
   ];

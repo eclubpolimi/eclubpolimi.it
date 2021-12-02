@@ -12,5 +12,6 @@ const Template = (args) => <Button {...args}>Button</Button>;
 export const Primary = Template.bind({});
 
 Primary.args = {
-  theme: "normal",
+  theme: "orange",
+  disabled: false,
 };

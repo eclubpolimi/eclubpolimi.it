@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
-import { LinkButton } from "components/Button";
+import Button from "components/Button";
 import "./JoinUsBar.css";
 
 export default class JoinUsBar extends Component {
@@ -24,8 +24,8 @@ export default class JoinUsBar extends Component {
       {
         orange: "light",
         blue: "light",
-        white: "normal",
-      }[this.props.color] || "normal"
+        white: "orange",
+      }[this.props.color] || "orange"
     );
   };
 
@@ -35,9 +35,9 @@ export default class JoinUsBar extends Component {
         className={`join-us-bar bg-${this.props.color} ${this.props.className}`}
       >
         <h1 className="jsb-call-to-action">Become one of us!</h1>
-        <LinkButton to={this.props.to} theme={this.getButtonColor()}>
+        <Button to={this.props.to} theme={this.getButtonColor()}>
           Join us
-        </LinkButton>
+        </Button>
       </div>
     );
   }

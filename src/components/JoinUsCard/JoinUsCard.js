@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
-import { Button } from "components/Button";
+import Button from "components/Button";
 import "./JoinUsCard.css";
 
 export default class JoinUsCard extends Component {
@@ -30,7 +30,7 @@ export default class JoinUsCard extends Component {
             ))}
           </ul>
         </div>
-        <Button theme="normal">
+        <Button theme="orange">
           {this.props.closed ? "Closed" : "Apply Now!"}
         </Button>
       </div>
