@@ -6,7 +6,9 @@ import "./Button.css";
 
 export default class Button extends Component {
   static propTypes = {
-    // to: link to navigate to when clicked. If this parameter is specified the button will be a <Link> tag
+    // to: link to navigate to when clicked.
+    // if this prop is specified the button will be an <a> tag
+    // if this prop contains a link beginning with '/' a <Link> tag will be used
     to: PropTypes.string,
     // onClick: function to call when the button is clicked
     onClick: PropTypes.func,
@@ -29,6 +31,8 @@ export default class Button extends Component {
       this.props.disabled ? " btn--disabled" : ""
     } ${this.props.className}`;
 
+    const to = this.props.disabled ? "#" : this.props.to;
+
     if (this.props.to === undefined) {
       return (
         <button
@@ -39,15 +43,18 @@ export default class Button extends Component {
           {this.props.children}
         </button>
       );
-    } else {
+    } else if (this.props.to[0] === "/") {
       return (
-        <Link
-          className={styles}
-          to={this.props.disabled ? "#" : this.props.to}
-          onClick={this.props.onClick}
-        >
+        <Link className={styles} to={to} onClick={this.props.onClick}>
           {this.props.children}
         </Link>
+      );
+    } else {
+      return (
+        // eslint-disable-next-line jsx-a11y/anchor-is-valid
+        <a className={styles} href={to} onClick={this.props.onClick}>
+          {this.props.children}
+        </a>
       );
     }
   }
