@@ -1,16 +1,17 @@
 import { Link } from "react-router-dom";
-import { LinkButton } from "components/Button";
+import Button from "components/Button";
+
+import teams from "assets/teams";
+import pialessons from "assets/pialessons";
 
 import Image1 from "assets/test1.png";
 import Image2 from "assets/test2.png";
 import Image3 from "assets/test3.png";
-import Img from "assets/who_we_are_img_1.jpg";
 
 import logoLearnNetworkBuild from "assets/logo_learn_network_build.svg";
 import homepageHeroBackground from "assets/homepage_hero.jpg";
 import logoWhite from "assets/logo_white.svg";
 
-import image1LessonPIA from "assets/img-lessons-pia-346x220.jpg";
 import imageLogoPIA from "assets/img-lessons-pia-346x220.jpg";
 
 import networkHeroImage from "assets/eclub-network.png";
@@ -30,14 +31,13 @@ export default class SiteData {
   static HomeTarget = "/";
   static AboutUsTarget = "/about";
   static EventsTarget = "/events";
-  static TravelTarget = "/target";
+  static TripsTarget = "/trips";
   static GuestsTarget = "/guests";
   static PiaTarget = "/passion-in-action";
   static NetworkTarget = "/network";
   static JoinTarget = "/join";
 
   // NAVBAR
-
   static NavbarItems = [
     {
       content: <Link to={this.AboutUsTarget}>About us</Link>,
@@ -45,10 +45,6 @@ export default class SiteData {
     },
     {
       content: <Link to={this.EventsTarget}>Events</Link>,
-      type: "link",
-    },
-    {
-      content: <Link to={this.TravelTarget}>Travel</Link>,
       type: "link",
     },
     {
@@ -60,13 +56,12 @@ export default class SiteData {
       type: "link",
     },
     {
-      content: <LinkButton to={this.JoinTarget}>Join us</LinkButton>,
+      content: <Button to={this.JoinTarget}>Join us</Button>,
       type: "button",
     },
   ];
 
   // HOMEPAGE
-
   static Sponsors = [
     { src: Image1, href: "#", alt: "Test1" },
     { src: Image2, href: "#", alt: "Test2" },
@@ -92,181 +87,10 @@ export default class SiteData {
     text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
   };
 
-  static Teams = [
-    {
-      teamName: "Team test 1",
-      members: [
-        {
-          image: Img,
-          cardText: {
-            role: "IT member",
-            nameSurname: "Nome cognome",
-            quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            quoteAuthor: "Lorem ipsum",
-            email: "lorem.ipsum@loremipsum.com",
-            linkedinUrl: "#",
-            instagramUrl: "#",
-          },
-        },
-        {
-          image: Img,
-          cardText: {
-            role: "IT member",
-            nameSurname: "Nome cognome",
-            quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            quoteAuthor: "Lorem ipsum",
-            email: "lorem.ipsum@loremipsum.com",
-            linkedinUrl: "#",
-            instagramUrl: "#",
-          },
-        },
-        {
-          image: Img,
-          cardText: {
-            role: "IT member",
-            nameSurname: "Nome cognome",
-            quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            quoteAuthor: "Lorem ipsum",
-            email: "lorem.ipsum@loremipsum.com",
-            linkedinUrl: "#",
-            instagramUrl: "#",
-          },
-        },
-        {
-          image: Img,
-          cardText: {
-            role: "IT member",
-            nameSurname: "Nome cognome",
-            quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            quoteAuthor: "Lorem ipsum",
-            email: "lorem.ipsum@loremipsum.com",
-            linkedinUrl: "#",
-            instagramUrl: "#",
-          },
-        },
-        {
-          image: Img,
-          cardText: {
-            role: "IT member",
-            nameSurname: "Nome cognome",
-            quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            quoteAuthor: "Lorem ipsum",
-            email: "lorem.ipsum@loremipsum.com",
-            linkedinUrl: "#",
-            instagramUrl: "#",
-          },
-        },
-      ],
-    },
-    {
-      teamName: "Team test 2",
-      members: [
-        {
-          image: Img,
-          cardText: {
-            role: "IT member",
-            nameSurname: "Nome cognome",
-            quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            quoteAuthor: "Lorem ipsum",
-            email: "lorem.ipsum@loremipsum.com",
-            linkedinUrl: "#",
-            instagramUrl: "#",
-          },
-        },
-        {
-          image: Img,
-          cardText: {
-            role: "IT member",
-            nameSurname: "Nome cognome",
-            quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            quoteAuthor: "Lorem ipsum",
-            email: "lorem.ipsum@loremipsum.com",
-            linkedinUrl: "#",
-            instagramUrl: "#",
-          },
-        },
-        {
-          image: Img,
-          cardText: {
-            role: "IT member",
-            nameSurname: "Nome cognome",
-            quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            quoteAuthor: "Lorem ipsum",
-            email: "lorem.ipsum@loremipsum.com",
-            linkedinUrl: "#",
-            instagramUrl: "#",
-          },
-        },
-        {
-          image: Img,
-          cardText: {
-            role: "IT member",
-            nameSurname: "Nome cognome",
-            quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            quoteAuthor: "Lorem ipsum",
-            email: "lorem.ipsum@loremipsum.com",
-            linkedinUrl: "#",
-            instagramUrl: "#",
-          },
-        },
-        {
-          image: Img,
-          cardText: {
-            role: "IT member",
-            nameSurname: "Nome cognome",
-            quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            quoteAuthor: "Lorem ipsum",
-            email: "lorem.ipsum@loremipsum.com",
-            linkedinUrl: "#",
-            instagramUrl: "#",
-          },
-        },
-      ],
-    },
-    {
-      teamName: "Team test 3",
-      members: [
-        {
-          image: Img,
-          cardText: {
-            role: "IT member",
-            nameSurname: "Nome cognome",
-            quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            quoteAuthor: "Lorem ipsum",
-            email: "lorem.ipsum@loremipsum.com",
-            linkedinUrl: "#",
-            instagramUrl: "#",
-          },
-        },
-        {
-          image: Img,
-          cardText: {
-            role: "IT member",
-            nameSurname: "Nome cognome",
-            quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            quoteAuthor: "Lorem ipsum",
-            email: "lorem.ipsum@loremipsum.com",
-            linkedinUrl: "#",
-            instagramUrl: "#",
-          },
-        },
-        {
-          image: Img,
-          cardText: {
-            role: "IT member",
-            nameSurname: "Nome cognome",
-            quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            quoteAuthor: "Lorem ipsum",
-            email: "lorem.ipsum@loremipsum.com",
-            linkedinUrl: "#",
-            instagramUrl: "#",
-          },
-        },
-      ],
-    },
-  ];
+  static Teams = teams;
 
   // LESSONS PIA (placeholder)
+  static LessonsPIA = pialessons;
 
   static PIAHeroBackground = imageLogoPIA;
 
@@ -274,49 +98,6 @@ export default class SiteData {
     title: "Passion In Action",
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   };
-
-  static LessonsPIA = [
-    {
-      name: "Lezione 1",
-      title: "Titolo Lezione 1 PIA",
-      image: image1LessonPIA,
-      alt: "Passion in Action lesson image",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-    },
-    {
-      name: "Lezione 2",
-      title: "Titolo Lezione 2 PIA",
-      image: image1LessonPIA,
-      alt: "Passion in Action lesson image",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-    },
-    {
-      name: "Lezione 3",
-      title: "Titolo Lezione 3 PIA",
-      image: image1LessonPIA,
-      alt: "Passion in Action lesson image",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-    },
-    {
-      name: "Lezione 4",
-      title: "Titolo Lezione 4 PIA",
-      image: image1LessonPIA,
-      alt: "Passion in Action lesson image",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-    },
-    {
-      name: "Lezione 5",
-      title: "Titolo Lezione 5 PIA",
-      image: image1LessonPIA,
-      alt: "Passion in Action lesson image",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-    },
-  ];
 
   // JOIN US CARD EXPLORER
   static explorerAdvantages = [
@@ -340,7 +121,6 @@ export default class SiteData {
   ];
 
   //NETWORK
-
   static NetworkHeroImage = networkHeroImage;
 
   static NetworkSlogan = [

@@ -29,8 +29,8 @@
   );
   --orange-gradient-hover: linear-gradient(
     60deg,
-    rgba(255, 96, 38, 0.5) 10%,
-    rgba(252, 63, 26, 0.5) 90%
+    rgba(255, 121, 63, 1) 10%,
+    rgba(252, 88, 51, 1) 90%
   );
   --text-color: #121212;
   --text-color-onorangehover: white;

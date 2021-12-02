@@ -37,7 +37,11 @@ export default class Navbar extends Component {
   render() {
     return (
       <nav className="navbar-items bg-blue">
-        <Link to={SiteData.HomeTarget} className="navbar-logo">
+        <Link
+          to={SiteData.HomeTarget}
+          className="navbar-logo"
+          onClick={this.closeMenu}
+        >
           <img src={SiteData.LogoWhite} alt="Entrepreneurship Club Polimi" />
         </Link>
         <ul
@@ -52,27 +56,35 @@ export default class Navbar extends Component {
               );
             }
             return (
-              <li key={index} className={`nav-${item.type}`}>
+              <li
+                key={index}
+                className={`nav-${item.type}`}
+                onClick={this.closeMenu}
+              >
                 {item.content}
               </li>
             );
           })}
         </ul>
-        <svg
-          className={`ham hamRotate ${this.state.clicked ? "nav-active" : ""}`}
-          viewBox="0 0 100 100"
-          onClick={this.handleMenu}
-        >
-          <path
-            className="line top"
-            d="m 70,33 h -40 c 0,0 -8.5,-0.149796 -8.5,8.5 0,8.649796 8.5,8.5 8.5,8.5 h 20 v -20"
-          />
-          <path className="line middle" d="m 70,50 h -40" />
-          <path
-            className="line bottom"
-            d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20"
-          />
-        </svg>
+        <div className="ham-container overflow-hidden">
+          <svg
+            className={`ham hamRotate ${
+              this.state.clicked ? "nav-active" : ""
+            }`}
+            viewBox="0 0 100 100"
+            onClick={this.handleMenu}
+          >
+            <path
+              className="line top"
+              d="m 70,33 h -40 c 0,0 -8.5,-0.149796 -8.5,8.5 0,8.649796 8.5,8.5 8.5,8.5 h 20 v -20"
+            />
+            <path className="line middle" d="m 70,50 h -40" />
+            <path
+              className="line bottom"
+              d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20"
+            />
+          </svg>
+        </div>
       </nav>
     );
   }

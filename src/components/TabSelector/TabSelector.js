@@ -69,7 +69,11 @@ export default class TabSelector extends Component {
             onChange={this.onTabClick}
           >
             {this.props.tabs.map((item, index) => {
-              return <option value={index}>{item.name}</option>;
+              return (
+                <option key={index} value={index}>
+                  {item.name}
+                </option>
+              );
             })}
           </select>
         </div>

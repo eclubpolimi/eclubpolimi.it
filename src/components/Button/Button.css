@@ -8,11 +8,11 @@
   white-space: nowrap;
 }
 
-.btn--normal {
+.btn--orange {
   color: white;
   background: var(--orange-gradient);
 }
-.btn--normal:hover {
+.btn--orange:hover {
   color: white;
   background: var(--orange-gradient-hover);
 }
@@ -22,7 +22,7 @@
   background: white;
 }
 .btn--light:hover {
-  opacity: 0.9;
+  background: #f0f0f0;
 }
 
 .btn--dark {
@@ -30,5 +30,14 @@
   background: #242424;
 }
 .btn--dark:hover {
-  opacity: #2424240f;
+  background: #313131;
+}
+
+.btn--disabled {
+  color: white;
+  background: #636363;
+}
+.btn--disabled:hover {
+  background: #707070;
+  cursor: not-allowed;
 }
