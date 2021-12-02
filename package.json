@@ -2,7 +2,7 @@
   "homepage": ".",
   "private": true,
   "dependencies": {
-    "@craco/craco": "^6.3.0",
+    "@craco/craco": "^6.4.2",
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-brands-svg-icons": "^5.15.4",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
@@ -52,12 +52,12 @@
     ]
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^6.3.9",
-    "@storybook/addon-essentials": "^6.3.9",
-    "@storybook/addon-links": "^6.3.9",
+    "@storybook/addon-actions": "^6.4.4",
+    "@storybook/addon-essentials": "^6.4.4",
+    "@storybook/addon-links": "^6.4.4",
     "@storybook/addon-postcss": "^2.0.0",
-    "@storybook/node-logger": "^6.3.9",
-    "@storybook/react": "^6.3.9",
+    "@storybook/node-logger": "^6.4.4",
+    "@storybook/react": "^6.4.4",
     "prettier": "2.4.1",
     "storybook-preset-craco": "0.0.6"
   }
