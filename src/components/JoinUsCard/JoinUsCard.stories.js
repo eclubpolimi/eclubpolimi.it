@@ -16,6 +16,10 @@ Primary.args = {
   role: "Role",
   height: "300px",
   width: "250px",
-  advantages: [""],
+  advantages: [
+    "Hello, how are you, wanna join?",
+    "Hello, how are you, wanna join?",
+    "Hello, how are you, wanna join?",
+  ],
   closed: true,
 };

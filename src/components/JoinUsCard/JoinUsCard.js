@@ -2,16 +2,15 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 
 import Button from "components/Button";
-import "./JoinUsCard.css";
 
 export default class JoinUsCard extends Component {
   static propTypes = {
     // role: name of the eclub position
     role: PropTypes.string,
     // height: height expressed in px
-    height: PropTypes.number,
+    height: PropTypes.string,
     // width: width expressed in px
-    width: PropTypes.number,
+    width: PropTypes.string,
     // advantages: advantages on applying
     advantages: PropTypes.arrayOf(PropTypes.string).isRequired,
     // closed: whether applications are open or not
@@ -21,14 +20,16 @@ export default class JoinUsCard extends Component {
   render() {
     return (
       <div
-        className="join-card-container"
+        className="bg-white rounded-md shadow-lg p-5 flex flex-col justify-between items-center"
         style={{ height: this.props.height, width: this.props.width }}
       >
-        <div className="join-card-text-container">
-          <h1 className="join-card-title">{this.props.role}</h1>
-          <ul className="join-card-list">
+        <div className="mx-6">
+          <h1 className="text-center">{this.props.role}</h1>
+          <ul className="list-disc">
             {this.props.advantages.map((pro, index) => (
-              <li key={index}>{pro}</li>
+              <li className="my-2 text-xs" key={index}>
+                {pro}
+              </li>
             ))}
           </ul>
         </div>
