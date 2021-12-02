@@ -14,6 +14,8 @@ export default class JoinUsCard extends Component {
     width: PropTypes.number,
     // advantages: advantages on applying
     advantages: PropTypes.arrayOf(PropTypes.string).isRequired,
+    // closed: whether applications are open or not
+    closed: PropTypes.bool,
   };
 
   render() {
@@ -30,7 +32,7 @@ export default class JoinUsCard extends Component {
             ))}
           </ul>
         </div>
-        <Button theme="orange">
+        <Button theme="orange" disabled={this.props.closed}>
           {this.props.closed ? "Closed" : "Apply Now!"}
         </Button>
       </div>

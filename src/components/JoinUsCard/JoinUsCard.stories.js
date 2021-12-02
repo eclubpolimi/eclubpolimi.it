@@ -17,6 +17,5 @@ Primary.args = {
   height: "300px",
   width: "250px",
   advantages: [""],
-  label: "Join Us",
   closed: true,
 };
