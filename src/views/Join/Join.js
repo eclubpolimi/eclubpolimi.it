@@ -19,16 +19,16 @@ export default class Join extends Component {
         <div className="bg-gray-100 flex flex-col justify-center items-center py-8 gap-8 sm:flex-row">
           <JoinUsCard
             role="Explorer"
-            height="320px"
-            width="280px"
+            height="340px"
+            width="300px"
             advantages={SiteData.explorerAdvantages}
             to={SiteData.ApplyExplorerLink}
           />
 
           <JoinUsCard
             role="Driver"
-            height="320px"
-            width="280px"
+            height="340px"
+            width="300px"
             advantages={SiteData.driverAdvantages}
             to={SiteData.ApplyDriverLink}
           />

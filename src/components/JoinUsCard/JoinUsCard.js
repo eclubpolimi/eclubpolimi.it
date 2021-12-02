@@ -29,7 +29,7 @@ export default class JoinUsCard extends Component {
           <h1 className="text-center">{this.props.role}</h1>
           <ul className="list-disc">
             {this.props.advantages.map((pro, index) => (
-              <li className="my-2 text-xs" key={index}>
+              <li className="my-2 text-sm" key={index}>
                 {pro}
               </li>
             ))}
