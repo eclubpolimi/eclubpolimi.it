@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import Button from "components/Button";
 
+import teams from "assets/teams";
+
 import Image1 from "assets/test1.png";
 import Image2 from "assets/test2.png";
 import Image3 from "assets/test3.png";
-import Img from "assets/who_we_are_img_1.jpg";
 
 import logoLearnNetworkBuild from "assets/logo_learn_network_build.svg";
 import homepageHeroBackground from "assets/homepage_hero.jpg";
@@ -88,179 +89,7 @@ export default class SiteData {
     text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
   };
 
-  static Teams = [
-    {
-      teamName: "Team test 1",
-      members: [
-        {
-          image: Img,
-          cardText: {
-            role: "IT member",
-            nameSurname: "Nome cognome",
-            quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            quoteAuthor: "Lorem ipsum",
-            email: "lorem.ipsum@loremipsum.com",
-            linkedinUrl: "#",
-            instagramUrl: "#",
-          },
-        },
-        {
-          image: Img,
-          cardText: {
-            role: "IT member",
-            nameSurname: "Nome cognome",
-            quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            quoteAuthor: "Lorem ipsum",
-            email: "lorem.ipsum@loremipsum.com",
-            linkedinUrl: "#",
-            instagramUrl: "#",
-          },
-        },
-        {
-          image: Img,
-          cardText: {
-            role: "IT member",
-            nameSurname: "Nome cognome",
-            quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            quoteAuthor: "Lorem ipsum",
-            email: "lorem.ipsum@loremipsum.com",
-            linkedinUrl: "#",
-            instagramUrl: "#",
-          },
-        },
-        {
-          image: Img,
-          cardText: {
-            role: "IT member",
-            nameSurname: "Nome cognome",
-            quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            quoteAuthor: "Lorem ipsum",
-            email: "lorem.ipsum@loremipsum.com",
-            linkedinUrl: "#",
-            instagramUrl: "#",
-          },
-        },
-        {
-          image: Img,
-          cardText: {
-            role: "IT member",
-            nameSurname: "Nome cognome",
-            quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            quoteAuthor: "Lorem ipsum",
-            email: "lorem.ipsum@loremipsum.com",
-            linkedinUrl: "#",
-            instagramUrl: "#",
-          },
-        },
-      ],
-    },
-    {
-      teamName: "Team test 2",
-      members: [
-        {
-          image: Img,
-          cardText: {
-            role: "IT member",
-            nameSurname: "Nome cognome",
-            quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            quoteAuthor: "Lorem ipsum",
-            email: "lorem.ipsum@loremipsum.com",
-            linkedinUrl: "#",
-            instagramUrl: "#",
-          },
-        },
-        {
-          image: Img,
-          cardText: {
-            role: "IT member",
-            nameSurname: "Nome cognome",
-            quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            quoteAuthor: "Lorem ipsum",
-            email: "lorem.ipsum@loremipsum.com",
-            linkedinUrl: "#",
-            instagramUrl: "#",
-          },
-        },
-        {
-          image: Img,
-          cardText: {
-            role: "IT member",
-            nameSurname: "Nome cognome",
-            quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            quoteAuthor: "Lorem ipsum",
-            email: "lorem.ipsum@loremipsum.com",
-            linkedinUrl: "#",
-            instagramUrl: "#",
-          },
-        },
-        {
-          image: Img,
-          cardText: {
-            role: "IT member",
-            nameSurname: "Nome cognome",
-            quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            quoteAuthor: "Lorem ipsum",
-            email: "lorem.ipsum@loremipsum.com",
-            linkedinUrl: "#",
-            instagramUrl: "#",
-          },
-        },
-        {
-          image: Img,
-          cardText: {
-            role: "IT member",
-            nameSurname: "Nome cognome",
-            quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            quoteAuthor: "Lorem ipsum",
-            email: "lorem.ipsum@loremipsum.com",
-            linkedinUrl: "#",
-            instagramUrl: "#",
-          },
-        },
-      ],
-    },
-    {
-      teamName: "Team test 3",
-      members: [
-        {
-          image: Img,
-          cardText: {
-            role: "IT member",
-            nameSurname: "Nome cognome",
-            quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            quoteAuthor: "Lorem ipsum",
-            email: "lorem.ipsum@loremipsum.com",
-            linkedinUrl: "#",
-            instagramUrl: "#",
-          },
-        },
-        {
-          image: Img,
-          cardText: {
-            role: "IT member",
-            nameSurname: "Nome cognome",
-            quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            quoteAuthor: "Lorem ipsum",
-            email: "lorem.ipsum@loremipsum.com",
-            linkedinUrl: "#",
-            instagramUrl: "#",
-          },
-        },
-        {
-          image: Img,
-          cardText: {
-            role: "IT member",
-            nameSurname: "Nome cognome",
-            quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            quoteAuthor: "Lorem ipsum",
-            email: "lorem.ipsum@loremipsum.com",
-            linkedinUrl: "#",
-            instagramUrl: "#",
-          },
-        },
-      ],
-    },
-  ];
+  static Teams = teams;
 
   // LESSONS PIA (placeholder)
 
