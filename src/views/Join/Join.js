@@ -22,6 +22,7 @@ export default class Join extends Component {
             height="320px"
             width="280px"
             advantages={SiteData.explorerAdvantages}
+            to={SiteData.ApplyExplorerLink}
           />
 
           <JoinUsCard
@@ -29,6 +30,7 @@ export default class Join extends Component {
             height="320px"
             width="280px"
             advantages={SiteData.driverAdvantages}
+            to={SiteData.ApplyDriverLink}
           />
         </div>
       </div>

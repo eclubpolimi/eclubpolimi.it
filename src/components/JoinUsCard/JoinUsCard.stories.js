@@ -22,4 +22,5 @@ Primary.args = {
     "Hello, how are you, wanna join?",
   ],
   closed: true,
+  to: "",
 };

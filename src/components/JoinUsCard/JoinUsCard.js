@@ -15,6 +15,8 @@ export default class JoinUsCard extends Component {
     advantages: PropTypes.arrayOf(PropTypes.string).isRequired,
     // closed: whether applications are open or not
     closed: PropTypes.bool,
+    // to: target link when the button is pressed
+    to: PropTypes.string.isRequired,
   };
 
   render() {
@@ -33,7 +35,7 @@ export default class JoinUsCard extends Component {
             ))}
           </ul>
         </div>
-        <Button theme="orange" disabled={this.props.closed}>
+        <Button theme="orange" to={this.props.to} disabled={this.props.closed}>
           {this.props.closed ? "Closed" : "Apply Now!"}
         </Button>
       </div>
