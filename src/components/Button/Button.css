@@ -32,3 +32,12 @@
 .btn--dark:hover {
   background: #313131;
 }
+
+.btn--disabled {
+  color: white;
+  background: #636363;
+}
+.btn--disabled:hover {
+  background: #707070;
+  cursor: not-allowed;
+}
