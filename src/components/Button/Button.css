@@ -22,7 +22,7 @@
   background: white;
 }
 .btn--light:hover {
-  opacity: 0.9;
+  background: #f0f0f0;
 }
 
 .btn--dark {
@@ -30,5 +30,5 @@
   background: #242424;
 }
 .btn--dark:hover {
-  opacity: #2424240f;
+  background: #313131;
 }
