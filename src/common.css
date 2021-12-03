@@ -44,7 +44,6 @@ h1,
 h2,
 h3 {
   font-weight: 700;
-  text-align: center;
 }
 
 h1 {
@@ -85,14 +84,6 @@ a {
 
 .bg-grey {
   background-color: var(--grey);
-}
-
-@media screen and (max-width: 786px) {
-  h1,
-  h2,
-  h3 {
-    text-align: unset;
-  }
 }
 
 /*---------------------------
