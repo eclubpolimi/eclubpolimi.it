@@ -11,5 +11,7 @@ export default {
 };
 
 export const Primary = () => (
-  <MainDescription mainDescription={SiteData.MainDescription} />
+  <MainDescription image={SiteData.LogoLearnNetworkBuild}>
+    <p>Testo di prova.</p>
+  </MainDescription>
 );
