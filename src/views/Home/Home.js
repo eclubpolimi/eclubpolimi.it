@@ -4,6 +4,7 @@ import Hero from "components/Hero";
 import MainDescription from "components/MainDescription";
 import JoinUsBar from "components/JoinUsBar";
 import Sponsors from "components/Sponsors";
+import TeaserVideo from "assets/teaser_video.mp4";
 
 import "./Home.css";
 
@@ -14,11 +15,10 @@ export default class Home extends Component {
     return (
       <div className="home">
         <Hero
-          backgroundImage={SiteData.HomepageHeroBackground}
-          height="500px"
-          darkness={0.5}
-          contentType="img"
-          logo={SiteData.LogoWhite}
+          backgroundType="video"
+          backgroundVideo={TeaserVideo}
+          height="600px"
+          darkness={0.25}
         />
         <div className="max-w-screen-lg lg:mx-auto px-5 lg:px-0">
           <MainDescription mainDescription={SiteData.MainDescription} />
