@@ -11,7 +11,7 @@ export default class Description extends Component {
   render() {
     return (
       <div className="py-20">
-        <h1>{this.props.title}</h1>
+        <h1 className="md:text-center">{this.props.title}</h1>
         <p>{this.props.text}</p>
       </div>
     );

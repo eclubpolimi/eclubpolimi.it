@@ -34,7 +34,7 @@ h6 {
   position: relative;
 }
 .timeline-item:last-child {
-  padding-bottom: 0;
+  padding-bottom: 0 !important;
 }
 
 .timeline-info {

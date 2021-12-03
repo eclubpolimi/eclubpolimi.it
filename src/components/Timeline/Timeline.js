@@ -12,25 +12,23 @@ export default class Timeline extends Component {
     className: PropTypes.string,
   };
 
-  getStyle() {
-    switch (this.props.style) {
-      case "centered":
-        return "timeline-centered";
-      case "basic":
-        return "";
-      case "split":
-      default:
-        return "timeline-split";
-    }
-  }
+  getStyle = () => {
+    return (
+      {
+        centered: "timeline-centered",
+        basic: "",
+        split: "timeline-split",
+      }[this.props.style] || "timeline-split"
+    );
+  };
 
   render() {
     return (
       <div className={this.props.class}>
         <ul className={`timeline ${this.getStyle()}`}>
-          {this.props.data.map((item) => {
+          {this.props.data.map((item, index) => {
             return (
-              <li className="timeline-item">
+              <li key={index} className="timeline-item">
                 <div className="timeline-info">
                   <span>{item.date}</span>
                 </div>

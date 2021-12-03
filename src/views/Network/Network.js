@@ -31,7 +31,11 @@ export default class Network extends Component {
             text={SiteData.NetworkPartnersDescription.text}
           />
         </div>
-        <Sponsors title="Members" logos={SiteData.NetworkMembers} />
+        <Sponsors
+          className="max-w-screen-lg lg:mx-auto px-5 lg:px-0"
+          title="Members"
+          logos={SiteData.NetworkMembers}
+        />
       </div>
     );
   }
