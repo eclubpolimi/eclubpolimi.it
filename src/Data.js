@@ -78,22 +78,12 @@ export default class SiteData {
   static HomepageHeroBackground = homepageHeroBackground;
 
   // ABOUT US
-  static AboutDescription = {
-    title: "Our mission",
-    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-  };
-
   static Teams = teams;
 
   // LESSONS PIA (placeholder)
   static LessonsPIA = pialessons;
 
   static PIAHeroBackground = imageLogoPIA;
-
-  static DescriptionPIA = {
-    title: "Passion In Action",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  };
 
   // JOIN US
   static ApplyDriverLink =
@@ -167,16 +157,6 @@ export default class SiteData {
     "Staying together is a progress",
     "Working together is a success",
   ];
-
-  static NetworkAbout = {
-    title: "About our network",
-    text: "The Entrepreneurship Club Network is a community of thinkers and doers motivated by the same passion for innovation and disruption. Our network of clubs aims at spreading the entrepreneurial spirit and supporting students in their entrepreneurial journey by connecting and exchanging skills and thoughts. We bring together future and established entrepreneurs who strive to make an impact. Our work focuses on providing our ecosystem with opportunities for connection and ideas contamination. In doing so, we strongly believe that expanding and nurturing our network is key to the well being of our mission.",
-  };
-
-  static NetworkPartnersDescription = {
-    title: "Enterpreneurship clubs in Italy",
-    text: "The first Entrepreneurship Club was founded in 2011 in Bocconi University in Milan. The core values (Learn, Network, Build) remained present ever since and are everyday refined by our experiences. Throughout the years, E-Club Bocconi was able to establish strong connections with similar entities around Italy and Europe. This international culture characterised the E-Club community from day one and mirrors its ambition to expand beyond Italian borders. The network was born in 2020 with the establishment of the Entrepreneurship Club Polimi at Politecnico di Milano. This important step will allow the community to grow further. Thanks to motivated actors who share our vision and embrace our values, we are helping the spread of the entrepreneurial spirit.",
-  };
 
   static NetworkMembers = [
     { alt: "E-Club Polimi", href: "https://www.eclubpolimi.it/", src: logo1 },
