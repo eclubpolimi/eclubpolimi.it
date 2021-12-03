@@ -128,6 +128,18 @@ export default class SiteData {
 
   // EVENTS
 
+  static eventsCarouselImages = [
+    {
+      image: "https://www.w3schools.com/howto/img_lights_wide.jpg",
+    },
+    {
+      image: "https://www.w3schools.com/howto/img_nature_wide.jpg",
+    },
+    {
+      image: "https://www.w3schools.com/howto/img_snow_wide.jpg",
+    },
+  ];
+
   static eventsList = [
     {
       date: "09 November 2021",

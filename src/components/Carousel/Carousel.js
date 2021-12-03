@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import {
   faArrowRight,
   faArrowLeft,
-  faRegPauseCircle,
-  faRegPlayCircle,
+  faPlayCircle,
+  faPauseCircle,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import PropTypes from "prop-types";
@@ -14,14 +14,8 @@ TO DO: Style delle frecce = renderle più grandi in base alla dimensione del car
 */
 export default class Carousel extends Component {
   static propTypes = {
-    //SliderData: Array of image addresses
-    SliderData: PropTypes.array,
-    //height: height of carousel in px
-    height: PropTypes.string,
-    //width: width of carousel in px
-    width: PropTypes.string,
-    //arrowSize: size of arrow in px
-    arrowSize: PropTypes.string,
+    //sliderData: Array of image addresses
+    sliderData: PropTypes.array,
     //autoplay: temporal interval between two pictures in milliseconds
     autoplay: PropTypes.number,
     // className: CSS classes to apply to the outer div
@@ -32,7 +26,7 @@ export default class Carousel extends Component {
     super(props);
     this.state = {
       current: 0,
-      length: this.props.SliderData.length,
+      length: this.props.sliderData.length,
       time: 0,
       existTimer: 1,
     };
@@ -78,59 +72,48 @@ export default class Carousel extends Component {
   };
 
   render() {
-    const ListOfImages = this.props.SliderData;
-    const Slider = ListOfImages.map((slide, index) => (
-      <div
-        className={
-          index === this.state.current
-            ? "carousel-slide-active"
-            : "carousel-slide"
-        }
-        key={index}
-      >
-        {index === this.state.current && (
-          // eslint-disable-next-line jsx-a11y/alt-text
-          <img
-            className="carousel-image"
-            src={slide.image}
-            style={{ height: this.props.height, width: this.props.width }}
-          />
-        )}
-      </div>
-    ));
-
     return (
-      <div
-        className={`carousel-container ${this.props.className}`}
-        style={{ height: this.props.height }}
-      >
-        <FontAwesomeIcon
-          icon={faArrowLeft}
-          className="carousel-left-arrow carousel-circles"
-          style={{ fontSize: this.props.arrowSize }}
-          onClick={this.prevSlide}
-        />
-        <FontAwesomeIcon
-          icon={faArrowRight}
-          className="carousel-right-arrow carousel-circles"
-          style={{ fontSize: this.props.arrowSize }}
-          onClick={this.nextSlide}
-        />
-        <div className="carousel-players">
+      <div className={`w-full relative bg-gray-900`}>
+        <div>
           <FontAwesomeIcon
-            icon={faRegPauseCircle}
-            className="carousel-pause-circle carousel-circles"
+            icon={faArrowLeft}
+            className="z-10 text-white hover:text-gray-300 cursor-pointer h-8 absolute top-1/2 left-8"
             style={{ fontSize: this.props.arrowSize }}
-            onClick={this.unmountTimer}
+            onClick={this.prevSlide}
           />
           <FontAwesomeIcon
-            icon={faRegPlayCircle}
-            className="carousel-play-circle carousel-circles"
+            icon={faArrowRight}
+            className="z-10 text-white hover:text-gray-300 cursor-pointer h-8 absolute top-1/2 right-8"
             style={{ fontSize: this.props.arrowSize }}
-            onClick={this.mountTimer}
+            onClick={this.nextSlide}
           />
+          <div className="absolute z-10 left-1/2 bottom-8">
+            <FontAwesomeIcon
+              icon={faPauseCircle}
+              className="text-white hover:text-gray-300 cursor-pointer h-8"
+              style={{ fontSize: this.props.arrowSize }}
+              onClick={this.unmountTimer}
+            />
+            <FontAwesomeIcon
+              icon={faPlayCircle}
+              className="text-white hover:text-gray-300 cursor-pointer h-8"
+              style={{ fontSize: this.props.arrowSize }}
+              onClick={this.mountTimer}
+            />
+          </div>
         </div>
-        <div className="carousel-slider">{Slider}</div>
+        <div className="w-full">
+          {this.props.sliderData.map((slide, index) => (
+            <div
+              className={` transition-opacity duration-1000 ${
+                index === this.state.current ? "opacity-100" : "h-0 opacity-0"
+              }`}
+              key={index}
+            >
+              <img className="w-full h-full" src={slide.image} alt="Carousel" />
+            </div>
+          ))}
+        </div>
       </div>
     );
   }
