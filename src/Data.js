@@ -126,6 +126,31 @@ export default class SiteData {
     "Do you want to share your entrepreneurial experience - failure or success - with the firt entrepreneurial community of Polimi?",
   ];
 
+  // EVENTS
+
+  static eventsList = [
+    {
+      date: "09 November 2021",
+      title: "Desacralizing Entrepreneurship with Jean-Michel Ledru",
+      body: "Inspirational Talk in which the guest will destroy the myth of entrepreneurship as something realizable only by a few excellent minds. He will prove that everybody can become an entrepreneur by presenting some examples from his experience as a coach in the incubator and accelerator of EDHEC Entrepreneurs.",
+    },
+    {
+      date: "16 November 2021",
+      title: "Aperitivo with Italian Embedded",
+      body: "The event will revolve around the entrepreneurial efforts in the world of embedded systems, from both the points of view of the startup and of the well-established company, addressing the problem from different perspectives.",
+    },
+    {
+      date: "17-19 December 2021",
+      title: "Trip to Turin",
+      body: "Fantastic trip to discover one of the most important startup accelerators in Italy, I3P, meet the students of the Politecnico di Torino and networking with our colleagues of the Entrepreneurship Club Polito. Of course, you cannot miss a guided tour of the city and a visit to Palazzo Reale and Museo Egizio.",
+    },
+    {
+      date: "19 December 2021",
+      title: "Christmas aperitivo with Eclub Bocconi",
+      body: "Aperitivo organized with our colleagues of the Entrepreneurship Club Bocconi to expand our network, create new friendships, and greet each other before the Christmas holidays.",
+    },
+  ];
+
   //NETWORK
   static NetworkHeroImage = networkHeroImage;
 
