@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./About.css";
 
 import SiteData from "Data";
 
@@ -34,7 +33,7 @@ export default class About extends Component {
         <div className="bg-gray-200">
           <div className="max-w-screen-lg lg:mx-auto px-5 lg:px-0">
             <Teams
-              teams={SiteData.Teams}
+              teams={SiteData.GetTeams()}
               className="max-w-screen-lg lg:mx-auto px-5 lg:px-0 pt-8 pb-12"
             />
           </div>
