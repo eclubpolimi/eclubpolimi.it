@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Button from "components/Button";
 
-import teams from "assets/teams";
+import { getTeams } from "assets/teams";
 import pialessons from "assets/pialessons";
 
 import Image1 from "assets/test1.png";
@@ -78,7 +78,9 @@ export default class SiteData {
   static HomepageHeroBackground = homepageHeroBackground;
 
   // ABOUT US
-  static Teams = teams;
+  static GetTeams() {
+    return getTeams();
+  }
 
   // LESSONS PIA (placeholder)
   static LessonsPIA = pialessons;
