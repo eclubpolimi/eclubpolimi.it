@@ -11,9 +11,9 @@ export default class Network extends Component {
     return (
       <div className="h-full">
         <Hero
-          height="500px"
+          height="600px"
           darkness={0.5}
-          backgroundImage={SiteData.HomepageHeroBackground}
+          backgroundImage={SiteData.NetworkHeroBackground}
           contentType="logo"
           logo={SiteData.NetworkHeroImage}
           logoWidth="400px"

@@ -13,11 +13,11 @@ export default class About extends Component {
     return (
       <div className="about">
         <Hero
-          backgroundImage={SiteData.HomepageHeroBackground}
-          height="500px"
+          backgroundImage={SiteData.aboutUsHeroBackground}
+          height="700px"
           darkness={0.5}
-          contentType="img"
-          logo={SiteData.LogoWhite}
+          contentType="text"
+          text="About us"
         />
         <div className="max-w-screen-lg lg:mx-auto px-5 lg:px-0">
           <Description title="Our mission">

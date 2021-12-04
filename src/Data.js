@@ -79,11 +79,14 @@ export default class SiteData {
 
   // ABOUT US
   static Teams = teams;
+  static aboutUsHeroBackground =
+    "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/231d53bb-9e18-4186-b7b7-40813c32777f/aboutUs-2.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20211204%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20211204T173751Z&X-Amz-Expires=86400&X-Amz-Signature=11ffde9c4c79033fa9ff76e105f9b40b5ed419bcb84820889c145ace52530f6f&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22aboutUs-2.png%22&x-id=GetObject";
 
   // LESSONS PIA (placeholder)
   static LessonsPIA = pialessons;
 
-  static PIAHeroBackground = imageLogoPIA;
+  static PIAHeroBackground =
+    "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/07209298-c76b-4a09-bc45-1b6376859062/passionInAction-2.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20211204%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20211204T174106Z&X-Amz-Expires=86400&X-Amz-Signature=e9f7d2242952d3f05d1347da15992054f9cb302353c4e595f1ff5b50dbbc3ced&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22passionInAction-2.png%22&x-id=GetObject";
 
   // JOIN US
   static ApplyDriverLink =
@@ -162,6 +165,8 @@ export default class SiteData {
 
   //NETWORK
   static NetworkHeroImage = networkHeroImage;
+  static NetworkHeroBackground =
+    "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/d7e352b4-1b92-474c-8d37-5076ec3df517/networkHero.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20211204%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20211204T174203Z&X-Amz-Expires=86400&X-Amz-Signature=15860d689bd91262d9ad20dcb54e877034300bd9d8a34ef881c0fb42a9668dda&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22networkHero.jpg%22&x-id=GetObject";
 
   static NetworkSlogan = [
     "Coming together is a beginning",

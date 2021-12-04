@@ -13,10 +13,11 @@ export default class PassionInAction extends Component {
       <div className="passion-in-action">
         <Hero
           backgroundImage={SiteData.PIAHeroBackground}
-          height="500px"
+          height="600px"
           darkness={0.5}
           contentType="text"
           text="Passion in action"
+          alignTop
         />
         <div className="max-w-screen-lg lg:mx-auto px-5 lg:px-0">
           <Description title="Passion In Action">
