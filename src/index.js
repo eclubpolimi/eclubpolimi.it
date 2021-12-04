@@ -31,9 +31,9 @@ function Site() {
       <Footer
         logo={SiteData.LogoWhite}
         copyrightName="E-club Polimi"
-        facebookUrl="https://facebook.com/"
-        instagramUrl="https://instagram.com/"
-        linkedinUrl="https://linkedin.com/"
+        facebookUrl="https://www.facebook.com/eclubpolimi/"
+        instagramUrl="https://www.instagram.com/eclubpolimi/"
+        linkedinUrl="https://www.linkedin.com/company/eclubpolimi/"
       />
     </Router>
   );

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Button from "components/Button";
 
-import teams from "assets/teams";
+import { getTeams } from "assets/teams";
 import pialessons from "assets/pialessons";
 
 import logoLearnNetworkBuild from "assets/logo_learn_network_build.svg";
@@ -84,9 +84,13 @@ export default class SiteData {
   static HomepageHeroBackground = homepageHeroBackground;
 
   // ABOUT US
-  static Teams = teams;
+
   static aboutUsHeroBackground =
     "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/231d53bb-9e18-4186-b7b7-40813c32777f/aboutUs-2.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20211204%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20211204T173751Z&X-Amz-Expires=86400&X-Amz-Signature=11ffde9c4c79033fa9ff76e105f9b40b5ed419bcb84820889c145ace52530f6f&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22aboutUs-2.png%22&x-id=GetObject";
+
+  static GetTeams() {
+    return getTeams();
+  }
 
   // LESSONS PIA (placeholder)
   static LessonsPIA = pialessons;
