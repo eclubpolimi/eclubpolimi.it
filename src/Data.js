@@ -116,13 +116,24 @@ export default class SiteData {
 
   static eventsCarouselImages = [
     {
-      image: "https://www.w3schools.com/howto/img_lights_wide.jpg",
+      image:
+        "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/6322138d-23fa-4c4c-b45c-0706d00e7974/2.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20211204%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20211204T165759Z&X-Amz-Expires=86400&X-Amz-Signature=48c2fc414ddf14d1b0038079591a8c0aaf3e714211b0798da2eae14990712374&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%222.jpg%22&x-id=GetObject",
     },
     {
-      image: "https://www.w3schools.com/howto/img_nature_wide.jpg",
+      image:
+        "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/77d6b2a1-a655-4999-bb77-70ce4e5bcc57/3.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20211204%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20211204T165802Z&X-Amz-Expires=86400&X-Amz-Signature=ef3fbb92bde7a30aaf07bb4bd46e9fa3f4e804544bed9d2e610490c2f86bc082&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%223.jpg%22&x-id=GetObject",
     },
     {
-      image: "https://www.w3schools.com/howto/img_snow_wide.jpg",
+      image:
+        "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/651ed302-f19b-441e-9c88-449e30621490/4.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20211204%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20211204T165805Z&X-Amz-Expires=86400&X-Amz-Signature=14d71e044e66785a3e55cd8bdb9e845823133fef14566372f00940fb7b011093&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%224.jpg%22&x-id=GetObject",
+    },
+    {
+      image:
+        "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/77f9f142-3f98-47d2-a2af-ab5c6996b728/5.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20211204%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20211204T165809Z&X-Amz-Expires=86400&X-Amz-Signature=870e81288f2591a7895c94ce50f505753248674dc8e887f4195b78c6bbaa2241&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%225.jpg%22&x-id=GetObject",
+    },
+    {
+      image:
+        "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/67554fb8-3e8f-4445-921e-756e5ac33572/6.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20211204%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20211204T165812Z&X-Amz-Expires=86400&X-Amz-Signature=364c9edbbf82d7f79585baf547c5f3d30e25a1045438b36e3691169f9a5414d3&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%226.jpg%22&x-id=GetObject",
     },
   ];
 
