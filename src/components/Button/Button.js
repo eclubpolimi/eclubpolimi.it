@@ -51,8 +51,13 @@ export default class Button extends Component {
       );
     } else {
       return (
-        // eslint-disable-next-line jsx-a11y/anchor-is-valid
-        <a className={styles} href={to} onClick={this.props.onClick}>
+        <a
+          className={styles}
+          href={to}
+          target="_blank"
+          rel="noreferrer"
+          onClick={this.props.onClick}
+        >
           {this.props.children}
         </a>
       );
