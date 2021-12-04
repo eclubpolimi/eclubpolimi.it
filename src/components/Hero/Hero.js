@@ -19,6 +19,8 @@ export default class Hero extends Component {
     logo: PropTypes.any,
     // logoWidth: width of the logo
     logoWidth: PropTypes.string,
+    // alignTop
+    alignTop: PropTypes.bool,
   };
 
   render() {
@@ -28,7 +30,7 @@ export default class Hero extends Component {
         style={{
           backgroundImage: `linear-gradient(rgba(0,0,0,${this.props.darkness}), rgba(0,0,0,${this.props.darkness})), url(${this.props.backgroundImage})`,
           height: this.props.height,
-          backgroundPosition: "center",
+          ...(!this.props.alignTop && { backgroundPosition: "center" }),
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
         }}

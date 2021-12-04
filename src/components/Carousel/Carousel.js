@@ -74,7 +74,7 @@ export default class Carousel extends Component {
   render() {
     return (
       <div className={`w-full relative bg-gray-900`}>
-        <div>
+        <div className="hidden md:block">
           <FontAwesomeIcon
             icon={faArrowLeft}
             className="z-10 text-white hover:text-gray-300 cursor-pointer h-8 absolute top-1/2 left-8"
@@ -87,7 +87,7 @@ export default class Carousel extends Component {
             style={{ fontSize: this.props.arrowSize }}
             onClick={this.nextSlide}
           />
-          <div className="absolute z-10 left-1/2 bottom-8">
+          <div className="absolute z-10 left-1/2 transform -translate-x-1/2 bottom-8">
             <FontAwesomeIcon
               icon={faPauseCircle}
               className="text-white hover:text-gray-300 cursor-pointer h-8"
