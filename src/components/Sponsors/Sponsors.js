@@ -23,19 +23,20 @@ export default class Sponsors extends Component {
 
   render() {
     return (
-      <div className={this.props.className}>
-        <h1 className="md:text-center">
+      <div className={`bg-gray-400 py-20`}>
+        <h1 className="md:text-center text-white">
           {this.props.title ? this.props.title : "Sponsors"}
         </h1>
         <div className="flex flex-wrap items-center justify-center">
           {this.props.logos.map((logo, index) => (
-            <img
-              className="w-60 m-10"
-              src={logo.src}
-              href={logo.href}
-              alt={logo.alt}
-              key={index}
-            />
+            <a href={logo.href}>
+              <img
+                className="w-60 m-10"
+                src={logo.src}
+                alt={logo.alt}
+                key={index}
+              />
+            </a>
           ))}
         </div>
       </div>

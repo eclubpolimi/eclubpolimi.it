@@ -63,14 +63,26 @@ export default class SiteData {
 
   // HOMEPAGE
   static Sponsors = [
-    { src: Image1, href: "#", alt: "Test1" },
-    { src: Image2, href: "#", alt: "Test2" },
-    { src: Image3, href: "#", alt: "Test3" },
-    { src: Image1, href: "#", alt: "Test1" },
-    { src: Image2, href: "#", alt: "Test2" },
-    { src: Image3, href: "#", alt: "Test3" },
-    { src: Image1, href: "#", alt: "Test1" },
-    { src: Image2, href: "#", alt: "Test2" },
+    {
+      src: "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/bf0540c1-a6a3-40cf-ae2f-e9ee2210b994/astra.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20211204%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20211204T180535Z&X-Amz-Expires=86400&X-Amz-Signature=7566cc107b20f66631210c6d58c5415abd6ec2a0cf8ec7808daaae6c9ceb65e0&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22astra.png%22&x-id=GetObject",
+      href: "https://astraincubator.com",
+      alt: "Astra incubator",
+    },
+    {
+      src: "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/b48f6d24-0c8d-433e-b165-3854fc77ddf9/tutored.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20211204%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20211204T180713Z&X-Amz-Expires=86400&X-Amz-Signature=84dfe8dd706724469fac6e2a64de0959a2e31e0a8aa27cb3b43b989580e13db6&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22tutored.png%22&x-id=GetObject",
+      href: "https://www.tutored.me",
+      alt: "Tutored",
+    },
+    {
+      src: "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/826e6c4c-a406-4898-bafa-12ae14fa4663/polihub.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20211204%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20211204T180729Z&X-Amz-Expires=86400&X-Amz-Signature=9d5f2b96da4ba9a8b849dbb500e20d73e573f46aca6a72bbfaa766ffbe88b263&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22polihub.png%22&x-id=GetObject",
+      href: "https://www.polihub.it/it/",
+      alt: "Polihub",
+    },
+    {
+      src: "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/f4fa519c-5d36-4f18-8e5a-d84dc8d72fdb/jemp.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20211204%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20211204T180745Z&X-Amz-Expires=86400&X-Amz-Signature=9b07dd0b7d9fcee16c0ad942da28882cb6525d96a275ac51186ddc50f76bcb6e&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22jemp.png%22&x-id=GetObject",
+      href: "https://www.jemp.it",
+      alt: "Jemp",
+    },
   ];
 
   static LogoLearnNetworkBuild = logoLearnNetworkBuild;
