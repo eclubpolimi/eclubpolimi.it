@@ -29,7 +29,7 @@ export default class Sponsors extends Component {
         </h1>
         <div className="flex flex-wrap items-center justify-center">
           {this.props.logos.map((logo, index) => (
-            <a href={logo.href}>
+            <a href={logo.href} key={index}>
               <img
                 className="w-60 m-10"
                 src={logo.src}
