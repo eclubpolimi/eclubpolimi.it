@@ -58,22 +58,22 @@ export default class SiteData {
   // HOMEPAGE
   static Sponsors = [
     {
-      src: "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/bf0540c1-a6a3-40cf-ae2f-e9ee2210b994/astra.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20211204%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20211204T180535Z&X-Amz-Expires=86400&X-Amz-Signature=7566cc107b20f66631210c6d58c5415abd6ec2a0cf8ec7808daaae6c9ceb65e0&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22astra.png%22&x-id=GetObject",
+      src: "/images/data/Astra.png",
       href: "https://astraincubator.com",
       alt: "Astra incubator",
     },
     {
-      src: "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/b48f6d24-0c8d-433e-b165-3854fc77ddf9/tutored.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20211204%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20211204T180713Z&X-Amz-Expires=86400&X-Amz-Signature=84dfe8dd706724469fac6e2a64de0959a2e31e0a8aa27cb3b43b989580e13db6&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22tutored.png%22&x-id=GetObject",
+      src: "/images/data/Tutored.png",
       href: "https://www.tutored.me",
       alt: "Tutored",
     },
     {
-      src: "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/826e6c4c-a406-4898-bafa-12ae14fa4663/polihub.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20211204%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20211204T180729Z&X-Amz-Expires=86400&X-Amz-Signature=9d5f2b96da4ba9a8b849dbb500e20d73e573f46aca6a72bbfaa766ffbe88b263&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22polihub.png%22&x-id=GetObject",
+      src: "/images/data/Polihub.png",
       href: "https://www.polihub.it/it/",
       alt: "Polihub",
     },
     {
-      src: "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/f4fa519c-5d36-4f18-8e5a-d84dc8d72fdb/jemp.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20211204%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20211204T180745Z&X-Amz-Expires=86400&X-Amz-Signature=9b07dd0b7d9fcee16c0ad942da28882cb6525d96a275ac51186ddc50f76bcb6e&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22jemp.png%22&x-id=GetObject",
+      src: "/images/data/Jemp.png",
       href: "https://www.jemp.it",
       alt: "Jemp",
     },
@@ -85,8 +85,7 @@ export default class SiteData {
 
   // ABOUT US
 
-  static aboutUsHeroBackground =
-    "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/231d53bb-9e18-4186-b7b7-40813c32777f/aboutUs-2.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20211204%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20211204T173751Z&X-Amz-Expires=86400&X-Amz-Signature=11ffde9c4c79033fa9ff76e105f9b40b5ed419bcb84820889c145ace52530f6f&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22aboutUs-2.png%22&x-id=GetObject";
+  static aboutUsHeroBackground = "/images/data/aboutUs_hero.png";
 
   static GetTeams() {
     return getTeams();
@@ -95,8 +94,7 @@ export default class SiteData {
   // LESSONS PIA (placeholder)
   static LessonsPIA = pialessons;
 
-  static PIAHeroBackground =
-    "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/07209298-c76b-4a09-bc45-1b6376859062/passionInAction-2.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20211204%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20211204T174106Z&X-Amz-Expires=86400&X-Amz-Signature=e9f7d2242952d3f05d1347da15992054f9cb302353c4e595f1ff5b50dbbc3ced&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22passionInAction-2.png%22&x-id=GetObject";
+  static PIAHeroBackground = "/images/data/pia_hero.png";
 
   // JOIN US
   static ApplyDriverLink =
@@ -129,24 +127,19 @@ export default class SiteData {
 
   static eventsCarouselImages = [
     {
-      image:
-        "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/6322138d-23fa-4c4c-b45c-0706d00e7974/2.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20211204%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20211204T165759Z&X-Amz-Expires=86400&X-Amz-Signature=48c2fc414ddf14d1b0038079591a8c0aaf3e714211b0798da2eae14990712374&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%222.jpg%22&x-id=GetObject",
+      image: "/images/data/carousel1.jpg",
     },
     {
-      image:
-        "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/77d6b2a1-a655-4999-bb77-70ce4e5bcc57/3.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20211204%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20211204T165802Z&X-Amz-Expires=86400&X-Amz-Signature=ef3fbb92bde7a30aaf07bb4bd46e9fa3f4e804544bed9d2e610490c2f86bc082&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%223.jpg%22&x-id=GetObject",
+      image: "/images/data/carousel2.jpg",
     },
     {
-      image:
-        "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/651ed302-f19b-441e-9c88-449e30621490/4.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20211204%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20211204T165805Z&X-Amz-Expires=86400&X-Amz-Signature=14d71e044e66785a3e55cd8bdb9e845823133fef14566372f00940fb7b011093&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%224.jpg%22&x-id=GetObject",
+      image: "/images/data/carousel3.jpg",
     },
     {
-      image:
-        "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/77f9f142-3f98-47d2-a2af-ab5c6996b728/5.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20211204%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20211204T165809Z&X-Amz-Expires=86400&X-Amz-Signature=870e81288f2591a7895c94ce50f505753248674dc8e887f4195b78c6bbaa2241&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%225.jpg%22&x-id=GetObject",
+      image: "/images/data/carousel4.jpg",
     },
     {
-      image:
-        "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/67554fb8-3e8f-4445-921e-756e5ac33572/6.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20211204%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20211204T165812Z&X-Amz-Expires=86400&X-Amz-Signature=364c9edbbf82d7f79585baf547c5f3d30e25a1045438b36e3691169f9a5414d3&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%226.jpg%22&x-id=GetObject",
+      image: "/images/data/carousel5.jpg",
     },
   ];
 
@@ -175,8 +168,7 @@ export default class SiteData {
 
   //NETWORK
   static NetworkHeroImage = networkHeroImage;
-  static NetworkHeroBackground =
-    "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/d7e352b4-1b92-474c-8d37-5076ec3df517/networkHero.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20211204%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20211204T174203Z&X-Amz-Expires=86400&X-Amz-Signature=15860d689bd91262d9ad20dcb54e877034300bd9d8a34ef881c0fb42a9668dda&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22networkHero.jpg%22&x-id=GetObject";
+  static NetworkHeroBackground = "/images/data/network_hero.jpg";
 
   static NetworkSlogan = [
     "Coming together is a beginning",
