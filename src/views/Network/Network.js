@@ -54,11 +54,12 @@ export default class Network extends Component {
             </p>
           </Description>
         </div>
-        <Sponsors
-          className="max-w-screen-lg lg:mx-auto px-5 lg:px-0"
-          title="Members"
-          logos={SiteData.NetworkMembers}
-        />
+        <div className="bg-gray-100">
+          <Sponsors
+            className="max-w-screen-lg lg:mx-auto px-5 lg:px-0 py-16"
+            logos={SiteData.NetworkMembers}
+          />
+        </div>
       </div>
     );
   }

@@ -23,8 +23,8 @@ export default class Sponsors extends Component {
 
   render() {
     return (
-      <div className={`bg-gray-400 py-20`}>
-        <h1 className="md:text-center text-white">
+      <div className={this.props.className}>
+        <h1 className="md:text-center">
           {this.props.title ? this.props.title : "Sponsors"}
         </h1>
         <div className="flex flex-wrap items-center justify-center">
