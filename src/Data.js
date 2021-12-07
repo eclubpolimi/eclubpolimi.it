@@ -145,12 +145,12 @@ export default class SiteData {
 
   static eventsList = [
     {
-      date: "09 November 2021",
+      date: "09 December 2021",
       title: "Desacralizing Entrepreneurship with Jean-Michel Ledru",
       body: "Inspirational Talk in which the guest will destroy the myth of entrepreneurship as something realizable only by a few excellent minds. He will prove that everybody can become an entrepreneur by presenting some examples from his experience as a coach in the incubator and accelerator of EDHEC Entrepreneurs.",
     },
     {
-      date: "16 November 2021",
+      date: "16 December 2021",
       title: "Aperitivo with Italian Embedded",
       body: "The event will revolve around the entrepreneurial efforts in the world of embedded systems, from both the points of view of the startup and of the well-established company, addressing the problem from different perspectives.",
     },
