@@ -68,41 +68,47 @@ export default class SlideCard extends Component {
             </div>
 
             <div className="flex flex-row justify-evenly absolute bottom-0 right-0 left-0 pb-5">
-              <a
-                href={`mailto:${this.props.cardText.email}`}
-                target="_blank"
-                rel="noreferrer"
-              >
-                <FontAwesomeIcon
-                  icon={faEnvelope}
-                  size="2x"
-                  className="transition duration-200 text-gray-300 hover:text-gray-500"
-                />
-              </a>
+              {this.props.cardText.email && (
+                <a
+                  href={`mailto:${this.props.cardText.email}`}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <FontAwesomeIcon
+                    icon={faEnvelope}
+                    size="2x"
+                    className="transition duration-200 text-gray-300 hover:text-gray-500"
+                  />
+                </a>
+              )}
 
-              <a
-                href={this.props.cardText.instagramUrl}
-                target="_blank"
-                rel="noreferrer"
-              >
-                <FontAwesomeIcon
-                  icon={faInstagram}
-                  size="2x"
-                  className="transition duration-200 text-gray-300 hover:text-gray-500"
-                />
-              </a>
+              {this.props.cardText.instagramUrl && (
+                <a
+                  href={this.props.cardText.instagramUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <FontAwesomeIcon
+                    icon={faInstagram}
+                    size="2x"
+                    className="transition duration-200 text-gray-300 hover:text-gray-500"
+                  />
+                </a>
+              )}
 
-              <a
-                href={this.props.cardText.linkedinUrl}
-                target="_blank"
-                rel="noreferrer"
-              >
-                <FontAwesomeIcon
-                  icon={faLinkedinIn}
-                  size="2x"
-                  className="transition duration-200 text-gray-300 hover:text-gray-500"
-                />
-              </a>
+              {this.props.cardText.linkedinUrl && (
+                <a
+                  href={this.props.cardText.linkedinUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <FontAwesomeIcon
+                    icon={faLinkedinIn}
+                    size="2x"
+                    className="transition duration-200 text-gray-300 hover:text-gray-500"
+                  />
+                </a>
+              )}
             </div>
           </div>
         </div>
