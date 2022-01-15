@@ -1,6 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 
 import Navbar from "components/Navbar";
 import Home from "views/Home";
@@ -27,6 +32,7 @@ function Site() {
         <Route exact path={SiteData.PiaTarget} component={PassionInAction} />
         <Route exact path={SiteData.NetworkTarget} component={Network} />
         <Route exact path={SiteData.JoinTarget} component={Join} />
+        <Redirect from="*" to={SiteData.HomeTarget} />
       </Switch>
       <Footer
         logo={SiteData.LogoWhite}
