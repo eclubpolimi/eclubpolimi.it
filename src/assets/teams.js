@@ -306,7 +306,7 @@ const rawTeams = [
     quoteAuthor: "Captain Disillusion",
     marksColor: "#1e58f0",
     email: "niccolo.betto@eclubpolimi.it",
-    linkedinUrl: "",
+    linkedinUrl: "https://www.linkedin.com/in/niccolo-betto/",
     instagramUrl: "https://www.instagram.com/nick_betto",
   },
   {
