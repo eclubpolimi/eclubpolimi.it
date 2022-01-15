@@ -84,7 +84,6 @@ export default class SiteData {
   static HomepageHeroBackground = homepageHeroBackground;
 
   // ABOUT US
-
   static aboutUsHeroBackground = "/images/data/aboutUs_hero.png";
 
   static GetTeams() {
@@ -124,7 +123,6 @@ export default class SiteData {
   ];
 
   // EVENTS
-
   static eventsCarouselImages = [
     {
       image: "/images/data/carousel1.jpg",

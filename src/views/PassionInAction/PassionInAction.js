@@ -46,7 +46,7 @@ export default class PassionInAction extends Component {
             </p>
           </Description>
         </div>
-        <ParagraphTitle text="Lezioni passion in action" />
+        <ParagraphTitle text="Passion In Action Lessons" />
         <div className="max-w-screen-lg lg:mx-auto px-5 lg:px-0">
           <LessonsPIA lessons={SiteData.LessonsPIA} />
         </div>
