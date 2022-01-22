@@ -50,9 +50,9 @@ export default class SlideCard extends Component {
           <div className="text-lg font-semibold pt-4">
             {this.props.cardText.nameSurname}
           </div>
-          <div className="text-gray-400">{this.props.cardText.role}</div>
+          <div className="text-gray-500">{this.props.cardText.role}</div>
 
-          <div className="p-8 relative h-full w-full">
+          <div className="p-4 relative h-full w-full">
             <div className="flex flex-row">
               <FontAwesomeIcon
                 icon={faQuoteLeft}
@@ -67,7 +67,7 @@ export default class SlideCard extends Component {
               </div>
             </div>
 
-            <div className="flex flex-row justify-evenly absolute bottom-0 right-0 left-0 pb-5">
+            <div className="flex flex-row justify-evenly absolute bottom-0 right-0 left-0 pb-4">
               {this.props.cardText.email && (
                 <a
                   href={`mailto:${this.props.cardText.email}`}

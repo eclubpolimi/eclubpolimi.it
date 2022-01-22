@@ -13,7 +13,7 @@ export default class Teams extends Component {
 
   cardSize = {
     height: "300px",
-    width: "200px",
+    width: "210px",
   };
 
   render() {
