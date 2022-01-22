@@ -47,7 +47,7 @@ export default class Home extends Component {
         </div>
         <JoinUsBar to={SiteData.JoinTarget} color="orange" />
 
-        <div className="bg-gray-400">
+        <div className="bg-gray-100">
           <Sponsors
             className="max-w-screen-lg lg:mx-auto px-5 lg:px-0 py-16"
             logos={SiteData.Sponsors}
