@@ -143,24 +143,14 @@ export default class SiteData {
 
   static eventsList = [
     {
-      date: "09 December 2021",
-      title: "Desacralizing Entrepreneurship with Jean-Michel Ledru",
-      body: "Inspirational Talk in which the guest will destroy the myth of entrepreneurship as something realizable only by a few excellent minds. He will prove that everybody can become an entrepreneur by presenting some examples from his experience as a coach in the incubator and accelerator of EDHEC Entrepreneurs.",
+      date: "03 March 2022",
+      title: "Ibrida Birra",
+      body: "Ibrida Birra is a groundbreaking startup that had the crazy idea of giving a new life to surplus bread by crafting it into beers. During this insightful aperitivo, we will discover the journey of four young entrepreneurs who managed to merge the social symbol of beer with circular economy and, at the same time, support small businesses in the area of Milan.",
     },
     {
-      date: "16 December 2021",
-      title: "Aperitivo with Italian Embedded",
-      body: "The event will revolve around the entrepreneurial efforts in the world of embedded systems, from both the points of view of the startup and of the well-established company, addressing the problem from different perspectives.",
-    },
-    {
-      date: "17-19 December 2021",
-      title: "Trip to Turin",
-      body: "Fantastic trip to discover one of the most important startup accelerators in Italy, I3P, meet the students of the Politecnico di Torino and networking with our colleagues of the Entrepreneurship Club Polito. Of course, you cannot miss a guided tour of the city and a visit to Palazzo Reale and Museo Egizio.",
-    },
-    {
-      date: "19 December 2021",
-      title: "Christmas aperitivo with Eclub Bocconi",
-      body: "Aperitivo organized with our colleagues of the Entrepreneurship Club Bocconi to expand our network, create new friendships, and greet each other before the Christmas holidays.",
+      date: "15 March 2022",
+      title: "Inspirational talk by Augusto Metidieri",
+      body: "Elected “Most Influential CEO Europe 2019 for Humancentric Driven Innovation”, Augusto Metidieri is nowadays one of the most interesting personalities in the field of business design, leadership and innovation. Since 2011, Augusto Mitidieri has covered the position of Corporate CEO of the Sintetica Group where he implemented a successful strategic vision which places the individual at the very centre of corporate decisions. The Entrepreneurship Club Polimi is thrilled to welcome Augusto in Politecnico for a live Inspirational Talk during which he will share the most salient insights on his career path.",
     },
   ];
 
