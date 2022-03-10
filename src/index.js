@@ -16,6 +16,7 @@ import Network from "views/Network";
 import Join from "views/Join";
 import Hosts from "views/Hosts";
 import Footer from "components/Footer";
+import Travel from "views/Travel";
 
 import SiteData from "Data";
 import "common.css";
@@ -32,6 +33,7 @@ function Site() {
         <Route exact path={SiteData.PiaTarget} component={PassionInAction} />
         <Route exact path={SiteData.NetworkTarget} component={Network} />
         <Route exact path={SiteData.JoinTarget} component={Join} />
+        <Route exact path={SiteData.TravelTarget} component={Travel} />
         <Redirect from="*" to={SiteData.HomeTarget} />
       </Switch>
       <Footer

@@ -30,6 +30,7 @@ export default class SiteData {
   static PiaTarget = "/passion-in-action";
   static NetworkTarget = "/network";
   static JoinTarget = "/join";
+  static TravelTarget = "/travel";
 
   // NAVBAR
   static NavbarItems = [
@@ -43,6 +44,10 @@ export default class SiteData {
     },
     {
       content: <Link to={this.PiaTarget}>Passion in action</Link>,
+      type: "link",
+    },
+    {
+      content: <Link to={this.TravelTarget}>Travel</Link>,
       type: "link",
     },
     {
