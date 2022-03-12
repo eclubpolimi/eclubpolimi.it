@@ -42,7 +42,7 @@ export default class SiteData {
       type: "link",
     },
     {
-      content: <Link to={this.PiaTarget}>Passion in action</Link>,
+      content: <Link to={this.PiaTarget}>Passion in Action</Link>,
       type: "link",
     },
     {

@@ -36,7 +36,7 @@ export default class Network extends Component {
         </div>
         <Slogan slogan={SiteData.NetworkSlogan} />
         <div className="max-w-screen-lg lg:mx-auto px-5 lg:px-0">
-          <Description title="Enterpreneurship clubs in Italy">
+          <Description title="Enterpreneurship Clubs in Italy">
             <p>
               The first Entrepreneurship Club was founded in 2011 in Bocconi
               University in Milan. The core values (Learn, Network, Build)
@@ -58,6 +58,7 @@ export default class Network extends Component {
           <Sponsors
             className="max-w-screen-lg lg:mx-auto px-5 lg:px-0 py-16"
             logos={SiteData.NetworkMembers}
+            title="Network"
           />
         </div>
       </div>

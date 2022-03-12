@@ -36,7 +36,7 @@ function Site() {
       </Switch>
       <Footer
         logo={SiteData.LogoWhite}
-        copyrightName="E-club Polimi"
+        copyrightName="E-Club Polimi"
         facebookUrl="https://www.facebook.com/eclubpolimi/"
         instagramUrl="https://www.instagram.com/eclubpolimi/"
         linkedinUrl="https://www.linkedin.com/company/eclubpolimi/"
