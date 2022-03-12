@@ -7,7 +7,7 @@ import Carousel from "components/Carousel";
 export default class Events extends Component {
   render() {
     return (
-      <div className="events">
+      <div>
         <Carousel
           arrowSize="40px"
           sliderData={SiteData.eventsCarouselImages}

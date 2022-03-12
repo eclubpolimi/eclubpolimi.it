@@ -10,7 +10,7 @@ import ParagraphTitle from "components/ParagraphTitle";
 export default class PassionInAction extends Component {
   render() {
     return (
-      <div className="passion-in-action">
+      <div>
         <Hero
           backgroundImage={SiteData.PIAHeroBackground}
           height="600px"

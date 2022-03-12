@@ -10,7 +10,7 @@ import JoinUsBar from "components/JoinUsBar";
 export default class About extends Component {
   render() {
     return (
-      <div className="about">
+      <div>
         <Hero
           backgroundImage={SiteData.aboutUsHeroBackground}
           height="700px"

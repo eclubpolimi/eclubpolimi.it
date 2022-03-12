@@ -9,7 +9,7 @@ import Slogan from "components/Slogan";
 export default class Network extends Component {
   render() {
     return (
-      <div className="h-full">
+      <div>
         <Hero
           height="600px"
           darkness={0.5}
