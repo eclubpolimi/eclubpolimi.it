@@ -38,8 +38,7 @@
 }
 .tab:hover {
   cursor: pointer;
-  color: var(--text-color-onorangehover);
-  background: var(--orange-gradient-hover);
+  background: #00000012;
 }
 
 .selected {
