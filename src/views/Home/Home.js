@@ -5,14 +5,12 @@ import MainDescription from "components/MainDescription";
 import JoinUsBar from "components/JoinUsBar";
 import Sponsors from "components/Sponsors";
 
-import "./Home.css";
-
 import SiteData from "Data";
 
 export default class Home extends Component {
   render() {
     return (
-      <div className="home">
+      <div>
         <Hero
           backgroundImage={SiteData.HomepageHeroBackground}
           height="500px"

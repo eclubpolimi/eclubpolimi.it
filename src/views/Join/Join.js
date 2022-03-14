@@ -8,7 +8,7 @@ import SiteData from "Data";
 export default class Join extends Component {
   render() {
     return (
-      <div className="join">
+      <div>
         <Hero
           backgroundImage={SiteData.HomepageHeroBackground}
           height="200px"

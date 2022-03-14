@@ -28,8 +28,8 @@
   --text-color: #121212;
   --text-color-onorangehover: white;
 
-  --button-border-radius: 48px;
-  --button-padding: 9px 32px 8px;
+  --button-border-radius: 12px;
+  --button-padding: 8px 24px 8px;
 }
 
 body {

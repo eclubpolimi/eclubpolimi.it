@@ -10,17 +10,17 @@ import ParagraphTitle from "components/ParagraphTitle";
 export default class PassionInAction extends Component {
   render() {
     return (
-      <div className="passion-in-action">
+      <div>
         <Hero
           backgroundImage={SiteData.PIAHeroBackground}
           height="600px"
           darkness={0.5}
           contentType="text"
-          text="Passion in action"
+          text="Passion in Action"
           alignTop
         />
         <div className="max-w-screen-lg lg:mx-auto px-5 lg:px-0">
-          <Description title="Passion In Action">
+          <Description title="Passion in Action">
             <p>
               <b>Lean Startup: the art to be entrepreneurial</b> is the first
               Politecnico course organized in collaboration with a student
@@ -46,7 +46,7 @@ export default class PassionInAction extends Component {
             </p>
           </Description>
         </div>
-        <ParagraphTitle text="Passion In Action Lessons" />
+        <ParagraphTitle text="Passion in Action Lessons" />
         <div className="max-w-screen-lg lg:mx-auto px-5 lg:px-0">
           <LessonsPIA lessons={SiteData.LessonsPIA} />
         </div>
