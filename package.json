@@ -2,22 +2,18 @@
   "homepage": ".",
   "private": true,
   "dependencies": {
-    "@craco/craco": "^6.4.2",
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-brands-svg-icons": "^5.15.4",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@fortawesome/react-fontawesome": "^0.1.15",
-    "autoprefixer": "^9.8.8",
-    "postcss": "^7.0.39",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-router-dom": "^5.3.0",
-    "react-scripts": "4.0.3",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17"
+    "react-router-dom": "^6.2.2",
+    "react-scripts": "^5.0.0"
   },
   "scripts": {
-    "start": "craco start",
-    "build": "craco build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
     "format": "npx prettier --write .",
@@ -28,6 +24,14 @@
       "react-app"
     ],
     "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      },
       {
         "files": [
           "**/*.stories.*"
@@ -51,13 +55,15 @@
     ]
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^6.4.4",
-    "@storybook/addon-essentials": "^6.4.4",
-    "@storybook/addon-links": "^6.4.4",
-    "@storybook/addon-postcss": "^2.0.0",
-    "@storybook/node-logger": "^6.4.4",
-    "@storybook/react": "^6.4.4",
-    "prettier": "2.4.1",
-    "storybook-preset-craco": "0.0.6"
+    "@storybook/addon-essentials": "^6.4.19",
+    "@storybook/builder-webpack5": "^6.4.19",
+    "@storybook/manager-webpack5": "^6.4.19",
+    "@storybook/node-logger": "^6.4.19",
+    "@storybook/preset-create-react-app": "^4.0.1",
+    "@storybook/react": "^6.4.19",
+    "autoprefixer": "^10.4.2",
+    "postcss": "^8.4.8",
+    "prettier": "2.5.1",
+    "tailwindcss": "^3.0.23"
   }
 }

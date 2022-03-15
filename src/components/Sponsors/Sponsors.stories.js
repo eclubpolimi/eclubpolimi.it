@@ -9,4 +9,4 @@ export default {
   title: "Components/Sponsors",
 };
 
-export const Primary = () => <Sponsors arrLogos={SiteData.Sponsors} />;
+export const Primary = () => <Sponsors logos={SiteData.Sponsors} />;

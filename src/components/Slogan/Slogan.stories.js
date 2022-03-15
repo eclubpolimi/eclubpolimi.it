@@ -9,4 +9,4 @@ export default {
   title: "Components/Slogan",
 };
 
-export const Primary = () => <Slogan slogan={SiteData.networkSlogan} />;
+export const Primary = () => <Slogan slogan={SiteData.NetworkSlogan} />;
