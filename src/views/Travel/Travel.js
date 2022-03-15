@@ -7,14 +7,12 @@ import Hero from "components/Hero";
 import Description from "components/Description";
 import ParagraphTitle from "components/ParagraphTitle";
 
-import TravelMainBackground from "assets/travelMainBackground.webp"
-
 export default class Travel extends Component {
   render() {
     return (
       <div className="travel">
         <Hero
-          backgroundImage={this.TravelMainBackground}
+          backgroundImage={SiteData.TravelMainBackground}
           height="600px"
           darkness={0.5}
           contentType="text"

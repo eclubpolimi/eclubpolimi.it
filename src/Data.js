@@ -7,6 +7,7 @@ import pialessons from "assets/pialessons";
 import logoLearnNetworkBuild from "assets/logo_learn_network_build.svg";
 import homepageHeroBackground from "assets/homepage_hero.jpg";
 import logoWhite from "assets/logo_white.svg";
+import travelMainBackground from "assets/travelMainBackground.webp";
 
 import networkHeroImage from "assets/eclub-network.png";
 import logo1 from "assets/logo-colors.png";
@@ -99,6 +100,9 @@ export default class SiteData {
   static LessonsPIA = pialessons;
 
   static PIAHeroBackground = "/images/data/pia_hero.png";
+
+  // TRAVEL
+  static TravelMainBackground = travelMainBackground;
 
   // JOIN US
   static ApplyDriverLink =
