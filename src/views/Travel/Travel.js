@@ -14,7 +14,7 @@ export default class Travel extends Component {
       <div className="travel">
         <div className="px-5 lg:px-0 grid grid-cols-5 margin-0 min-h-screen">
           <div className="h-full w-full col-span-4 grid grid-cols-5 bg-cover"
-              style={{backgroundImage: "url(" + SiteData.TravelMainBackground + ")"}}>
+              style={{backgroundImage: "url(" + SiteData.travelMainBackgroundOpacity30 + ")"}}>
             <div className="col-start-2 col-span-2">
               <Description title="Travel">
                 <p>
@@ -38,7 +38,7 @@ export default class Travel extends Component {
         </div>
         
         <div className="px-5 lg:px-0 grid grid-cols-5 margin-0 min-h-screen bg-cover"
-          style={{backgroundImage: "url(" + SiteData.TravelMainBackground + ")"}}>
+          style={{backgroundImage: "url(" + SiteData.travelMainBackgroundOpacity30 + ")"}}>
           <div className="col-start-2 col-span-3">
             <Description title="Travel">
               <p>

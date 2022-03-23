@@ -8,6 +8,7 @@ import logoLearnNetworkBuild from "assets/logo_learn_network_build.svg";
 import homepageHeroBackground from "assets/homepage_hero.jpg";
 import logoWhite from "assets/logo_white.svg";
 import travelMainBackground from "assets/travelMainBackground.webp";
+import travelMainBackgroundOpacity30 from "assets/travelMainBackgroundOpacity30.webp";
 
 import networkHeroImage from "assets/eclub-network.png";
 import logo1 from "assets/logo-colors.png";
@@ -103,6 +104,7 @@ export default class SiteData {
 
   // TRAVEL
   static TravelMainBackground = travelMainBackground;
+  static travelMainBackgroundOpacity30 = travelMainBackgroundOpacity30;
 
   // JOIN US
   static ApplyDriverLink =
