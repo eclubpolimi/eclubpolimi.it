@@ -12,6 +12,12 @@ module.exports = {
           orange: "#fc3f1a",
         },
       },
+      height: {
+        '128': '32rem',
+      },
+      width: {
+        '128': '32rem',
+      },
     },
   },
   variants: {
