@@ -12,6 +12,13 @@ export default class Travel extends Component {
   render() {
     return (
       <div className="travel">
+        <Hero
+          backgroundImage={SiteData.TravelMainBackground}
+          height="500px"
+          darkness={0.5}
+          contentType="text"
+          text="Travel"
+        />
         <div className="px-5 lg:px-0 grid grid-cols-5 margin-0 min-h-screen">
           <div
             className="h-full w-full col-span-4 grid grid-cols-5 bg-cover"
