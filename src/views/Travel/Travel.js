@@ -45,7 +45,7 @@ export default class Travel extends Component {
             </div>
           </div>
           <div
-            className="h-128 w-128 bg-cover absolute self-center place-self-end hidden lg:block"
+            className="h-128 w-128 bg-cover absolute self-center right-0 hidden lg:block"
             style={{
               backgroundImage: "url(" + SiteData.TravelMainBackground + ")",
             }}
