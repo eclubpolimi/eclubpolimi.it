@@ -49,7 +49,8 @@ export default class Footer extends Component {
           </div>
         </div>
         <div className="footer-copyright">
-          Copyright © 2021 {this.props.copyrightName}. All rights reserved.
+          Copyright © {new Date().getFullYear()} {this.props.copyrightName}. All
+          rights reserved.
         </div>
       </div>
     );
