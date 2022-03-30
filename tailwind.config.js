@@ -6,10 +6,8 @@ module.exports = {
         height: "height",
       },
       colors: {
-        "main-colors": {
-          blue: "#120068",
-          orange: "#fc3f1a",
-        },
+        blue: "#120068",
+        orange: "#fc3f1a",
       },
     },
   },
