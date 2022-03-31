@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "./InfoBar.css";
-import { faCalendar, faLocationArrow } from "@fortawesome/free-solid-svg-icons";
+import { faCalendar, faMapMarkerAlt, faUsers, faTag } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default class InfoBar extends Component {
     static propTypes = {
-        // Array of tabs: ["name": String]
-        tabs: PropTypes.array.isRequired,
+        // Object: ["place": String]
+        info: PropTypes.object.isRequired,
         // Default selected tab (default: 0)
         default: PropTypes.number,
         // className: CSS classes to apply to the outer div
@@ -18,7 +18,7 @@ export default class InfoBar extends Component {
 
     static defaultProps = {
         breakpoint: "md",
-        className: "w-full",
+        className: "w-full m-2",
     };
 
     constructor(props) {
@@ -42,22 +42,22 @@ export default class InfoBar extends Component {
                 <div className="text-center">
                     <ul className="tabs-row">
                         <li onClick={this.onTabClick}>
-                            <FontAwesomeIcon icon={faLocationArrow}></FontAwesomeIcon>
-                            <span>{this.props.place}</span>
+                            <FontAwesomeIcon icon={faMapMarkerAlt}></FontAwesomeIcon>
+                            <span>{this.props.info.place}</span>
                         </li>
                         <li onClick={this.onTabClick}>
                             <FontAwesomeIcon icon={faCalendar}></FontAwesomeIcon>
-                            <span>{this.props.date}</span>
+                            <span>{this.props.info.date}</span>
                         </li>
                         <li onClick={this.onTabClick}>
-                            <FontAwesomeIcon icon={faCalendar}></FontAwesomeIcon>
-                            <span>{this.props.peoples}</span>
+                            <FontAwesomeIcon icon={faUsers}></FontAwesomeIcon>
+                            <span>{this.props.info.peoples}</span>
                         </li>
                         <li onClick={this.onTabClick}>
-                            <FontAwesomeIcon icon={faCalendar}></FontAwesomeIcon>
-                            <span>{this.props.price}</span>
+                            <FontAwesomeIcon icon={faTag}></FontAwesomeIcon>
+                            <span>{this.props.info.price}</span>
                         </li>
-                        <li onClick={this.onTabClick}>
+                        <li onClick={this.onTabClick} className="li-btn" >
                             <span>Registrati</span>
                         </li>
                         {/*
@@ -80,7 +80,7 @@ export default class InfoBar extends Component {
                         */}
                     </ul>
                 </div>
-            </div>
+            </div >
         );
     }
 }

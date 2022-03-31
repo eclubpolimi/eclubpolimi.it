@@ -30,10 +30,18 @@
     width: 100%;
     display: table;
   }
-  
-  ul li {
+
+  ul li{
     display: table-cell;
     width: 100%;
+  }
+
+  ul li:not(.li-btn) {
+    border-right: 2px solid grey;
+  }
+
+  ul li:not(.li-btn) span {
+    margin-left: 5%;
   }
   
   .tab {
