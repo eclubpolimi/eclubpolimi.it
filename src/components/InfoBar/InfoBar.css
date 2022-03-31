@@ -25,6 +25,16 @@
   [class$="tabs-select"]:focus {
     outline: none;
   }
+
+  ul {
+    width: 100%;
+    display: table;
+  }
+  
+  ul li {
+    display: table-cell;
+    width: 100%;
+  }
   
   .tab {
     text-align: center;
@@ -52,7 +62,7 @@
     margin-top: 24px;
   }
   
-  @media (max-width: 640px) {
+ /* @media (max-width: 640px) {
     .sm\:tabs-row {
       display: none;
     }
@@ -90,5 +100,6 @@
     .xl\:tabs-select {
       display: inline-block;
     }
-  }
+    
+  }*/
   

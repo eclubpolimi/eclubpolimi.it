@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "./InfoBar.css";
+import { faCalendar, faLocationArrow } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default class InfoBar extends Component {
     static propTypes = {
@@ -13,15 +15,6 @@ export default class InfoBar extends Component {
         // breakpoint: CSS class prefix (see Tailwind) that control when the layout changes to mobile friendly
         breakpoint: PropTypes.oneOf(["sm", "md", "lg", "xl"]),
     };
-
-    /* Tabs prop
-    [
-      {
-        name: string,
-        content: <jsx content>,
-      },
-    ]
-    */
 
     static defaultProps = {
         breakpoint: "md",
@@ -47,9 +40,30 @@ export default class InfoBar extends Component {
         return (
             <div className={this.props.className}>
                 <div className="text-center">
-                    <ul className={`${this.props.breakpoint}:tabs-row`}>
+                    <ul className="tabs-row">
+                        <li onClick={this.onTabClick}>
+                            <FontAwesomeIcon icon={faLocationArrow}></FontAwesomeIcon>
+                            <span>{this.props.place}</span>
+                        </li>
+                        <li onClick={this.onTabClick}>
+                            <FontAwesomeIcon icon={faCalendar}></FontAwesomeIcon>
+                            <span>{this.props.date}</span>
+                        </li>
+                        <li onClick={this.onTabClick}>
+                            <FontAwesomeIcon icon={faCalendar}></FontAwesomeIcon>
+                            <span>{this.props.peoples}</span>
+                        </li>
+                        <li onClick={this.onTabClick}>
+                            <FontAwesomeIcon icon={faCalendar}></FontAwesomeIcon>
+                            <span>{this.props.price}</span>
+                        </li>
+                        <li onClick={this.onTabClick}>
+                            <span>Registrati</span>
+                        </li>
+                        {/*
                         {this.props.tabs.map((item, index) => {
                             return (
+
                                 <li
                                     key={index}
                                     value={index}
@@ -57,27 +71,14 @@ export default class InfoBar extends Component {
                                         }`}
                                     onClick={this.onTabClick}
                                 >
-                                    {item.name}
+                                    <FontAwesomeIcon icon={faCalendar}></FontAwesomeIcon>
+        
+                                    <span>{item.name}</span>
                                 </li>
                             );
                         })}
+                        */}
                     </ul>
-                    <select
-                        className={`${this.props.breakpoint}:tabs-select`}
-                        value={this.state.activeTab}
-                        onChange={this.onTabClick}
-                    >
-                        {this.props.tabs.map((item, index) => {
-                            return (
-                                <option key={index} value={index}>
-                                    {item.name}
-                                </option>
-                            );
-                        })}
-                    </select>
-                </div>
-                <div className="tab-content">
-                    {this.props.tabs[this.state.activeTab].content}
                 </div>
             </div>
         );
