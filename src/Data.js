@@ -105,6 +105,12 @@ export default class SiteData {
   // TRAVEL
   static TravelMainBackground = travelMainBackground;
   static travelMainBackgroundOpacity30 = travelMainBackgroundOpacity30;
+  static travelInfos = {
+    place: "Casa mia",
+    date: "12/05/2021",
+    peoples: "26/30",
+    price: "200€"
+  }
 
   // JOIN US
   static ApplyDriverLink =
