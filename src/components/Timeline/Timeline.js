@@ -34,7 +34,7 @@ export default class Timeline extends Component {
                 </div>
                 <div className="timeline-marker"></div>
                 <div className="timeline-content">
-                  <h3 className="timeline-title">{item.title}</h3>
+                  <h3 className="timeline-title mb-3">{item.title}</h3>
                   <p>{item.body}</p>
                 </div>
               </li>
