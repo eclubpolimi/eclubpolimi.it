@@ -61,7 +61,7 @@ export default class Travel extends Component {
           <div className="col-start-2 col-span-3">
             <Description title="Travel">
               <p>
-                <b>Lean Startup: the art to be entrepreneurial</b> is the first
+                <b>AsLean Startup: the art to be entrepreneurial</b> is the first
                 Politecnico course organized in collaboration with a student
                 association, Entrepreneurship Club Polimi. The course is
                 organized by students, for students.
@@ -86,15 +86,12 @@ export default class Travel extends Component {
               </p>
             </Description>
           </div>
+          <div className="col-start-1 col-span-5">
+            <InfoBar info={SiteData.travelInfos} />
+          </div>
         </div>
 
-        <div className="max-w-screen-lg lg:mx-auto px-5 lg:px-0">
-          <InfoBar tabs={[{
-            name: "A"
-          }, {
-            name: "B"
-          }]} />
-        </div>
+
       </div>
     );
   }
