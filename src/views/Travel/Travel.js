@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 
-import LessonsPIA from "components/LessonsPIA";
 import "./Travel.css";
 
 import SiteData from "Data";
 import Hero from "components/Hero";
 import Description from "components/Description";
-import ParagraphTitle from "components/ParagraphTitle";
+import InfoBar from "components/InfoBar";
 
 export default class Travel extends Component {
   render() {
@@ -90,7 +89,11 @@ export default class Travel extends Component {
         </div>
 
         <div className="max-w-screen-lg lg:mx-auto px-5 lg:px-0">
-          <LessonsPIA lessons={SiteData.LessonsPIA} />
+          <InfoBar tabs={[{
+            name: "A"
+          }, {
+            name: "B"
+          }]} />
         </div>
       </div>
     );
