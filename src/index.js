@@ -1,6 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 
 import Navbar from "components/Navbar";
 import Home from "views/Home";
@@ -29,7 +34,10 @@ function Site() {
         <Route exact path={SiteData.NetworkTarget} element={<Network />} />
         <Route exact path={SiteData.JoinTarget} element={<Join />} />
         <Route exact path={SiteData.OpenDayTarget} element={<OpenDay />} />
-        <Route path="*" element={<Home />} />
+        <Route
+          path="*"
+          element={<Navigate to={SiteData.HomeTarget} replace />}
+        />
       </Routes>
       <Footer
         logo={SiteData.LogoWhite}
