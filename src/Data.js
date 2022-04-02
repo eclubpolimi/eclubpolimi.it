@@ -30,6 +30,7 @@ export default class SiteData {
   static PiaTarget = "/passion-in-action";
   static NetworkTarget = "/network";
   static JoinTarget = "/join";
+  static OpenDayTarget = "/openday";
 
   // NAVBAR
   static NavbarItems = [

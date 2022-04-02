@@ -29,7 +29,7 @@ export default class Button extends Component {
   render() {
     const styles = `btn btn--${this.props.theme}${
       this.props.disabled ? " btn--disabled" : ""
-    } ${this.props.className}`;
+    } ${this.props.className} font-medium`;
 
     const to = this.props.disabled ? "#" : this.props.to;
 

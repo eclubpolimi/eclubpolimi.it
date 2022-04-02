@@ -24,7 +24,7 @@ export default class Sponsors extends Component {
   render() {
     return (
       <div className={this.props.className}>
-        <h1 className="md:text-center">
+        <h1 className="md:text-center mb-5">
           {this.props.title ? this.props.title : "Sponsors"}
         </h1>
         <div className="flex flex-wrap items-center justify-center">

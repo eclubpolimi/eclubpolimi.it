@@ -34,7 +34,7 @@ export default class JoinUsBar extends Component {
       <div
         className={`join-us-bar bg-${this.props.color} ${this.props.className}`}
       >
-        <h1 className="jsb-call-to-action">Become one of us!</h1>
+        <h1 className="jsb-call-to-action mb-5">Become one of us!</h1>
         <Button to={this.props.to} theme={this.getButtonColor()}>
           Join us
         </Button>

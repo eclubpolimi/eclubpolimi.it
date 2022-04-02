@@ -134,11 +134,11 @@
     flex-direction: column;
     text-align: center;
     padding: 0 2em;
-    transition: all 0.5s ease-out;
+    transition: all 0.25s ease;
   }
 
   .nav-links.nav-active {
     max-height: 100vh;
-    transition: all 0.5s ease-in;
+    transition: all 0.3s ease-in;
   }
 }

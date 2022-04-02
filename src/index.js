@@ -1,6 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 
 import Navbar from "components/Navbar";
 import Home from "views/Home";
@@ -11,6 +16,7 @@ import Network from "views/Network";
 import Join from "views/Join";
 import Hosts from "views/Hosts";
 import Footer from "components/Footer";
+import OpenDay from "views/OpenDay";
 
 import SiteData from "Data";
 import "common.css";
@@ -27,7 +33,11 @@ function Site() {
         <Route exact path={SiteData.PiaTarget} element={<PassionInAction />} />
         <Route exact path={SiteData.NetworkTarget} element={<Network />} />
         <Route exact path={SiteData.JoinTarget} element={<Join />} />
-        <Route path="*" element={<Home />} />
+        <Route exact path={SiteData.OpenDayTarget} element={<OpenDay />} />
+        <Route
+          path="*"
+          element={<Navigate to={SiteData.HomeTarget} replace />}
+        />
       </Routes>
       <Footer
         logo={SiteData.LogoWhite}

@@ -9,7 +9,7 @@ export default class Description extends Component {
   render() {
     return (
       <div className="py-16">
-        <h1 className="md:text-center">{this.props.title}</h1>
+        <h1 className="md:text-center mb-5">{this.props.title}</h1>
         {this.props.children}
       </div>
     );
