@@ -102,7 +102,7 @@ const OpenDay = () => {
             }
           />
         </div>
-        <div className="flex flex-col-reverse xl:flex-row justify-center items-center">
+        <div className="flex flex-col xl:flex-row justify-center items-center">
           <LabeledOutlineCard
             labelDx
             invertedColors
