@@ -20,7 +20,7 @@ export default class Slogan extends Component {
 
   render() {
     return (
-      <div className="bg-main-colors-blue py-8 flex flex-col items-center">
+      <div className="bg-blue py-8 flex flex-col items-center">
         <div>
           {this.props.slogan.map((text, index) => (
             <div
