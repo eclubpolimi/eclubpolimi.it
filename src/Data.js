@@ -98,7 +98,7 @@ export default class SiteData {
 
   // JOIN US
   static ApplyDriverLink =
-    "https://docs.google.com/forms/d/e/1FAIpQLSd3_-zGhEsoeedX0v49roaxc_k44Gxa1oU3vWeG4XxSITmCGA/viewform";
+    "https://docs.google.com/forms/d/e/1FAIpQLSfnsrBYQGg5LEStS9z3jBYVYcQvCbdhVWDYIYbMeOZNhTYu7w/viewform";
   static ApplyExplorerLink =
     "https://docs.google.com/forms/d/e/1FAIpQLSeRpSAN8E9W7AG5xgoL3h4Ysu8c76_NWzEJmBFZYmuj_dzvUg/viewform";
 
