@@ -37,7 +37,6 @@ const OpenDay = () => {
           </span>
           <Button
             to={SiteData.JoinTarget}
-            fu
             theme="orange"
             className="mt-8 align-middle"
           >

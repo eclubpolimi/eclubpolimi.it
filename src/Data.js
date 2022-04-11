@@ -31,6 +31,7 @@ export default class SiteData {
   static NetworkTarget = "/network";
   static JoinTarget = "/join";
   static OpenDayTarget = "/openday";
+  static StartupChallengeTarget = "/startupchallenge";
 
   // NAVBAR
   static NavbarItems = [
@@ -40,6 +41,10 @@ export default class SiteData {
     },
     {
       content: <Link to={this.EventsTarget}>Events</Link>,
+      type: "link",
+    },
+    {
+      content: <Link to={this.StartupChallengeTarget}>Startup Challenge</Link>,
       type: "link",
     },
     {
