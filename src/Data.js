@@ -13,6 +13,17 @@ import logo1 from "assets/logo-colors.png";
 import logo2 from "assets/img-eclub-bocconi.png";
 import logo3 from "assets/img-eclub-pavia.png";
 
+import b4i from "assets/startupChallenge/organizers/b4i.svg";
+import eclub_bocconi from "assets/startupChallenge/organizers/eclub_bocconi.webp";
+import eclub_polimi from "assets/startupChallenge/organizers/eclub_polimi.png";
+import polihub from "assets/startupChallenge/organizers/polihub.png";
+
+import atm from "assets/startupChallenge/sponsors/atm.png";
+import dott from "assets/startupChallenge/sponsors/dott.png";
+import macai from "assets/startupChallenge/sponsors/macai.jpg";
+import utravel from "assets/startupChallenge/sponsors/utravel.png";
+import mammt from "assets/startupChallenge/sponsors/mammt.jpg";
+
 /**
  * @description This class holds global, static data, to avoid duplication between production code and tests
  * @note All members of this class must be declared static
@@ -179,5 +190,89 @@ export default class SiteData {
       src: logo2,
     },
     { alt: "E-Club Pavia", href: "https://www.eclubpavia.it/", src: logo3 },
+  ];
+
+  // STARTUP CHALLANGE
+  static StartupChallengeOrgLogos = [
+    {
+      src: eclub_polimi,
+      href: "https://eclubpolimi.it",
+      alt: "Eclub polimi",
+    },
+    {
+      src: eclub_bocconi,
+      href: "https://www.eclubbocconi.com",
+      alt: "Eclub bocconi",
+    },
+    {
+      src: polihub,
+      href: "#",
+      alt: "Polihub",
+    },
+    {
+      src: b4i,
+      href: "#",
+      alt: "B4I",
+    },
+  ];
+
+  static StartupChallengeSponsorsLogos = [
+    {
+      src: atm,
+      href: "https://atm.it",
+      alt: "Atm",
+    },
+    {
+      src: dott,
+      href: "https://www.dott.com",
+      alt: "Dott",
+    },
+    {
+      src: macai,
+      href: "#",
+      alt: "Macai",
+    },
+    {
+      src: mammt,
+      href: "#",
+      alt: "Mammt",
+    },
+    {
+      src: utravel,
+      href: "#",
+      alt: "uTravel",
+    },
+  ];
+
+  static StartupChallengeTimeline = [
+    {
+      date: "20 April 2022",
+      title: "[Bocconi] Opening ceremony and presentation of the challenge",
+      body: "",
+    },
+    {
+      date: "30 April 2022",
+      title:
+        "[Bocconi] Working on the challenge, seminars and workshops to help develop your startup ideas",
+      body: "",
+    },
+    {
+      date: "1-5 May 2022",
+      title:
+        "Team works on their own to develop their presentation and prototype",
+      body: "",
+    },
+    {
+      date: "6 May 2022",
+      title:
+        "[Polimi] Working on the pitch, seminars and workshops to help deliver the perfect pitch",
+      body: "",
+    },
+    {
+      date: "7 May 2022",
+      title:
+        "[Polimi] Pitch presentations, startup fair and closing award ceremony",
+      body: "",
+    },
   ];
 }
