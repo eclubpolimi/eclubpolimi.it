@@ -1,44 +1,36 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React from "react";
 
 import Button from "components/Button";
-import "./JoinUsBar.css";
 
-export default class JoinUsBar extends Component {
-  static propTypes = {
-    // color: background color
-    color: PropTypes.oneOf(["orange", "blue", "white"]),
-    // to: target to navigate to when the button is clicked
-    to: PropTypes.string.isRequired,
-    // className: CSS classes to apply to the outer div
-    className: PropTypes.string,
-  };
-
-  static defaultProps = {
-    color: "orange",
-    className: "",
-  };
-
-  getButtonColor = () => {
+const JoinUsbar = ({ title, color, buttonText, to, className }) => {
+  const getButtonColor = () => {
     return (
       {
         orange: "light",
-        blue: "light",
+        blue: "orange",
         white: "orange",
-      }[this.props.color] || "orange"
+      }[color] || "orange"
     );
   };
 
-  render() {
-    return (
-      <div
-        className={`join-us-bar bg-${this.props.color} ${this.props.className}`}
-      >
-        <h1 className="jsb-call-to-action mb-5">Become one of us!</h1>
-        <Button to={this.props.to} theme={this.getButtonColor()}>
-          Join us
-        </Button>
-      </div>
-    );
-  }
-}
+  const getTitle = () => {
+    return title || "Become one of us!";
+  };
+
+  const getButtonText = () => {
+    return buttonText || "Join us";
+  };
+
+  return (
+    <div
+      className={`bg-${color} ${className} flex flex-col gap-6 py-12 justify-center items-center`}
+    >
+      <h1 className="text-white">{getTitle()}</h1>
+      <Button to={to} theme={getButtonColor()}>
+        {getButtonText()}
+      </Button>
+    </div>
+  );
+};
+
+export default JoinUsbar;
