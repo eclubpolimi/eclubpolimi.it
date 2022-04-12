@@ -4,3 +4,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .header-squares-decoration {
+    @apply relative
+    after:hidden md:after:block after:absolute after:bg-orange
+    after:-top-8 after:left-0 after:transform
+    after:content-[''] after:w-3 after:h-3
+    before:hidden md:before:block before:absolute before:bg-blue
+    before:-top-10 before:left-2 before:transform
+    before:content-[''] before:w-3 before:h-3;
+  }
+}

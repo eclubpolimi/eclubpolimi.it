@@ -15,15 +15,7 @@ const OpenDay = () => {
     <div className="w-full">
       <div className="pb-10 pt-4 md:py-10 px-5 md:px-20 flex flex-col-reverse md:flex-row text-center md:text-left items-center md:gap-8">
         <div className="w-full md:w-1/2 md:pl-6 xl:pl-28">
-          <h1
-            className="mt-8 text-slate-800 font-extrabold text-4xl leading-tight relative
-            after:hidden md:after:block after:absolute after:bg-orange
-            after:-top-8 after:left-0 after:transform
-            after:content-[''] after:w-3 after:h-3
-            before:hidden md:before:block before:absolute before:bg-blue
-            before:-top-10 before:left-2 before:transform
-            before:content-[''] before:w-3 before:h-3"
-          >
+          <h1 className="mt-8 text-slate-800 font-extrabold text-4xl leading-tight header-squares-decoration">
             E-Club × Polimi{" "}
             <a
               className="no-underline text-slate-600 hover:text-slate-500"
@@ -53,7 +45,7 @@ const OpenDay = () => {
             className="place-self-center xl:w-4/5"
             label="Events"
             text={
-              <p>
+              <>
                 We organise different events concerning activities and speeches
                 from the best entrepreneurs and innovators of our area. Some of
                 the latest are:
@@ -62,7 +54,7 @@ const OpenDay = () => {
                 <br />
                 - Inspirational talk with the CEO Augusto Mitidieri
                 <br />- Event with Italian Embedded
-              </p>
+              </>
             }
           />
           <div className=" xl:w-1/2 xl:-ml-28  border border-solid border-orange rounded-xl p-2">
@@ -87,7 +79,7 @@ const OpenDay = () => {
             className="place-self-center xl:w-4/5"
             label="Startup Challenge"
             text={
-              <p>
+              <>
                 The challenge will bring together top university students from
                 Politecnico and Bocconi passionate about entrepreneurship and
                 will challenge them with a real world problem to solve. Moreover
@@ -97,13 +89,13 @@ const OpenDay = () => {
                 <br />
                 The startup challenge aims to combine events with entrepreneurs,
                 workshops and networking initiatives.
-              </p>
+              </>
             }
           />
         </div>
         <div className="flex flex-col xl:flex-row justify-center items-center">
           <LabeledOutlineCard
-            labelDx
+            labelSx
             invertedColors
             className="place-self-center xl:w-4/5"
             label="Travel"

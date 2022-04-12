@@ -11,7 +11,7 @@ export default class ParagraphTitle extends Component {
   //text è il parametro per inserire il testo interno
   render() {
     return (
-      <div className="paragraph-title-bar">
+      <div className="paragraph-title-bar py-4">
         <p className="paragraph-title-text">{this.props.text}</p>
       </div>
     );
