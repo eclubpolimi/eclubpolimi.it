@@ -53,7 +53,7 @@ const OpenDay = () => {
             className="place-self-center xl:w-4/5"
             label="Events"
             text={
-              <p>
+              <>
                 We organise different events concerning activities and speeches
                 from the best entrepreneurs and innovators of our area. Some of
                 the latest are:
@@ -62,7 +62,7 @@ const OpenDay = () => {
                 <br />
                 - Inspirational talk with the CEO Augusto Mitidieri
                 <br />- Event with Italian Embedded
-              </p>
+              </>
             }
           />
           <div className=" xl:w-1/2 xl:-ml-28  border border-solid border-orange rounded-xl p-2">
@@ -87,7 +87,7 @@ const OpenDay = () => {
             className="place-self-center xl:w-4/5"
             label="Startup Challenge"
             text={
-              <p>
+              <>
                 The challenge will bring together top university students from
                 Politecnico and Bocconi passionate about entrepreneurship and
                 will challenge them with a real world problem to solve. Moreover
@@ -97,13 +97,13 @@ const OpenDay = () => {
                 <br />
                 The startup challenge aims to combine events with entrepreneurs,
                 workshops and networking initiatives.
-              </p>
+              </>
             }
           />
         </div>
         <div className="flex flex-col xl:flex-row justify-center items-center">
           <LabeledOutlineCard
-            labelDx
+            labelSx
             invertedColors
             className="place-self-center xl:w-4/5"
             label="Travel"
