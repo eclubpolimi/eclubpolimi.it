@@ -246,8 +246,8 @@ export default class SiteData {
 
   static StartupChallengeTimeline = [
     {
-      date: "20 April 2022",
-      title: "[Bocconi] Opening ceremony and presentation of the challenge",
+      date: "29 April 2022",
+      title: "[Bocconi] The opening ceremony and presentation of the challenge",
       body: "",
     },
     {
