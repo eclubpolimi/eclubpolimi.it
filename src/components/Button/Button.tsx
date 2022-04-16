@@ -3,15 +3,25 @@ import { Link } from "react-router-dom";
 
 import "./Button.css";
 
+type ButtonProps = {
+  to: string,
+  onClick?: () => void;
+  forceAnchor?: boolean;
+  theme?: "orange" | "light" | "dark";
+  disabled?: boolean;
+  className?: string;
+  children: React.ReactNode;
+}
+
 const Button = ({
   to,
-  onClick = null,
+  onClick = () => {},
   forceAnchor = false,
   theme = "orange",
   disabled,
   className = "",
   children,
-}) => {
+}: ButtonProps) => {
   const styles = `btn btn--${theme}${
     disabled ? " btn--disabled" : ""
   } ${className} font-medium`;
