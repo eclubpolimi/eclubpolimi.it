@@ -5,9 +5,11 @@ import Sponsors from "components/Sponsors";
 import Timeline from "components/Timeline";
 
 import LogoStartupChallenge from "assets/logo_startupchallenge.jpg";
+import detailed from "assets/Start_Up_Challenge_Document.pdf";
 import SiteData from "Data";
 import JoinUsBar from "components/JoinUsBar";
 import ParagraphTitle from "components/ParagraphTitle";
+import Description from "components/Description";
 
 const StartupChallenge = () => {
   return (
@@ -50,9 +52,37 @@ const StartupChallenge = () => {
           logos={SiteData.StartupChallengeOrgLogos}
         />
       </div>
+      <div className="max-w-screen-lg lg:mx-auto px-5 lg:px-0">
+        <Description title="A two-weekend entrepreneurship event and competition">
+          <p className="text-center">
+            The University Startup challenge is open to anyone who might be
+            interested, but at least half of the members of each team must be
+            from Politecnico di Milano or Bocconi University. <br />
+            It will be held in person on both campuses, and will include
+            seminars, workshops and networking moments. <br />
+            Participants will be given a challenge by the partner company, and
+            will work together in groups of 4-6 people to create an innovative
+            startup idea that will help solve a practical problem for the city
+            of Milan. <br />
+            The finalists will present their startup pitch in front of a jury of
+            experts and the best teams will be rewarded!
+          </p>
+        </Description>
+      </div>
       <ParagraphTitle text="Events schedule" />
       <div className="py-16 max-w-screen-lg lg:mx-auto px-5 lg:px-0">
         <Timeline data={SiteData.StartupChallengeTimeline} theme="split" />
+
+        <div className="flex pt-11 gap-4 md:flex-row flex-col items-center justify-center pt-8">
+          <p className="text-center">Download detailed program: </p>
+          <Button
+            to="assets/Start_Up_Challenge_Document.pdf"
+            theme="dark"
+            className="align-middle"
+          >
+            Download
+          </Button>
+        </div>
       </div>
       <JoinUsBar
         title="Sign up by April 27th!"
