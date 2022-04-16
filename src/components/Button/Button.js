@@ -4,63 +4,44 @@ import { Link } from "react-router-dom";
 
 import "./Button.css";
 
-export default class Button extends Component {
-  static propTypes = {
-    // to: link to navigate to when clicked.
-    // if this prop is specified the button will be an <a> tag
-    // if this prop contains a link beginning with '/' a <Link> tag will be used
-    to: PropTypes.string,
-    // onClick: function to call when the button is clicked
-    onClick: PropTypes.func,
-    // theme: button style (orange, light, dark)
-    theme: PropTypes.oneOf(["orange", "light", "dark"]),
-    // disabled: whether the button is disabled or not
-    disabled: PropTypes.bool,
-    // className: CSS classes to apply to the outer div
-    className: PropTypes.string,
-  };
+const Button = ({
+  to = "#",
+  onClick = null,
+  forceAnchor = false,
+  theme = "orange",
+  disabled,
+  className = "",
+  children,
+}) => {
+  const styles = `btn btn--${theme}${
+    disabled ? " btn--disabled" : ""
+  } ${className} font-medium`;
 
-  static defaultProps = {
-    theme: "orange",
-    onClick: null,
-    className: "",
-  };
-
-  render() {
-    const styles = `btn btn--${this.props.theme}${
-      this.props.disabled ? " btn--disabled" : ""
-    } ${this.props.className} font-medium`;
-
-    const to = this.props.disabled ? "#" : this.props.to;
-
-    if (this.props.to === undefined) {
-      return (
-        <button
-          className={styles}
-          onClick={this.props.onClick}
-          disabled={this.props.disabled}
-        >
-          {this.props.children}
-        </button>
-      );
-    } else if (this.props.to[0] === "/") {
-      return (
-        <Link className={styles} to={to} onClick={this.props.onClick}>
-          {this.props.children}
-        </Link>
-      );
-    } else {
-      return (
-        <a
-          className={styles}
-          href={to}
-          target="_blank"
-          rel="noreferrer"
-          onClick={this.props.onClick}
-        >
-          {this.props.children}
-        </a>
-      );
-    }
+  if (to === undefined) {
+    return (
+      <button className={styles} onClick={onClick} disabled={disabled}>
+        {children}
+      </button>
+    );
+  } else if (to[0] === "/" && !forceAnchor) {
+    return (
+      <Link className={styles} to={to} onClick={onClick}>
+        {children}
+      </Link>
+    );
+  } else {
+    return (
+      <a
+        className={styles}
+        href={to}
+        target="_blank"
+        rel="noreferrer"
+        onClick={onClick}
+      >
+        {children}
+      </a>
+    );
   }
-}
+};
+
+export default Button;
