@@ -72,17 +72,6 @@ const StartupChallenge = () => {
       <ParagraphTitle text="Events schedule" />
       <div className="py-16 max-w-screen-lg lg:mx-auto px-5 lg:px-0">
         <Timeline data={SiteData.StartupChallengeTimeline} theme="split" />
-
-        <div className="flex pt-11 gap-4 md:flex-row flex-col items-center justify-center pt-8">
-          <p className="text-center">Download detailed program: </p>
-          <Button
-            to="assets/Start_Up_Challenge_Document.pdf"
-            theme="dark"
-            className="align-middle"
-          >
-            Download
-          </Button>
-        </div>
       </div>
       <JoinUsBar
         title="Sign up by April 27th!"
