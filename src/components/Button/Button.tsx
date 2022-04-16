@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import "./Button.css";
 
-type ButtonProps = {
+export type ButtonProps = {
   to: string,
   onClick?: () => void;
   forceAnchor?: boolean;
