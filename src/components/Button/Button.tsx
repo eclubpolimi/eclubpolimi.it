@@ -4,14 +4,14 @@ import { Link } from "react-router-dom";
 import "./Button.css";
 
 export type ButtonProps = {
-  to: string,
+  to: string;
   onClick?: () => void;
   forceAnchor?: boolean;
   theme?: "orange" | "light" | "dark";
   disabled?: boolean;
   className?: string;
   children: React.ReactNode;
-}
+};
 
 const Button = ({
   to,
