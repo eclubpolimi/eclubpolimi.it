@@ -5,7 +5,6 @@ import Sponsors from "components/Sponsors";
 import Timeline from "components/Timeline";
 
 import LogoStartupChallenge from "assets/logo_startupchallenge.jpg";
-import detailed from "assets/Start_Up_Challenge_Document.pdf";
 import SiteData from "Data";
 import JoinUsBar from "components/JoinUsBar";
 import ParagraphTitle from "components/ParagraphTitle";
