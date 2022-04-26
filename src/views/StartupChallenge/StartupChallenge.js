@@ -9,7 +9,7 @@ import SiteData from "Data";
 import JoinUsBar from "components/JoinUsBar";
 import ParagraphTitle from "components/ParagraphTitle";
 import Description from "components/Description";
-import StartupChallengePDF from "assets/startupChallenge/USCDetailed_event_guide.pdf";
+import StartupChallengePDF from "assets/startupChallenge/USCDetailed_event_guide_v2.pdf";
 
 const ProgramButton = () => {
   return (
