@@ -109,14 +109,12 @@ export default class SiteData {
 
   // LESSONS PIA (placeholder)
   static LessonsPIA = pialessons;
-
   static PIAHeroBackground = "/images/data/pia_hero.png";
 
   // JOIN US
   static ApplyDriverLink =
     "https://docs.google.com/forms/d/e/1FAIpQLSfnsrBYQGg5LEStS9z3jBYVYcQvCbdhVWDYIYbMeOZNhTYu7w/viewform";
-  static ApplyExplorerLink =
-    "https://docs.google.com/forms/d/e/1FAIpQLSeRpSAN8E9W7AG5xgoL3h4Ysu8c76_NWzEJmBFZYmuj_dzvUg/viewform";
+  static ApplyExplorerLink = "https://forms.gle/cPn2VyGoZbWeSHv1A";
 
   // JOIN US CARD EXPLORER
   static explorerAdvantages = [
