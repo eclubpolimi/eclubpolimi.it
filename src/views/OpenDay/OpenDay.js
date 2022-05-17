@@ -95,8 +95,6 @@ const OpenDay = () => {
         </div>
         <div className="flex flex-col xl:flex-row justify-center items-center">
           <LabeledOutlineCard
-            labelSx
-            invertedColors
             className="place-self-center xl:w-4/5"
             label="Travel"
             text="We discover Europe and its active startup ecosystems! We will not only bring you visit startups and its founders, but also you will have the chance to have a taste of different cultures all around the old continent!"
