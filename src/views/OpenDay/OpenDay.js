@@ -5,10 +5,10 @@ import JoinUsBar from "components/JoinUsBar";
 import LabeledOutlineCard from "components/LabeledOutlineCard";
 import SiteData from "Data";
 
+import PeopleSvg from "assets/people_graphics.svg";
 import LogoStartupChallenge from "assets/logo_startupchallenge.jpg";
 import Munich2 from "assets/munich2.jpg";
 import Munich3 from "assets/munich3.jpg";
-import PeopleSvg from "assets/people_graphics.svg";
 
 const OpenDay = () => {
   return (
@@ -45,16 +45,18 @@ const OpenDay = () => {
             className="place-self-center xl:w-4/5"
             label="Events"
             text={
-              <>
-                We organise different events concerning activities and speeches
-                from the best entrepreneurs and innovators of our area. Some of
-                the latest are:
-                <br />
-                - Event with the startup Ibrida Birra
-                <br />
-                - Inspirational talk with the CEO Augusto Mitidieri
-                <br />- Event with Italian Embedded
-              </>
+              <div>
+                <p>
+                  We organise different events concerning activities and
+                  speeches from the best entrepreneurs and innovators of our
+                  area. Some of the latest are:
+                </p>
+                <ul className="list-disc ml-4">
+                  <li>Event with the startup Ibrida Birra</li>
+                  <li>Inspirational talk with the CEO Augusto Mitidieri</li>
+                  <li>Event with Italian Embedded</li>
+                </ul>
+              </div>
             }
           />
           <div className=" xl:w-1/2 xl:-ml-28  border border-solid border-orange rounded-xl p-2">
@@ -79,7 +81,7 @@ const OpenDay = () => {
             className="place-self-center xl:w-4/5"
             label="Startup Challenge"
             text={
-              <>
+              <p>
                 The challenge will bring together top university students from
                 Politecnico and Bocconi passionate about entrepreneurship and
                 will challenge them with a real world problem to solve. Moreover
@@ -89,7 +91,7 @@ const OpenDay = () => {
                 <br />
                 The startup challenge aims to combine events with entrepreneurs,
                 workshops and networking initiatives.
-              </>
+              </p>
             }
           />
         </div>
@@ -97,7 +99,14 @@ const OpenDay = () => {
           <LabeledOutlineCard
             className="place-self-center xl:w-4/5"
             label="Travel"
-            text="We discover Europe and its active startup ecosystems! We will not only bring you visit startups and its founders, but also you will have the chance to have a taste of different cultures all around the old continent!"
+            text={
+              <p>
+                We discover Europe and its active startup ecosystems! We will
+                not only bring you visit startups and its founders, but also you
+                will have the chance to have a taste of different cultures all
+                around the old continent!
+              </p>
+            }
           />
           <div className=" xl:w-1/2 xl:-ml-28  border border-solid border-orange rounded-xl p-2">
             <img
