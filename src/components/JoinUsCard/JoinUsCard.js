@@ -26,7 +26,7 @@ export default class JoinUsCard extends Component {
         style={{ height: this.props.height, width: this.props.width }}
       >
         <div className="mx-6">
-          <h1 className="md:text-center">{this.props.role}</h1>
+          <h2 className="md:text-center">{this.props.role}</h2>
           <ul className="list-disc">
             {this.props.advantages.map((pro, index) => (
               <li className="my-2 text-sm" key={index}>

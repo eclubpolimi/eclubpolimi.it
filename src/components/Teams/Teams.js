@@ -14,7 +14,7 @@ export default class Teams extends Component {
 
     return (
       <div className="py-10">
-        <h1 className="md:text-center mb-5">E-Club Teams</h1>
+        <h2 className="md:text-center mb-5">E-Club Teams</h2>
         <TabSelector tabs={tabs} />
       </div>
     );

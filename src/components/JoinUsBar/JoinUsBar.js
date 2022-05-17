@@ -32,7 +32,7 @@ const JoinUsbar = ({ title, color, buttonText, to, className }) => {
     <div
       className={`bg-${color} ${className} flex flex-col gap-6 py-12 justify-center items-center`}
     >
-      <h1 className={getTitleColor()}>{getTitle()}</h1>
+      <h2 className={getTitleColor()}>{getTitle()}</h2>
       <Button to={to} theme={getButtonColor()}>
         {getButtonText()}
       </Button>

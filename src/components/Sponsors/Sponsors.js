@@ -13,7 +13,7 @@ import React from "react";
 const Sponsors = ({ title, logos, className }) => {
   return (
     <div className={`${className} py-12`}>
-      <h1 className="text-center mb-8">{title ? title : "Sponsors"}</h1>
+      <h2 className="text-center mb-8">{title ? title : "Sponsors"}</h2>
       <div
         className={`flex flex-col md:flex-row items-center justify-center gap-20 px-20`}
       >
