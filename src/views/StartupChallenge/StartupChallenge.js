@@ -31,8 +31,8 @@ const StartupChallenge = () => {
   return (
     <div className="w-full">
       <div
-        className="md:mx-auto md:my-28 px-5 md:pl-10 py-10 md:py-0 max-w-6xl
-      flex flex-col-reverse md:flex-row text-center md:text-left items-center md:gap-8"
+        className="md:mx-auto md:my-28 px-5 sm:px-8 py-4 md:py-0 max-w-6xl
+      flex flex-col-reverse md:flex-row text-center md:text-left items-center md:gap-10"
       >
         <div className="w-full md:w-1/2">
           <h1 className="mt-8 text-slate-800 font-extrabold text-4xl leading-tight header-squares-decoration">

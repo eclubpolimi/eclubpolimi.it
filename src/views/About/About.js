@@ -29,7 +29,7 @@ export default class About extends Component {
             </p>
           </Description>
         </div>
-        <JoinUsBar to={SiteData.JoinTarget} />
+        <JoinUsBar to={SiteData.JoinTarget} color="blue" />
         <div className="bg-gray-200">
           <div className="max-w-screen-lg lg:mx-auto px-5 lg:px-0">
             <Teams

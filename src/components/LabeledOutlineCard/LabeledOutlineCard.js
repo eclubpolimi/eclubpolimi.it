@@ -20,7 +20,7 @@ const LabeledOutlineCard = ({
           text={label}
         ></OutlineLabel>
       )}
-      <p
+      <div
         className={`relative border border-solid border-slate-200 rounded-xl p-4 lg:p-8 my-4 -mt-8 pt-12 lg:pt-12
         shadow-md md:shadow-lg transition bg-white
         ${!invertedColors ? "after:border-blue" : "after:border-orange"}
@@ -30,7 +30,7 @@ const LabeledOutlineCard = ({
         after:content-[''] after:rounded-xl after:pointer-events-none lg:leading-8`}
       >
         {text}
-      </p>
+      </div>
     </div>
   );
 };

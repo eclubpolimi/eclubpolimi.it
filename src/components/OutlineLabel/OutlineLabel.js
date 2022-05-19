@@ -11,7 +11,7 @@ const OutlineLabel = ({ invertedColors, text, className = "" }) => {
       after:top-0 after:left-0 after:right-0 after:bottom-0 after:transform after:-translate-x-0.5 after:-translate-y-1
       after:content-[''] after:rounded-xl after:pointer-events-none`}
     >
-      <p className="text-white font-semibold text-2xl leading-tight">{text}</p>
+      <p className="text-white font-semibold text-xl leading-tight">{text}</p>
     </div>
   );
 };
