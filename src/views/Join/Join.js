@@ -31,6 +31,7 @@ export default class Join extends Component {
             width="300px"
             advantages={SiteData.driverAdvantages}
             to={SiteData.ApplyDriverLink}
+            closed={true}
           />
         </div>
       </div>
