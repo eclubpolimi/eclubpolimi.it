@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "./Button.css";
 
 const Button = ({
-  to = "#",
+  to,
   onClick = null,
   forceAnchor = false,
   theme = "orange",
@@ -18,7 +18,7 @@ const Button = ({
 
   if (to === undefined) {
     return (
-      <button className={styles} onClick={onClick} disabled={disabled}>
+      <button className={styles} onClick={onClick} disabled>
         {children}
       </button>
     );

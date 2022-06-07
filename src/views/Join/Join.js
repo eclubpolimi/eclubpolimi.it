@@ -30,7 +30,8 @@ export default class Join extends Component {
             height="340px"
             width="300px"
             advantages={SiteData.driverAdvantages}
-            to={SiteData.ApplyDriverLink}
+            //to={SiteData.ApplyDriverLink}
+            closed={true}
           />
         </div>
       </div>
