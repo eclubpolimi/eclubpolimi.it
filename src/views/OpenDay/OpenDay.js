@@ -16,7 +16,7 @@ const OpenDay = () => {
       <div className="pb-10 pt-4 md:py-10 px-5 md:px-20 flex flex-col-reverse md:flex-row text-center md:text-left items-center md:gap-8">
         <div className="w-full md:w-1/2 md:pl-6 xl:pl-28">
           <h1 className="mt-8 text-slate-800 font-extrabold text-4xl leading-tight header-squares-decoration">
-            E-Club × {" "}
+            E-Club ×{" "}
             <a
               className="no-underline text-slate-600 hover:text-slate-500"
               href="https://atupertu.svoltastudenti.it/"
