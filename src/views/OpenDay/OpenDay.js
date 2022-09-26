@@ -16,25 +16,14 @@ const OpenDay = () => {
       <div className="pb-10 pt-4 md:py-10 px-5 md:px-20 flex flex-col-reverse md:flex-row text-center md:text-left items-center md:gap-8">
         <div className="w-full md:w-1/2 md:pl-6 xl:pl-28">
           <h1 className="mt-8 text-slate-800 font-extrabold text-4xl leading-tight header-squares-decoration">
-            E-Club × Polimi{" "}
+            E-Club × {" "}
             <a
               className="no-underline text-slate-600 hover:text-slate-500"
-              href="https://www.polimi.it/landingpages/openday2022/"
+              href="https://atupertu.svoltastudenti.it/"
             >
-              #OPENDAY22
+              ATuxTu 2022
             </a>
           </h1>
-          <div className="space-y-0 text-center">
-            <span className="mt-3 text-orange font-semibold text-xl block text-center">
-              Join the ENTREPRENEURSHIP QUIZ!
-            </span>
-            <span className="mt-3 text-orange font-semibold text-xl block text-center">
-              12PM and 3PM
-            </span>
-            <span className="mt-3 text-slate-600 font-semibold text-l block">
-              Building 3 E-Club Stand
-            </span>
-          </div>
           <span className="mt-3 text-slate-600 font-semibold text-xl block">
             Join a community of entrepreneurs and reach your full potential
           </span>
