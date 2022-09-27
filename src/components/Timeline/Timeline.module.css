@@ -16,9 +16,9 @@ h6 {
   --marker-dot-color: var(--orange);
   line-height: 1.4em;
   list-style: none;
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
-  width: 100%;
+  width: fit-content;
 }
 .timeline h1,
 .timeline h2,
