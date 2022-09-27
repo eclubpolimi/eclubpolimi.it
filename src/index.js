@@ -18,6 +18,7 @@ import Hosts from "views/Hosts";
 import Footer from "components/Footer";
 import OpenDay from "views/OpenDay";
 import StartupChallenge from "views/StartupChallenge";
+import Travel from "views/Travel";
 
 import SiteData from "Data";
 import "common.css";
@@ -35,6 +36,11 @@ function Site() {
         <Route exact path={SiteData.NetworkTarget} element={<Network />} />
         <Route exact path={SiteData.JoinTarget} element={<Join />} />
         <Route exact path={SiteData.OpenDayTarget} element={<OpenDay />} />
+        <Route path={SiteData.TravelTarget} element={<Travel />} />
+        <Route
+          path={`${SiteData.TravelTarget}/*`}
+          element={<Navigate to={SiteData.TravelTarget} replace />}
+        />
         <Route
           exact
           path={SiteData.StartupChallengeTarget}
