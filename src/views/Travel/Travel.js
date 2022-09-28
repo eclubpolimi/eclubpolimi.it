@@ -71,7 +71,7 @@ const Travel = () => {
               E-Club goes to the Netherlands
             </h1>
             <span className="mt-3 text-slate-700 font-semibold text-xl block w-fit">
-              Why should I go to the Netherlands?
+              Trip to the Netherlands
             </span>
             <TravelBar
               className="mt-8 md:mt-12 w-full lg:w-2/3"
@@ -88,7 +88,7 @@ const Travel = () => {
         </div>
       </div>
       <div className="bg-slate-100">
-        <Description className="w-4/5 mx-auto" title="Trip to the Netherlands">
+        <Description className="w-4/5 mx-auto" title="Why should I go to the Netherlands?">
           <p>
               You will have the opportunity to dive into one of the most dynamic startup ecosystem in Europe, visiting the best startups in Europe. You’ll get to see:- early-seed startups;- the spectacular modern architecture of Rotterdam;- the student life Delft is famous for;Besides the visits to the Dutch startup world, you’ll have the opportunity to spend a nice and relaxed weekend enjoying a north-European experience surrounded by bikes, canals and the uniquely international Dutch culture!
             <br />
