@@ -3,6 +3,7 @@ import React from "react";
 import Button from "components/Button";
 import JoinUsBar from "components/JoinUsBar";
 import LabeledOutlineCard from "components/LabeledOutlineCard";
+import EventBanner from "components/EventBanner";
 import SiteData from "Data";
 
 import PeopleSvg from "assets/people_graphics.svg";
@@ -18,7 +19,7 @@ const OpenDay = () => {
           <h1 className="mt-8 text-slate-800 font-extrabold text-4xl leading-tight header-squares-decoration">
             E-Club ×{" "}
             <a
-              className="no-underline text-slate-600 hover:text-slate-500"
+              className="underline underline-offset-4 text-slate-600 hover:text-slate-500"
               href="https://atupertu.svoltastudenti.it/"
             >
               ATuxTu 2022
@@ -39,6 +40,10 @@ const OpenDay = () => {
           <img className="lg:w-3/4" src={PeopleSvg} alt="People graphics" />
         </div>
       </div>
+      <EventBanner
+        bannerData={SiteData.SmushMaterialsEventBanner}
+        className="bg-sky-100"
+      />
       <div className="px-5 md:px-40 py-12 flex flex-col gap-16 bg-slate-50">
         <div className="flex flex-col xl:flex-row justify-center items-center">
           <LabeledOutlineCard

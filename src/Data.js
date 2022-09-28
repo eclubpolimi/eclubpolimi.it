@@ -277,4 +277,15 @@ export default class SiteData {
       body: "",
     },
   ];
+
+  static SmushMaterialsEventBanner = {
+    imgSource:
+      "https://smushmaterials.com/wp-content/uploads/2022/04/Smush_cmyk-1.png",
+    registerLink:
+      "https://www.instagram.com/p/Ci-zob4K-GS/?igshid=YmMyMTA2M2Y=",
+    affliateLink: "https://smushmaterials.com",
+    eventName: "Smush Materials",
+    eventInfo: "Just Café - October 3, 2022 - 7PM",
+    eventType: "Meet the startup",
+  };
 }
