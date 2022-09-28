@@ -7,7 +7,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Button from "components/Button";
 
-const TravelBar = ({ info, registerLink, className = "" }) => {
+const TravelBar = ({ info, registerLink, disabled, className = "" }) => {
   const liClass = `flex md:flex-col md:px-10 md:gap-1 items-center
   text-slate-800 font-medium justify-between last:justify-center md:justify-center
   border-solid `;
@@ -41,7 +41,9 @@ const TravelBar = ({ info, registerLink, className = "" }) => {
           </p>
         </li>
         <li className={liClass}>
-          <Button to={registerLink}>Register</Button>
+          <Button to={registerLink} disabled={disabled}>
+            Register
+          </Button>
         </li>
       </ul>
     </div>
