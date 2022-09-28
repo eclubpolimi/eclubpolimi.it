@@ -36,6 +36,11 @@ function Site() {
         <Route exact path={SiteData.NetworkTarget} element={<Network />} />
         <Route exact path={SiteData.JoinTarget} element={<Join />} />
         <Route exact path={SiteData.OpenDayTarget} element={<OpenDay />} />
+        <Route
+          exact
+          path={SiteData.NewsTarget}
+          element={<Navigate to={SiteData.OpenDayTarget} replace />}
+        />
         <Route path={SiteData.TravelTarget} element={<Travel />} />
         <Route
           path={`${SiteData.TravelTarget}/*`}

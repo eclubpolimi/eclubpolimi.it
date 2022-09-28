@@ -42,6 +42,7 @@ export default class SiteData {
   static NetworkTarget = "/network";
   static JoinTarget = "/join";
   static OpenDayTarget = "/openday";
+  static NewsTarget = "/news";
   static StartupChallengeTarget = "/startupchallenge";
   static TravelTarget = "/travel";
 
