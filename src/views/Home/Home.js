@@ -114,7 +114,7 @@ const Home = () => {
                 </div>
               }
             />
-            <div className=" xl:w-1/2 xl:-ml-28  border border-solid border-blue rounded-xl p-2">
+            <div className=" xl:w-1/2 xl:-ml-28  border border-solid border-ec_blue rounded-xl p-2">
               <img
                 src={Munich2}
                 className="rounded-xl place-self-center"
@@ -123,7 +123,7 @@ const Home = () => {
             </div>
           </div>
           <div className="flex flex-col-reverse xl:flex-row justify-center items-center">
-            <div className="xl:w-1/2 xl:-mr-28  border border-solid border-orange rounded-xl p-2">
+            <div className="xl:w-1/2 xl:-mr-28  border border-solid border-ec_orange rounded-xl p-2">
               <img
                 src={LogoStartupChallenge}
                 className="rounded-xl place-self-center"
@@ -163,7 +163,7 @@ const Home = () => {
                 </p>
               }
             />
-            <div className=" xl:w-1/2 xl:-ml-28  border border-solid border-blue rounded-xl p-2">
+            <div className=" xl:w-1/2 xl:-ml-28  border border-solid border-ec_blue rounded-xl p-2">
               <img
                 src={Munich3}
                 className="rounded-xl place-self-center"

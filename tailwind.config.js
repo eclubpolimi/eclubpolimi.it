@@ -6,8 +6,9 @@ module.exports = {
         height: "height",
       },
       colors: {
-        blue: "#120068",
-        orange: "#fc3f1a",
+        ec_blue: "#120068",
+        ec_orange: "#fc3f1a",
+        ec_grey: "#b2bfcc",
       },
     },
   },

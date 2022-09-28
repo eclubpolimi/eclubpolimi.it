@@ -71,18 +71,6 @@ a {
   text-decoration: none;
 }
 
-.bg-blue {
-  background-color: var(--blue);
-}
-
-.bg-orange {
-  background-color: var(--orange);
-}
-
-.bg-grey {
-  background-color: var(--grey);
-}
-
 /*---------------------------
     Tailwind CSS
 ---------------------------*/
