@@ -16,7 +16,7 @@ const Button = ({
     disabled ? " btn--disabled" : ""
   } ${className} font-medium`;
 
-  if (to === undefined) {
+  if (!to || disabled) {
     return (
       <button className={styles} onClick={onClick} disabled>
         {children}
