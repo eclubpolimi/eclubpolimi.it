@@ -23,7 +23,7 @@ export default class Footer extends Component {
 
   render() {
     return (
-      <div className="footer bg-blue">
+      <div className="footer bg-ec_blue">
         <div className="footer-content">
           <img className="footer-logo" src={this.props.logo} alt="Logo" />
           <div className="footer-social">

@@ -23,7 +23,7 @@ const LabeledOutlineCard = ({
       <div
         className={`relative border border-solid border-slate-200 rounded-xl p-4 lg:p-8 my-4 -mt-8 pt-12 lg:pt-12
         shadow-md md:shadow-lg transition bg-white
-        ${!invertedColors ? "after:border-blue" : "after:border-orange"}
+        ${!invertedColors ? "after:border-ec_blue" : "after:border-ec_orange"}
         after:block after:absolute after:border-[1.5px] after:border-solid
         after:top-0 after:left-0 after:right-0 after:bottom-0 after:transform
         after:-translate-x-1 after:-translate-y-0.5

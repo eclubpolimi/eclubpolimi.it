@@ -36,7 +36,7 @@ export default class Navbar extends Component {
 
   render() {
     return (
-      <nav className="navbar-items bg-blue">
+      <nav className="navbar-items bg-ec_blue">
         <Link
           to={SiteData.HomeTarget}
           className="navbar-logo"
@@ -45,7 +45,7 @@ export default class Navbar extends Component {
           <img src={SiteData.LogoWhite} alt="Entrepreneurship Club Polimi" />
         </Link>
         <ul
-          className={`nav-links bg-blue ${
+          className={`nav-links bg-ec_blue ${
             this.state.clicked ? "nav-active" : ""
           }`}
         >
