@@ -43,6 +43,7 @@ export default class SiteData {
   static JoinTarget = "/join";
   static OpenDayTarget = "/openday";
   static StartupChallengeTarget = "/startupchallenge";
+  static TravelTarget = "/travel";
 
   // NAVBAR
   static NavbarItems = [
@@ -60,6 +61,10 @@ export default class SiteData {
     },
     {
       content: <Link to={this.PiaTarget}>Passion in Action</Link>,
+      type: "link",
+    },
+    {
+      content: <Link to={this.TravelTarget}>Travel</Link>,
       type: "link",
     },
     {
