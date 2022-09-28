@@ -113,10 +113,10 @@ const Travel = () => {
       </div>
       <div className="bg-slate-100">
         <Description
-          className="w-4/5 mx-auto font-medium text-slate-700 text-justify"
+          className="w-4/5 mx-auto font-medium text-slate-700"
           title="Why should I go to the Netherlands?"
         >
-          <p>
+          <p className="text-justify">
             You will have the opportunity to dive into one of the most dynamic
             startup ecosystems in Europe. You’ll get to see early-seed startups,
             the spectacular modern architecture of Rotterdam and the student
