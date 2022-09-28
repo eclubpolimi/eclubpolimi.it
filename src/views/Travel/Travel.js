@@ -1,5 +1,8 @@
 import React from "react";
 
+import { faClock } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import TravelBar from "components/TravelBar";
 import Description from "components/Description";
 import Timeline from "components/Timeline";
@@ -11,9 +14,15 @@ const timelineData = [
     title: "Day 1",
     children: (
       <ul className="list-disc ml-4 mt-2">
-        <li>Thursday morning (about 06:30): meeting at Milan Linate Airport</li>
-        <li>9:20 departure from Milan Linate Airport with ITA flight</li>
-        <li>11:20 landing at Amsterdam Schiphol</li>
+        <li>Thursday morning: meeting at Milan Linate Airport</li>
+        <li>
+          <FontAwesomeIcon icon={faClock} /> 09:20 AM: departure from Milan
+          Linate Airport with ITA flight
+        </li>
+        <li>
+          <FontAwesomeIcon icon={faClock} /> 11:20 AM: landing at Amsterdam
+          Schiphol
+        </li>
         <li>Afternoon: visit to the first startup</li>
       </ul>
     ),
@@ -23,8 +32,11 @@ const timelineData = [
     title: "Day 2",
     children: (
       <ul className="list-disc ml-4 mt-2">
-        <li>Friday morning: visit to the historical port and neighborhood & lunch at the biggest food market of the Netherlands</li>
-        <li>Friday afternoon: visit to our second startup</li>
+        <li>
+          Friday morning: visit to the historical port and neighborhood & lunch
+          at the biggest food market in the Netherlands
+        </li>
+        <li>Friday afternoon: visit to the second startup</li>
         <li>Bitterballen and drinks together in Delfshaven!</li>
       </ul>
     ),
@@ -34,7 +46,10 @@ const timelineData = [
     title: "Day 3",
     children: (
       <ul className="list-disc ml-4 mt-2">
-        <li>Saturday morning: train to Delft and visit to the typical Saturday market</li>
+        <li>
+          Saturday morning: train to Delft and visit to the typical Saturday
+          market
+        </li>
         <li>Saturday afternoon: free afternoon in Delft</li>
         <li>Saturday night: Pubquiz</li>
       </ul>
@@ -45,10 +60,18 @@ const timelineData = [
     title: "Day 4",
     children: (
       <ul className="list-disc ml-4 mt-2">
-        <li>free morning</li>
-        <li>h 17 circa: train to Amsterdam Schiphol</li>
-        <li>h 19.50: flight to Milano Linate</li>
-        <li>h 21.25: landing at Milano Linate airport</li>
+        <li>Free morning</li>
+        <li>
+          <FontAwesomeIcon icon={faClock} /> 5:00 PM: train to Amsterdam
+          Schiphol
+        </li>
+        <li>
+          <FontAwesomeIcon icon={faClock} /> 7:50 PM: flight to Milano Linate
+        </li>
+        <li>
+          <FontAwesomeIcon icon={faClock} /> 9:25 PM: landing at Milano Linate
+          airport
+        </li>
       </ul>
     ),
   },
@@ -71,39 +94,66 @@ const Travel = () => {
               E-Club goes to the Netherlands
             </h1>
             <span className="mt-3 text-slate-700 font-semibold text-xl block w-fit">
-              Trip to the Netherlands
+              Discovering the Dutch startup ecosystem
             </span>
             <TravelBar
               className="mt-8 md:mt-12 w-full lg:w-2/3"
               info={{
                 place: "Rotterdam",
                 date: "17/11/2022",
-                peoples: "78",
+                peoples: "30",
                 price: "€205,00",
-                priceTerms: "after PoliMi discount",
+                priceTerms: true,
               }}
               registerLink={registerLink}
+              disabled
             />
           </div>
         </div>
       </div>
       <div className="bg-slate-100">
-        <Description className="w-4/5 mx-auto" title="Why should I go to the Netherlands?">
+        <Description
+          className="w-4/5 mx-auto font-medium text-slate-700 text-justify"
+          title="Why should I go to the Netherlands?"
+        >
           <p>
-              You will have the opportunity to dive into one of the most dynamic startup ecosystem in Europe, visiting the best startups in Europe. You’ll get to see:- early-seed startups;- the spectacular modern architecture of Rotterdam;- the student life Delft is famous for;Besides the visits to the Dutch startup world, you’ll have the opportunity to spend a nice and relaxed weekend enjoying a north-European experience surrounded by bikes, canals and the uniquely international Dutch culture!
+            You will have the opportunity to dive into one of the most dynamic
+            startup ecosystems in Europe. You’ll get to see early-seed startups,
+            the spectacular modern architecture of Rotterdam and the student
+            life Delft is famous for.
             <br />
             <br />
-              Join our trip to Rotterdam & Delft (November 17th-20th) to explore these two cities and discover the Dutch startup ecosystem through exclusive company visits!
+            Besides the visits to the Dutch startup world, you’ll have the
+            opportunity to spend a nice and relaxed weekend enjoying a
+            north-European experience surrounded by bikes, canals and the
+            uniquely international Dutch culture!
             <br />
             <br />
-              Registration opens on October 6th at 12. 30 tickets available, reserve your seat quickly!
+            Join our trip to Rotterdam & Delft from November 17th through
+            November 20th to explore these two cities and discover the Dutch
+            startup ecosystem through exclusive company visits!
+            <br />
+            <br />
+            <strong className="block -mx-4 p-4 bg-white rounded-xl border-solid border-[1px] border-slate-200">
+              Registrations open{" "}
+              <mark className="bg-orange-200 px-1">October 6th at 12:00</mark>.
+              Only 30 tickets are available and they'll run out quickly. Save
+              the date and train your fingers in the meantime!
+            </strong>
+            <br />
+            <span className="text-sm italic text-slate-500">
+              * You’ll have to pay €325,00 upfront, but we will refund €120,00
+              after the trip. Price includes: A/R flight, train tickets, 3
+              nights accommodation, visit to startups and accelerator, travel
+              and health insurance.
+            </span>
           </p>
         </Description>
       </div>
       <Timeline
         theme="split"
         data={timelineData}
-        className="py-16 max-w-screen-lg lg:mx-auto px-5 lg:px-0"
+        className="py-16 max-w-screen-lg lg:mx-auto px-5 lg:px-0 font-medium text-slate-700"
       />
     </div>
   );
