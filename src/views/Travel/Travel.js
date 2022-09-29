@@ -142,10 +142,14 @@ const Travel = () => {
             </strong>
             <br />
             <span className="text-sm italic text-slate-500">
-              * You’ll have to pay €325,00 upfront, but we will refund €120,00
+              * An initiative sponsored by Politecnico di Milano: You’ll have to pay €325.00 upfront, but we will refund €120,00
               after the trip. Price includes: A/R flight, train tickets, 3
               nights accommodation, visit to startups and accelerator, travel
               and health insurance.
+            </span>
+              <br />
+              <span className="text-sm italic text-slate-500">
+              * Un'iniziativa sponsorizzata dal Politecnico di Milano: Dovrai pagare in anticipo €325,00, ma ti rimborseremo €120,00 dopo il viaggio. Il prezzo include: volo A/R, biglietti del treno, 3 pernottamenti, visita a startup e acceleratore, viaggio e assicurazione sanitaria.
             </span>
           </p>
         </Description>
