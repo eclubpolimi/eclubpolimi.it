@@ -41,14 +41,14 @@ function Site() {
           path={SiteData.NewsTarget}
           element={<Navigate to={SiteData.OpenDayTarget} replace />}
         />
-        <Route path={SiteData.TravelTarget} element={<Travel />} />
-        <Route
-          path={`${SiteData.TravelTarget}/*`}
-          element={<Navigate to={SiteData.TravelTarget} replace />}
-        />
+        <Route path={SiteData.TripsTarget} element={<Travel />} />
         <Route
           path={`${SiteData.TripsTarget}/*`}
-          element={<Navigate to={SiteData.TravelTarget} replace />}
+          element={<Navigate to={SiteData.TripsTarget} replace />}
+        />
+        <Route
+          path={`${SiteData.TravelTarget}/*`}
+          element={<Navigate to={SiteData.TripsTarget} replace />}
         />
         <Route
           exact

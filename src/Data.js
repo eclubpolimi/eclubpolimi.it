@@ -36,7 +36,6 @@ export default class SiteData {
   static HomeTarget = "/";
   static AboutUsTarget = "/about";
   static EventsTarget = "/events";
-  static TripsTarget = "/trips";
   static GuestsTarget = "/guests";
   static PiaTarget = "/passion-in-action";
   static NetworkTarget = "/network";
@@ -44,8 +43,8 @@ export default class SiteData {
   static OpenDayTarget = "/openday";
   static NewsTarget = "/news";
   static StartupChallengeTarget = "/startupchallenge";
-  static TravelTarget = "/trips";
-  static TripsTarget = "/travel";
+  static TripsTarget = "/trips";
+  static TravelTarget = "/travel";
 
   // NAVBAR
   static NavbarItems = [
