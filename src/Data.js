@@ -45,6 +45,7 @@ export default class SiteData {
   static NewsTarget = "/news";
   static StartupChallengeTarget = "/startupchallenge";
   static TravelTarget = "/trips";
+  static TripsTarget = "/travel";
 
   // NAVBAR
   static NavbarItems = [

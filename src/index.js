@@ -47,6 +47,10 @@ function Site() {
           element={<Navigate to={SiteData.TravelTarget} replace />}
         />
         <Route
+          path={`${SiteData.TripsTarget}/*`}
+          element={<Navigate to={SiteData.TravelTarget} replace />}
+        />
+        <Route
           exact
           path={SiteData.StartupChallengeTarget}
           element={<StartupChallenge />}
