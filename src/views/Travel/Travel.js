@@ -32,11 +32,10 @@ const timelineData = [
     title: "Day 2",
     children: (
       <ul className="list-disc ml-4 mt-2">
+        <li>Friday morning: free morning in Rotterdam</li>
         <li>
-          Friday morning: visit to the historical port and neighborhood & lunch
-          at the biggest food market in the Netherlands
+          Friday afternoon: train to Delft and visit to our second startup
         </li>
-        <li>Friday afternoon: visit to the second startup</li>
         <li>Bitterballen and drinks together in Delfshaven!</li>
       </ul>
     ),
@@ -47,10 +46,10 @@ const timelineData = [
     children: (
       <ul className="list-disc ml-4 mt-2">
         <li>
-          Saturday morning: train to Delft and visit to the typical Saturday
-          market
+          Saturday morning: visit to the historical port and neighbourhood &
+          lunch at the biggest food market of the Netherlands
         </li>
-        <li>Saturday afternoon: free afternoon in Delft</li>
+        <li>Saturday afternoon: free afternoon in Rotterdam</li>
         <li>Saturday night: Pubquiz</li>
       </ul>
     ),
@@ -77,7 +76,8 @@ const timelineData = [
   },
 ];
 
-const registerLink = "";
+const registerLink =
+  "https://docs.google.com/forms/d/e/1FAIpQLSdWZ5dAfNZUbH9v3ZVbr1Rt6XSOl-2366X4gtXlekFJHYWEDw/viewform";
 
 const Travel = () => {
   return (
@@ -97,16 +97,15 @@ const Travel = () => {
               Discovering the Dutch startup ecosystem
             </span>
             <TravelBar
-              className="mt-8 md:mt-12 w-full lg:w-2/3"
+              className="mt-8 md:mt-12 w-full lg:w-3/4 xl:w-2/3"
               info={{
                 place: "Rotterdam",
-                date: "17/11/2022",
+                date: "17-20 Nov. 2022",
                 peoples: "30",
                 price: "€205,00",
                 priceTerms: true,
               }}
               registerLink={registerLink}
-              disabled
             />
           </div>
         </div>
@@ -136,20 +135,21 @@ const Travel = () => {
             <br />
             <strong className="block -mx-4 p-4 bg-white rounded-xl border-solid border-[1px] border-slate-200">
               Registrations open{" "}
-              <mark className="bg-orange-200 px-1">October 6th at 12:00</mark>.
-              Only 30 tickets are available and they'll run out quickly. Save
-              the date and train your fingers in the meantime!
+              <span className="text-ec_orange">October 6th at 12:00 AM</span>. Only
+              30 tickets are available and they'll run out quickly. Save the
+              date and train your fingers in the meantime!
             </strong>
             <br />
-            <span className="text-sm italic text-slate-500">
-              * An initiative sponsored by Politecnico di Milano: You’ll have to
+            <span className="text-sm text-slate-500">
+              * An initiative sponsored by Politecnico di Milano. You’ll have to
               pay €325.00 upfront, but we will refund €120,00 after the trip.
-              Price includes: A/R flight, train tickets, 3 nights accommodation,
-              visit to startups and accelerator, travel and health insurance.
+              Price includes: roundtrip flight, train tickets, 3 nights
+              accommodation, visit to startups and accelerator, travel and
+              health insurance.
             </span>
             <br />
-            <span className="text-sm italic text-slate-500">
-              * Un'iniziativa sponsorizzata dal Politecnico di Milano: Dovrai
+            <span className="text-sm text-slate-500">
+              * Un'iniziativa sponsorizzata dal Politecnico di Milano. Dovrai
               pagare in anticipo €325,00, ma ti rimborseremo €120,00 dopo il
               viaggio. Il prezzo include: volo A/R, biglietti del treno, 3
               pernottamenti, visita a startup e acceleratore, viaggio e

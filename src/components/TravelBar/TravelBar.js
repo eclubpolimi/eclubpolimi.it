@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Button from "components/Button";
 
 const TravelBar = ({ info, registerLink, disabled, className = "" }) => {
-  const liClass = `flex md:flex-col md:px-10 md:gap-1 items-center
+  const liClass = `flex md:flex-col md:px-10 md:gap-1 items-center whitespace-nowrap
   text-slate-800 font-medium justify-between last:justify-center md:justify-center
   border-solid `;
   const borderClass = `border-b-2 md:border-b-0 md:border-r-2
@@ -35,7 +35,7 @@ const TravelBar = ({ info, registerLink, disabled, className = "" }) => {
         </li>
         <li className={liClass}>
           <FontAwesomeIcon icon={faMoneyBillAlt}></FontAwesomeIcon>
-          <p className="whitespace-nowrap">
+          <p>
             <span>{info.price}</span>
             {info.priceTerms && <span className="text-slate-500">*</span>}
           </p>
