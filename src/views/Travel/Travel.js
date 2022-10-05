@@ -97,7 +97,7 @@ const Travel = () => {
               Discovering the Dutch startup ecosystem
             </span>
             <TravelBar
-              className="mt-8 md:mt-12 w-full lg:w-2/3"
+              className="mt-8 md:mt-12 w-full lg:w-3/4 xl:w-2/3"
               info={{
                 place: "Rotterdam",
                 date: "17/11/2022",
