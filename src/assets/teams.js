@@ -1,58 +1,8 @@
 const rawTeams = [
   {
-    nameSurname: "Francesca Binacchi",
-    team: "Board",
-    role: "President",
-    image: "/images/data/Francesca_Binacchi.png",
-    quote: "May your choices reflect your hopes, not your fears.",
-    quoteAuthor: "Nelson Mandela",
-    marksColor: "#062293",
-    email: "francesca.binacchi@eclubpolimi.it",
-    linkedinUrl: "https://www.linkedin.com/in/francescabinacchi/",
-    instagramUrl: "",
-  },
-  {
-    nameSurname: "Valeria Gonzalez",
+    nameSurname: "Arianna Attard",
     team: "Board",
     role: "Vice-President",
-    image: "/images/data/Valeria_Gonzalez.png",
-    quote:
-      "If you're not failing every now and again, it's a sign you're not doing anything very innovative.",
-    quoteAuthor: "Woody Allen",
-    marksColor: "#c70000",
-    email: "valeria.gonzalez@eclubpolimi.it",
-    linkedinUrl: "https://www.linkedin.com/in/valeriagonzalezm/",
-    instagramUrl: "https://www.instagram.com/valemgm/",
-  },
-  {
-    nameSurname: "Giulia Spallanzani",
-    team: "Board",
-    role: "Secretary",
-    image: "/images/data/Giulia_Spallanzani.png",
-    quote:
-      "Imagination is more important than knowledge. Knowledge is limited. Imagination encircles the world.",
-    quoteAuthor: "Albert Einstein",
-    marksColor: "#299e35",
-    email: "giulia.spallanzani@eclubpolimi.it",
-    linkedinUrl: "https://www.linkedin.com/in/giulia-spallanzani-3b210716b/",
-    instagramUrl: "https://www.instagram.com/giulspallanzani/",
-  },
-  {
-    nameSurname: "Calin Sirbu",
-    team: "Board",
-    role: "Communication Manager",
-    image: "/images/data/Calin_Sirbu.png",
-    quote: "My biggest motivation? Just to keep challenging myself.",
-    quoteAuthor: "Richard Branson",
-    marksColor: "#120068",
-    email: "calin.sirbu@eclubpolimi.it",
-    linkedinUrl: "https://www.linkedin.com/in/calinsirbu/",
-    instagramUrl: "https://www.instagram.com/iamcalin/",
-  },
-  {
-    nameSurname: "Arianna Attard",
-    team: "Events",
-    role: "Coordinator",
     image: "/images/data/Arianna_Attard.png",
     quote: "If you can dream it, you can do it.",
     quoteAuthor: "Walt Disney",
@@ -137,8 +87,8 @@ const rawTeams = [
   },
   {
     nameSurname: "Eleonora Pezzella",
-    team: "Human Capital",
-    role: "Member",
+    team: "Board",
+    role: "Treasurer",
     image: "/images/data/Eleonora_Pezzella.png",
     quote:
       "If you are working on something that you really care about, you don't have to be pushed. The vision pulls you.",
@@ -200,8 +150,8 @@ const rawTeams = [
   },
   {
     nameSurname: "Valeria Amato",
-    team: "Information Technology",
-    role: "Coordinator",
+    team: "Board",
+    role: "President",
     image: "/images/data/Valeria_Amato.png",
     quote:
       "I think it is possible for ordinary people to choose to be extraordinary.",
@@ -211,22 +161,11 @@ const rawTeams = [
     linkedinUrl: "https://www.linkedin.com/in/valeria-amato/",
     instagramUrl: "https://www.instagram.com/_valeria.amato/",
   },
-  {
-    nameSurname: "Matteo Zanini",
-    team: "Information Technology",
-    role: "Coordinator",
-    image: "/images/data/Matteo_Zanini.png",
-    quote: "Innovation distinguishes between a leader and a follower.",
-    quoteAuthor: "Steve Jobs",
-    marksColor: "#2afa62",
-    email: "matteo.zanini@eclubpolimi.it",
-    linkedinUrl: "https://www.linkedin.com/in/matteo-zanini/",
-    instagramUrl: "https://www.instagram.com/zanna_tusk/",
-  },
+
   {
     nameSurname: "Niccolò Betto",
     team: "Information Technology",
-    role: "Member",
+    role: "Coordinator",
     image: "/images/data/Niccolo_Betto.png",
     quote: "Love with your heart, use your head for everything else.",
     quoteAuthor: "Captain Disillusion",
@@ -287,8 +226,8 @@ const rawTeams = [
   },
   {
     nameSurname: "Anita Notarianni",
-    team: "Marketing & Communication",
-    role: "Coordinator",
+    team: "Board",
+    role: "Secretary",
     image: "/images/data/Anita_Notarianni.png",
     quote:
       "Twenty years from now you will be more disappointed by the things that you didn't do than by the ones you did do.",
@@ -300,8 +239,8 @@ const rawTeams = [
   },
   {
     nameSurname: "Ginevra Carradori",
-    team: "Marketing & Communication",
-    role: "Coordinator",
+    team: "Board",
+    role: "Communication Manager",
     image: "/images/data/Ginevra_Carradori.png",
     quote: "It always seems impossible until it's done.",
     quoteAuthor: "Nelson Mandela",
@@ -324,26 +263,6 @@ const rawTeams = [
     instagramUrl: "https://www.instagram.com/can_gocmen/",
   },
 ];
-
-/* team object scheme
-{
-  teamName: "Information Technology",
-  members: [
-    {
-      image: "",
-      cardText: {
-        role: "",
-        nameSurname: "",
-        quote: "",
-        quoteAuthor: "",
-        marksColor: "",
-        email: "",
-        linkedinUrl: "",
-        instagramUrl: "",
-      },
-    },
-  ],
-} */
 
 const teamNames = [
   "Board",

@@ -135,9 +135,11 @@ const Travel = () => {
             <br />
             <strong className="block -mx-4 p-4 bg-white rounded-xl border-solid border-[1px] border-slate-200">
               Registrations open{" "}
-              <span className="text-ec_orange">October 6th at 12:00 midday</span>. Only
-              30 tickets are available and they'll run out quickly. Save the
-              date and train your fingers in the meantime!
+              <span className="text-ec_orange">
+                October 6th at 12:00 midday
+              </span>
+              . Only 30 tickets are available and they'll run out quickly. Save
+              the date and train your fingers in the meantime!
             </strong>
             <br />
             <span className="text-sm text-slate-500">
