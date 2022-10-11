@@ -1,4 +1,5 @@
 const rawTeams = [
+  /*
   {
     nameSurname: "Francesca Binacchi",
     team: "Board",
@@ -49,10 +50,13 @@ const rawTeams = [
     linkedinUrl: "https://www.linkedin.com/in/calinsirbu/",
     instagramUrl: "https://www.instagram.com/iamcalin/",
   },
+
+     */
+
   {
     nameSurname: "Arianna Attard",
-    team: "Events",
-    role: "Coordinator",
+    team: "Board",
+    role: "Vice-President",
     image: "/images/data/Arianna_Attard.png",
     quote: "If you can dream it, you can do it.",
     quoteAuthor: "Walt Disney",
@@ -137,8 +141,8 @@ const rawTeams = [
   },
   {
     nameSurname: "Eleonora Pezzella",
-    team: "Human Capital",
-    role: "Member",
+    team: "Board",
+    role: "Treasurer",
     image: "/images/data/Eleonora_Pezzella.png",
     quote:
       "If you are working on something that you really care about, you don't have to be pushed. The vision pulls you.",
@@ -200,8 +204,8 @@ const rawTeams = [
   },
   {
     nameSurname: "Valeria Amato",
-    team: "Information Technology",
-    role: "Coordinator",
+    team: "Board",
+    role: "President",
     image: "/images/data/Valeria_Amato.png",
     quote:
       "I think it is possible for ordinary people to choose to be extraordinary.",
@@ -211,6 +215,7 @@ const rawTeams = [
     linkedinUrl: "https://www.linkedin.com/in/valeria-amato/",
     instagramUrl: "https://www.instagram.com/_valeria.amato/",
   },
+  /*
   {
     nameSurname: "Matteo Zanini",
     team: "Information Technology",
@@ -223,10 +228,13 @@ const rawTeams = [
     linkedinUrl: "https://www.linkedin.com/in/matteo-zanini/",
     instagramUrl: "https://www.instagram.com/zanna_tusk/",
   },
+  
+     */
+
   {
     nameSurname: "Niccolò Betto",
     team: "Information Technology",
-    role: "Member",
+    role: "Coordinator",
     image: "/images/data/Niccolo_Betto.png",
     quote: "Love with your heart, use your head for everything else.",
     quoteAuthor: "Captain Disillusion",
@@ -287,8 +295,8 @@ const rawTeams = [
   },
   {
     nameSurname: "Anita Notarianni",
-    team: "Marketing & Communication",
-    role: "Coordinator",
+    team: "Board",
+    role: "Secretary",
     image: "/images/data/Anita_Notarianni.png",
     quote:
       "Twenty years from now you will be more disappointed by the things that you didn't do than by the ones you did do.",
@@ -300,8 +308,8 @@ const rawTeams = [
   },
   {
     nameSurname: "Ginevra Carradori",
-    team: "Marketing & Communication",
-    role: "Coordinator",
+    team: "Board",
+    role: "Communication Manager",
     image: "/images/data/Ginevra_Carradori.png",
     quote: "It always seems impossible until it's done.",
     quoteAuthor: "Nelson Mandela",
