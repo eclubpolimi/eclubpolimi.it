@@ -16,7 +16,6 @@ export default class Network extends Component {
           backgroundImage={SiteData.NetworkHeroBackground}
           contentType="logo"
           logo={SiteData.NetworkHeroImage}
-          logoWidth="400px"
         />
         <div className="max-w-screen-lg lg:mx-auto px-5 lg:px-0">
           <Description title="About our network">

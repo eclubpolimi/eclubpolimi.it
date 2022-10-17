@@ -1,4 +1,14 @@
-const OutlineLabel = ({ invertedColors, text, className = "" }) => {
+type OutlineLabelProps = {
+  invertedColors: boolean;
+  text: string;
+  className?: string;
+};
+
+const OutlineLabel = ({
+  invertedColors,
+  text,
+  className = "",
+}: OutlineLabelProps) => {
   return (
     <div
       className={`${className} relative py-4 px-12 w-max rounded-xl

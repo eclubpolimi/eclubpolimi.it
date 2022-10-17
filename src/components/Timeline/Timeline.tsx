@@ -1,7 +1,18 @@
-import React from "react";
 import styles from "./Timeline.module.css";
 
-const Timeline = ({ theme, data, className }) => {
+type TimelineEvent = {
+  date: string;
+  body: string;
+  title: string;
+  children: string;
+};
+type TimelineProps = {
+  theme: string;
+  data: Array<TimelineEvent>;
+  className?: string;
+};
+
+const Timeline = ({ theme, data, className }: TimelineProps) => {
   const getTheme = () =>
     ({
       centered: styles.timeline_centered,
@@ -12,7 +23,7 @@ const Timeline = ({ theme, data, className }) => {
   return (
     <div className={className}>
       <ul className={`${styles.timeline} ${getTheme()}`}>
-        {data.map((item, index) => {
+        {data.map((item: TimelineEvent, index: number) => {
           return (
             <li key={index} className={styles.timeline_item}>
               <div className={styles.timeline_info}>

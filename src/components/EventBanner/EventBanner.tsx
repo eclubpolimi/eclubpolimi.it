@@ -1,7 +1,23 @@
-import React from "react";
 import Button from "components/Button";
 
-const EventBanner = ({ bannerData, className = "", disabled }) => {
+type EventBannerProps = {
+  bannerData: {
+    imgSource: string;
+    eventName: string;
+    eventType: string;
+    affiliateLink: string;
+    eventInfo: string;
+    registerLink: string;
+  };
+  className: string;
+  disabled: boolean;
+};
+
+const EventBanner = ({
+  bannerData,
+  className = "",
+  disabled,
+}: EventBannerProps) => {
   return (
     <div
       className={`${className} py-12 px-5 md:px-20 flex flex-col-reverse md:flex-row 
@@ -22,7 +38,7 @@ const EventBanner = ({ bannerData, className = "", disabled }) => {
           {bannerData.eventType}:{" "}
           <a
             className="underline underline-offset-4 text-slate-600 hover:text-slate-500"
-            href={bannerData.affliateLink}
+            href={bannerData.affiliateLink}
           >
             {bannerData.eventName}
           </a>

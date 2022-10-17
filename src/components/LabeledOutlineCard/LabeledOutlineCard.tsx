@@ -1,12 +1,20 @@
 import OutlineLabel from "components/OutlineLabel";
 
+type LabeledOutlineCardProps = {
+  className: string;
+  label: string;
+  text: string;
+  invertedColors: boolean;
+  labelDx: string;
+};
+
 const LabeledOutlineCard = ({
   className = "",
   label,
   text,
   invertedColors,
   labelDx,
-}) => {
+}: LabeledOutlineCardProps) => {
   return (
     <div
       className={`${className} flex flex-col items-center ${

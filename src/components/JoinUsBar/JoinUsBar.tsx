@@ -1,5 +1,4 @@
 import Button from "components/Button";
-import { ButtonProps } from "components/Button/Button";
 
 type JoinUsBarProps = {
   title: string;
@@ -16,29 +15,35 @@ const JoinUsbar = ({
   to,
   className,
 }: JoinUsBarProps) => {
-  const getButtonColor = (): ButtonProps["theme"] => {
-    const colorsMap = new Map<JoinUsBarProps["color"], ButtonProps["theme"]>([
-      ["orange", "light"],
-      ["blue", "orange"],
-      ["white", "orange"],
-    ]);
-
-    return colorsMap.get(color) || "orange";
+  const getButtonColor = (): "orange" | "light" | "dark" => {
+    return ({
+      orange: "light",
+      blue: "orange",
+      white: "orange",
+    }[color] || "orange") as "orange" | "light" | "dark";
   };
 
-  const getTitle = (): string => {
+  const getTitleColor = () => {
+    return {
+      orange: "text-white",
+      blue: "text-white",
+      white: "text-black",
+    }[color];
+  };
+
+  const getTitle = () => {
     return title || "Become one of us!";
   };
 
-  const getButtonText = (): string => {
+  const getButtonText = () => {
     return buttonText || "Join us";
   };
 
   return (
     <div
-      className={`bg-${color} ${className} flex flex-col gap-6 py-12 justify-center items-center`}
+      className={`bg-ec_${color} ${className} flex flex-col gap-6 py-12 justify-center items-center`}
     >
-      <h1 className="text-white">{getTitle()}</h1>
+      <h2 className={getTitleColor()}>{getTitle()}</h2>
       <Button to={to} theme={getButtonColor()}>
         {getButtonText()}
       </Button>

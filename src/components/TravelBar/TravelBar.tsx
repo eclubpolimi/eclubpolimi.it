@@ -7,7 +7,25 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Button from "components/Button";
 
-const TravelBar = ({ info, registerLink, disabled, className = "" }) => {
+type TravelBarProps = {
+  info: {
+    place: string;
+    date: string;
+    peoples: string;
+    price: string;
+    priceTerms: string;
+  };
+  registerLink: string;
+  disabled: boolean;
+  className?: string;
+};
+
+const TravelBar = ({
+  info,
+  registerLink,
+  disabled,
+  className = "",
+}: TravelBarProps) => {
   const liClass = `flex md:flex-col md:px-10 md:gap-1 items-center whitespace-nowrap
   text-slate-800 font-medium justify-between last:justify-center md:justify-center
   border-solid `;

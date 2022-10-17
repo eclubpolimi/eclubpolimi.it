@@ -1,16 +1,14 @@
-import React from "react";
+type SponsorProps = {
+  title: string;
+  logos: Array<{
+    src: string;
+    href: string;
+    alt: string;
+  }>;
+  className?: string;
+};
 
-/* logos prop
-[
-  {
-    src: string,
-    href: link,
-    alt: string,
-  },
-]
-*/
-
-const Sponsors = ({ title, logos, className }) => {
+const Sponsors = ({ title, logos, className }: SponsorProps) => {
   return (
     <div className={`${className} py-12`}>
       <h2 className="text-center mb-8">{title ? title : "Sponsors"}</h2>
