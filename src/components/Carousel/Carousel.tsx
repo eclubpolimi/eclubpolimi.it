@@ -23,9 +23,12 @@ const Carousel = ({ sliderData, autoplay, className = "" }: CarouselProps) => {
   const arrowSize = "40px";
 
   useEffect(() => {
-    const interval = setInterval(tick, autoplay);
-    setTimer(interval);
-    return clearInterval(timer);
+    const initTimer = () => {
+      const interval = setInterval(tick, autoplay);
+      setTimer(interval);
+    };
+    initTimer();
+    return () => clearInterval(timer);
   }, []);
 
   const tick = () => {
