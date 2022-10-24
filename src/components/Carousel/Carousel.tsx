@@ -75,7 +75,7 @@ const Carousel = ({ sliderData, autoplay, className = "" }: CarouselProps) => {
           style={{ fontSize: arrowSize }}
           onClick={nextSlide}
         />
-        <div className="absolute z-10 left-1/2 transform -translate-x-1/2 bottom-8">
+        <div className="absolute z-10 flex flex-row gap-2 left-1/2 transform -translate-x-1/2 bottom-8">
           <FontAwesomeIcon
             icon={faPauseCircle}
             className="text-white hover:text-gray-300 cursor-pointer h-8"
@@ -90,7 +90,7 @@ const Carousel = ({ sliderData, autoplay, className = "" }: CarouselProps) => {
           />
         </div>
       </div>
-      <div className="w-full">
+      <div className="w-full max-h-[400px]">
         {sliderData.map((slide: any, index: number) => (
           <div
             className={` transition-opacity duration-1000 ${
@@ -98,7 +98,11 @@ const Carousel = ({ sliderData, autoplay, className = "" }: CarouselProps) => {
             }`}
             key={index}
           >
-            <img className="w-full h-full" src={slide.image} alt="Carousel" />
+            <img
+              className="w-full max-h-[400px]"
+              src={slide.image}
+              alt="Carousel"
+            />
           </div>
         ))}
       </div>

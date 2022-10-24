@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import { Component } from "react";
 
 import Hero from "components/Hero";
 import JoinUsCard from "components/JoinUsCard";

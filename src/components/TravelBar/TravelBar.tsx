@@ -13,17 +13,17 @@ type TravelBarProps = {
     date: string;
     peoples: string;
     price: string;
-    priceTerms: string;
+    priceTerms: boolean;
   };
   registerLink: string;
-  disabled: boolean;
+  disabled?: boolean;
   className?: string;
 };
 
 const TravelBar = ({
   info,
   registerLink,
-  disabled,
+  disabled = false,
   className = "",
 }: TravelBarProps) => {
   const liClass = `flex md:flex-col md:px-10 md:gap-1 items-center whitespace-nowrap

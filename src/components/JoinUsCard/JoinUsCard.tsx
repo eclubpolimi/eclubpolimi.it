@@ -6,7 +6,7 @@ type JoinUsCardProps = {
   advantages: Array<string>;
   role: string;
   to: string;
-  closed: boolean;
+  closed?: boolean;
 };
 
 const JoinUsCard = ({
@@ -15,7 +15,7 @@ const JoinUsCard = ({
   advantages,
   role,
   to,
-  closed,
+  closed = false,
 }: JoinUsCardProps) => {
   return (
     <div

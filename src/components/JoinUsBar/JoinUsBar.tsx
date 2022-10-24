@@ -1,17 +1,17 @@
 import Button from "components/Button";
 
 type JoinUsBarProps = {
-  title: string;
-  color: "blue" | "orange" | "white";
-  buttonText: string;
+  title?: string;
+  color?: "blue" | "orange" | "white";
+  buttonText?: string;
   to: string;
   className?: string;
 };
 
 const JoinUsbar = ({
-  title,
-  color,
-  buttonText,
+  title = "",
+  color = "orange",
+  buttonText = "Join us",
   to,
   className,
 }: JoinUsBarProps) => {

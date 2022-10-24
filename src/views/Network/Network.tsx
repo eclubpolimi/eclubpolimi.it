@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import { Component } from "react";
 
 import SiteData from "Data";
 import Hero from "components/Hero";

@@ -28,16 +28,15 @@ function Site() {
     <Router>
       <Navbar items={SiteData.NavbarItems} />
       <Routes>
-        <Route exact path={SiteData.HomeTarget} element={<Home />} />
-        <Route exact path={SiteData.AboutUsTarget} element={<About />} />
-        <Route exact path={SiteData.EventsTarget} element={<Events />} />
-        <Route exact path={SiteData.GuestsTarget} element={<Hosts />} />
-        <Route exact path={SiteData.PiaTarget} element={<PassionInAction />} />
-        <Route exact path={SiteData.NetworkTarget} element={<Network />} />
-        <Route exact path={SiteData.JoinTarget} element={<Join />} />
-        <Route exact path={SiteData.OpenDayTarget} element={<OpenDay />} />
+        <Route path={SiteData.HomeTarget} element={<Home />} />
+        <Route path={SiteData.AboutUsTarget} element={<About />} />
+        <Route path={SiteData.EventsTarget} element={<Events />} />
+        <Route path={SiteData.GuestsTarget} element={<Hosts />} />
+        <Route path={SiteData.PiaTarget} element={<PassionInAction />} />
+        <Route path={SiteData.NetworkTarget} element={<Network />} />
+        <Route path={SiteData.JoinTarget} element={<Join />} />
+        <Route path={SiteData.OpenDayTarget} element={<OpenDay />} />
         <Route
-          exact
           path={SiteData.NewsTarget}
           element={<Navigate to={SiteData.OpenDayTarget} replace />}
         />
@@ -47,7 +46,6 @@ function Site() {
           element={<Navigate to={SiteData.TravelTarget} replace />}
         />
         <Route
-          exact
           path={SiteData.StartupChallengeTarget}
           element={<StartupChallenge />}
         />

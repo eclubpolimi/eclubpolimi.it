@@ -1,10 +1,11 @@
+import { ReactNode } from "react";
 import styles from "./Timeline.module.css";
 
-type TimelineEvent = {
+export type TimelineEvent = {
   date: string;
-  body: string;
+  body?: string;
   title: string;
-  children: string;
+  children?: ReactNode;
 };
 type TimelineProps = {
   theme: string;

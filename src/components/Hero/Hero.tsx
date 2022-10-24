@@ -5,9 +5,9 @@ type HeroProps = {
   height: string;
   darkness: number;
   contentType: string;
-  text: string;
-  logo: string;
-  alignTop: boolean;
+  text?: string;
+  logo?: string;
+  alignTop?: boolean;
 };
 
 const Hero = ({
@@ -17,7 +17,7 @@ const Hero = ({
   contentType,
   text,
   logo,
-  alignTop,
+  alignTop = false,
 }: HeroProps) => {
   return (
     <div

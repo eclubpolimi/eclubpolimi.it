@@ -1,5 +1,3 @@
-import React from "react";
-
 import Button from "components/Button";
 import JoinUsBar from "components/JoinUsBar";
 import LabeledOutlineCard from "components/LabeledOutlineCard";

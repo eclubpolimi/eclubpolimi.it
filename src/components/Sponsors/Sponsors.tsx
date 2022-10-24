@@ -1,5 +1,5 @@
 type SponsorProps = {
-  title: string;
+  title?: string;
   logos: Array<{
     src: string;
     href: string;
@@ -8,10 +8,10 @@ type SponsorProps = {
   className?: string;
 };
 
-const Sponsors = ({ title, logos, className }: SponsorProps) => {
+const Sponsors = ({ title = "Sponsors", logos, className }: SponsorProps) => {
   return (
     <div className={`${className} py-12`}>
-      <h2 className="text-center mb-8">{title ? title : "Sponsors"}</h2>
+      <h2 className="text-center mb-8">{title}</h2>
       <div
         className={`flex flex-col md:flex-row items-center justify-center gap-20 px-20`}
       >

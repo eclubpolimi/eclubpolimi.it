@@ -1,5 +1,3 @@
-import React from "react";
-
 import Button from "components/Button";
 import Sponsors from "components/Sponsors";
 import Timeline from "components/Timeline";
@@ -14,13 +12,7 @@ import StartupChallengePDF from "assets/startupChallenge/USCDetailed_event_guide
 const ProgramButton = () => {
   return (
     <div className="w-full flex items-center justify-center pb-10">
-      <Button
-        forceAnchor
-        to={StartupChallengePDF}
-        theme="orange"
-        target="_blank"
-        rel="noreferrer"
-      >
+      <Button forceAnchor to={StartupChallengePDF} theme="orange">
         Detailed program
       </Button>
     </div>

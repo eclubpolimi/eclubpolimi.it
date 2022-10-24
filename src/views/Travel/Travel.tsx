@@ -1,5 +1,3 @@
-import React from "react";
-
 import { faClock } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -7,6 +5,7 @@ import TravelBar from "components/TravelBar";
 import Description from "components/Description";
 import Timeline from "components/Timeline";
 import TravelPlaceholder from "assets/travelMainBackground.webp";
+import { TimelineEvent } from "components/Timeline/Timeline";
 
 const timelineData = [
   {
@@ -162,7 +161,7 @@ const Travel = () => {
       </div>
       <Timeline
         theme="split"
-        data={timelineData}
+        data={timelineData as Array<TimelineEvent>}
         className="py-16 max-w-screen-lg lg:mx-auto px-5 lg:px-0 font-medium text-slate-700"
       />
     </div>

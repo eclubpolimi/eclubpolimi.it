@@ -1,19 +1,20 @@
 import OutlineLabel from "components/OutlineLabel";
+import { ReactNode } from "react";
 
 type LabeledOutlineCardProps = {
   className: string;
   label: string;
-  text: string;
-  invertedColors: boolean;
-  labelDx: string;
+  text: string | ReactNode;
+  invertedColors?: boolean;
+  labelDx?: boolean;
 };
 
 const LabeledOutlineCard = ({
   className = "",
   label,
   text,
-  invertedColors,
-  labelDx,
+  invertedColors = false,
+  labelDx = false,
 }: LabeledOutlineCardProps) => {
   return (
     <div

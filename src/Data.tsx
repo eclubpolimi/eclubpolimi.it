@@ -24,6 +24,9 @@ import macai from "assets/startupChallenge/sponsors/macai.jpg";
 import utravel from "assets/startupChallenge/sponsors/utravel.png";
 import mammt from "assets/startupChallenge/sponsors/mammt.jpg";
 
+import { TimelineEvent } from "components/Timeline/Timeline";
+import { ReactNode } from "react";
+
 /**
  * @description This class holds global, static data, to avoid duplication between production code and tests
  * @note All members of this class must be declared static
@@ -47,7 +50,7 @@ export default class SiteData {
   static TravelTarget = "/trips";
 
   // NAVBAR
-  static NavbarItems = [
+  static NavbarItems: Array<{ type: "link" | "button"; content: ReactNode }> = [
     {
       content: <Link to={this.AboutUsTarget}>About us</Link>,
       type: "link",
@@ -247,7 +250,7 @@ export default class SiteData {
     },
   ];
 
-  static StartupChallengeTimeline = [
+  static StartupChallengeTimeline: Array<TimelineEvent> = [
     {
       date: "29 April 2022",
       title: "[Bocconi] The opening ceremony and presentation of the challenge",
