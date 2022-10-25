@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "plugins": [{ "name": "typescript-plugin-css-modules" }],
     "jsx": "react-jsx",
     "baseUrl": "src",
     "target": "es2016",
