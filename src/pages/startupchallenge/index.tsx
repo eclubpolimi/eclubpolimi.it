@@ -7,12 +7,12 @@ import SiteData from "Data";
 import JoinUsBar from "components/JoinUsBar";
 import ParagraphTitle from "components/ParagraphTitle";
 import Description from "components/Description";
-import StartupChallengePDF from "assets/startupChallenge/USCDetailed_event_guide_v2.pdf";
+import Image from "next/image";
 
 const ProgramButton = () => {
   return (
     <div className="w-full flex items-center justify-center pb-10">
-      <Button forceAnchor to={StartupChallengePDF} theme="orange">
+      <Button forceAnchor to={SiteData.StartupChallengePDF} theme="orange">
         Detailed program
       </Button>
     </div>
@@ -47,14 +47,14 @@ const StartupChallenge = () => {
           </div>
         </div>
         <div className="w-full md:w-1/2 flex justify-center">
-          <img
+          <Image
             className="lg:w-3/4"
             src={LogoStartupChallenge}
             alt="Startup challenge logo"
           />
         </div>
       </div>
-      <div className="py-10 bg-slate-50">
+      <div className="bg-slate-50">
         <Sponsors
           title="Organizers"
           logos={SiteData.StartupChallengeOrgLogos}
@@ -87,12 +87,10 @@ const StartupChallenge = () => {
         buttonText="Sign up"
         to="https://docs.google.com/forms/d/e/1FAIpQLSe5mjZx5pybybNLd6kCvpOTxCX4gh8mIFN1vLm-cTmiDwQJ3g/viewform"
       />
-      <div className="pt-5">
-        <Sponsors
-          title="Sponsors"
-          logos={SiteData.StartupChallengeSponsorsLogos}
-        />
-      </div>
+      <Sponsors
+        title="Sponsors"
+        logos={SiteData.StartupChallengeSponsorsLogos}
+      />
     </div>
   );
 };

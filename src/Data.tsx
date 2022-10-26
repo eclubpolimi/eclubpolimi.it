@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import Button from "components/Button";
 
 import { getTeams } from "assets/teams";
@@ -12,17 +11,6 @@ import networkHeroImage from "assets/eclub-network.png";
 import logo1 from "assets/logo-colors.png";
 import logo2 from "assets/img-eclub-bocconi.png";
 import logo3 from "assets/img-eclub-pavia.png";
-
-import b4i from "assets/startupChallenge/organizers/b4i.svg";
-import eclub_bocconi from "assets/startupChallenge/organizers/eclub_bocconi.webp";
-import eclub_polimi from "assets/startupChallenge/organizers/eclub_polimi.png";
-import polihub from "assets/startupChallenge/organizers/polihub.png";
-
-import atm from "assets/startupChallenge/sponsors/atm.png";
-import dott from "assets/startupChallenge/sponsors/dott.png";
-import macai from "assets/startupChallenge/sponsors/macai.jpg";
-import utravel from "assets/startupChallenge/sponsors/utravel.png";
-import mammt from "assets/startupChallenge/sponsors/mammt.jpg";
 
 import { TimelineEvent } from "components/Timeline/Timeline";
 import { ReactNode } from "react";
@@ -52,27 +40,27 @@ export default class SiteData {
   // NAVBAR
   static NavbarItems: Array<{ type: "link" | "button"; content: ReactNode }> = [
     {
-      content: <Link to={this.AboutUsTarget}>About us</Link>,
+      content: <a href={this.AboutUsTarget}>About us</a>,
       type: "link",
     },
     {
-      content: <Link to={this.EventsTarget}>Events</Link>,
+      content: <a href={this.EventsTarget}>Events</a>,
       type: "link",
     },
     {
-      content: <Link to={this.StartupChallengeTarget}>Startup Challenge</Link>,
+      content: <a href={this.StartupChallengeTarget}>Startup Challenge</a>,
       type: "link",
     },
     {
-      content: <Link to={this.PiaTarget}>Passion in Action</Link>,
+      content: <a href={this.PiaTarget}>Passion in Action</a>,
       type: "link",
     },
     {
-      content: <Link to={this.TravelTarget}>Travel</Link>,
+      content: <a href={this.TravelTarget}>Travel</a>,
       type: "link",
     },
     {
-      content: <Link to={this.NetworkTarget}>Network</Link>,
+      content: <a href={this.NetworkTarget}>Network</a>,
       type: "link",
     },
     {
@@ -199,24 +187,27 @@ export default class SiteData {
   ];
 
   // STARTUP CHALLANGE
+  static StartupChallengePDF =
+    "/startupChallenge/USCDetailed_event_guide_v2.pdf";
+
   static StartupChallengeOrgLogos = [
     {
-      src: eclub_polimi,
+      src: "/startupChallenge/organizers/eclub_polimi.png",
       href: "https://eclubpolimi.it",
       alt: "Eclub polimi",
     },
     {
-      src: eclub_bocconi,
+      src: "/startupChallenge/organizers/eclub_bocconi.webp",
       href: "https://www.eclubbocconi.com",
       alt: "Eclub bocconi",
     },
     {
-      src: polihub,
+      src: "/startupChallenge/organizers/polihub.png",
       href: "#",
       alt: "Polihub",
     },
     {
-      src: b4i,
+      src: "/startupChallenge/organizers/b4i.svg",
       href: "#",
       alt: "B4I",
     },
@@ -224,27 +215,27 @@ export default class SiteData {
 
   static StartupChallengeSponsorsLogos = [
     {
-      src: atm,
+      src: "/startupChallenge/sponsors/atm.png",
       href: "https://atm.it",
       alt: "Atm",
     },
     {
-      src: dott,
+      src: "/startupChallenge/sponsors/dott.png",
       href: "https://www.dott.com",
       alt: "Dott",
     },
     {
-      src: macai,
+      src: "/startupChallenge/sponsors/macai.jpg",
       href: "#",
       alt: "Macai",
     },
     {
-      src: mammt,
+      src: "/startupChallenge/sponsors/mammt.jpg",
       href: "#",
       alt: "Mammt",
     },
     {
-      src: utravel,
+      src: "/startupChallenge/sponsors/utravel.png",
       href: "#",
       alt: "uTravel",
     },

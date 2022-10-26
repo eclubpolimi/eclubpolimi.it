@@ -6,6 +6,7 @@ import Description from "components/Description";
 import Timeline from "components/Timeline";
 import TravelPlaceholder from "assets/travelMainBackground.webp";
 import { TimelineEvent } from "components/Timeline/Timeline";
+import Image from "next/image";
 
 const timelineData = [
   {
@@ -82,7 +83,7 @@ const Travel = () => {
   return (
     <div>
       <div className="relative">
-        <img
+        <Image
           className="md:w-full md:absolute top-1/2 right-0 md:-translate-y-1/2 -z-10"
           src={TravelPlaceholder}
           alt="Travel preview"

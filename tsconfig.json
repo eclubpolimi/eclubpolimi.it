@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
-    "plugins": [{ "name": "typescript-plugin-css-modules" }],
-    "jsx": "react-jsx",
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules"
+      }
+    ],
+    "jsx": "preserve",
     "baseUrl": "src",
     "target": "es2016",
     "module": "esnext",
@@ -16,7 +20,8 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true
+    "noEmit": true,
+    "incremental": true
   },
   "exclude": ["node_modules", "build", ".vscode", "README.md", ".gitignore"],
   "include": ["./src/", "./*"]

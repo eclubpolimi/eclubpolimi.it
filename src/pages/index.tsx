@@ -8,6 +8,7 @@ import PeopleSvg from "assets/people_graphics.svg";
 import LogoStartupChallenge from "assets/logo_startupchallenge.jpg";
 import Munich2 from "assets/munich2.jpg";
 import Munich3 from "assets/munich3.jpg";
+import Image from "next/image";
 
 const Home = () => {
   return (
@@ -38,14 +39,14 @@ const Home = () => {
           </div>
         </div>
         <div className="w-full md:w-1/2 flex justify-center">
-          <img className="lg:w-5/6" src={PeopleSvg} alt="People graphics" />
+          <Image className="lg:w-5/6" src={PeopleSvg} alt="People graphics" />
         </div>
       </div>
       <div className="bg-slate-50 relative overflow-hidden">
         <div
           className="absolute my-6 mx-4 md:my-6 md:mx-6 inset-0 opacity-5 pointer-events-none"
           style={{
-            backgroundImage: `url(${SiteData.LogoLearnNetworkBuild})`,
+            backgroundImage: `url(${SiteData.LogoLearnNetworkBuild.src})`,
             backgroundRepeat: "round",
             backgroundSize: "180px",
           }}
@@ -113,7 +114,7 @@ const Home = () => {
               }
             />
             <div className=" xl:w-1/2 xl:-ml-28  border border-solid border-ec_blue rounded-xl p-2">
-              <img
+              <Image
                 src={Munich2}
                 className="rounded-xl place-self-center"
                 alt=""
@@ -122,7 +123,7 @@ const Home = () => {
           </div>
           <div className="flex flex-col-reverse xl:flex-row justify-center items-center">
             <div className="xl:w-1/2 xl:-mr-28  border border-solid border-ec_orange rounded-xl p-2">
-              <img
+              <Image
                 src={LogoStartupChallenge}
                 className="rounded-xl place-self-center"
                 alt=""
@@ -162,7 +163,7 @@ const Home = () => {
               }
             />
             <div className=" xl:w-1/2 xl:-ml-28  border border-solid border-ec_blue rounded-xl p-2">
-              <img
+              <Image
                 src={Munich3}
                 className="rounded-xl place-self-center"
                 alt=""
