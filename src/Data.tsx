@@ -121,7 +121,7 @@ export default class SiteData {
   static PIAHeroBackground = "/images/data/pia_hero.png";
 
   // JOIN US
-  static ApplyDriverLink = "https://forms.gle/juKWjhi2LsicZC896";
+  static ApplyDriverLink = "https://forms.gle/6WU3suUSemut5pon6";
   static ApplyExplorerLink = "https://forms.gle/cPn2VyGoZbWeSHv1A";
 
   // JOIN US CARD EXPLORER
