@@ -166,14 +166,24 @@ export default class SiteData {
 
   static eventsList = [
     {
-      date: "03 March 2022",
-      title: "Ibrida Birra",
-      body: "Ibrida Birra is a groundbreaking startup that had the crazy idea of giving a new life to surplus bread by crafting it into beers. During this insightful aperitivo, we will discover the journey of four young entrepreneurs who managed to merge the social symbol of beer with circular economy and, at the same time, support small businesses in the area of Milan.",
+      date: "21 September 2022",
+      title: "Welcoming aperitivo",
+      body: "Entrepreneurship is not only working but also networking! Here in E-Club we give value to this pillar and we think that meeting each other is fundamental to create a strong bond with people! In our first aperitivo we met many new people, can’t wait for the next one!",
     },
     {
-      date: "15 March 2022",
-      title: "Inspirational talk by Augusto Metidieri",
-      body: "Elected “Most Influential CEO Europe 2019 for Humancentric Driven Innovation”, Augusto Metidieri is nowadays one of the most interesting personalities in the field of business design, leadership and innovation. Since 2011, Augusto Mitidieri has covered the position of Corporate CEO of the Sintetica Group where he implemented a successful strategic vision which places the individual at the very centre of corporate decisions. The Entrepreneurship Club Polimi is thrilled to welcome Augusto in Politecnico for a live Inspirational Talk during which he will share the most salient insights on his career path.",
+      date: "03 October 2022",
+      title: "Aperitivo with Smush Materials",
+      body: "We had the opportunity to meet Smush Materials, the winning startup of the XIII edition of Polihub's Switch to product! They transform industrial agri-food waste into raw materials for the production of green solutions in the fields of sustainable packaging and thermal and acoustic insulation by transforming mycelium, the root system of mushrooms.",
+    },
+    {
+      date: "10 October 2022",
+      title: "Learning Buyer personas for marketing",
+      body: "Workshop held by Alessio Sorrentino, Marketing Manager of 7Ads- eCommerce Advertising. After defining what digital marketing is really about, we discovered the roadmap to create Buyer Personas - the same used in the framework of 7Ads-eCommerce Advertising to create their advertising plans. This roadmap can also be used to identify your audience and creat marketing content to promote your personal brand.",
+    },
+    {
+      date: "24 October 2022",
+      title: "In-company visit at Moviri",
+      body: "Moviri, an international tech company based in Milan. It was such a pleasure to be hosted and have the opportunity to listen to their story, from the beginnings to the success. Thanks to Moviri, we learnt to never give up!",
     },
   ];
 
