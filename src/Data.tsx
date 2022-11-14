@@ -185,6 +185,11 @@ export default class SiteData {
       title: "In-company visit at Moviri",
       body: "Moviri, an international tech company based in Milan. It was such a pleasure to be hosted and have the opportunity to listen to their story, from the beginnings to the success. Thanks to Moviri, we learnt to never give up!",
     },
+    {
+      date: "12 November 2022",
+      title: "Business game held by Con4us",
+      body: "In E-Club we like to face new challenges. We had the opportunity to join new people from other clubs and universities for one day and to compete in teams against each others by creating a new service in Con4us app. The theme was about connection between students, one of the main goal of Con4us",
+    },
   ];
 
   //NETWORK
