@@ -1,4 +1,4 @@
-import "./LessonsPIA.css";
+import Image from "next/image";
 
 export type LessonProps = {
   lessonData: {
@@ -14,17 +14,14 @@ export type LessonProps = {
 const Lesson = ({ lessonData, className = "" }: LessonProps) => {
   return (
     <div className={className}>
-      <div className="lessons-pia-description-container">
-        <div className="lessons-pia-image">
-          <img
-            src={lessonData.image}
-            alt={lessonData.alt}
-            width="100%"
-            height="100%"
-          ></img>
+      <div className="flex flex-col lg:flex-row justify-center items-center w-full">
+        <div className="w-full h-full lg:w-1/2 relative">
+          <Image src={lessonData.image} alt={lessonData.alt} fill />
         </div>
-        <div className="lessons-pia-description">
-          <div className="lessons-pia-title">{lessonData.title}</div>
+        <div className="w-100 pt-5 pl-0 lg:w-1/2 lg:pl-5 text-justify leading-6">
+          <div className="mb-2 text-center text-xl font-bold">
+            {lessonData.title}
+          </div>
           {lessonData.description}
         </div>
       </div>

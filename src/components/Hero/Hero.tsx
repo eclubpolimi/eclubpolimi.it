@@ -1,12 +1,12 @@
-import "./Hero.css";
+import Image, { StaticImageData } from "next/image";
 
 type HeroProps = {
-  backgroundImage: string;
+  backgroundImage: StaticImageData | string;
   height: string;
   darkness: number;
   contentType: string;
   text?: string;
-  logo?: string;
+  logo?: StaticImageData | string;
   alignTop?: boolean;
 };
 
@@ -21,7 +21,7 @@ const Hero = ({
 }: HeroProps) => {
   return (
     <div
-      className="hero"
+      className="w-full flex justify-center items-center"
       style={{
         backgroundImage: `linear-gradient(rgba(0,0,0,${darkness}), rgba(0,0,0,${darkness})), url(${backgroundImage})`,
         height: height,
@@ -31,9 +31,9 @@ const Hero = ({
       }}
     >
       {contentType === "text" ? (
-        <div className="hero-text">{text}</div>
+        <div className="text-white lg:text-4xl text-2xl font-bold">{text}</div>
       ) : (
-        <img className="hero-logo" src={logo} alt="" />
+        logo && <Image className="lg:w-[400px] w-[80vw]" src={logo} alt="" />
       )}
     </div>
   );

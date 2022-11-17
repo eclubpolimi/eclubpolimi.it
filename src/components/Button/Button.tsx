@@ -1,7 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
-
-import "./Button.css";
 
 export type ButtonProps = {
   to: string;
@@ -22,9 +19,7 @@ const Button = ({
   className = "",
   children,
 }: ButtonProps) => {
-  const styles = `btn btn--${theme}${
-    disabled ? " btn--disabled" : ""
-  } ${className} font-medium`;
+  const styles = `rounded-xl py-2 px-6 inline cursor-pointer bg-ec_orange text-white hover:bg-ec_orange_hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ec_orange_hover ${className} font-medium`;
 
   if (!to || disabled) {
     return (
@@ -34,9 +29,9 @@ const Button = ({
     );
   } else if (to[0] === "/" && !forceAnchor) {
     return (
-      <Link className={styles} to={to} onClick={onClick}>
+      <a className={styles} href={to} onClick={onClick}>
         {children}
-      </Link>
+      </a>
     );
   } else {
     return (
@@ -44,7 +39,7 @@ const Button = ({
         className={styles}
         href={to}
         target="_blank"
-        rel="noreferrer"
+        rel="noopener noreferrer"
         onClick={onClick}
       >
         {children}

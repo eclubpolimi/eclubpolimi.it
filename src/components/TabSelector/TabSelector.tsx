@@ -1,5 +1,4 @@
 import { ReactNode, useState } from "react";
-import "./TabSelector.css";
 
 type TabSelectorProps = {
   tabs: Array<{ name: string; content: ReactNode }>;
@@ -12,7 +11,6 @@ const TabSelector = ({
   tabs,
   defaultTab = 0,
   className = "w-full",
-  breakpoint = "md",
 }: TabSelectorProps) => {
   const [activeTab, setActiveTab] = useState(
     defaultTab < tabs.length ? defaultTab : 0
@@ -28,13 +26,15 @@ const TabSelector = ({
   return (
     <div className={className}>
       <div className="text-center">
-        <ul className={`${breakpoint}:tabs-row`}>
+        <ul className="hidden lg:inline-flex bg-white rounded-2xl p-1.5 drop-shadow-lg">
           {tabs.map((item, index) => {
             return (
               <li
                 key={index}
                 value={index}
-                className={`tab ${index === activeTab ? "selected" : ""}`}
+                className={`px-6 py-2 mr-1.5 rounded-xl last:mr-0 hover:cursor-pointer hover:bg-black/10 ${
+                  index === activeTab && "text-white bg-ec_orange"
+                }`}
                 onClick={onTabClick}
               >
                 {item.name}
@@ -43,7 +43,7 @@ const TabSelector = ({
           })}
         </ul>
         <select
-          className={`${breakpoint}:tabs-select`}
+          className="inline-block lg:hidden w-full rounded-xl p-1.5 drop-shadow-lg"
           value={activeTab}
           onChange={onTabClick}
         >
@@ -56,7 +56,7 @@ const TabSelector = ({
           })}
         </select>
       </div>
-      <div className="tab-content">{tabs[activeTab].content}</div>
+      <div className="mt-6">{tabs[activeTab].content}</div>
     </div>
   );
 };

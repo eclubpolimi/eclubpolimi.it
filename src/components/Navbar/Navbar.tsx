@@ -1,8 +1,9 @@
 import { ReactNode, useState } from "react";
-import { Link } from "react-router-dom";
 
-import "./Navbar.css";
+import MenuBurgerIcon from "assets/navbar/menu-burger.svg";
+import CrossIcon from "assets/navbar/cross.svg";
 import SiteData from "Data";
+import Image from "next/image";
 
 type NavBarProps = {
   items: Array<{ type: "link" | "button"; content: ReactNode }>;
@@ -19,16 +20,28 @@ const NavBar = ({ items }: NavBarProps) => {
     setClicked(false);
   };
 
+  const navClass = `h-16 w-full bg-ec_blue z-50 flex flex-nowrap relative`;
+  const navDesktopClass = `xl:px-10 xl:flex-row xl:justify-between xl:items-center`;
+  const navMobileClass = `flex-col`;
+
+  const linksClass = "flex gap-8 items-center bg-ec_blue transition-all";
+  const linksDesktopClass = "xl:flex-row xl:h-full xl:static";
+  const linksMobileClass = `flex-col ${
+    !clicked && "h-0 overflow-hidden py-0"
+  } absolute top-16 left-0 right-0 py-10`;
+
   return (
-    <nav className="navbar-items bg-ec_blue">
-      <Link
-        to={SiteData.HomeTarget}
-        className="navbar-logo"
-        onClick={closeMenu}
-      >
-        <img src={SiteData.LogoWhite} alt="Entrepreneurship Club Polimi" />
-      </Link>
-      <ul className={`nav-links bg-ec_blue ${clicked ? "nav-active" : ""}`}>
+    <nav className={`${navClass} ${navDesktopClass} ${navMobileClass}`}>
+      <div className="h-16 flex flex-col justify-center">
+        <a href={SiteData.HomeTarget} onClick={closeMenu}>
+          <Image
+            src={SiteData.LogoWhite}
+            alt="Entrepreneurship Club Polimi"
+            className="h-14 w-fit xl:p-0 pr-16"
+          />
+        </a>
+      </div>
+      <ul className={`${linksClass} ${linksDesktopClass} ${linksMobileClass}`}>
         {items.map((item, index) => {
           if (!item.type) {
             console.error(
@@ -36,28 +49,22 @@ const NavBar = ({ items }: NavBarProps) => {
             );
           }
           return (
-            <li key={index} className={`nav-${item.type}`} onClick={closeMenu}>
+            <li
+              key={index}
+              className="whitespace-nowrap text-white"
+              onClick={closeMenu}
+            >
               {item.content}
             </li>
           );
         })}
       </ul>
-      <div className="ham-container overflow-hidden">
-        <svg
-          className={`ham hamRotate ${clicked ? "nav-active" : ""}`}
-          viewBox="0 0 100 100"
-          onClick={handleMenu}
-        >
-          <path
-            className="line top"
-            d="m 70,33 h -40 c 0,0 -8.5,-0.149796 -8.5,8.5 0,8.649796 8.5,8.5 8.5,8.5 h 20 v -20"
-          />
-          <path className="line middle" d="m 70,50 h -40" />
-          <path
-            className="line bottom"
-            d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20"
-          />
-        </svg>
+      <div className={`h-6 w-6 absolute right-5 top-5 xl:hidden`}>
+        {!clicked ? (
+          <Image src={MenuBurgerIcon} alt="Open menu" onClick={handleMenu} />
+        ) : (
+          <Image src={CrossIcon} alt="Close menu" onClick={handleMenu} />
+        )}
       </div>
     </nav>
   );

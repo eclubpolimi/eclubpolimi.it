@@ -6,7 +6,7 @@ import {
   faPauseCircle,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "./Carousel.css";
+import Image from "next/image";
 
 type CarouselProps = {
   sliderData: any;
@@ -98,10 +98,12 @@ const Carousel = ({ sliderData, autoplay, className = "" }: CarouselProps) => {
             }`}
             key={index}
           >
-            <img
+            <Image
               className="w-full max-h-[400px]"
-              src={slide.image}
+              src={slide.image.src}
               alt="Carousel"
+              width={slide.image.width}
+              height={slide.image.height}
             />
           </div>
         ))}

@@ -1,5 +1,3 @@
-import "./ParagraphTitle.css";
-
 type ParagraphTitleProps = {
   text: string;
 };
@@ -7,8 +5,10 @@ type ParagraphTitleProps = {
 const ParagraphTitle = ({ text }: ParagraphTitleProps) => {
   //text è il parametro per inserire il testo interno
   return (
-    <div className="paragraph-title-bar py-4">
-      <p className="paragraph-title-text">{text}</p>
+    <div className="bg-ec_blue py-4">
+      <p className="text-lg font-bold text-white text-center py-2 m-0">
+        {text}
+      </p>
     </div>
   );
 };

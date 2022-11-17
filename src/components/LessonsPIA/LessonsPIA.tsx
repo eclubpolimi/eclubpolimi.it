@@ -1,5 +1,3 @@
-import "./LessonsPIA.css";
-
 import TabSelector from "components/TabSelector";
 import Lesson, { LessonProps } from "./Lesson";
 
