@@ -14,8 +14,6 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public",
     "format": "npx prettier --write .",
     "format-check": "npx prettier --check ."
   },
@@ -57,11 +55,6 @@
     ]
   },
   "devDependencies": {
-    "@storybook/addon-essentials": "^6.5.13",
-    "@storybook/builder-webpack5": "^6.4.19",
-    "@storybook/manager-webpack5": "^6.4.19",
-    "@storybook/node-logger": "^6.4.19",
-    "@storybook/react": "^6.5.13",
     "@types/jest": "^29.1.2",
     "@types/node": "^18.11.0",
     "@types/react": "^18.0.21",
