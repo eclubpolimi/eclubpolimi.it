@@ -92,12 +92,13 @@ const StartupChallenge = () => {
           logos={SiteData.StartupChallengePartnerLogos}
         />
       </div>
-      <div className="relative lg:mx-auto lg:px-0 py-0">
+      <div className="lg:px-0 py-0 relative w-full">
         <Image
           src={SiteData.SC2022_board}
-          className="object-cover -z-10 brightness-75"
+          className="object-cover -z-10 brightness-75 w-full h-auto"
           alt="Images SC 2022"
-          fill
+          width={1920 * 0.75}
+          height={1080 * 0.75}
         />
         <div
           className="absolute h-min lg:py-2 rounded-xl md:inset-x-1/3 md:top-8 top-4 flex flex-col"
