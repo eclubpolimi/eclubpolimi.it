@@ -94,15 +94,14 @@ const Carousel = ({ sliderData, autoplay, className = "" }: CarouselProps) => {
           <div
             className={` transition-opacity duration-1000 ${
               index === current ? "opacity-100" : "h-0 opacity-0"
-            }`}
+            } w-full h-[400px]`}
             key={index}
           >
             <Image
-              className="w-full max-h-[400px]"
-              src={slide.image.src}
+              className="object-cover"
+              src={slide.image}
               alt="Carousel"
-              width={slide.image.width}
-              height={slide.image.height}
+              fill
             />
           </div>
         ))}

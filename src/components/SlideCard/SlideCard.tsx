@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faQuoteLeft } from "@fortawesome/free-solid-svg-icons";
 import { faInstagram, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
+import Image from "next/image";
 
 export type SlideCardProps = {
   frontImage: string;
@@ -28,16 +29,7 @@ const SlideCard = ({ frontImage, height, width, cardText }: SlideCardProps) => {
         width: width,
       }}
     >
-      <div
-        className="h-full w-full"
-        style={{
-          backgroundImage: `url(${frontImage})`,
-          backgroundPosition: "center",
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-          borderRadius: "4px 4px 0 0",
-        }}
-      ></div>
+      <Image src={frontImage} alt="Team member" fill className="object-cover" />
       <div className="absolute bg-white bottom-0 left-0 right-0 w-full transition-height duration-500 h-20 group-hover:h-full overflow-hidden flex flex-col items-center">
         <div className="text-lg font-semibold pt-4">{cardText.nameSurname}</div>
         <div className="text-gray-500">{cardText.role}</div>

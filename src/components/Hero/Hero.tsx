@@ -21,15 +21,18 @@ const Hero = ({
 }: HeroProps) => {
   return (
     <div
-      className="w-full flex justify-center items-center"
+      className="w-full flex justify-center items-center relative"
       style={{
-        backgroundImage: `linear-gradient(rgba(0,0,0,${darkness}), rgba(0,0,0,${darkness})), url(${backgroundImage})`,
+        backgroundImage: `linear-gradient(rgba(0,0,0,${darkness}), rgba(0,0,0,${darkness}))`,
         height: height,
-        ...(!alignTop && { backgroundPosition: "center" }),
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
       }}
     >
+      <Image
+        src={backgroundImage}
+        fill
+        alt="Hero image"
+        className="-z-10 object-cover"
+      />
       {contentType === "text" ? (
         <div className="text-white lg:text-4xl text-2xl font-bold">{text}</div>
       ) : (

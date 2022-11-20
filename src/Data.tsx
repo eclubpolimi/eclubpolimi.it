@@ -72,22 +72,22 @@ export default class SiteData {
   // HOMEPAGE
   static Sponsors = [
     {
-      src: "/images/data/Astra.png",
+      src: "https://mail.eclubpolimi.it/images/data/Astra.png",
       href: "https://astraincubator.com",
       alt: "Astra incubator",
     },
     {
-      src: "/images/data/Tutored.png",
+      src: "https://mail.eclubpolimi.it/images/data/Tutored.png",
       href: "https://www.tutored.me",
       alt: "Tutored",
     },
     {
-      src: "/images/data/Polihub.png",
+      src: "https://mail.eclubpolimi.it/images/data/Polihub.png",
       href: "https://www.polihub.it/it/",
       alt: "Polihub",
     },
     {
-      src: "/images/data/Jemp.png",
+      src: "https://mail.eclubpolimi.it/images/data/Jemp.png",
       href: "https://www.jemp.it",
       alt: "Jemp",
     },
@@ -98,7 +98,8 @@ export default class SiteData {
   static HomepageHeroBackground = homepageHeroBackground;
 
   // ABOUT US
-  static aboutUsHeroBackground = "/images/data/aboutUs_hero.png";
+  static aboutUsHeroBackground =
+    "https://mail.eclubpolimi.it/images/data/aboutUs_hero.png";
 
   static GetTeams() {
     return getTeams();
@@ -106,7 +107,8 @@ export default class SiteData {
 
   // LESSONS PIA (placeholder)
   static LessonsPIA = pialessons;
-  static PIAHeroBackground = "/images/data/pia_hero.png";
+  static PIAHeroBackground =
+    "https://mail.eclubpolimi.it/images/data/pia_hero.png";
 
   // JOIN US
   static ApplyDriverLink = "https://forms.gle/6WU3suUSemut5pon6";
@@ -136,19 +138,19 @@ export default class SiteData {
   // EVENTS
   static eventsCarouselImages = [
     {
-      image: "/images/data/carousel1.jpg",
+      image: "https://mail.eclubpolimi.it/images/data/carousel1.jpg",
     },
     {
-      image: "/images/data/carousel2.jpg",
+      image: "https://mail.eclubpolimi.it/images/data/carousel2.jpg",
     },
     {
-      image: "/images/data/carousel3.jpg",
+      image: "https://mail.eclubpolimi.it/images/data/carousel3.jpg",
     },
     {
-      image: "/images/data/carousel4.jpg",
+      image: "https://mail.eclubpolimi.it/images/data/carousel4.jpg",
     },
     {
-      image: "/images/data/carousel5.jpg",
+      image: "https://mail.eclubpolimi.it/images/data/carousel5.jpg",
     },
   ];
 
@@ -182,7 +184,8 @@ export default class SiteData {
 
   //NETWORK
   static NetworkHeroImage = networkHeroImage;
-  static NetworkHeroBackground = "/images/data/network_hero.jpg";
+  static NetworkHeroBackground =
+    "https://mail.eclubpolimi.it/images/data/network_hero.jpg";
   static SC2022_board = "/startupChallenge/previousYear/SC2022_board.jpg";
 
   static NetworkSlogan = [
