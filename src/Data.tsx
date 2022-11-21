@@ -258,30 +258,30 @@ export default class SiteData {
 
   static StartupChallengeTimeline: Array<TimelineEvent> = [
     {
-      date: "29 April 2022",
+      date: "24 March 2023",
       title: "[Bocconi] The opening ceremony and presentation of the challenge",
       body: "",
     },
     {
-      date: "30 April 2022",
+      date: "25 March 2023",
       title:
         "[Bocconi] Working on the challenge, seminars and workshops to help develop your startup ideas",
       body: "",
     },
     {
-      date: "1-5 May 2022",
+      date: "25-31 March 2023",
       title:
         "Team works on their own to develop their presentation and prototype",
       body: "",
     },
     {
-      date: "6 May 2022",
+      date: "31 March 2023",
       title:
         "[Polimi] Working on the pitch, seminars and workshops to help deliver the perfect pitch",
       body: "",
     },
     {
-      date: "7 May 2022",
+      date: "1 April 2023",
       title:
         "[Polimi] Pitch presentations, startup fair and closing award ceremony",
       body: "",
