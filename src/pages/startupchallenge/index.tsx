@@ -34,15 +34,11 @@ const StartupChallenge = () => {
             The first Milan startup challenge for Bocconi and PoliMi students.
           </span>
           <div className="flex gap-4 md:flex-row flex-col items-center pt-8">
-            <Button
-              to="https://docs.google.com/forms/d/e/1FAIpQLSe5mjZx5pybybNLd6kCvpOTxCX4gh8mIFN1vLm-cTmiDwQJ3g/viewform"
-              theme="orange"
-              className="align-middle"
-            >
-              Sign up
+            <Button to="" theme="orange" className="align-middle">
+              Open soon
             </Button>
             <p className="text-sm text-gray-400">
-              Submissions are open until April 27th
+              Registrations are not open yet
             </p>
           </div>
         </div>
@@ -76,21 +72,47 @@ const StartupChallenge = () => {
           </p>
         </Description>
       </div>
+      <div className="text-sm text-gray-400 text-center">
+        Detailed Program of last year edition
+      </div>
       <ProgramButton />
       <ParagraphTitle text="Events schedule" />
       <div className="py-16 max-w-screen-lg lg:mx-auto px-5 lg:px-0">
         <Timeline data={SiteData.StartupChallengeTimeline} theme="split" />
       </div>
       <JoinUsBar
-        title="Sign up by April 27th!"
+        title="Registrations not open yet."
         color="blue"
-        buttonText="Sign up"
-        to="https://docs.google.com/forms/d/e/1FAIpQLSe5mjZx5pybybNLd6kCvpOTxCX4gh8mIFN1vLm-cTmiDwQJ3g/viewform"
+        buttonText="Closed"
+        to=""
       />
-      <Sponsors
-        title="Sponsors"
-        logos={SiteData.StartupChallengeSponsorsLogos}
-      />
+      <div className="max-w-screen-lg lg:mx-auto px-5 lg:px-0">
+        <Description title="Last Year Event">
+          <ul className="list-none">
+            <li>
+              <h1 className="mt-8 text-slate-800 font-bold text-xl leading-tight">
+                Sementa - Winner of ATM Prize
+              </h1>
+            </li>
+            <li>
+              <h1 className="mt-8 text-slate-800 font-bold text-xl leading-tight">
+                Neuneck - Winner of PoliHub Prize
+              </h1>
+            </li>
+            <li>
+              <h1 className="mt-8 text-slate-800 font-bold text-xl leading-tight">
+                Specis - Winner of B4i Prize
+              </h1>
+            </li>
+          </ul>
+        </Description>
+      </div>
+      <div className="pt-5">
+        <Sponsors
+          title="Sponsors"
+          logos={SiteData.StartupChallengeSponsorsLogos}
+        />
+      </div>
     </div>
   );
 };
