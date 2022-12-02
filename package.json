@@ -17,31 +17,6 @@
     "format": "npx prettier --write .",
     "format-check": "npx prettier --check ."
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "eslint:recommended"
-    ],
-    "overrides": [
-      {
-        "files": [
-          "**/*.stories.*"
-        ],
-        "rules": {
-          "import/no-anonymous-default-export": "off"
-        }
-      },
-      {
-        "files": [
-          "**/*.stories.*"
-        ],
-        "rules": {
-          "import/no-anonymous-default-export": "off",
-          "no-unused-vars": "error"
-        }
-      }
-    ]
-  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -55,10 +30,13 @@
     ]
   },
   "devDependencies": {
+    "@next/eslint-plugin-next": "^13.0.6",
     "@types/jest": "^29.1.2",
     "@types/node": "^18.11.0",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
+    "@typescript-eslint/eslint-plugin": "^5.45.0",
+    "@typescript-eslint/parser": "^5.45.0",
     "autoprefixer": "^10.4.12",
     "postcss": "^8.4.18",
     "prettier": "^2.7.1",

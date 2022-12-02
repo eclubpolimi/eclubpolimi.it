@@ -12,7 +12,7 @@ export type ButtonProps = {
 
 const Button = ({
   to,
-  onClick = () => {},
+  onClick = () => undefined,
   forceAnchor = false,
   theme = "orange",
   disabled,
