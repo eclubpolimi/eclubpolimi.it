@@ -29,7 +29,6 @@ const Carousel = ({ sliderData, autoplay, className = "" }: CarouselProps) => {
     };
     initTimer();
     return () => clearInterval(timer);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const tick = () => {

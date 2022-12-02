@@ -17,7 +17,7 @@ const TabSelector = ({
   );
 
   const onTabClick = (event: any) => {
-    let intValue = parseInt(event.target.value);
+    const intValue = parseInt(event.target.value);
     if (intValue !== activeTab) {
       setActiveTab(intValue);
     }
