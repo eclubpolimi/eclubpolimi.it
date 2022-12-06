@@ -2,6 +2,7 @@ import { APIResponseError, Client } from "@notionhq/client";
 import { QueryDatabaseResponse } from "@notionhq/client/build/src/api-endpoints";
 
 export const Sources = {
+  Links: process.env.NOTION_DATA_LINKS,
 };
 
 const notion = new Client({ auth: process.env.NOTION_AUTH_TOKEN });

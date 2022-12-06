@@ -2,8 +2,19 @@ import Hero from "components/Hero";
 import JoinUsCard from "components/JoinUsCard";
 
 import SiteData from "Data";
+import useServerSideAPI from "hooks/useServerSideAPI";
+import { getJoinLinks } from "backend/join";
 
-const Join = () => {
+type JoinProps = {
+  explorerLink: string;
+  driverLink: string;
+};
+
+export const getServerSideProps = async () => {
+  return await useServerSideAPI(getJoinLinks);
+};
+
+const Join = ({ explorerLink, driverLink }: JoinProps) => {
   return (
     <div>
       <Hero
@@ -19,7 +30,7 @@ const Join = () => {
           height="340px"
           width="300px"
           advantages={SiteData.explorerAdvantages}
-          to={SiteData.ApplyExplorerLink}
+          to={explorerLink}
         />
 
         <JoinUsCard
@@ -27,7 +38,7 @@ const Join = () => {
           height="340px"
           width="300px"
           advantages={SiteData.driverAdvantages}
-          to={SiteData.ApplyDriverLink}
+          to={driverLink}
         />
       </div>
     </div>
