@@ -50,10 +50,14 @@ const StartupChallenge = () => {
           />
         </div>
       </div>
-      <div className="bg-slate-50">
+      <div className="py-10 bg-slate-50 flex md:flex-row flex-col">
         <Sponsors
           title="Organizers"
           logos={SiteData.StartupChallengeOrgLogos}
+        />
+        <Sponsors
+          title="Main Partners"
+          logos={SiteData.StartupChallengeMainPartLogos}
         />
       </div>
       <div className="max-w-screen-lg lg:mx-auto px-5 lg:px-0">
@@ -72,8 +76,8 @@ const StartupChallenge = () => {
           </p>
         </Description>
       </div>
-      <div className="text-sm text-gray-400 text-center">
-        Detailed Program of last year edition
+      <div className="mb-2 text-sm text-gray-400 text-center">
+        Detailed Program of last year's edition
       </div>
       <ProgramButton />
       <ParagraphTitle text="Events schedule" />
@@ -81,37 +85,51 @@ const StartupChallenge = () => {
         <Timeline data={SiteData.StartupChallengeTimeline} theme="split" />
       </div>
       <JoinUsBar
-        title="Registrations not open yet."
+        title="Registrations not open"
         color="blue"
         buttonText="Closed"
         to=""
       />
-      <div className="max-w-screen-lg lg:mx-auto px-5 lg:px-0">
-        <Description title="Last Year Event">
-          <ul className="list-none">
-            <li>
-              <h1 className="mt-8 text-slate-800 font-bold text-xl leading-tight">
-                Sementa - Winner of ATM Prize
-              </h1>
-            </li>
-            <li>
-              <h1 className="mt-8 text-slate-800 font-bold text-xl leading-tight">
-                Neuneck - Winner of PoliHub Prize
-              </h1>
-            </li>
-            <li>
-              <h1 className="mt-8 text-slate-800 font-bold text-xl leading-tight">
-                Specis - Winner of B4i Prize
-              </h1>
-            </li>
-          </ul>
-        </Description>
-      </div>
       <div className="pt-5">
         <Sponsors
-          title="Sponsors"
-          logos={SiteData.StartupChallengeSponsorsLogos}
+          title="Partners & Sponsors"
+          logos={SiteData.StartupChallengeSponsorsLogos2023}
         />
+      </div>
+      <div className="relative lg:mx-auto lg:px-0 py-0">
+        <Image
+          src={SiteData.SC2022_board}
+          className="object-cover -z-10 brightness-75"
+          alt="Images SC 2022"
+          fill
+        />
+        <div
+          className="absolute h-min lg:py-2 rounded-xl md:inset-x-1/3 md:top-8 top-4 flex flex-col"
+          title="Last Year Event"
+        >
+          <h1 className="md:text-center lg:px-0 px-1 text-slate-100 mb-5 [text-shadow:0px_4px_8px_black]">
+            Last Year Event
+          </h1>
+          <div className="lg:mx-auto md:px-0 px-4">
+            <ul className="list-none">
+              <li>
+                <h1 className="lg:mt-6 text-slate-100 font-bold text-xl [text-shadow:0px_4px_8px_black]">
+                  Sementa - Winner of ATM Prize
+                </h1>
+              </li>
+              <li>
+                <h1 className="lg:mt-6 text-slate-100 font-bold text-xl [text-shadow:0px_4px_8px_black]">
+                  Neunek - Winner of PoliHub Prize
+                </h1>
+              </li>
+              <li>
+                <h1 className="lg:mt-6 text-slate-100 font-bold text-xl [text-shadow:0px_4px_8px_black]">
+                  Specis - Winner of B4i Prize
+                </h1>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   );

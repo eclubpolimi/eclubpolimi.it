@@ -183,6 +183,7 @@ export default class SiteData {
   //NETWORK
   static NetworkHeroImage = networkHeroImage;
   static NetworkHeroBackground = "/images/data/network_hero.jpg";
+  static SC2022_board = "/startupChallenge/previousYear/SC2022_board.jpg";
 
   static NetworkSlogan = [
     "Coming together is a beginning",
@@ -216,19 +217,22 @@ export default class SiteData {
       href: "https://www.eclubbocconi.com",
       alt: "Eclub bocconi",
     },
+  ];
+
+  static StartupChallengeMainPartLogos = [
     {
       src: "/startupChallenge/organizers/polihub.png",
-      href: "#",
+      href: "https://www.polihub.it/en/",
       alt: "Polihub",
     },
     {
       src: "/startupChallenge/organizers/b4i.svg",
-      href: "#",
+      href: "https://www.b4i.unibocconi.it/",
       alt: "B4I",
     },
   ];
 
-  static StartupChallengeSponsorsLogos = [
+  static StartupChallengeSponsorsLogos2022 = [
     {
       src: "/startupChallenge/sponsors/atm.png",
       href: "https://atm.it",
@@ -253,6 +257,19 @@ export default class SiteData {
       src: "/startupChallenge/sponsors/utravel.png",
       href: "#",
       alt: "uTravel",
+    },
+  ];
+
+  static StartupChallengeSponsorsLogos2023 = [
+    {
+      src: "/startupChallenge/Money_logo.png",
+      href: "https://www.money.it/",
+      alt: "Money.it",
+    },
+    {
+      src: "/startupChallenge/osservatori_logo.png",
+      href: "https://www.osservatori.net/it/home",
+      alt: "Osservatori.net",
     },
   ];
 
