@@ -219,7 +219,7 @@ export default class SiteData {
     },
   ];
 
-  static StartupChallengeMainPartLogos = [
+  static StartupChallengePartnerLogos = [
     {
       src: "/startupChallenge/organizers/polihub.png",
       href: "https://www.polihub.it/en/",
@@ -229,6 +229,16 @@ export default class SiteData {
       src: "/startupChallenge/organizers/b4i.svg",
       href: "https://www.b4i.unibocconi.it/",
       alt: "B4I",
+    },
+    {
+      src: "/startupChallenge/Money_logo.png",
+      href: "https://www.money.it/",
+      alt: "Money.it",
+    },
+    {
+      src: "/startupChallenge/osservatori_logo.png",
+      href: "https://www.osservatori.net/it/home",
+      alt: "Osservatori.net",
     },
   ];
 
@@ -257,19 +267,6 @@ export default class SiteData {
       src: "/startupChallenge/sponsors/utravel.png",
       href: "#",
       alt: "uTravel",
-    },
-  ];
-
-  static StartupChallengeSponsorsLogos2023 = [
-    {
-      src: "/startupChallenge/Money_logo.png",
-      href: "https://www.money.it/",
-      alt: "Money.it",
-    },
-    {
-      src: "/startupChallenge/osservatori_logo.png",
-      href: "https://www.osservatori.net/it/home",
-      alt: "Osservatori.net",
     },
   ];
 
