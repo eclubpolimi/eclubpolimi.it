@@ -16,21 +16,20 @@ const Sponsors = ({
   className = "",
 }: SponsorProps) => {
   return (
-    <div className={`${className} py-12`}>
+    <div className={`${className} md:py-10 py-8`}>
       <h2 className="text-center mb-8">{title}</h2>
 
       <div
-        className={`flex flex-col md:flex-row items-center justify-center lg:gap-20 gap-8 lg:h-[120px] h-[500px] lg:w-3/4 w-3/4 mx-auto`}
+        className={`flex flex-col lg:flex-row items-center justify-center gap-12 lg:py-4 lg:w-3/4 w-3/4 mx-auto`}
       >
         {logos.map((logo, index) => (
-          <a href={logo.href} key={index} className="w-full h-full relative">
+          <a href={logo.href} key={index} className="h-16 w-64 relative">
             <Image
               className="object-contain"
               src={logo.src}
               alt={logo.alt}
               key={index}
               fill
-              sizes="100%"
             />
           </a>
         ))}

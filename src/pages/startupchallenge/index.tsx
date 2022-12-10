@@ -50,14 +50,10 @@ const StartupChallenge = () => {
           />
         </div>
       </div>
-      <div className="py-10 bg-slate-50 flex md:flex-row flex-col">
+      <div className="py-0 bg-slate-50">
         <Sponsors
           title="Organizers"
           logos={SiteData.StartupChallengeOrgLogos}
-        />
-        <Sponsors
-          title="Main Partners"
-          logos={SiteData.StartupChallengeMainPartLogos}
         />
       </div>
       <div className="max-w-screen-lg lg:mx-auto px-5 lg:px-0">
@@ -90,10 +86,10 @@ const StartupChallenge = () => {
         buttonText="Closed"
         to=""
       />
-      <div className="pt-5">
+      <div className="py-0 bg-slate-50">
         <Sponsors
-          title="Partners & Sponsors"
-          logos={SiteData.StartupChallengeSponsorsLogos2023}
+          title="Partners"
+          logos={SiteData.StartupChallengePartnerLogos}
         />
       </div>
       <div className="relative lg:mx-auto lg:px-0 py-0">
