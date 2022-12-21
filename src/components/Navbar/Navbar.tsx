@@ -27,8 +27,8 @@ const NavBar = ({ items }: NavBarProps) => {
   const linksClass = "flex gap-8 items-center bg-ec_blue transition-all";
   const linksDesktopClass = "xl:flex-row xl:h-full xl:static";
   const linksMobileClass = `flex-col ${
-    !clicked && "h-0 overflow-hidden py-0"
-  } absolute top-16 left-0 right-0 py-10`;
+    !clicked ? "h-0 overflow-hidden py-0" : "py-10"
+  } absolute top-16 left-0 right-0`;
 
   return (
     <nav className={`${navClass} ${navDesktopClass} ${navMobileClass}`}>
