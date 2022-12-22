@@ -31,14 +31,15 @@ const StartupChallenge = () => {
             University Startup Challenge Milan
           </h1>
           <span className="mt-3 text-slate-600 font-semibold text-xl block">
-            The first Milan startup challenge for Bocconi and PoliMi students.
+            The first Milan startup challenge for PoliMi, Bocconi and Statale
+            students.
           </span>
           <div className="flex gap-4 md:flex-row flex-col items-center pt-8">
             <Button to="" theme="orange" className="align-middle">
-              Open soon
+              Apply here
             </Button>
             <p className="text-sm text-gray-400">
-              Registrations are not open yet
+              Registration opens on March 1st, 2023
             </p>
           </div>
         </div>
