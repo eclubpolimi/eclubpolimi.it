@@ -24,7 +24,7 @@ const NavBar = ({ items }: NavBarProps) => {
   const navDesktopClass = `xl:px-10 xl:flex-row xl:justify-between xl:items-center`;
   const navMobileClass = `flex-col`;
 
-  const linksClass = "flex gap-8 items-center bg-ec_blue transition-all";
+  const linksClass = "flex px-2 gap-8 items-center bg-ec_blue transition-all";
   const linksDesktopClass = "xl:flex-row xl:h-full xl:static";
   const linksMobileClass = `flex-col ${
     !clicked ? "h-0 overflow-hidden py-0" : "py-10"
