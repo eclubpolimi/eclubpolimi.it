@@ -243,6 +243,11 @@ export default class SiteData {
       href: "https://www.osservatori.net/it/home",
       alt: "Osservatori.net",
     },
+    {
+      src: "/startupChallenge/statale_logo.png",
+      href: "https://www.unimi.it/",
+      alt: "Università degli Studi di Milano",
+    },
   ];
 
   static StartupChallengeSponsorsLogos2022 = [
