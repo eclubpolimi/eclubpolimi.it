@@ -6,6 +6,7 @@ type JoinUsBarProps = {
   buttonText?: string;
   to: string;
   className?: string;
+  disabled?: boolean;
 };
 
 const JoinUsbar = ({
@@ -14,6 +15,7 @@ const JoinUsbar = ({
   buttonText = "Join us",
   to,
   className,
+  disabled,
 }: JoinUsBarProps) => {
   const getButtonColor = (): "orange" | "light" | "dark" => {
     return ({
@@ -44,7 +46,7 @@ const JoinUsbar = ({
       className={`bg-ec_${color} ${className} flex flex-col gap-6 py-12 justify-center items-center`}
     >
       <h2 className={getTitleColor()}>{getTitle()}</h2>
-      <Button to={to} theme={getButtonColor()}>
+      <Button to={to} theme={getButtonColor()} disabled={disabled}>
         {getButtonText()}
       </Button>
     </div>
