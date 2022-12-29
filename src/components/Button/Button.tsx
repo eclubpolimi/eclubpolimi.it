@@ -19,7 +19,9 @@ const Button = ({
   className = "",
   children,
 }: ButtonProps) => {
-  const styles = `rounded-xl py-2 px-6 inline cursor-pointer bg-ec_orange text-white hover:bg-ec_orange_hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ec_orange_hover ${className} font-medium`;
+  const styles = `rounded-xl py-2 px-6 inline cursor-pointer bg-ec_orange text-white hover:bg-ec_orange_hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ec_orange_hover ${className} font-medium ${
+    disabled && "opacity-75"
+  }`;
 
   if (!to || disabled) {
     return (
