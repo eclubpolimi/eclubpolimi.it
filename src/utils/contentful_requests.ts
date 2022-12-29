@@ -2,6 +2,7 @@ import { createClient, Entry } from "contentful";
 
 // A list of all the sources we want to use in the app
 export const Sources = {
+  StartupChallenge: "5aFYHwXmsaiOF9XD1CW1Np",
 };
 
 const client = createClient({
