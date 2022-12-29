@@ -4,7 +4,11 @@ module.exports = {
       {
         protocol: "https",
         hostname: "mail.eclubpolimi.it",
-        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "images.ctfassets.net",
         pathname: "/**",
       },
     ],
