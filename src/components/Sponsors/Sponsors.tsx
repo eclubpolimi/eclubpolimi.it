@@ -20,10 +20,14 @@ const Sponsors = ({
       <h2 className="text-center mb-8">{title}</h2>
 
       <div
-        className={`flex flex-col lg:flex-row items-center justify-center gap-12 lg:py-4 lg:w-3/4 w-3/4 mx-auto`}
+        className={`flex lg:flex-row lg:py-4 lg:flex-wrap flex-row flex-wrap items-center justify-center gap-8 mx-auto`}
       >
         {logos.map((logo, index) => (
-          <a href={logo.href} key={index} className="h-16 w-64 relative">
+          <a
+            href={logo.href}
+            key={index}
+            className="h-16 w-64 relative lg:basis-1/6 basis-2/6"
+          >
             <Image
               className="object-contain"
               src={logo.src}

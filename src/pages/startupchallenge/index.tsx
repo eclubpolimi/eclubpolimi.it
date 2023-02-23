@@ -35,7 +35,11 @@ const StartupChallenge = () => {
             students.
           </span>
           <div className="flex gap-4 md:flex-row flex-col items-center pt-8">
-            <Button to="" theme="orange" className="align-middle">
+            <Button
+              to={SiteData.ApplyStartupChallenge}
+              theme="orange"
+              className="align-middle"
+            >
               Apply here
             </Button>
             <p className="text-sm text-gray-400">
@@ -82,10 +86,10 @@ const StartupChallenge = () => {
         <Timeline data={SiteData.StartupChallengeTimeline} theme="split" />
       </div>
       <JoinUsBar
-        title="Registrations not open"
+        title="Registrations open on March 1st, 2023"
         color="blue"
-        buttonText="Closed"
-        to=""
+        buttonText="Apply here"
+        to={SiteData.ApplyStartupChallenge}
       />
       <div className="py-0 bg-slate-50">
         <Sponsors
