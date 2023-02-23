@@ -109,7 +109,7 @@ export default class SiteData {
   static PIAHeroBackground = "/netsonsImages/pia_hero.png";
 
   // JOIN US
-  static ApplyDriverLink = "https://forms.gle/6WU3suUSemut5pon6";
+  static ApplyDriverLink = "https://forms.gle/qnRBCQGmdbVdXzxdA";
   static ApplyExplorerLink = "https://forms.gle/cPn2VyGoZbWeSHv1A";
   static ApplyStartupChallenge = "https://forms.gle/e7wU4aqDpdxAo69R8";
 
