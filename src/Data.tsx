@@ -111,6 +111,7 @@ export default class SiteData {
   // JOIN US
   static ApplyDriverLink = "https://forms.gle/6WU3suUSemut5pon6";
   static ApplyExplorerLink = "https://forms.gle/cPn2VyGoZbWeSHv1A";
+  static ApplyStartupChallenge = "https://forms.gle/e7wU4aqDpdxAo69R8";
 
   // JOIN US CARD EXPLORER
   static explorerAdvantages = [
@@ -204,7 +205,7 @@ export default class SiteData {
 
   // STARTUP CHALLANGE
   static StartupChallengePDF =
-    "/startupChallenge/USCDetailed_event_guide_v2.pdf";
+    "/startupChallenge/USC Detailed event guide 23.pdf";
 
   static StartupChallengeOrgLogos = [
     {
@@ -231,7 +232,12 @@ export default class SiteData {
       alt: "B4I",
     },
     {
-      src: "/startupChallenge/Money_logo.png",
+      src: "/startupChallenge/a2a.png",
+      href: "https://www.a2aenergia.eu/",
+      alt: "A2A",
+    },
+    {
+      src: "/startupChallenge/money_logo.png",
       href: "https://www.money.it/",
       alt: "Money.it",
     },
@@ -241,9 +247,29 @@ export default class SiteData {
       alt: "Osservatori.net",
     },
     {
-      src: "/startupChallenge/statale_logo.png",
+      src: "/startupChallenge/fondazioneunimi_logo.png",
       href: "https://www.unimi.it/",
       alt: "Università degli Studi di Milano",
+    },
+    {
+      src: "/startupChallenge/impactconsulting_logo.png",
+      href: "https://www.ic-impactconsulting.com/",
+      alt: "Impact Consulting Milan",
+    },
+    {
+      src: "/startupChallenge/hellofresh_logo.png",
+      href: "https://www.hellofresh.it/",
+      alt: "Hello Fresh",
+    },
+    {
+      src: "/startupChallenge/jecomm_logo.png",
+      href: "https://jecomm.it/",
+      alt: "JECoMM",
+    },
+    {
+      src: "/startupChallenge/alumnieclub_logo.png",
+      href: "",
+      alt: "Alumni E-Club",
     },
   ];
 
