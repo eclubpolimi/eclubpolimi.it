@@ -237,7 +237,7 @@ export default class SiteData {
       alt: "A2A",
     },
     {
-      src: "/startupChallenge/money_logo.png",
+      src: "/startupChallenge/moneyit_logo.png",
       href: "https://www.money.it/",
       alt: "Money.it",
     },
