@@ -16,7 +16,9 @@
     "build": "next build",
     "start": "next start",
     "format": "npx prettier --write .",
-    "format-check": "npx prettier --check ."
+    "format-check": "npx prettier --check .",
+    "gql-codegen": "graphql-codegen --config gql-codegen.yml -r dotenv/config",
+    "gql-watch": "graphql-codegen --config gql-codegen.yml -r dotenv/config --watch"
   },
   "browserslist": {
     "production": [
@@ -31,6 +33,11 @@
     ]
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^3.2.1",
+    "@graphql-codegen/introspection": "^3.0.1",
+    "@graphql-codegen/typescript": "^3.0.1",
+    "@graphql-codegen/typescript-graphql-request": "^4.5.8",
+    "@graphql-codegen/typescript-operations": "^3.0.1",
     "@next/eslint-plugin-next": "^13.0.6",
     "@types/jest": "^29.1.2",
     "@types/node": "^18.11.0",
@@ -39,6 +46,7 @@
     "@typescript-eslint/eslint-plugin": "^5.45.0",
     "@typescript-eslint/parser": "^5.45.0",
     "autoprefixer": "^10.4.12",
+    "graphql-codegen": "^0.4.0",
     "postcss": "^8.4.18",
     "prettier": "^2.7.1",
     "react-scripts": "^5.0.1",
