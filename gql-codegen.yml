@@ -1,0 +1,17 @@
+overwrite: true
+schema:
+  - ${CMS_GRAPHQL_ENDPOINT}:
+      headers:
+        Authorization: Bearer ${CMS_ACCESS_TOKEN}
+documents: "./src/**/*.{gql,graphql,js,ts,jsx,tsx}"
+generates:
+  ./src/generated/cms/types.d.ts:
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-graphql-request"
+  ./src/generated/cms/graphql.schema.json:
+    plugins:
+      - "introspection"
+hooks:
+  afterOneFileWrite: ["prettier --write"]
