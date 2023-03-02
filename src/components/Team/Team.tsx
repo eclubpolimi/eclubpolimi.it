@@ -4,14 +4,14 @@ import { SlideCardProps } from "components/SlideCard/SlideCard";
 export type TeamProps = {
   members: Array<{
     image: string;
-    height: string;
-    width: string;
+    height?: string;
+    width?: string;
     cardText: SlideCardProps["cardText"];
   }>;
   teamName: string;
 };
 
-const Team = ({ members, teamName }: TeamProps) => {
+const Team = ({ members }: TeamProps) => {
   const cardSize = {
     height: "300px",
     width: "210px",

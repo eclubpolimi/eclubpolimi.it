@@ -61,3 +61,22 @@ export const TRIP_FRAGMENT = gql`
   ${FILE_URL_FRAGMENT}
   ${TIMELINE_ITEM_FRAGMENT}
 `;
+
+export const DRIVER_FRAGMENT = gql`
+  fragment DriverFragment on Driver {
+    nameSurname
+    team
+    role
+    image {
+      ...FileUrlFragment
+    }
+    quote
+    quoteAuthor
+    quoteColor
+    email
+    instagramLink
+    linkedinLink
+    isAlumni
+  }
+  ${FILE_URL_FRAGMENT}
+`;
