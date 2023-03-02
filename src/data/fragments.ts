@@ -33,3 +33,31 @@ export const EVENT_FRAGMENT = gql`
     link
   }
 `;
+
+export const TRIP_FRAGMENT = gql`
+  fragment TripFragment on Trip {
+    destinationCountry
+    slogan
+    destinationCities
+    departDate
+    returnDate
+    availableSpots
+    price
+    isPolimiSponsored
+    refundAmount
+    servicesIncluded
+    description
+    image {
+      ...FileUrlFragment
+    }
+    registerLink
+    registrationsOpenDate
+    timelineCollection {
+      items {
+        ...TimelineItemFragment
+      }
+    }
+  }
+  ${FILE_URL_FRAGMENT}
+  ${TIMELINE_ITEM_FRAGMENT}
+`;

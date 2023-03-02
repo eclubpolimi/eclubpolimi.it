@@ -4,6 +4,7 @@ import {
   FILE_URL_FRAGMENT,
   SPONSOR_FRAGMENT,
   TIMELINE_ITEM_FRAGMENT,
+  TRIP_FRAGMENT,
 } from "./fragments";
 
 export const LATEST_STARTUP_CHALLENGE_QUERY = gql`
@@ -51,4 +52,15 @@ export const LATEST_EVENTS_QUERY = gql`
     }
   }
   ${EVENT_FRAGMENT}
+`;
+
+export const LATEST_TRIP_QUERY = gql`
+  query LatestTripData {
+    tripCollection(limit: 1, order: departDate_DESC) {
+      items {
+        ...TripFragment
+      }
+    }
+  }
+  ${TRIP_FRAGMENT}
 `;
