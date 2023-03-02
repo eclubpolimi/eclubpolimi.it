@@ -24,6 +24,10 @@ jobs:
 
       # Build the website
       - name: 🔨 Build project
+        env:
+          CMS_GRAPHQL_ENDPOINT: ${{ secrets.CMS_GRAPHQL_ENDPOINT }}
+          CMS_ACCESS_TOKEN: ${{ secrets.CMS_ACCESS_TOKEN }}
+          CMS_PREVIEW_ACCESS_TOKEN: ${{ secrets.CMS_PREVIEW_ACCESS_TOKEN }}
         run: |
           node -v
           npm -v
