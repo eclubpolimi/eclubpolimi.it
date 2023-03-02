@@ -66,19 +66,16 @@ const StartupChallenge = () => {
           <p className="text-justify">
             The University Startup challenge is open to anyone who might be
             interested, but at least half of the members of each team must be
-            from Politecnico di Milano or Bocconi University. It will be held in
-            person on both campuses, and will include seminars, workshops and
-            networking moments. Participants will be given a challenge by the
-            partner company, and will work together in groups of 4-6 people to
-            create an innovative startup idea that will help solve a practical
-            problem for the city of Milan. The finalists will present their
-            startup pitch in front of a jury of experts and the best teams will
-            be rewarded!
+            from Politecnico di Milano, Bocconi or Statale University. It will
+            be held in person on Politecnico and Bocconi campuses, and will
+            include seminars, workshops and networking moments. Participants
+            will be given a challenge by the partner company, and will work
+            together in groups of 4-6 people to create an innovative startup
+            idea that will help solve a practical problem for the city of Milan.
+            The finalists will present their startup pitch in front of a jury of
+            experts and the best teams will be rewarded!
           </p>
         </Description>
-      </div>
-      <div className="mb-2 text-sm text-gray-400 text-center">
-        Detailed Program of last year's edition
       </div>
       <ProgramButton />
       <ParagraphTitle text="Events schedule" />
