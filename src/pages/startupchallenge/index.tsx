@@ -1,75 +1,57 @@
+import Image from "next/image";
+
 import Button from "components/Button";
+import Description from "components/Description";
+import JoinUsBar from "components/JoinUsBar";
+import ParagraphTitle from "components/ParagraphTitle";
 import Sponsors from "components/Sponsors";
 import Timeline from "components/Timeline";
 
 import LogoStartupChallenge from "assets/logo_startupchallenge.jpg";
-import Description from "components/Description";
-import JoinUsBar from "components/JoinUsBar";
-import ParagraphTitle from "components/ParagraphTitle";
 import SiteData from "Data";
-import Image from "next/image";
 
-import { Asset, Entry } from "contentful";
-import useServerSideAPI from "hooks/useServerSideAPI";
-import { getContentfulData, Sources } from "utils/contentful_requests";
+import { LATEST_STARTUP_CHALLENGE_QUERY } from "data/queries";
+import { StartupChallengeDataQuery } from "generated/cms/types";
+import client from "utils/apollo_client";
 import { formatDate } from "utils/formatting";
 
-interface TimelineItem {
-  title: string;
-  date: string;
-  description?: string;
-}
-
-interface SponsorItem {
-  name: string;
-  logo: Asset;
-  url?: string;
-}
-
-interface StartupChallengeData {
-  name: string;
-  signUpLink?: string;
-  submissionsOpen?: boolean;
-  submissionsOpenDate: string;
-  submissionsCloseDate: string;
-  detailedProgramDescription?: string;
-  detailedProgram?: Asset;
-  timeline: Array<Entry<TimelineItem>>;
-  organizers: Array<Entry<SponsorItem>>;
-  sponsors: Array<Entry<SponsorItem>>;
-}
-
 interface StartupChallengeProps {
-  data: StartupChallengeData;
+  data: StartupChallengeDataQuery;
   submissionsEnabled: boolean;
 }
 
-export const getServerSideProps = async () => {
-  return useServerSideAPI<StartupChallengeProps>(async () => {
-    const entry = await getContentfulData<StartupChallengeData>(
-      Sources.StartupChallenge
-    );
-    const data = entry.fields;
+export const getServerSideProps = async (): Promise<{
+  props: StartupChallengeProps;
+}> => {
+  const { data } = await client.query<StartupChallengeDataQuery>({
+    query: LATEST_STARTUP_CHALLENGE_QUERY,
+  });
 
-    // Determine if submissions are enabled on the server side
-    const submissionsEnabled: boolean = (() => {
-      const now = new Date();
-      const open = new Date(data.submissionsOpenDate);
-      const closed = new Date(data.submissionsCloseDate);
-      return open <= now && now <= closed && data.submissionsOpen === true;
-    })();
+  // Determine if submissions are enabled on the server
+  const submissionsEnabled = (() => {
+    const pageData = data?.startupchallengeCollection?.items[0];
+    if (!pageData) return false;
 
-    return {
+    const now = new Date();
+    const open = new Date(pageData.submissionsOpenDate);
+    const closed = new Date(pageData.submissionsCloseDate);
+    return open <= now && now <= closed && pageData.submissionsOpen === true;
+  })();
+
+  return {
+    props: {
       data: data,
       submissionsEnabled: submissionsEnabled,
-    };
-  });
+    },
+  };
 };
 
 const StartupChallenge = ({
   data,
   submissionsEnabled,
 }: StartupChallengeProps) => {
+  const challengeData = data?.startupchallengeCollection?.items[0];
+
   return (
     <div className="w-full">
       <div
@@ -86,16 +68,17 @@ const StartupChallenge = ({
           </span>
           <div className="flex gap-4 md:flex-row flex-col items-center pt-8">
             <Button
-              to={data.signUpLink || ""}
+              to={challengeData?.signUpLink || ""}
               theme="orange"
               className="align-middle"
               disabled={!submissionsEnabled}
             >
               Apply here
             </Button>
-            {data.submissionsOpenDate && (
+            {challengeData?.submissionsOpenDate && (
               <p className="text-sm text-gray-400">
-                Registrations open on {formatDate(data.submissionsOpenDate)}
+                Registrations open on{" "}
+                {formatDate(challengeData.submissionsOpenDate)}
               </p>
             )}
           </div>
@@ -111,11 +94,13 @@ const StartupChallenge = ({
       <div className="py-0 bg-slate-50">
         <Sponsors
           title="Organizers"
-          logos={data.organizers.map((entry) => ({
-            src: "https:" + entry.fields.logo.fields.file.url,
-            alt: entry.fields.name,
-            href: entry.fields.url || "",
-          }))}
+          logos={
+            challengeData?.organizersCollection?.items.map((entry) => ({
+              src: entry?.logo?.url || "",
+              alt: entry?.name || "",
+              href: entry?.url || "",
+            })) || []
+          }
         />
       </div>
       <div className="max-w-screen-lg lg:mx-auto px-5 lg:px-0">
@@ -134,15 +119,15 @@ const StartupChallenge = ({
           </p>
         </Description>
       </div>
-      {data.detailedProgramDescription && (
+      {challengeData?.detailedProgramDescription && (
         <div className="mb-2 text-sm text-gray-400 text-center">
-          {data.detailedProgramDescription}
+          {challengeData.detailedProgramDescription}
         </div>
       )}
       <div className="w-full flex items-center justify-center pb-10">
         <Button
           forceAnchor
-          to={"https:" + data.detailedProgram?.fields.file.url || ""}
+          to={challengeData?.detailedProgram?.url || ""}
           theme="orange"
         >
           Detailed program
@@ -151,11 +136,13 @@ const StartupChallenge = ({
       <ParagraphTitle text="Events schedule" />
       <div className="py-16 max-w-screen-lg lg:mx-auto px-5 lg:px-0">
         <Timeline
-          data={data.timeline.map((item) => ({
-            date: formatDate(item.fields.date),
-            title: item.fields.title,
-            body: item.fields.description,
-          }))}
+          data={
+            challengeData?.timelineCollection?.items.map((item) => ({
+              date: formatDate(item?.date) || "",
+              title: item?.title || "",
+              body: item?.description || "",
+            })) || []
+          }
           theme="split"
         />
       </div>
@@ -163,17 +150,19 @@ const StartupChallenge = ({
         title="Registrations open on March 1st, 2023"
         color="blue"
         buttonText="Apply here"
-        to={data.signUpLink || ""}
+        to={challengeData?.signUpLink || ""}
         disabled={!submissionsEnabled}
       />
       <div className="py-0 bg-slate-50">
         <Sponsors
           title="Partners"
-          logos={data.sponsors.map((entry) => ({
-            src: "https:" + entry.fields.logo.fields.file.url,
-            alt: entry.fields.name,
-            href: entry.fields.url || "",
-          }))}
+          logos={
+            challengeData?.sponsorsCollection?.items.map((sponsor) => ({
+              src: sponsor?.logo?.url || "",
+              alt: sponsor?.name || "",
+              href: sponsor?.url || "",
+            })) || []
+          }
         />
       </div>
       <div className="lg:px-0 py-0 relative w-full">

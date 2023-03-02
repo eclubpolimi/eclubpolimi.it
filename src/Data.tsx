@@ -110,7 +110,6 @@ export default class SiteData {
   // JOIN US
   static ApplyDriverLink = "https://forms.gle/qnRBCQGmdbVdXzxdA";
   static ApplyExplorerLink = "https://forms.gle/cPn2VyGoZbWeSHv1A";
-  static ApplyStartupChallenge = "https://forms.gle/e7wU4aqDpdxAo69R8";
 
   // JOIN US CARD EXPLORER
   static explorerAdvantages = [
