@@ -15,6 +15,7 @@
   },
   "scripts": {
     "dev": "next dev",
+    "prebuild": "npm run gql-codegen",
     "build": "next build",
     "start": "next start",
     "format": "npx prettier --write .",
