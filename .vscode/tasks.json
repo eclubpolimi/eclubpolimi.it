@@ -1,0 +1,19 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Update GraphQL Types",
+      "detail": "npm run gql-codegen",
+      "type": "shell",
+      "command": "npm run gql-codegen",
+      "presentation": {
+        "reveal": "always",
+        "focus": false
+      },
+      "runOptions": {
+        "runOn": "folderOpen"
+      },
+      "problemMatcher": []
+    }
+  ]
+}
