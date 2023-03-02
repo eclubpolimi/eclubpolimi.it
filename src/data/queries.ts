@@ -1,5 +1,6 @@
 import { gql } from "@apollo/client";
 import {
+  DRIVER_FRAGMENT,
   EVENT_FRAGMENT,
   FILE_URL_FRAGMENT,
   SPONSOR_FRAGMENT,
@@ -63,4 +64,26 @@ export const LATEST_TRIP_QUERY = gql`
     }
   }
   ${TRIP_FRAGMENT}
+`;
+
+export const ALL_DRIVERS_NOT_ALUMNI_QUERY = gql`
+  query AllDrivers {
+    driverCollection(where: { isAlumni: false }) {
+      items {
+        ...DriverFragment
+      }
+    }
+  }
+  ${DRIVER_FRAGMENT}
+`;
+
+export const DRIVERS_FOR_TEAM_QUERY = gql`
+  query DriversForTeam($team: String) {
+    driverCollection(where: { team: $team }) {
+      items {
+        ...DriverFragment
+      }
+    }
+  }
+  ${DRIVER_FRAGMENT}
 `;

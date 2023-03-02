@@ -1,16 +1,14 @@
 import Button from "components/Button";
 
-import { getTeams } from "assets/teams";
 import pialessons from "assets/pialessons";
 
-import logoLearnNetworkBuild from "assets/logo_learn_network_build.svg";
 import homepageHeroBackground from "assets/homepage_hero.jpg";
+import logoLearnNetworkBuild from "assets/logo_learn_network_build.svg";
 import logoWhite from "assets/logo_white.svg";
-
 import networkHeroImage from "assets/eclub-network.png";
-import logo1 from "assets/logo-colors.png";
 import logo2 from "assets/img-eclub-bocconi.png";
 import logo3 from "assets/img-eclub-pavia.png";
+import logo1 from "assets/logo-colors.png";
 
 import { ReactNode } from "react";
 
@@ -98,10 +96,6 @@ export default class SiteData {
 
   // ABOUT US
   static aboutUsHeroBackground = "/netsonsImages/aboutUs_hero.png";
-
-  static GetTeams() {
-    return getTeams();
-  }
 
   // LESSONS PIA (placeholder)
   static LessonsPIA = pialessons;
