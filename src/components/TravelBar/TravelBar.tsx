@@ -11,7 +11,7 @@ type TravelBarProps = {
   info: {
     place: string;
     date: string;
-    peoples: string;
+    peoples: number;
     price: string;
     priceTerms: boolean;
   };

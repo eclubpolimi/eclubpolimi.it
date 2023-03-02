@@ -173,7 +173,6 @@ export default class SiteData {
     { alt: "E-Club Pavia", href: "https://www.eclubpavia.it/", src: logo3 },
   ];
 
-
   static SmushMaterialsEventBanner = {
     imgSource:
       "https://smushmaterials.com/wp-content/uploads/2022/04/Smush_cmyk-1.png",
