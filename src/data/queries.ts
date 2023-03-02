@@ -1,8 +1,9 @@
 import { gql } from "@apollo/client";
 import {
+  EVENT_FRAGMENT,
   FILE_URL_FRAGMENT,
-  TIMELINE_ITEM_FRAGMENT,
   SPONSOR_FRAGMENT,
+  TIMELINE_ITEM_FRAGMENT,
 } from "./fragments";
 
 export const LATEST_STARTUP_CHALLENGE_QUERY = gql`
@@ -39,4 +40,15 @@ export const LATEST_STARTUP_CHALLENGE_QUERY = gql`
   ${FILE_URL_FRAGMENT}
   ${TIMELINE_ITEM_FRAGMENT}
   ${SPONSOR_FRAGMENT}
+`;
+
+export const LATEST_EVENTS_QUERY = gql`
+  query Event {
+    eventCollection(limit: 4, order: date_ASC) {
+      items {
+        ...EventFragment
+      }
+    }
+  }
+  ${EVENT_FRAGMENT}
 `;

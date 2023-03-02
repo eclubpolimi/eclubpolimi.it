@@ -151,34 +151,6 @@ export default class SiteData {
     },
   ];
 
-  static eventsList = [
-    {
-      date: "21 September 2022",
-      title: "Welcoming aperitivo",
-      body: "Entrepreneurship is not only working but also networking! Here in E-Club we give value to this pillar and we think that meeting each other is fundamental to create a strong bond with people! In our first aperitivo we met many new people, can’t wait for the next one!",
-    },
-    {
-      date: "03 October 2022",
-      title: "Aperitivo with Smush Materials",
-      body: "We had the opportunity to meet Smush Materials, the winning startup of the XIII edition of Polihub's Switch to product! They transform industrial agri-food waste into raw materials for the production of green solutions in the fields of sustainable packaging and thermal and acoustic insulation by transforming mycelium, the root system of mushrooms.",
-    },
-    {
-      date: "10 October 2022",
-      title: "Learning Buyer personas for marketing",
-      body: "Workshop held by Alessio Sorrentino, Marketing Manager of 7Ads- eCommerce Advertising. After defining what digital marketing is really about, we discovered the roadmap to create Buyer Personas - the same used in the framework of 7Ads-eCommerce Advertising to create their advertising plans. This roadmap can also be used to identify your audience and creat marketing content to promote your personal brand.",
-    },
-    {
-      date: "24 October 2022",
-      title: "In-company visit at Moviri",
-      body: "Moviri, an international tech company based in Milan. It was such a pleasure to be hosted and have the opportunity to listen to their story, from the beginnings to the success. Thanks to Moviri, we learnt to never give up!",
-    },
-    {
-      date: "12 November 2022",
-      title: "Business game held by Con4us",
-      body: "In E-Club we like to face new challenges. We had the opportunity to join new people from other clubs and universities for one day and to compete in teams against each others by creating a new service in Con4us app. The theme was about connection between students, one of the main goal of Con4us",
-    },
-  ];
-
   //NETWORK
   static NetworkHeroImage = networkHeroImage;
   static NetworkHeroBackground = "/netsonsImages/network_hero.jpg";
