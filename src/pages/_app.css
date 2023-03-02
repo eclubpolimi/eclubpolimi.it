@@ -23,6 +23,11 @@
   --button-padding: 10px 28px;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 15%;
+}
+
 body {
   color: var(--text-color);
   font-family: "Inter", Helvetica, Arial, sans-serif;
