@@ -24,3 +24,12 @@ export const SPONSOR_FRAGMENT = gql`
     url
   }
 `;
+
+export const EVENT_FRAGMENT = gql`
+  fragment EventFragment on Event {
+    title
+    date
+    description
+    link
+  }
+`;
