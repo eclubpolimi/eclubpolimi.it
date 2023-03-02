@@ -1,11 +1,14 @@
+import Link from "next/link";
+
+import Button from "components/Button";
+
 import {
   faCalendarAlt,
   faMapMarkedAlt,
-  faPeopleGroup,
   faMoneyBillAlt,
+  faPeopleGroup,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Button from "components/Button";
 
 type TravelBarProps = {
   info: {
@@ -27,7 +30,7 @@ const TravelBar = ({
   className = "",
 }: TravelBarProps) => {
   const liClass = `flex md:flex-col md:px-10 md:gap-1 items-center whitespace-nowrap
-  text-slate-800 font-medium justify-between last:justify-center md:justify-center
+  text-slate-800 font-medium justify-between md:justify-center
   border-solid `;
   const borderClass = `border-b-2 md:border-b-0 md:border-r-2
   border-slate-200 `;
@@ -51,12 +54,20 @@ const TravelBar = ({
           <FontAwesomeIcon icon={faPeopleGroup}></FontAwesomeIcon>
           <span>{info.peoples}</span>
         </li>
-        <li className={liClass}>
-          <FontAwesomeIcon icon={faMoneyBillAlt}></FontAwesomeIcon>
-          <p>
-            <span>{info.price}</span>
-            {info.priceTerms && <span className="text-slate-500">*</span>}
-          </p>
+        <li className="w-full">
+          <Link
+            className={`${liClass} ${
+              !info.priceTerms ? "pointer-events-none" : ""
+            }`}
+            href={info.priceTerms ? "#priceTerms" : {}}
+            scroll={false}
+          >
+            <FontAwesomeIcon icon={faMoneyBillAlt}></FontAwesomeIcon>
+            <p className={(info.priceTerms && "") || ""}>
+              <span>{info.price}</span>
+              {info.priceTerms && <span className="text-slate-500">*</span>}
+            </p>
+          </Link>
         </li>
         <li className={liClass}>
           <Button to={registerLink} disabled={disabled}>

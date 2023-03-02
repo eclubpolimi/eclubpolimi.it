@@ -51,7 +51,7 @@ const Travel = ({ data }: TravelProps) => {
           alt={tripData?.image?.title || "Travel preview"}
         />
         <div className="md:backdrop-blur-xl bg-white/30">
-          <div className="py-10 md:py-28 px-5 sm:px-8 flex flex-col text-center md:text-left items-center">
+          <div className="max-w-screen-lg lg:mx-auto py-10 md:py-28 px-5 sm:px-8 flex flex-col text-center md:text-left items-center">
             <h1 className="md:mt-8 text-slate-800 font-extrabold text-4xl leading-tight header-squares-decoration w-fit">
               E-Club goes to {tripData?.destinationCountry}
             </h1>
@@ -59,7 +59,7 @@ const Travel = ({ data }: TravelProps) => {
               {tripData?.slogan}
             </span>
             <TravelBar
-              className="mt-8 md:mt-12 w-full lg:w-3/4 xl:w-2/3"
+              className="mt-8 md:mt-12 w-full"
               info={{
                 place: tripData?.destinationCities?.[0] || "",
                 date:
@@ -76,7 +76,7 @@ const Travel = ({ data }: TravelProps) => {
       </div>
       <div className="bg-slate-100">
         <Description
-          className="w-4/5 mx-auto font-medium text-slate-700"
+          className="max-w-screen-lg lg:mx-auto w-4/5 mx-auto font-medium text-slate-700"
           title={`Why should I go to ${tripData?.destinationCountry}?`}
         >
           <p className="text-justify">
@@ -101,7 +101,7 @@ const Travel = ({ data }: TravelProps) => {
             <br />
             {tripData?.isPolimiSponsored && (
               // blink when reached through anchor
-              <span className="text-sm text-slate-500">
+              <span id="priceTerms" className="text-sm text-slate-500">
                 * An initiative sponsored by Politecnico di Milano. You'll have
                 to pay €
                 {(
