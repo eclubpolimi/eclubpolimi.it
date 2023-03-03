@@ -3,7 +3,7 @@ schema:
   - ${CMS_GRAPHQL_ENDPOINT}:
       headers:
         Authorization: Bearer ${CMS_ACCESS_TOKEN}
-documents: "./src/**/*.{gql,graphql,js,ts,jsx,tsx}"
+documents: ["./src/**/*.{gql,graphql,js,ts,jsx,tsx}", "!./src/generated/**/*"]
 generates:
   ./src/generated/cms/types.d.ts:
     plugins:
