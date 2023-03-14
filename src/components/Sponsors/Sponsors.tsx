@@ -16,11 +16,11 @@ const Sponsors = ({
   className = "",
 }: SponsorProps) => {
   return (
-    <div className={`${className} md:py-10 py-8`}>
+    <div className={`${className} md:py-6 py-8`}>
       <h2 className="text-center mb-8">{title}</h2>
 
       <div
-        className={`flex lg:flex-row lg:py-4 lg:flex-wrap flex-row flex-wrap items-center justify-center gap-8 mx-auto`}
+        className={`flex lg:flex-row lg:py-2 lg:flex-wrap flex-row flex-wrap items-center justify-center gap-8 mx-auto`}
       >
         {logos.map((logo, index) => (
           <a
