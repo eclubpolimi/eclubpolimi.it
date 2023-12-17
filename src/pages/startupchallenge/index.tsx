@@ -63,8 +63,7 @@ const StartupChallenge = ({
             University Startup Challenge Milan
           </h1>
           <span className="mt-3 text-slate-600 font-semibold text-xl block">
-            The first Milan startup challenge for PoliMi, Bocconi and Statale
-            students.
+            The first Milan startup challenge organized by Entrepreneurship Club Polimi and Bocconi, for all Politecnico, Bocconi, Statale and Cattolica students
           </span>
           <div className="flex gap-4 md:flex-row flex-col items-center pt-8">
             <Button
@@ -106,9 +105,17 @@ const StartupChallenge = ({
       <div className="max-w-screen-lg lg:mx-auto px-5 lg:px-0">
         <Description title="A two-weekend entrepreneurship event and competition">
           <p className="text-justify">
-            The University Startup challenge is open to anyone who might be interested, but at least half of the members of each team must be from Politecnico di Milano or Bocconi University. It will be held in person on both campuses, and will include seminars, workshops and
-            networking moments. Participants will be given a challenge by the partner company, and will work together in groups of 4-6 people to create an innovative startup idea that will help solve a practical problem for the city of Milan. The finalists will present their
-            startup pitch in front of a jury of experts and the best teams will be rewarded!
+            The University Startup challenge is a unique event that brings together 
+            Politecnico, Bocconi, Statale and Cattolica students with the goal of 
+            delivering a groundbreaking start-up idea to solve the challenge proposed 
+            by the main partners of our club. The evemt will be held in person at 
+            Politecnico and Bocconi campuses, and will include seminars, workshops and
+            networking time. Participants will be given a challenge by the
+            partner companies, and they will work together in groups of 4-6 people to
+            create an innovative startup idea that will help solve a practical
+            problem for the city of Milan. The finalists will present their
+            startup pitch in front of a jury of experts and the best teams will
+            be rewarded!
           </p>
         </Description>
       </div>
