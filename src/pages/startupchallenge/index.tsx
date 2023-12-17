@@ -155,7 +155,7 @@ const StartupChallenge = ({
       />
       <div className="py-0 bg-slate-50">
         <Sponsors
-          title="Partners"
+          title="The partners of last year's edition"
           logos={
             challengeData?.sponsorsCollection?.items.map((sponsor) => ({
               src: sponsor?.logo?.url || "",
