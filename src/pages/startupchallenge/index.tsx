@@ -92,7 +92,7 @@ const StartupChallenge = ({
       </div>
       <div className="py-0 bg-slate-50">
         <Sponsors
-          title="Organizers"
+          title="Organizers in partnership with"
           logos={
             challengeData?.organizersCollection?.items.map((entry) => ({
               src: entry?.logo?.url || "",
