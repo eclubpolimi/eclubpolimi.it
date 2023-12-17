@@ -108,8 +108,8 @@ const StartupChallenge = ({
             The University Startup challenge is a unique event that brings together 
             Politecnico, Bocconi, Statale and Cattolica students with the goal of 
             delivering a groundbreaking start-up idea to solve the challenge proposed 
-            by the main partners of our club. The evemt will be held in person at 
-            Politecnico and Bocconi campuses, and will include seminars, workshops and
+            by our partners. The event will be held in person at 
+            Politecnico and Bocconi campuses, and it will include seminars, workshops and
             networking time. Participants will be given a challenge by the
             partner companies, and they will work together in groups of 4-6 people to
             create an innovative startup idea that will help solve a practical
@@ -147,7 +147,7 @@ const StartupChallenge = ({
         />
       </div>
       <JoinUsBar
-        title="Registrations open on March 7th, 2024"
+        title="Registrations open on March 22nd, 2024"
         color="blue"
         buttonText="Apply here"
         to={challengeData?.signUpLink || ""}
