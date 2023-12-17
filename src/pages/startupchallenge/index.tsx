@@ -147,7 +147,7 @@ const StartupChallenge = ({
         />
       </div>
       <JoinUsBar
-        title="Registrations open on March 1st, 2023"
+        title="Registrations open on March 7th, 2024"
         color="blue"
         buttonText="Apply here"
         to={challengeData?.signUpLink || ""}
