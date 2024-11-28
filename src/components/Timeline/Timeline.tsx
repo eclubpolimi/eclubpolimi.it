@@ -1,5 +1,5 @@
-import { ReactNode } from "react";
-import styles from "./Timeline.module.css";
+import { ReactNode } from 'react';
+import styles from './Timeline.module.css';
 
 export type TimelineEvent = {
   date: string;
@@ -17,9 +17,9 @@ const Timeline = ({ theme, data, className }: TimelineProps) => {
   const getTheme = () =>
     ({
       centered: styles.timeline_centered,
-      basic: "",
+      basic: '',
       split: styles.timeline_split,
-    }[theme] || styles.timeline_split);
+    })[theme] || styles.timeline_split;
 
   return (
     <div className={className}>

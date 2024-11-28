@@ -1,4 +1,4 @@
-import Button from "components/Button";
+import Button from 'components/Button';
 
 type EventBannerProps = {
   bannerData: {
@@ -15,7 +15,7 @@ type EventBannerProps = {
 
 const EventBanner = ({
   bannerData,
-  className = "",
+  className = '',
   disabled,
 }: EventBannerProps) => {
   return (
@@ -35,7 +35,7 @@ const EventBanner = ({
           Next up by E-Club
         </span>
         <h1 className="mt-2 text-slate-800 font-extrabold text-4xl leading-tight ">
-          {bannerData.eventType}:{" "}
+          {bannerData.eventType}:{' '}
           <a
             className="underline underline-offset-4 text-slate-600 hover:text-slate-500"
             href={bannerData.affiliateLink}

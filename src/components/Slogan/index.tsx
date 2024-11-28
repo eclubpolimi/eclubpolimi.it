@@ -1,1 +1,1 @@
-export { default } from "./Slogan";
+export { default } from './Slogan';

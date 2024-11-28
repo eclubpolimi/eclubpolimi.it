@@ -1,1 +1,1 @@
-export { default } from "./LabeledOutlineCard";
+export { default } from './LabeledOutlineCard';

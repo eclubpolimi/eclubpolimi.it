@@ -1,1 +1,1 @@
-export { default } from "./SlideCard";
+export { default } from './SlideCard';

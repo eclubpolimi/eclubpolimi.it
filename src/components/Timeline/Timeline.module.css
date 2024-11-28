@@ -52,17 +52,19 @@
   background: var(--marker-dot-color);
   border: 3px solid transparent;
   border-radius: 100%;
-  content: "";
+  content: '';
   display: block;
   height: 15px;
   position: absolute;
   top: 4px;
   left: 0;
   width: 15px;
-  transition: background 0.3s ease-in-out, border 0.3s ease-in-out;
+  transition:
+    background 0.3s ease-in-out,
+    border 0.3s ease-in-out;
 }
 .timeline_marker:after {
-  content: "";
+  content: '';
   width: 3px;
   background: var(--marker-line-color);
   display: block;
@@ -99,7 +101,7 @@
 }
 .period .timeline_marker:before {
   background: transparent;
-  content: "";
+  content: '';
   width: 15px;
   height: auto;
   border: none;
@@ -111,7 +113,7 @@
   border-bottom: 3px solid var(--marker-line-color);
 }
 .period .timeline_marker:after {
-  content: "";
+  content: '';
   height: 32px;
   top: auto;
 }

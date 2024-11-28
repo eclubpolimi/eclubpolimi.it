@@ -1,15 +1,15 @@
-import Image from "next/image";
+import Image from 'next/image';
 
-import Description from "components/Description";
-import Timeline from "components/Timeline";
-import TravelBar from "components/TravelBar";
+import Description from 'components/Description';
+import Timeline from 'components/Timeline';
+import TravelBar from 'components/TravelBar';
 
-import TravelPlaceholder from "assets/travelMainBackground.webp";
+import TravelPlaceholder from 'assets/travelMainBackground.webp';
 
-import { LATEST_TRIP_QUERY } from "data/queries";
-import { LatestTripDataQuery } from "generated/cms/types";
-import client from "utils/apollo_client";
-import { formatDate, formatDateRange, formatDateTime } from "utils/formatting";
+import { LATEST_TRIP_QUERY } from 'data/queries';
+import { LatestTripDataQuery } from 'generated/cms/types';
+import client from 'utils/apollo_client';
+import { formatDate, formatDateRange, formatDateTime } from 'utils/formatting';
 
 interface TravelProps {
   data: LatestTripDataQuery;
@@ -48,7 +48,7 @@ const Travel = ({ data }: TravelProps) => {
         <Image
           className="md:w-full md:absolute top-1/2 right-0 md:-translate-y-1/2 -z-10"
           src={tripData?.image?.url || TravelPlaceholder}
-          alt={tripData?.image?.title || "Travel preview"}
+          alt={tripData?.image?.title || 'Travel preview'}
         />
         <div className="md:backdrop-blur-xl bg-white/30">
           <div className="max-w-screen-lg lg:mx-auto py-10 md:py-28 px-5 sm:px-8 flex flex-col text-center md:text-left items-center">
@@ -61,15 +61,15 @@ const Travel = ({ data }: TravelProps) => {
             <TravelBar
               className="mt-8 md:mt-12 w-full"
               info={{
-                place: tripData?.destinationCities?.[0] || "",
+                place: tripData?.destinationCities?.[0] || '',
                 date:
                   formatDateRange(tripData?.departDate, tripData?.returnDate) ||
-                  "",
+                  '',
                 peoples: tripData?.availableSpots || 0,
                 price: `€${tripData?.price || 0}`,
                 priceTerms: tripData?.isPolimiSponsored || false,
               }}
-              registerLink={tripData?.registerLink || ""}
+              registerLink={tripData?.registerLink || ''}
             />
           </div>
         </div>
@@ -80,7 +80,7 @@ const Travel = ({ data }: TravelProps) => {
           title={`Why should I go to ${tripData?.destinationCountry}?`}
         >
           <p className="text-justify">
-            {tripData?.description?.split("\n").map((paragraph) => {
+            {tripData?.description?.split('\n').map((paragraph) => {
               return (
                 <>
                   {paragraph}
@@ -90,7 +90,7 @@ const Travel = ({ data }: TravelProps) => {
             })}
             <br />
             <strong className="block -mx-4 p-4 bg-white rounded-xl border-solid border-[1px] border-slate-200">
-              Registrations open{" "}
+              Registrations open{' '}
               <span className="text-ec_orange">
                 {formatDateTime(tripData?.registrationsOpenDate)}
               </span>
@@ -105,11 +105,11 @@ const Travel = ({ data }: TravelProps) => {
                 * An initiative sponsored by Politecnico di Milano. You'll have
                 to pay €
                 {(
-                  parseFloat(tripData?.price || "0") +
-                  parseFloat(tripData?.refundAmount || "0")
+                  parseFloat(tripData?.price || '0') +
+                  parseFloat(tripData?.refundAmount || '0')
                 )
                   .toFixed(2)
-                  .replace(".", ",")}{" "}
+                  .replace('.', ',')}{' '}
                 upfront, but we will refund €{tripData?.refundAmount} after the
                 trip. Price includes: {tripData?.servicesIncluded}.
               </span>
@@ -122,17 +122,17 @@ const Travel = ({ data }: TravelProps) => {
           theme="split"
           data={
             tripData?.timelineCollection?.items.map((item) => ({
-              date: formatDate(item?.date) || "",
-              title: item?.title || "",
+              date: formatDate(item?.date) || '',
+              title: item?.title || '',
               children:
-                item?.description?.split("\n").map((paragraph) => {
+                item?.description?.split('\n').map((paragraph) => {
                   return (
                     <>
                       {paragraph}
                       <br />
                     </>
                   );
-                }) || "",
+                }) || '',
             })) || []
           }
           className="py-16 max-w-screen-lg lg:mx-auto px-5 lg:px-0 font-medium text-slate-700"

@@ -1,4 +1,4 @@
-import Button from "components/Button";
+import Button from 'components/Button';
 
 type JoinUsCardProps = {
   height: string;
@@ -33,7 +33,7 @@ const JoinUsCard = ({
         </ul>
       </div>
       <Button theme="orange" to={to} disabled={closed}>
-        {closed ? "Closed" : "Apply Now!"}
+        {closed ? 'Closed' : 'Apply Now!'}
       </Button>
     </div>
   );

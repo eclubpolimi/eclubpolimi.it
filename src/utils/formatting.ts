@@ -4,10 +4,10 @@
 export const formatDate = (date: string): string | null => {
   if (!date) return null;
 
-  return new Date(date).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
+  return new Date(date).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
   });
 };
 
@@ -19,10 +19,10 @@ export const formatDateTime = (date: string): string | null => {
 
   return (
     formatDate(date) +
-    " at " +
-    new Date(date).toLocaleTimeString("en-US", {
-      hour: "numeric",
-      minute: "numeric",
+    ' at ' +
+    new Date(date).toLocaleTimeString('en-US', {
+      hour: 'numeric',
+      minute: 'numeric',
       hour12: true,
     })
   );
@@ -34,7 +34,7 @@ export const formatDateTime = (date: string): string | null => {
  */
 export const formatDateRange = (
   startDate: string,
-  endDate: string
+  endDate: string,
 ): string | null => {
   if (!startDate || !endDate) return null;
 
@@ -42,7 +42,7 @@ export const formatDateRange = (
   const end = new Date(endDate);
   const startDay = start.getDate();
   const endDay = end.getDate();
-  const month = start.toLocaleDateString("en-US", { month: "short" });
+  const month = start.toLocaleDateString('en-US', { month: 'short' });
   const year = start.getFullYear();
 
   return `${startDay}-${endDay} ${month} ${year}`;

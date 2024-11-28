@@ -1,13 +1,13 @@
-import Description from "components/Description";
-import Hero from "components/Hero";
-import JoinUsBar from "components/JoinUsBar";
-import { TeamProps } from "components/Team/Team";
-import Teams from "components/Teams";
+import Description from 'components/Description';
+import Hero from 'components/Hero';
+import JoinUsBar from 'components/JoinUsBar';
+import { TeamProps } from 'components/Team/Team';
+import Teams from 'components/Teams';
 
-import SiteData from "Data";
-import { ALL_DRIVERS_NOT_ALUMNI_QUERY } from "data/queries";
-import { AllDriversQuery } from "generated/cms/types";
-import client from "utils/apollo_client";
+import SiteData from 'Data';
+import { ALL_DRIVERS_NOT_ALUMNI_QUERY } from 'data/queries';
+import { AllDriversQuery } from 'generated/cms/types';
+import client from 'utils/apollo_client';
 
 interface AboutProps {
   data: AllDriversQuery;
@@ -26,11 +26,11 @@ export const getServerSideProps = async (): Promise<{ props: AboutProps }> => {
 };
 
 const teamNames = [
-  "Board",
-  "Events",
-  "Human Capital",
-  "Information Technology",
-  "Marketing & Communication",
+  'Board',
+  'Events',
+  'Human Capital',
+  'Information Technology',
+  'Marketing & Communication',
 ];
 
 const getTeams = (data: AllDriversQuery) => {
@@ -56,16 +56,16 @@ const getTeams = (data: AllDriversQuery) => {
     if (!driver?.team) return;
 
     teamMap[driver.team].members?.push({
-      image: driver.image?.url || "",
+      image: driver.image?.url || '',
       cardText: {
-        role: driver.role || "",
-        nameSurname: driver.nameSurname || "",
-        quote: driver.quote || "",
-        quoteAuthor: driver.quoteAuthor || "",
-        marksColor: driver.quoteColor || "",
-        email: driver.email || "",
-        linkedinUrl: driver.linkedinLink || "",
-        instagramUrl: driver.instagramLink || "",
+        role: driver.role || '',
+        nameSurname: driver.nameSurname || '',
+        quote: driver.quote || '',
+        quoteAuthor: driver.quoteAuthor || '',
+        marksColor: driver.quoteColor || '',
+        email: driver.email || '',
+        linkedinUrl: driver.linkedinLink || '',
+        instagramUrl: driver.instagramLink || '',
       },
     });
   });

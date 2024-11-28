@@ -1,1 +1,1 @@
-export { default } from "./JoinUsBar";
+export { default } from './JoinUsBar';

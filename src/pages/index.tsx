@@ -1,14 +1,14 @@
-import Button from "components/Button";
-import JoinUsBar from "components/JoinUsBar";
-import LabeledOutlineCard from "components/LabeledOutlineCard";
-import Sponsors from "components/Sponsors";
-import SiteData from "Data";
+import Button from 'components/Button';
+import JoinUsBar from 'components/JoinUsBar';
+import LabeledOutlineCard from 'components/LabeledOutlineCard';
+import Sponsors from 'components/Sponsors';
+import SiteData from 'Data';
 
-import PeopleSvg from "assets/people_graphics.svg";
-import LogoStartupChallenge from "assets/logo_startupchallenge.jpg";
-import Munich2 from "assets/munich2.jpg";
-import Munich3 from "assets/munich3.jpg";
-import Image from "next/image";
+import PeopleSvg from 'assets/people_graphics.svg';
+import LogoStartupChallenge from 'assets/logo_startupchallenge.jpg';
+import Munich2 from 'assets/munich2.jpg';
+import Munich3 from 'assets/munich3.jpg';
+import Image from 'next/image';
 
 const Home = () => {
   return (
@@ -47,8 +47,8 @@ const Home = () => {
           className="absolute my-6 mx-4 md:my-6 md:mx-6 inset-0 opacity-5 pointer-events-none"
           style={{
             backgroundImage: `url(${SiteData.LogoLearnNetworkBuild.src})`,
-            backgroundRepeat: "round",
-            backgroundSize: "180px",
+            backgroundRepeat: 'round',
+            backgroundSize: '180px',
           }}
         />
         <div className="px-5 md:px-40 py-12 flex flex-col gap-12 md:max-w-7xl mx-auto">

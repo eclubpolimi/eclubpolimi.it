@@ -4,15 +4,15 @@ type SloganProps = {
 
 const Slogan = ({ slogan }: SloganProps) => {
   const lgOffset = {
-    0: "lg:ml-0",
-    1: "lg:ml-40",
-    2: "lg:ml-80",
+    0: 'lg:ml-0',
+    1: 'lg:ml-40',
+    2: 'lg:ml-80',
   };
 
   const smOffset = {
-    0: "sm:ml-0",
-    1: "sm:ml-10",
-    2: "sm:ml-20",
+    0: 'sm:ml-0',
+    1: 'sm:ml-10',
+    2: 'sm:ml-20',
   };
 
   return (

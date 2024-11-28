@@ -1,7 +1,7 @@
-import Hero from "components/Hero";
-import JoinUsCard from "components/JoinUsCard";
+import Hero from 'components/Hero';
+import JoinUsCard from 'components/JoinUsCard';
 
-import SiteData from "Data";
+import SiteData from 'Data';
 
 const Join = () => {
   return (

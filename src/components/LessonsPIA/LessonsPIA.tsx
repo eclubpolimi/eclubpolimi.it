@@ -1,8 +1,8 @@
-import TabSelector from "components/TabSelector";
-import Lesson, { LessonProps } from "./Lesson";
+import TabSelector from 'components/TabSelector';
+import Lesson, { LessonProps } from './Lesson';
 
 type LessonsPIAProps = {
-  lessons: Array<LessonProps["lessonData"]>;
+  lessons: Array<LessonProps['lessonData']>;
   className?: string;
 };
 

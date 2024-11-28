@@ -3,15 +3,15 @@ schema:
   - ${CMS_GRAPHQL_ENDPOINT}:
       headers:
         Authorization: Bearer ${CMS_ACCESS_TOKEN}
-documents: ["./src/**/*.{gql,graphql,js,ts,jsx,tsx}", "!./src/generated/**/*"]
+documents: ['./src/**/*.{gql,graphql,js,ts,jsx,tsx}', '!./src/generated/**/*']
 generates:
   ./src/generated/cms/types.d.ts:
     plugins:
-      - "typescript"
-      - "typescript-operations"
-      - "typescript-graphql-request"
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-graphql-request'
   ./src/generated/cms/graphql.schema.json:
     plugins:
-      - "introspection"
+      - 'introspection'
 hooks:
-  afterOneFileWrite: ["prettier --write"]
+  afterOneFileWrite: ['prettier --write']

@@ -1,6 +1,6 @@
-import Team from "components/Team";
-import TabSelector from "components/TabSelector";
-import { TeamProps } from "components/Team/Team";
+import Team from 'components/Team';
+import TabSelector from 'components/TabSelector';
+import { TeamProps } from 'components/Team/Team';
 
 type TeamsProps = {
   teams: Array<TeamProps>;

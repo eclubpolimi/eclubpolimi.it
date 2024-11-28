@@ -1,4 +1,4 @@
-import Image, { StaticImageData } from "next/image";
+import Image, { StaticImageData } from 'next/image';
 
 type HeroProps = {
   backgroundImage: StaticImageData | string;
@@ -33,7 +33,7 @@ const Hero = ({
         alt="Hero image"
         className="-z-10 object-cover"
       />
-      {contentType === "text" ? (
+      {contentType === 'text' ? (
         <div className="text-white lg:text-4xl text-2xl font-bold">{text}</div>
       ) : (
         logo && <Image className="lg:w-[400px] w-[80vw]" src={logo} alt="" />

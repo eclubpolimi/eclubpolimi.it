@@ -1,1 +1,1 @@
-export { default } from "./TabSelector";
+export { default } from './TabSelector';

@@ -1,9 +1,9 @@
-import LessonsPIA from "components/LessonsPIA";
+import LessonsPIA from 'components/LessonsPIA';
 
-import SiteData from "Data";
-import Hero from "components/Hero";
-import Description from "components/Description";
-import ParagraphTitle from "components/ParagraphTitle";
+import SiteData from 'Data';
+import Hero from 'components/Hero';
+import Description from 'components/Description';
+import ParagraphTitle from 'components/ParagraphTitle';
 
 const PassionInAction = () => {
   return (
