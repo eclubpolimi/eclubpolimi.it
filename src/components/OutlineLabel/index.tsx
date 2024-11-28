@@ -1,1 +1,1 @@
-export { default } from "./OutlineLabel";
+export { default } from './OutlineLabel';

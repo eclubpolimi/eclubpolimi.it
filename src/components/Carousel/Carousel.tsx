@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 import {
   faArrowRight,
   faArrowLeft,
   faPlayCircle,
   faPauseCircle,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Image from "next/image";
+} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Image from 'next/image';
 
 type CarouselProps = {
   sliderData: any;
@@ -14,13 +14,13 @@ type CarouselProps = {
   className?: string;
 };
 
-const Carousel = ({ sliderData, autoplay, className = "" }: CarouselProps) => {
+const Carousel = ({ sliderData, autoplay, className = '' }: CarouselProps) => {
   const [current, setCurrent] = useState(0);
   const [time, setTime] = useState(0);
   const [timer, setTimer] = useState<any>(null);
   const [existsTimer, setExistsTimer] = useState(1);
 
-  const arrowSize = "40px";
+  const arrowSize = '40px';
 
   useEffect(() => {
     const initTimer = () => {
@@ -93,7 +93,7 @@ const Carousel = ({ sliderData, autoplay, className = "" }: CarouselProps) => {
         {sliderData.map((slide: any, index: number) => (
           <div
             className={` transition-opacity duration-1000 ${
-              index === current ? "opacity-100" : "h-0 opacity-0"
+              index === current ? 'opacity-100' : 'h-0 opacity-0'
             } w-full h-[400px]`}
             key={index}
           >

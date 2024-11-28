@@ -12,7 +12,7 @@ type Redirect = {
 type ServerSideHookResponse<T> = Props<T> | Redirect;
 
 const useServerSideAPI = async <T>(
-  callback: () => Promise<T>
+  callback: () => Promise<T>,
 ): Promise<ServerSideHookResponse<T>> => {
   return await callback()
     .then((data: T) => ({
@@ -20,7 +20,7 @@ const useServerSideAPI = async <T>(
     }))
     .catch(() => ({
       redirect: {
-        destination: "/error",
+        destination: '/error',
         permanent: false,
       },
     }));

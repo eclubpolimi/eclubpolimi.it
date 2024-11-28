@@ -1,4 +1,4 @@
-import Image, { StaticImageData } from "next/image";
+import Image, { StaticImageData } from 'next/image';
 
 export type SponsorProps = {
   title?: string;
@@ -11,9 +11,9 @@ export type SponsorProps = {
 };
 
 const Sponsors = ({
-  title = "Sponsors",
+  title = 'Sponsors',
   logos,
-  className = "",
+  className = '',
 }: SponsorProps) => {
   return (
     <div className={`${className} md:py-6 py-8`}>

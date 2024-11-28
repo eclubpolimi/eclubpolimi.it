@@ -1,4 +1,4 @@
-import { gql } from "@apollo/client";
+import { gql } from '@apollo/client';
 import {
   DRIVER_FRAGMENT,
   EVENT_FRAGMENT,
@@ -6,7 +6,7 @@ import {
   SPONSOR_FRAGMENT,
   TIMELINE_ITEM_FRAGMENT,
   TRIP_FRAGMENT,
-} from "./fragments";
+} from './fragments';
 
 export const LATEST_STARTUP_CHALLENGE_QUERY = gql`
   query StartupChallengeData {

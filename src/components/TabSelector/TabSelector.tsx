@@ -1,19 +1,19 @@
-import { ReactNode, useState } from "react";
+import { ReactNode, useState } from 'react';
 
 type TabSelectorProps = {
   tabs: Array<{ name: string; content: ReactNode }>;
   defaultTab?: number;
   className?: string;
-  breakpoint?: "sm" | "md" | "lg" | "xl";
+  breakpoint?: 'sm' | 'md' | 'lg' | 'xl';
 };
 
 const TabSelector = ({
   tabs,
   defaultTab = 0,
-  className = "w-full",
+  className = 'w-full',
 }: TabSelectorProps) => {
   const [activeTab, setActiveTab] = useState(
-    defaultTab < tabs.length ? defaultTab : 0
+    defaultTab < tabs.length ? defaultTab : 0,
   );
 
   const onTabClick = (event: any) => {
@@ -33,7 +33,7 @@ const TabSelector = ({
                 key={index}
                 value={index}
                 className={`px-6 py-2 mr-1.5 rounded-xl last:mr-0 hover:cursor-pointer hover:bg-black/10 ${
-                  index === activeTab && "text-white bg-ec_orange"
+                  index === activeTab && 'text-white bg-ec_orange'
                 }`}
                 onClick={onTabClick}
               >

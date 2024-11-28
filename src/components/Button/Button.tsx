@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 
 export type ButtonProps = {
   to: string;
   onClick?: () => void;
   forceAnchor?: boolean;
-  theme?: "orange" | "light" | "dark";
+  theme?: 'orange' | 'light' | 'dark';
   disabled?: boolean;
   className?: string;
   children: React.ReactNode;
@@ -14,13 +14,13 @@ const Button = ({
   to,
   onClick = () => undefined,
   forceAnchor = false,
-  theme = "orange",
+  theme = 'orange',
   disabled,
-  className = "",
+  className = '',
   children,
 }: ButtonProps) => {
   const styles = `rounded-xl py-2 px-6 inline cursor-pointer bg-ec_orange text-white hover:bg-ec_orange_hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ec_orange_hover ${className} font-medium ${
-    disabled && "opacity-75"
+    disabled && 'opacity-75'
   }`;
 
   if (!to || disabled) {
@@ -29,7 +29,7 @@ const Button = ({
         {children}
       </button>
     );
-  } else if (to[0] === "/" && !forceAnchor) {
+  } else if (to[0] === '/' && !forceAnchor) {
     return (
       <a className={styles} href={to} onClick={onClick}>
         {children}

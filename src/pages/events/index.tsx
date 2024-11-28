@@ -1,11 +1,11 @@
-import Carousel from "components/Carousel";
-import Timeline from "components/Timeline";
+import Carousel from 'components/Carousel';
+import Timeline from 'components/Timeline';
 
-import SiteData from "Data";
-import { EventQuery } from "generated/cms/types";
-import client from "utils/apollo_client";
-import { formatDate } from "utils/formatting";
-import { LATEST_EVENTS_QUERY } from "data/queries";
+import SiteData from 'Data';
+import { EventQuery } from 'generated/cms/types';
+import client from 'utils/apollo_client';
+import { formatDate } from 'utils/formatting';
+import { LATEST_EVENTS_QUERY } from 'data/queries';
 
 interface EventProps {
   data: EventQuery;
@@ -36,9 +36,9 @@ const Events = ({ data }: EventProps) => {
           data={
             eventData?.map((event) => {
               return {
-                title: event?.title || "",
-                date: formatDate(event?.date) || "",
-                body: event?.description || "",
+                title: event?.title || '',
+                date: formatDate(event?.date) || '',
+                body: event?.description || '',
               };
             }) || []
           }

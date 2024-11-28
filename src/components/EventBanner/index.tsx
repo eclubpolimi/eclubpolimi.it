@@ -1,1 +1,1 @@
-export { default } from "./EventBanner";
+export { default } from './EventBanner';

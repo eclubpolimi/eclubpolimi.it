@@ -1,10 +1,10 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faFacebookSquare,
   faInstagramSquare,
   faLinkedin,
-} from "@fortawesome/free-brands-svg-icons";
-import Image from "next/image";
+} from '@fortawesome/free-brands-svg-icons';
+import Image from 'next/image';
 
 type FooterProps = {
   logo: string;

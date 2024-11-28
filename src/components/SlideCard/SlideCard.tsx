@@ -1,8 +1,8 @@
-import Image from "next/image";
+import Image from 'next/image';
 
-import { faInstagram, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope, faQuoteLeft } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faInstagram, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
+import { faEnvelope, faQuoteLeft } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export type SlideCardProps = {
   frontImage: string;

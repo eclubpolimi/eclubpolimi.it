@@ -1,8 +1,8 @@
-import Button from "components/Button";
+import Button from 'components/Button';
 
 type JoinUsBarProps = {
   title?: string;
-  color?: "blue" | "orange" | "white";
+  color?: 'blue' | 'orange' | 'white';
   buttonText?: string;
   to: string;
   className?: string;
@@ -10,35 +10,35 @@ type JoinUsBarProps = {
 };
 
 const JoinUsbar = ({
-  title = "",
-  color = "orange",
-  buttonText = "Join us",
+  title = '',
+  color = 'orange',
+  buttonText = 'Join us',
   to,
   className,
   disabled,
 }: JoinUsBarProps) => {
-  const getButtonColor = (): "orange" | "light" | "dark" => {
+  const getButtonColor = (): 'orange' | 'light' | 'dark' => {
     return ({
-      orange: "light",
-      blue: "orange",
-      white: "orange",
-    }[color] || "orange") as "orange" | "light" | "dark";
+      orange: 'light',
+      blue: 'orange',
+      white: 'orange',
+    }[color] || 'orange') as 'orange' | 'light' | 'dark';
   };
 
   const getTitleColor = () => {
     return {
-      orange: "text-white",
-      blue: "text-white",
-      white: "text-black",
+      orange: 'text-white',
+      blue: 'text-white',
+      white: 'text-black',
     }[color];
   };
 
   const getTitle = () => {
-    return title || "Become one of us!";
+    return title || 'Become one of us!';
   };
 
   const getButtonText = () => {
-    return buttonText || "Join us";
+    return buttonText || 'Join us';
   };
 
   return (

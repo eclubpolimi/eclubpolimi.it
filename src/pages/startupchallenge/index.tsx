@@ -1,19 +1,19 @@
-import Image from "next/image";
+import Image from 'next/image';
 
-import Button from "components/Button";
-import Description from "components/Description";
-import JoinUsBar from "components/JoinUsBar";
-import ParagraphTitle from "components/ParagraphTitle";
-import Sponsors from "components/Sponsors";
-import Timeline from "components/Timeline";
+import Button from 'components/Button';
+import Description from 'components/Description';
+import JoinUsBar from 'components/JoinUsBar';
+import ParagraphTitle from 'components/ParagraphTitle';
+import Sponsors from 'components/Sponsors';
+import Timeline from 'components/Timeline';
 
-import LogoStartupChallenge from "assets/logo_startupchallenge.jpg";
-import SiteData from "Data";
+import LogoStartupChallenge from 'assets/logo_startupchallenge.jpg';
+import SiteData from 'Data';
 
-import { LATEST_STARTUP_CHALLENGE_QUERY } from "data/queries";
-import { StartupChallengeDataQuery } from "generated/cms/types";
-import client from "utils/apollo_client";
-import { formatDate } from "utils/formatting";
+import { LATEST_STARTUP_CHALLENGE_QUERY } from 'data/queries';
+import { StartupChallengeDataQuery } from 'generated/cms/types';
+import client from 'utils/apollo_client';
+import { formatDate } from 'utils/formatting';
 
 interface StartupChallengeProps {
   data: StartupChallengeDataQuery;
@@ -69,7 +69,7 @@ const StartupChallenge = ({
           </span>
           <div className="flex gap-4 md:flex-row flex-col items-center pt-8">
             <Button
-              to={challengeData?.signUpLink || ""}
+              to={challengeData?.signUpLink || ''}
               theme="orange"
               className="align-middle"
               disabled={!submissionsEnabled}
@@ -78,7 +78,7 @@ const StartupChallenge = ({
             </Button>
             {challengeData?.submissionsOpenDate && (
               <p className="text-sm text-gray-400">
-                Registrations open on{" "}
+                Registrations open on{' '}
                 {formatDate(challengeData.submissionsOpenDate)}
               </p>
             )}
@@ -97,9 +97,9 @@ const StartupChallenge = ({
           title="Organizers in partnership with"
           logos={
             challengeData?.organizersCollection?.items.map((entry) => ({
-              src: entry?.logo?.url || "",
-              alt: entry?.name || "",
-              href: entry?.url || "",
+              src: entry?.logo?.url || '',
+              alt: entry?.name || '',
+              href: entry?.url || '',
             })) || []
           }
         />
@@ -129,7 +129,7 @@ const StartupChallenge = ({
       <div className="w-full flex items-center justify-center pb-10">
         <Button
           forceAnchor
-          to={challengeData?.detailedProgram?.url || ""}
+          to={challengeData?.detailedProgram?.url || ''}
           theme="orange"
         >
           Detailed program
@@ -140,9 +140,9 @@ const StartupChallenge = ({
         <Timeline
           data={
             challengeData?.timelineCollection?.items.map((item) => ({
-              date: formatDate(item?.date) || "",
-              title: item?.title || "",
-              body: item?.description || "",
+              date: formatDate(item?.date) || '',
+              title: item?.title || '',
+              body: item?.description || '',
             })) || []
           }
           theme="split"
@@ -152,7 +152,7 @@ const StartupChallenge = ({
         title="Registrations open on March 22nd, 2024"
         color="blue"
         buttonText="Apply here"
-        to={challengeData?.signUpLink || ""}
+        to={challengeData?.signUpLink || ''}
         disabled={!submissionsEnabled}
       />
       <div className="py-0 bg-slate-50">
@@ -160,15 +160,15 @@ const StartupChallenge = ({
           title="The partners of last year's edition"
           logos={
             challengeData?.sponsorsCollection?.items.map((sponsor) => ({
-              src: sponsor?.logo?.url || "",
-              alt: sponsor?.name || "",
-              href: sponsor?.url || "",
+              src: sponsor?.logo?.url || '',
+              alt: sponsor?.name || '',
+              href: sponsor?.url || '',
             })) || []
           }
         />
         <p className="text-right text-xs">
-          {" "}
-          *Iniziativa realizzata con il contributo del Politecnico di Milano.{" "}
+          {' '}
+          *Iniziativa realizzata con il contributo del Politecnico di Milano.{' '}
         </p>
       </div>
       <div className="lg:px-0 py-0 relative w-full">

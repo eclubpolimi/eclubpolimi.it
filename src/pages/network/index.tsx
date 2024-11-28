@@ -1,8 +1,8 @@
-import SiteData from "Data";
-import Hero from "components/Hero";
-import Description from "components/Description";
-import Sponsors from "components/Sponsors";
-import Slogan from "components/Slogan";
+import SiteData from 'Data';
+import Hero from 'components/Hero';
+import Description from 'components/Description';
+import Sponsors from 'components/Sponsors';
+import Slogan from 'components/Slogan';
 
 const Network = () => {
   return (

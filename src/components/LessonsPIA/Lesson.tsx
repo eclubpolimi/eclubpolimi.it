@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from 'next/image';
 
 export type LessonProps = {
   lessonData: {
@@ -11,7 +11,7 @@ export type LessonProps = {
   className?: string;
 };
 
-const Lesson = ({ lessonData, className = "" }: LessonProps) => {
+const Lesson = ({ lessonData, className = '' }: LessonProps) => {
   return (
     <div className={className}>
       <div className="flex flex-col lg:flex-row justify-center w-full h-full">

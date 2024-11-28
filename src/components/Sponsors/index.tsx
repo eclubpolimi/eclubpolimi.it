@@ -1,1 +1,1 @@
-export { default } from "./Sponsors";
+export { default } from './Sponsors';

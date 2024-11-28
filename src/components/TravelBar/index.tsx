@@ -1,1 +1,1 @@
-export { default } from "./TravelBar";
+export { default } from './TravelBar';

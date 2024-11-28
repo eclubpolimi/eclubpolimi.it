@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 type DescriptionProps = {
   title: string;
@@ -6,7 +6,7 @@ type DescriptionProps = {
   className?: string;
 };
 
-const Description = ({ title, children, className = "" }: DescriptionProps) => {
+const Description = ({ title, children, className = '' }: DescriptionProps) => {
   return (
     <div className={`py-16 ${className}`}>
       <h1 className="md:text-center mb-5">{title}</h1>

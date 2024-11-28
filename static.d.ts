@@ -1,24 +1,24 @@
-declare module "*.webp" {
+declare module '*.webp' {
   const ref: string;
   export default ref;
 }
 
-declare module "*.jpg" {
+declare module '*.jpg' {
   const ref: string;
   export default ref;
 }
 
-declare module "*.png" {
+declare module '*.png' {
   const ref: string;
   export default ref;
 }
 
-declare module "*.pdf" {
+declare module '*.pdf' {
   const ref: string;
   export default ref;
 }
 
-declare module "*.svg" {
+declare module '*.svg' {
   const ref: string;
   export default ref;
 }

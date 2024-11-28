@@ -7,15 +7,15 @@ type OutlineLabelProps = {
 const OutlineLabel = ({
   invertedColors,
   text,
-  className = "",
+  className = '',
 }: OutlineLabelProps) => {
   return (
     <div
       className={`${className} relative py-4 px-12 w-max rounded-xl
       ${
         invertedColors
-          ? "bg-ec_orange after:border-ec_blue"
-          : "bg-ec_blue after:border-ec_orange"
+          ? 'bg-ec_orange after:border-ec_blue'
+          : 'bg-ec_blue after:border-ec_orange'
       }
       after:block after:absolute after:border-[1.5px] after:border-solid
       after:top-0 after:left-0 after:right-0 after:bottom-0 after:transform after:-translate-x-0.5 after:-translate-y-1

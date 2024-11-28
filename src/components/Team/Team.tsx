@@ -1,20 +1,20 @@
-import SlideCard from "components/SlideCard";
-import { SlideCardProps } from "components/SlideCard/SlideCard";
+import SlideCard from 'components/SlideCard';
+import { SlideCardProps } from 'components/SlideCard/SlideCard';
 
 export type TeamProps = {
   members: Array<{
     image: string;
     height?: string;
     width?: string;
-    cardText: SlideCardProps["cardText"];
+    cardText: SlideCardProps['cardText'];
   }>;
   teamName: string;
 };
 
 const Team = ({ members }: TeamProps) => {
   const cardSize = {
-    height: "300px",
-    width: "210px",
+    height: '300px',
+    width: '210px',
   };
 
   return (

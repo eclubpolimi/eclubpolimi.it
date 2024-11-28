@@ -1,7 +1,7 @@
-import Footer from "components/Footer";
-import Navbar from "components/Navbar";
-import SiteData from "Data";
-import "./_app.css";
+import Footer from 'components/Footer';
+import Navbar from 'components/Navbar';
+import SiteData from 'Data';
+import './_app.css';
 
 type MyAppProps = {
   Component: any;

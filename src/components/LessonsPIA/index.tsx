@@ -1,1 +1,1 @@
-export { default } from "./LessonsPIA";
+export { default } from './LessonsPIA';
