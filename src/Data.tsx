@@ -1,7 +1,7 @@
+//changed startup challgenge to a white button to make it stand out and added a rocket emoji next to it
+
 import Button from 'components/Button';
-
 import pialessons from 'assets/pialessons';
-
 import homepageHeroBackground from 'assets/homepage_hero.jpg';
 import logoLearnNetworkBuild from 'assets/logo_learn_network_build.svg';
 import logoWhite from 'assets/logo_white.svg';
@@ -44,9 +44,17 @@ export default class SiteData {
       content: <a href={this.EventsTarget}>Events</a>,
       type: 'link',
     },
+    // {
+    //   content: <a href={this.StartupChallengeTarget}>Startup Challenge</a>,
+    //   type: 'link',
+    // },
     {
-      content: <a href={this.StartupChallengeTarget}>Startup Challenge</a>,
-      type: 'link',
+      content: (
+        <Button to={this.StartupChallengeTarget} theme="light">
+          🚀 Startup Challenge
+        </Button>
+      ),
+      type: 'button',
     },
     {
       content: <a href={this.PiaTarget}>Passion in Action</a>,

@@ -1,3 +1,5 @@
+//not used anywhere
+
 import Button from 'components/Button';
 
 type EventBannerProps = {
