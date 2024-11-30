@@ -29,11 +29,11 @@ export const getServerSideProps = async (): Promise<{ props: AboutProps }> => {
 
 const teamNames = [
   'Board',
-  'Events',
-  'Information Technology', //to be renamed
-  'Corporate and External Relationships',
   'Human Capital and Internal Processes',
+  'Events',
+  'Corporate and External Relationships',
   'Marketing',
+  'Information Technology', //to be renamed
 ];
 
 const getTeams = (data: AllDriversQuery) => {
