@@ -1,3 +1,5 @@
+//Changed some team names
+
 import Description from 'components/Description';
 import Hero from 'components/Hero';
 import JoinUsBar from 'components/JoinUsBar';
@@ -28,9 +30,10 @@ export const getServerSideProps = async (): Promise<{ props: AboutProps }> => {
 const teamNames = [
   'Board',
   'Events',
-  'Human Capital',
-  'Information Technology',
-  'Marketing & Communication',
+  'Information Technology', //to be renamed
+  'Corporate and External Relationships',
+  'Human Capital and Internal Processes',
+  'Marketing',
 ];
 
 const getTeams = (data: AllDriversQuery) => {
@@ -51,11 +54,18 @@ const getTeams = (data: AllDriversQuery) => {
     teamMap[team] = teamProp;
   }
 
-  // TODO: Add explicit sorting based on role
+  // Add drivers to their respective teams
   drivers.forEach((driver) => {
     if (!driver?.team) return;
 
-    teamMap[driver.team].members?.push({
+    // Ensure the team exists in the map before accessing it
+    const targetTeam = teamMap[driver.team];
+    if (!targetTeam) {
+      console.warn(`Unmatched team "${driver.team}" in fetched data.`);
+      return;
+    }
+
+    targetTeam.members.push({
       image: driver.image?.url || '',
       cardText: {
         role: driver.role || '',
@@ -76,6 +86,7 @@ const getTeams = (data: AllDriversQuery) => {
 const About = ({ data }: AboutProps) => {
   return (
     <div>
+      {/* Hero Section */}
       <Hero
         backgroundImage={SiteData.aboutUsHeroBackground}
         height="700px"
@@ -83,7 +94,9 @@ const About = ({ data }: AboutProps) => {
         contentType="text"
         text="About us"
       />
-      <div className="max-w-screen-lg lg:mx-auto px-5 lg:px-0">
+
+      {/* Mission Section */}
+      <div className="max-w-full mx-auto px-5 lg:px-10">
         <Description title="Our mission">
           <p>
             We bring together future and established entrepreneurs who strive to
@@ -94,13 +107,14 @@ const About = ({ data }: AboutProps) => {
           </p>
         </Description>
       </div>
+
+      {/* Join Us Bar */}
       <JoinUsBar to={SiteData.JoinTarget} color="blue" />
-      <div className="bg-gray-200">
-        <div className="max-w-screen-lg lg:mx-auto px-5 lg:px-0">
-          <Teams
-            teams={getTeams(data)}
-            className="max-w-screen-lg lg:mx-auto px-5 lg:px-0 pt-8 pb-12"
-          />
+
+      {/* Teams Section */}
+      <div className="bg-white">
+        <div className="max-w-full mx-auto px-5 lg:px-10">
+          <Teams teams={getTeams(data)} className="pt-8 pb-12" />
         </div>
       </div>
     </div>

@@ -1,5 +1,6 @@
-import { ReactNode, useState } from 'react';
+//buttons behave differently from links, they are styled differently and have different behavior.
 
+import { ReactNode, useState } from 'react';
 import MenuBurgerIcon from 'assets/navbar/menu-burger.svg';
 import CrossIcon from 'assets/navbar/cross.svg';
 import SiteData from 'Data';
@@ -48,17 +49,24 @@ const NavBar = ({ items }: NavBarProps) => {
               `Navbar item ${index} has no type field! Rendering errors may occur, make sure to set a type for each navbar element.`,
             );
           }
+
+          // Conditionally apply styling
+          const itemClass =
+            item.type === 'button'
+              ? 'custom-button-class' // Special class for buttons
+              : 'whitespace-nowrap text-white relative group'; // Default styling for links
+
           return (
-            <li
-              key={index}
-              className="whitespace-nowrap text-white"
-              onClick={closeMenu}
-            >
+            <li key={index} className={itemClass} onClick={closeMenu}>
               {item.content}
+              {item.type !== 'button' && (
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-300 group-hover:w-full transition-all duration-300"></span>
+              )}
             </li>
           );
         })}
       </ul>
+
       <div className={`h-6 w-6 absolute right-5 top-5 xl:hidden`}>
         {!clicked ? (
           <Image src={MenuBurgerIcon} alt="Open menu" onClick={handleMenu} />

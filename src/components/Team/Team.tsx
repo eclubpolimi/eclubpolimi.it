@@ -1,3 +1,5 @@
+//members are now centered in their team, not aligned left, and we display up to 5 members per row
+
 import SlideCard from 'components/SlideCard';
 import { SlideCardProps } from 'components/SlideCard/SlideCard';
 
@@ -19,7 +21,7 @@ const Team = ({ members }: TeamProps) => {
 
   return (
     <div className="h-full w-full flex flex-col justify-center">
-      <div className="grid align-middle sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      <div className="grid justify-items-center align-middle sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
         {members.map((member, index) => (
           <div key={index} className="flex justify-center items-center">
             <SlideCard

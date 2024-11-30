@@ -1,5 +1,6 @@
+//Changed container size, background color, and padding. also teams are now listed bekiw each other
+
 import Team from 'components/Team';
-import TabSelector from 'components/TabSelector';
 import { TeamProps } from 'components/Team/Team';
 
 type TeamsProps = {
@@ -8,17 +9,23 @@ type TeamsProps = {
 };
 
 const Teams = ({ teams, className }: TeamsProps) => {
-  const tabs = teams.map((team: TeamProps) => {
-    return {
-      name: team.teamName,
-      content: <Team members={team.members} teamName={team.teamName} />,
-    };
-  });
-
   return (
-    <div className={`py-10 ${className} `}>
+    <div className={`py-10 ${className}`}>
       <h2 className="md:text-center mb-5">E-Club Teams</h2>
-      <TabSelector tabs={tabs} />
+      <div className="team-list space-y-10">
+        {teams.map((team: TeamProps) => (
+          <div key={team.teamName} className="team-section">
+            <div className="flex items-center">
+              <div className="w-full h-[4px] bg-[#001066]"></div>
+              <div className="px-4 py-2 bg-[#001066] text-white font-bold text-2xl rounded-lg mx-4 text-center whitespace-nowrap">
+                {team.teamName}
+              </div>
+              <div className="w-full h-[4px] bg-[#001066]"></div>
+            </div>
+            <Team members={team.members} teamName={team.teamName} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
