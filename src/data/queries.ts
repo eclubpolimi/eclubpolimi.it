@@ -88,7 +88,6 @@ export const DRIVERS_FOR_TEAM_QUERY = gql`
   ${DRIVER_FRAGMENT}
 `;
 
-
 export const DESCRIPTION_QUERY = gql`
   query DescriptionQuery {
     decriptionParagraphCollection {

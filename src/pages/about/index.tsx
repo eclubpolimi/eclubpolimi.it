@@ -22,7 +22,8 @@ export const getServerSideProps = async (): Promise<{ props: AboutProps }> => {
   });
 
   // Fetch mission description from Contentful
-  let missionDescription = "Default mission text"; // Fallback in case Contentful query fails
+  let missionDescription =
+    'We bring together future and established entrepreneurs who strive to make an impact. Our work focuses on providing our ecosystem with opportunities for connection and ideas contamination. In doing so, we strongly believe that expanding and nurturing our network is key to the well-being of our mission.'; // Fallback in case Contentful query fails
 
   try {
     const { data: descriptionData } = await client.query({
@@ -32,10 +33,10 @@ export const getServerSideProps = async (): Promise<{ props: AboutProps }> => {
     // Find the "mission" entry from Contentful
     missionDescription =
       descriptionData?.decriptionParagraphCollection?.items.find(
-        (item: any) => item.textArea === "about us - our mission"
+        (item: any) => item.textArea === 'about us - our mission',
       )?.textField || missionDescription;
   } catch (error) {
-    console.error("Error fetching mission description:", error);
+    console.error('Error fetching mission description:', error);
   }
 
   return {
