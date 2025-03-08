@@ -110,8 +110,8 @@ export default class SiteData {
   static PIAHeroBackground = '/netsonsImages/pia_hero.png';
 
   // JOIN US
-  static ApplyDriverLink = 'https://forms.gle/NWyuKPKhxDtEVYAA6';
-  static ApplyExplorerLink = 'https://forms.gle/CUsujfatS28vioox9';
+  static ApplyDriverLink = 'https://forms.gle/NWyuKPKhxDtEVYAA6'; //depracated, not changed from here
+  static ApplyExplorerLink = 'https://forms.gle/CUsujfatS28vioox9'; //depracated, not changed from here
 
   // JOIN US CARD EXPLORER
   static explorerAdvantages = [

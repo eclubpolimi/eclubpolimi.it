@@ -103,8 +103,12 @@ export const JOIN_QUERY = gql`
   query JoinQuery {
     joinCollection {
       items {
+        title
         explorerJoinLink
         driverJoinLink
+        driverBenefits
+        explorerBenefits
+        sponsorBenefits
       }
     }
   }

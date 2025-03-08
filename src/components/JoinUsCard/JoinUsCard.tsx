@@ -12,7 +12,7 @@ type JoinUsCardProps = {
 const JoinUsCard = ({
   height,
   width,
-  advantages,
+  advantages = [], // Ensure it's always an array
   role,
   to,
   closed = false,
@@ -22,14 +22,20 @@ const JoinUsCard = ({
       className="bg-white rounded-md shadow-lg p-5 flex flex-col justify-between items-center"
       style={{ height: height, width: width }}
     >
-      <div className="mx-6">
+      <div className="mx-5">
         <h2 className="md:text-center">{role}</h2>
         <ul className="list-disc">
-          {advantages.map((pro, index) => (
-            <li className="my-2 text-sm" key={index}>
-              {pro}
+          {Array.isArray(advantages) ? (
+            advantages.map((pro, index) => (
+              <li className="my-2 text-sm" key={index}>
+                {pro}
+              </li>
+            ))
+          ) : (
+            <li className="my-2 text-sm text-gray-500">
+              Error in loading benefits
             </li>
-          ))}
+          )}
         </ul>
       </div>
       <Button theme="orange" to={to} disabled={closed}>

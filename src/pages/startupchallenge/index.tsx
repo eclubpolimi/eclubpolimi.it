@@ -168,8 +168,7 @@ const StartupChallenge = ({
         />
         <p className="text-right text-xs">
           {' '}
-          *Iniziativa realizzata con il contributo del Politecnico di
-          Milano.{' '}
+          *Iniziativa realizzata con il contributo del Politecnico di Milano.{' '}
         </p>
       </div>
       <div className="lg:px-0 py-0 relative w-full">
