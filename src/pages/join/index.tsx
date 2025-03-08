@@ -1,9 +1,45 @@
 import Hero from 'components/Hero';
 import JoinUsCard from 'components/JoinUsCard';
-
 import SiteData from 'Data';
+import { JOIN_QUERY } from 'data/queries';
+import client from 'utils/apollo_client';
 
-const Join = () => {
+interface JoinProps {
+  joinLinks: {
+    explorerJoinLink: string;
+    driverJoinLink: string;
+  };
+}
+
+export const getServerSideProps = async (): Promise<{ props: JoinProps }> => {
+  let joinLinks = {
+    explorerJoinLink: 'https://forms.gle/CUsujfatS28vioox9', // Default
+    driverJoinLink: 'https://forms.gle/NWyuKPKhxDtEVYAA6', // Default
+  };
+
+  try {
+    const { data } = await client.query({
+      query: JOIN_QUERY,
+    });
+
+    const joinData = data?.joinCollection?.items[0];
+
+    if (joinData) {
+      joinLinks.explorerJoinLink = joinData.explorerJoinLink || joinLinks.explorerJoinLink;
+      joinLinks.driverJoinLink = joinData.driverJoinLink || joinLinks.driverJoinLink;
+    }
+  } catch (error) {
+    console.error("Error fetching join links from Contentful:", error);
+  }
+
+  return {
+    props: {
+      joinLinks,
+    },
+  };
+};
+
+const Join = ({ joinLinks }: JoinProps) => {
   return (
     <div>
       <Hero
@@ -19,7 +55,7 @@ const Join = () => {
           height="340px"
           width="300px"
           advantages={SiteData.explorerAdvantages}
-          to={SiteData.ApplyExplorerLink}
+          to={joinLinks.explorerJoinLink} // Use dynamic Contentful link
         />
 
         <JoinUsCard
@@ -27,7 +63,7 @@ const Join = () => {
           height="340px"
           width="300px"
           advantages={SiteData.driverAdvantages}
-          to={SiteData.ApplyDriverLink}
+          to={joinLinks.driverJoinLink} // Use dynamic Contentful link
         />
       </div>
     </div>
