@@ -7,12 +7,13 @@ import { TeamProps } from 'components/Team/Team';
 import Teams from 'components/Teams';
 
 import SiteData from 'Data';
-import { ALL_DRIVERS_NOT_ALUMNI_QUERY } from 'data/queries';
+import { ALL_DRIVERS_NOT_ALUMNI_QUERY, DESCRIPTION_QUERY } from 'data/queries';
 import { AllDriversQuery } from 'generated/cms/types';
 import client from 'utils/apollo_client';
 
 interface AboutProps {
   data: AllDriversQuery;
+  description: string; // New prop for mission description
 }
 
 export const getServerSideProps = async (): Promise<{ props: AboutProps }> => {
@@ -20,9 +21,27 @@ export const getServerSideProps = async (): Promise<{ props: AboutProps }> => {
     query: ALL_DRIVERS_NOT_ALUMNI_QUERY,
   });
 
+  // Fetch mission description from Contentful
+  let missionDescription = "Default mission text"; // Fallback in case Contentful query fails
+
+  try {
+    const { data: descriptionData } = await client.query({
+      query: DESCRIPTION_QUERY,
+    });
+
+    // Find the "mission" entry from Contentful
+    missionDescription =
+      descriptionData?.decriptionParagraphCollection?.items.find(
+        (item: any) => item.textArea === "about us - our mission"
+      )?.textField || missionDescription;
+  } catch (error) {
+    console.error("Error fetching mission description:", error);
+  }
+
   return {
     props: {
-      data: data,
+      data,
+      description: missionDescription, // Pass mission description as prop
     },
   };
 };
@@ -83,7 +102,7 @@ const getTeams = (data: AllDriversQuery) => {
   return teams;
 };
 
-const About = ({ data }: AboutProps) => {
+const About = ({ data, description }: AboutProps) => {
   return (
     <div>
       {/* Hero Section */}
@@ -98,13 +117,7 @@ const About = ({ data }: AboutProps) => {
       {/* Mission Section */}
       <div className="max-w-full mx-auto px-5 lg:px-10">
         <Description title="Our mission">
-          <p>
-            We bring together future and established entrepreneurs who strive to
-            make an impact. Our work focuses on providing our ecosystem with
-            opportunities for connection and ideas contamination. In doing so,
-            we strongly believe that expanding and nurturing our network is key
-            to the well-being of our mission.
-          </p>
+          <p>{description}</p> {/* Dynamically replaced with Contentful data */}
         </Description>
       </div>
 
