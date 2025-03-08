@@ -18,7 +18,7 @@ interface JoinProps {
 export const getServerSideProps = async (): Promise<{
   props: { joinData: { explorerJoinLink: string; driverJoinLink: string } };
 }> => {
-  let joinData = {
+  const joinData = {
     explorerJoinLink: 'https://forms.gle/CUsujfatS28vioox9', // Default
     driverJoinLink: 'https://forms.gle/NWyuKPKhxDtEVYAA6', // Default
     sponsorJoinLink: '',
