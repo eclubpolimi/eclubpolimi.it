@@ -98,3 +98,14 @@ export const DESCRIPTION_QUERY = gql`
     }
   }
 `;
+
+export const JOIN_QUERY = gql`
+  query JoinQuery {
+    joinCollection {
+      items {
+        explorerJoinLink
+        driverJoinLink
+      }
+    }
+  }
+`;
