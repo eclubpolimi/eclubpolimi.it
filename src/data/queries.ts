@@ -87,3 +87,25 @@ export const DRIVERS_FOR_TEAM_QUERY = gql`
   }
   ${DRIVER_FRAGMENT}
 `;
+
+export const DESCRIPTION_QUERY = gql`
+  query DescriptionQuery {
+    decriptionParagraphCollection {
+      items {
+        textArea
+        textField
+      }
+    }
+  }
+`;
+
+export const JOIN_QUERY = gql`
+  query JoinQuery {
+    joinCollection {
+      items {
+        explorerJoinLink
+        driverJoinLink
+      }
+    }
+  }
+`;

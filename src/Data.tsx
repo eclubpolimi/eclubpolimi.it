@@ -110,8 +110,8 @@ export default class SiteData {
   static PIAHeroBackground = '/netsonsImages/pia_hero.png';
 
   // JOIN US
-  static ApplyDriverLink = 'https://app.gomry.co/form/Pcw5CIs4bj57TgHXr40r';
-  static ApplyExplorerLink = 'https://app.gomry.co/form/u59VyQui2MiJPUXGvVnp';
+  static ApplyDriverLink = 'https://forms.gle/NWyuKPKhxDtEVYAA6';
+  static ApplyExplorerLink = 'https://forms.gle/CUsujfatS28vioox9';
 
   // JOIN US CARD EXPLORER
   static explorerAdvantages = [
