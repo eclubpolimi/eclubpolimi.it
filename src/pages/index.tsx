@@ -113,7 +113,7 @@ const Home = ({ textData }: HomeProps) => {
         </div>
       </div>
       <JoinUsBar to={SiteData.JoinTarget} color="blue" />
-      <div className="bg-slate-50">
+      <div className="bg-gray-200">
         <div className="px-5 md:px-40 py-12 flex flex-col gap-12 md:max-w-7xl mx-auto">
           <h2 className="md:text-center">
             {textData['home - a glimpse'] || 'A glimpse of what we do'}

@@ -7,6 +7,7 @@
     "@fortawesome/free-brands-svg-icons": "^6.2.0",
     "@fortawesome/free-solid-svg-icons": "^6.2.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "@heroicons/react": "^2.2.0",
     "contentful": "^9.2.14",
     "graphql": "^16.6.0",
     "next": "^15.2.1",

@@ -9,13 +9,14 @@ import networkHeroImage from 'assets/eclub-network.png';
 import logo2 from 'assets/img-eclub-bocconi.png';
 import logo3 from 'assets/img-eclub-pavia.png';
 import logo1 from 'assets/logo-colors.png';
-
+import DarkModeToggle from './components/Button/DarkModeToggle';
 import { ReactNode } from 'react';
 
 /**
  * @description This class holds global, static data, to avoid duplication between production code and tests
  * @note All members of this class must be declared static
  */
+
 export default class SiteData {
   // COMMON
   static LogoWhite = logoWhite;
@@ -33,11 +34,19 @@ export default class SiteData {
   static NewsTarget = '/news';
   static StartupChallengeTarget = '/startupchallenge';
   static TravelTarget = '/trips';
+  static TestTarget = '/test'; // New test page link
 
   // NAVBAR
+
   static NavbarItems: Array<{ type: 'link' | 'button'; content: ReactNode }> = [
     {
-      content: <a href={this.AboutUsTarget}>About us</a>,
+      content: (
+        <div className="bg-ec_blue dark:bg-ec_orange px-4 py-2 rounded-md">
+          <a href={this.AboutUsTarget} className="text-white dark:text-black">
+            About us
+          </a>
+        </div>
+      ),
       type: 'link',
     },
     {
@@ -70,6 +79,14 @@ export default class SiteData {
     },
     {
       content: <Button to={this.JoinTarget}>Join us</Button>,
+      type: 'button',
+    },
+    {
+      content: <a href={this.TestTarget}>Test</a>, // New test page link
+      type: 'link',
+    },
+    {
+      content: <DarkModeToggle />, // Use the new Dark Mode Toggle component
       type: 'button',
     },
   ];
@@ -168,7 +185,7 @@ export default class SiteData {
     { alt: 'E-Club Polimi', href: 'https://www.eclubpolimi.it/', src: logo1 },
     {
       alt: 'E-Club Bocconi',
-      href: 'https://www.unibocconi.it/wps/wcm/connect/bocconi/sitopubblico_it/albero+di+navigazione/home/corsi+di+studio/studenti+iscritti/campus+life/attivita+studentesche/associazioni+studentesche/elenco+annuale/e-club',
+      href: 'https://www.eclubbocconi.com/',
 
       src: logo2,
     },

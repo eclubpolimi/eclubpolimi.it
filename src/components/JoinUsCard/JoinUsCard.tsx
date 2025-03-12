@@ -7,6 +7,7 @@ type JoinUsCardProps = {
   role: string;
   to: string;
   closed?: boolean;
+  className?: string; // <-- New optional prop
 };
 
 const JoinUsCard = ({
@@ -16,10 +17,11 @@ const JoinUsCard = ({
   role,
   to,
   closed = false,
+  className = '', // Default empty if not provided
 }: JoinUsCardProps) => {
   return (
     <div
-      className="bg-white rounded-md shadow-lg p-5 flex flex-col justify-between items-center"
+      className={`bg-white rounded-md shadow-lg p-5 flex flex-col justify-between items-center border-2 ${className}`} // Apply className here
       style={{ height: height, width: width }}
     >
       <div className="mx-5">

@@ -106,6 +106,7 @@ export const JOIN_QUERY = gql`
         title
         explorerJoinLink
         driverJoinLink
+        sponsorJoinLink
         driverBenefits
         explorerBenefits
         sponsorBenefits

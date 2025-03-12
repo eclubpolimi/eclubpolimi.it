@@ -24,5 +24,9 @@
     "incremental": true
   },
   "exclude": ["node_modules", "build", ".vscode", "README.md", ".gitignore"],
-  "include": ["./src/", "./*"]
+  "include": [
+    "./src/",
+    "./*",
+    "src/types" // Ensure TypeScript includes the custom type file
+  ]
 }

@@ -49,8 +49,8 @@ npm run start
 We make extensive use of GitHub's Pull Requests. Every contribution to the repository must be made on a separate branch
 from the `master` branch, and then PRd to it. After a review phase, the PR will be merged.
 
-
 ## .env and API Keys
+
 To be able to test and develop the project locally, you must create a .env.local (or .env) file at the root of the repository, and the content of that file would be as follows:
 
 ```
