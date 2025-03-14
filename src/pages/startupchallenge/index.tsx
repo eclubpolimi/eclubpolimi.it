@@ -111,10 +111,10 @@ const StartupChallenge = ({
           logos={
             challengeData?.organizersCollection?.items.map((entry) => ({
               src: entry?.logo?.url || '',
-              darkSrc: entry?.logoDark?.url || entry?.logo?.url,
-              alt: entry?.name || '',
-              href: entry?.url || '',
-            })) || []
+              darkSrc: entry?.logoDark?.url || entry?.logo?.url || '', // ✅ Ensure it's always a string
+              alt: entry?.logo?.title || 'Organizer Logo',
+              href: entry?.website || '#',
+            }))
           }
         />
       </div>
@@ -171,14 +171,17 @@ const StartupChallenge = ({
       />
       <div className="py-0 bg-ec_background dark:bg-ec_background_darkmode">
         <Sponsors
-          title="Organizers in partnership with"
-          logos={challengeData?.organizersCollection?.items.map((entry) => ({
-            src: entry?.logo?.url || '',
-            darkSrc: entry?.logoDark?.url || entry?.logo?.url || '', // ✅ Ensure it's always a string
-            alt: entry?.logo?.title || 'Organizer Logo',
-            href: entry?.website || '#',
-          }))}
+          title="Partners of previous editions"
+          logos={
+            challengeData?.sponsorsCollection?.items.map((sponsor) => ({
+              src: sponsor?.logo?.url || '',
+              darkSrc: sponsor?.logoDark?.url || sponsor?.logo?.url || '', // ✅ Ensures `darkSrc` is always a string
+              alt: sponsor?.name || '',
+              href: sponsor?.url || '',
+            })) || []
+          }
         />
+
         {/* <p className="text-right text-xs text-ec_grey dark:text-ec_grey_darkmode">
 
           {' '}
