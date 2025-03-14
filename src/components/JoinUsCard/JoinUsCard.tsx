@@ -21,20 +21,27 @@ const JoinUsCard = ({
 }: JoinUsCardProps) => {
   return (
     <div
-      className={`bg-white rounded-md shadow-lg p-5 flex flex-col justify-between items-center border-2 ${className}`} // Apply className here
+      className={`bg-ec_background_light dark:bg-ec_background_darkmode 
+      rounded-md shadow-lg p-5 flex flex-col justify-between items-center 
+      border-2 border-ec_border_light dark:border-ec_border_darkmode ${className}`}
       style={{ height: height, width: width }}
     >
       <div className="mx-5">
-        <h2 className="md:text-center">{role}</h2>
+        <h2 className="md:text-center text-ec_text dark:text-ec_text_darkmode">
+          {role}
+        </h2>
         <ul className="list-disc">
           {Array.isArray(advantages) ? (
             advantages.map((pro, index) => (
-              <li className="my-2 text-sm" key={index}>
+              <li
+                className="my-2 text-sm text-ec_text_secondary dark:text-ec_text_secondary_darkmode"
+                key={index}
+              >
                 {pro}
               </li>
             ))
           ) : (
-            <li className="my-2 text-sm text-gray-500">
+            <li className="my-2 text-sm text-ec_text_secondary dark:text-ec_text_secondary_darkmode">
               Error in loading benefits
             </li>
           )}

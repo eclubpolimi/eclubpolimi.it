@@ -3,6 +3,7 @@ import Footer from 'components/Footer';
 import Navbar from 'components/Navbar';
 import SiteData from 'Data';
 import './_app.css';
+import DarkModeToggle from 'components/Button/DarkModeToggle';
 
 type MyAppProps = {
   Component: any;
@@ -31,6 +32,9 @@ const MyApp = ({ Component, pageProps }: MyAppProps) => {
         instagramUrl="https://www.instagram.com/eclubpolimi/"
         linkedinUrl="https://www.linkedin.com/company/eclubpolimi/"
       />
+      <div className="fixed bottom-4 left-4 z-50 bg-ec_blue dark:bg-ec_blue_darkmode p-2 rounded-full shadow-lg sm:bottom-6 sm:left-6 md:bottom-8 md:left-8">
+        <DarkModeToggle />
+      </div>
     </div>
   );
 };

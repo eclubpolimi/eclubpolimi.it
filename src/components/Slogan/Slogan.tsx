@@ -16,12 +16,12 @@ const Slogan = ({ slogan }: SloganProps) => {
   };
 
   return (
-    <div className="bg-ec_blue py-8 flex flex-col items-center">
+    <div className="bg-ec_blue dark:bg-ec_blue_darkmode py-8 flex flex-col items-center">
       <div>
         {slogan.map((text, index) => (
           <div
             key={index}
-            className={`font-bold text-white p-5 ml-0 ${
+            className={`font-bold text-white dark:text-ec_text_dark p-5 ml-0 ${
               lgOffset[index as keyof typeof lgOffset]
             } ${smOffset[index as keyof typeof smOffset]}`}
           >

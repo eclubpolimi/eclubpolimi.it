@@ -1,24 +1,32 @@
 import LessonsPIA from 'components/LessonsPIA';
+import Image from 'next/image';
 
 import SiteData from 'Data';
 import Hero from 'components/Hero';
 import Description from 'components/Description';
 import ParagraphTitle from 'components/ParagraphTitle';
+// import PIAHero from 'assets/pia_hero.png'; // Import the image directly from assets
 
 const PassionInAction = () => {
   return (
     <div>
-      <Hero
-        backgroundImage={SiteData.PIAHeroBackground}
-        height="600px"
-        darkness={0.5}
-        contentType="text"
-        text="Passion in Action"
-        alignTop
-      />
+      {/* Hero Section with Background Image Fix */}
+      <div className="relative w-full h-[350px] flex items-center justify-center text-white">
+        <Image
+          src={SiteData.PIAHeroBackground}
+          layout="fill"
+          objectFit="cover"
+          alt="Passion in Action Background"
+        />
+        <h1 className="absolute text-4xl font-extrabold text-ec_text_darkmode dark:text-ec_text_darkmode">
+          Passion in Action
+        </h1>
+      </div>
+
+      {/* Description Section */}
       <div className="max-w-screen-lg lg:mx-auto px-5 lg:px-0">
         <Description title="Passion in Action">
-          <p>
+          <p className="text-ec_text dark:text-ec_text_darkmode">
             <b>Lean Startup: the art to be entrepreneurial</b> is the first
             Politecnico course organized in collaboration with a student
             association, Entrepreneurship Club Polimi. The course is organized
@@ -42,10 +50,13 @@ const PassionInAction = () => {
           </p>
         </Description>
       </div>
+
+      {/* Lessons Section */}
       <ParagraphTitle text="Passion in Action Lessons" />
-      <div className="max-w-screen-lg lg:mx-auto px-5 lg:px-0">
+      <div className="max-w-screen-lg lg:mx-auto px-5 lg:px-0 text-ec_text dark:text-ec_text_darkmode">
         <LessonsPIA lessons={SiteData.LessonsPIA} />
       </div>
+      <div className="w-full h-2 bg-ec_blue dark:bg-ec_blue_darkmode my-6"></div>
     </div>
   );
 };

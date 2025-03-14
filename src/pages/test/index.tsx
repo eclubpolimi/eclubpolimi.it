@@ -1,26 +1,53 @@
-const Test = () => {
-  return (
-    <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center">
-      <h1 className="text-3xl font-bold text-ec_blue">Test Page</h1>
-      <p className="text-lg text-ec_orange">
-        Use this page to test layouts, colors, and components.
-      </p>
+import { useState, useEffect } from 'react';
 
-      {/* Add test components here */}
-      <div className="mt-8 p-6 bg-white shadow-md rounded-lg">
-        <p className="text-gray-700">
-          This section can be used for structural testing.
+const TestPage = () => {
+  return (
+    <div className="min-h-screen flex flex-col items-center justify-center p-10 bg-ec_background dark:bg-ec_background_darkmode transition-colors">
+      <h1 className="text-4xl font-bold text-ec_text dark:text-ec_text_darkmode mb-8">
+        Test Page - Light & Dark Mode Colors
+      </h1>
+
+      {/* Text Color Testing */}
+      <div className="flex flex-wrap justify-center gap-6">
+        <p className="p-4 bg-ec_grey dark:bg-ec_grey_darkmode text-ec_text dark:text-ec_text_darkmode rounded-lg shadow-md">
+          This text switches between light and dark mode colors.
         </p>
       </div>
-      <div className="bg-white text-black dark:bg-gray-900 dark:text-white p-10">
-        <h1 className="text-3xl font-bold">Dark Mode Debugging</h1>
-        <p className="text-lg">
-          If this text does not change in dark mode, Tailwind is not applying
-          dark mode classes.
-        </p>
+
+      {/* Shape & Border Testing */}
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mt-10">
+        {/* Blue Box */}
+        <div className="w-40 h-40 bg-ec_blue dark:bg-ec_blue_darkmode text-white flex items-center justify-center rounded-lg shadow-lg">
+          Blue Box
+        </div>
+
+        {/* Orange Box */}
+        <div className="w-40 h-40 bg-ec_orange dark:bg-ec_orange_darkmode text-white flex items-center justify-center rounded-lg shadow-lg">
+          Orange Box
+        </div>
+
+        {/* Orange Hover Box */}
+        <div className="w-40 h-40 bg-ec_orange_hover dark:bg-ec_orange_hover_darkmode text-white flex items-center justify-center rounded-lg shadow-lg">
+          Hover Orange
+        </div>
+
+        {/* Grey Box */}
+        <div className="w-40 h-40 bg-ec_grey dark:bg-ec_grey_darkmode text-black dark:text-white flex items-center justify-center rounded-lg shadow-lg">
+          Grey Box
+        </div>
+
+        {/* Background Box */}
+        <div className="w-40 h-40 bg-ec_background dark:bg-ec_background_darkmode text-ec_text dark:text-ec_text_darkmode flex items-center justify-center rounded-lg shadow-lg border border-ec_border dark:border-ec_border_darkmode">
+          Background
+        </div>
+
+        {/* Border Test Box */}
+        <div className="w-40 h-40 bg-white dark:bg-black text-black dark:text-white flex items-center justify-center rounded-lg shadow-lg border border-ec_border dark:border-ec_border_darkmode">
+          Border Test
+        </div>
       </div>
     </div>
   );
 };
 
-export default Test;
+export default TestPage;

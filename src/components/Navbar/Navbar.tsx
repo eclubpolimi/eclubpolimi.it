@@ -1,4 +1,4 @@
-//buttons behave differently from links, they are styled differently and have different behavior.
+// Buttons behave differently from links, they are styled differently and have different behavior.
 
 import { ReactNode, useState } from 'react';
 import MenuBurgerIcon from 'assets/navbar/menu-burger.svg';
@@ -21,11 +21,12 @@ const NavBar = ({ items }: NavBarProps) => {
     setClicked(false);
   };
 
-  const navClass = `h-16 w-full bg-ec_blue z-50 flex flex-nowrap relative`;
+  const navClass = `h-16 w-full bg-ec_blue dark:bg-ec_blue_darkmode z-50 flex flex-nowrap relative`;
   const navDesktopClass = `xl:px-10 xl:flex-row xl:justify-between xl:items-center`;
   const navMobileClass = `flex-col`;
 
-  const linksClass = 'flex px-2 gap-8 items-center bg-ec_blue transition-all';
+  const linksClass =
+    'flex px-2 gap-8 items-center bg-ec_blue dark:bg-ec_blue_darkmode transition-all';
   const linksDesktopClass = 'xl:flex-row xl:h-full xl:static';
   const linksMobileClass = `flex-col ${
     !clicked ? 'h-0 overflow-hidden py-0' : 'py-10'
@@ -54,13 +55,13 @@ const NavBar = ({ items }: NavBarProps) => {
           const itemClass =
             item.type === 'button'
               ? 'custom-button-class' // Special class for buttons
-              : 'whitespace-nowrap text-white relative group'; // Default styling for links
+              : 'whitespace-nowrap text-white dark:text-ec_text_darkmode relative group'; // Default styling for links
 
           return (
             <li key={index} className={itemClass} onClick={closeMenu}>
               {item.content}
               {item.type !== 'button' && (
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-300 group-hover:w-full transition-all duration-300"></span>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-ec_orange dark:bg-ec_orange_darkmode group-hover:w-full transition-all duration-300"></span>
               )}
             </li>
           );

@@ -1,8 +1,9 @@
-import Hero from 'components/Hero';
+import Image from 'next/image';
 import JoinUsCard from 'components/JoinUsCard';
 import SiteData from 'Data';
 import { JOIN_QUERY } from 'data/queries';
 import client from 'utils/apollo_client';
+import joinusHero from 'assets/homepage_hero.jpg'; // Import image directly
 
 interface JoinProps {
   joinData: {
@@ -24,15 +25,7 @@ const cleanString = (text: string | null) =>
         .filter(Boolean)
     : [];
 
-export const getServerSideProps = async (): Promise<{
-  props: {
-    joinData: {
-      explorerJoinLink: string;
-      driverJoinLink: string;
-      sponsorJoinLink: string;
-    };
-  };
-}> => {
+export const getServerSideProps = async (): Promise<{ props: JoinProps }> => {
   const joinData = {
     explorerJoinLink: 'https://forms.gle/CUsujfatS28vioox9', // Default
     driverJoinLink: 'https://forms.gle/NWyuKPKhxDtEVYAA6', // Default
@@ -89,71 +82,82 @@ export const getServerSideProps = async (): Promise<{
   };
 };
 
-const Join = ({ joinData }: { joinData: JoinProps['joinData'] }) => {
+const Join = ({ joinData }: JoinProps) => {
   return (
     <div>
-      {/* Hero Section */}
-      <Hero
-        backgroundImage={SiteData.HomepageHeroBackground}
-        height="250px"
-        darkness={0.6}
-        contentType="text"
-        text="Join the E-Club Polimi Community"
-      />
+      {/* Hero Section (Fixed with Correct Image Background Handling) */}
+      <div className="relative w-full h-[250px]">
+        <Image
+          src={joinusHero}
+          layout="fill"
+          objectFit="cover"
+          objectPosition="center 36%" // Adjust this percentage for fine control
+          alt="About Us Background"
+        />
+
+        <div className="absolute inset-0 bg-black/50 flex items-center justify-center text-white text-2xl font-bold">
+          Join the E-Club Polimi Community
+        </div>
+      </div>
 
       {/* Student Membership Section */}
       <div className="max-w-5xl mx-auto px-6 py-16">
-        <h2 className="text-3xl font-bold text-gray-900 text-center mb-6">
+        <h2 className="text-3xl font-bold text-ec_text dark:text-ec_text_darkmode text-center mb-6">
           Join as a Student
         </h2>
-        <p className="text-gray-600 text-center max-w-2xl mx-auto mb-10">
+        <p className="text-ec_text_secondary dark:text-ec_text_secondary_darkmode text-center max-w-2xl mx-auto mb-10">
           Whether you're looking to engage with like-minded individuals, build
           your network, or take an active role in organizing events, E-Club
           Polimi has the right place for you.
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <JoinUsCard
-            role="Explorer"
-            height="420px"
-            width="100%"
-            advantages={joinData.explorerBenefits}
-            to={joinData.explorerJoinLink}
-          />
-          <JoinUsCard
-            role="Driver"
-            height="420px"
-            width="100%"
-            advantages={joinData.driverBenefits}
-            to={joinData.driverJoinLink}
-          />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-center">
+          <div className="flex justify-center">
+            <JoinUsCard
+              role="Explorer"
+              height="420px"
+              width="400px"
+              advantages={joinData.explorerBenefits}
+              to={joinData.explorerJoinLink}
+            />
+          </div>
+          <div className="flex justify-center">
+            <JoinUsCard
+              role="Driver"
+              height="420px"
+              width="400px"
+              advantages={joinData.driverBenefits}
+              to={joinData.driverJoinLink}
+            />
+          </div>
         </div>
       </div>
 
       {/* Collaboration Section */}
-      <div className="bg-gray-900 py-20 px-6">
+      <div className="bg-ec_background_light dark:bg-ec_background_darkmode py-20 px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="text-white">
+          <div className="text-ec_text_light dark:text-ec_text_darkmode">
             <h2 className="text-3xl font-bold mb-4">Partner with Us</h2>
           </div>
-          <p className="text-gray-300 mb-8">
+          <p className="text-ec_text_secondary dark:text-ec_text_secondary_darkmode mb-8">
             We collaborate with organizations, startups, and professionals to
             create impactful experiences for our members. If you're looking to
             share your expertise, mentor students, or contribute to our
             community, we’d love to hear from you.
           </p>
-          <div className="bg-gray-900 py-20 px-6">
-            <div className="flex justify-center">
-              <JoinUsCard
-                role="Collaborator"
-                height="420px"
-                width="400px"
-                advantages={joinData.sponsorBenefits}
-                to={joinData.sponsorJoinLink}
-              />
-            </div>
+          <div className="flex justify-center">
+            <JoinUsCard
+              role="Collaborator"
+              height="420px"
+              width="400px"
+              advantages={joinData.sponsorBenefits}
+              to={joinData.sponsorJoinLink}
+            />
           </div>
         </div>
       </div>
+
+      {/* Small Blue Line for Dark Mode Transition */}
+      <div className="w-full h-2 bg-ec_blue dark:bg-ec_blue_darkmode my-6"></div>
     </div>
   );
 };

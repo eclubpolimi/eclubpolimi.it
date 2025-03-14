@@ -21,6 +21,9 @@ export const SPONSOR_FRAGMENT = gql`
     logo {
       ...FileUrlFragment
     }
+    logoDark {
+      ...FileUrlFragment
+    }
     url
   }
 `;

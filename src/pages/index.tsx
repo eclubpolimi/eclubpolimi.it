@@ -1,10 +1,10 @@
 import Button from 'components/Button';
 import JoinUsBar from 'components/JoinUsBar';
 import LabeledOutlineCard from 'components/LabeledOutlineCard';
-import Sponsors from 'components/Sponsors';
 import SiteData from 'Data';
 
 import PeopleSvg from 'assets/people_graphics.svg';
+import PeopleSvg_darkmode from 'assets/people_graphics_darkmode.png';
 import LogoStartupChallenge from 'assets/logo_startupchallenge.jpg';
 import Munich2 from 'assets/munich2.jpg';
 import Munich3 from 'assets/munich3.jpg';
@@ -51,10 +51,10 @@ const Home = ({ textData }: HomeProps) => {
       flex flex-col-reverse md:flex-row text-center md:text-left items-center md:gap-10"
       >
         <div className="w-full md:w-1/2">
-          <h1 className="mt-8 text-slate-800 font-extrabold text-4xl leading-tight header-squares-decoration">
+          <h1 className="mt-8 text-ec_text dark:text-ec_text_darkmode font-extrabold text-4xl leading-tight header-squares-decoration">
             Entrepreneurship Club Polimi
           </h1>
-          <span className="mt-3 text-slate-600 font-semibold text-xl block">
+          <span className="mt-3 text-ec_grey_darkmode dark:text-ec_grey font-semibold text-xl block">
             {textData['home - tagline'] ||
               'A community of entrepreneurial-minded people to reach your full potential'}
           </span>
@@ -69,10 +69,22 @@ const Home = ({ textData }: HomeProps) => {
           </div>
         </div>
         <div className="w-full md:w-1/2 flex justify-center">
-          <Image className="lg:w-5/6" src={PeopleSvg} alt="People graphics" />
+          {/* Light Mode Image */}
+          <Image
+            className="lg:w-5/6 block dark:hidden"
+            src={PeopleSvg}
+            alt="People graphics"
+          />
+
+          {/* Dark Mode Image */}
+          <Image
+            className="lg:w-5/6 hidden dark:block"
+            src={PeopleSvg_darkmode}
+            alt="People graphics dark mode"
+          />
         </div>
       </div>
-      <div className="bg-slate-50 relative overflow-hidden">
+      <div className="bg-ec_background dark:bg-ec_background_darkmode relative overflow-hidden">
         <div
           className="absolute my-6 mx-4 md:my-6 md:mx-6 inset-0 opacity-5 pointer-events-none"
           style={{
@@ -113,7 +125,7 @@ const Home = ({ textData }: HomeProps) => {
         </div>
       </div>
       <JoinUsBar to={SiteData.JoinTarget} color="blue" />
-      <div className="bg-gray-200">
+      <div className="bg-ec_background dark:bg-ec_background_darkmode">
         <div className="px-5 md:px-40 py-12 flex flex-col gap-12 md:max-w-7xl mx-auto">
           <h2 className="md:text-center">
             {textData['home - a glimpse'] || 'A glimpse of what we do'}
@@ -128,7 +140,7 @@ const Home = ({ textData }: HomeProps) => {
                 'We organize different events concerning activities and speeches from the best entrepreneurs and innovators of our area.'
               }
             />
-            <div className=" xl:w-1/2 xl:-ml-28  border border-solid border-ec_blue rounded-xl p-2">
+            <div className="xl:w-1/2 xl:-ml-28 border border-solid border-ec_border dark:border-ec_border_darkmode rounded-xl p-2">
               <Image
                 src={Munich2}
                 className="rounded-xl place-self-center"
@@ -137,13 +149,14 @@ const Home = ({ textData }: HomeProps) => {
             </div>
           </div>
           <div className="flex flex-col-reverse xl:flex-row justify-center items-center">
-            <div className="xl:w-1/2 xl:-mr-28  border border-solid border-ec_orange rounded-xl p-2">
+            <div className="xl:w-1/2 xl:-mr-28 border border-solid border-ec_orange dark:border-ec_orange_darkmode rounded-xl p-2">
               <Image
                 src={LogoStartupChallenge}
                 className="rounded-xl place-self-center"
                 alt=""
               />
             </div>
+
             <LabeledOutlineCard
               labelDx
               className="place-self-center xl:w-4/5"
@@ -164,7 +177,7 @@ const Home = ({ textData }: HomeProps) => {
                 'We discover Europe and its active startup ecosystems! We will not only bring you to visit startups and their founders, but you will also get a taste of different cultures.'
               }
             />
-            <div className=" xl:w-1/2 xl:-ml-28  border border-solid border-ec_blue rounded-xl p-2">
+            <div className="xl:w-1/2 xl:-ml-28 border border-solid border-ec_border dark:border-ec_border_darkmode rounded-xl p-2">
               <Image
                 src={Munich3}
                 className="rounded-xl place-self-center"
@@ -174,6 +187,7 @@ const Home = ({ textData }: HomeProps) => {
           </div>
         </div>
       </div>
+      <div className="w-full h-2 bg-ec_blue dark:bg-ec_blue_darkmode my-6"></div>
     </div>
   );
 };

@@ -7,12 +7,15 @@ type LessonsPIAProps = {
 };
 
 const LessonsPIA = ({ lessons, className }: LessonsPIAProps) => {
-  const tabs = lessons.map((lesson) => {
-    return {
-      name: lesson.name,
-      content: <Lesson lessonData={lesson} />,
-    };
-  });
+  const tabs = lessons.map((lesson) => ({
+    name: lesson.name, // Ensuring this remains a string to avoid errors
+    content: (
+      <Lesson
+        lessonData={lesson}
+        className="text-ec_text dark:text-ec_text_darkmode"
+      />
+    ), // Applying text color change inside the Lesson component
+  }));
 
   return (
     <div className={`${className} my-12`}>

@@ -9,9 +9,8 @@ import networkHeroImage from 'assets/eclub-network.png';
 import logo2 from 'assets/img-eclub-bocconi.png';
 import logo3 from 'assets/img-eclub-pavia.png';
 import logo1 from 'assets/logo-colors.png';
-import DarkModeToggle from './components/Button/DarkModeToggle';
+import logo4 from 'assets/logo_white.svg';
 import { ReactNode } from 'react';
-
 /**
  * @description This class holds global, static data, to avoid duplication between production code and tests
  * @note All members of this class must be declared static
@@ -20,6 +19,10 @@ import { ReactNode } from 'react';
 export default class SiteData {
   // COMMON
   static LogoWhite = logoWhite;
+
+  static isDarkMode = () =>
+    typeof window !== 'undefined' &&
+    document.documentElement.classList.contains('dark');
 
   // SUBPAGE TARGETS
   static HomeTarget = '/';
@@ -40,13 +43,7 @@ export default class SiteData {
 
   static NavbarItems: Array<{ type: 'link' | 'button'; content: ReactNode }> = [
     {
-      content: (
-        <div className="bg-ec_blue dark:bg-ec_orange px-4 py-2 rounded-md">
-          <a href={this.AboutUsTarget} className="text-white dark:text-black">
-            About us
-          </a>
-        </div>
-      ),
+      content: <a href={this.AboutUsTarget}>About Us</a>,
       type: 'link',
     },
     {
@@ -81,35 +78,35 @@ export default class SiteData {
       content: <Button to={this.JoinTarget}>Join us</Button>,
       type: 'button',
     },
-    {
-      content: <a href={this.TestTarget}>Test</a>, // New test page link
-      type: 'link',
-    },
-    {
-      content: <DarkModeToggle />, // Use the new Dark Mode Toggle component
-      type: 'button',
-    },
+    // {
+    //   content: <a href={this.TestTarget}>Test</a>, // New test page link
+    //   type: 'link',
+    // },
   ];
 
   // HOMEPAGE
   static Sponsors = [
     {
       src: '/netsonsImages/Astra.png',
+      darkSrc: '/netsonsImages/Astra_darkmode.png',
       href: 'https://astraincubator.com',
       alt: 'Astra incubator',
     },
     {
       src: '/netsonsImages/Tutored.png',
+      darkSrc: '/netsonsImages/Tutored_darkmode.png',
       href: 'https://www.tutored.me',
       alt: 'Tutored',
     },
     {
       src: '/netsonsImages/Polihub.png',
+      darkSrc: '/netsonsImages/Polihub_darkmode.png',
       href: 'https://www.polihub.it/it/',
       alt: 'Polihub',
     },
     {
       src: '/netsonsImages/Jemp.png',
+      darkSrc: '/netsonsImages/Jemp.png',
       href: 'https://www.jemp.it',
       alt: 'Jemp',
     },
@@ -120,7 +117,6 @@ export default class SiteData {
   static HomepageHeroBackground = homepageHeroBackground;
 
   // ABOUT US
-  static aboutUsHeroBackground = '/netsonsImages/aboutUs_hero.png';
 
   // LESSONS PIA (placeholder)
   static LessonsPIA = pialessons;
@@ -182,7 +178,12 @@ export default class SiteData {
   ];
 
   static NetworkMembers = [
-    { alt: 'E-Club Polimi', href: 'https://www.eclubpolimi.it/', src: logo1 },
+    {
+      alt: 'E-Club Polimi',
+      href: 'https://www.eclubpolimi.it/',
+      src: logo1,
+      darkSrc: logo4,
+    },
     {
       alt: 'E-Club Bocconi',
       href: 'https://www.eclubbocconi.com/',
