@@ -109,14 +109,17 @@ const StartupChallenge = ({
         <Sponsors
           title="Organizers in partnership with"
           logos={
-            challengeData?.organizersCollection?.items.map((entry) => ({
-              src: entry?.logo?.url || '',
-              darkSrc: entry?.logoDark?.url || entry?.logo?.url || '', // ✅ Ensure it's always a string
-              alt: entry?.logo?.title || 'Organizer Logo',
-              href: entry?.website || '#',
-            }))
+            challengeData?.organizersCollection?.items
+              ? challengeData.organizersCollection.items.map((entry) => ({
+                src: entry?.logo?.url || '',
+                darkSrc: entry?.logoDark?.url || entry?.logo?.url || '',
+                alt: entry?.name || '',
+                href: entry?.url || '',
+              }))
+              : []
           }
         />
+
       </div>
       <div className="max-w-screen-lg lg:mx-auto px-5 lg:px-0">
         <Description title="A two-weekend entrepreneurship event and competition">
