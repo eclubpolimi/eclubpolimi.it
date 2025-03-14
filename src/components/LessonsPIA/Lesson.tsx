@@ -13,7 +13,9 @@ export type LessonProps = {
 
 const Lesson = ({ lessonData, className = '' }: LessonProps) => {
   return (
-    <div className={className}>
+    <div
+      className={`${className} bg-ec_background dark:bg-ec_background_darkmode p-6 rounded-lg shadow-md`}
+    >
       <div className="flex flex-col lg:flex-row justify-center w-full h-full">
         <div className="w-full lg:w-1/2 h-96 relative flex flex-col flex-grow">
           <Image
@@ -23,7 +25,7 @@ const Lesson = ({ lessonData, className = '' }: LessonProps) => {
             className="object-cover"
           />
         </div>
-        <div className="w-100 pt-5 pl-0 lg:w-1/2 lg:pl-5 text-justify leading-6">
+        <div className="w-100 pt-5 pl-0 lg:w-1/2 lg:pl-5 text-justify leading-6 text-ec_text dark:text-ec_text_darkmode">
           <div className="mb-2 text-center text-xl font-bold">
             {lessonData.title}
           </div>

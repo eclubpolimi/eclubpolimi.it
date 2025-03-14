@@ -1,15 +1,15 @@
 //Changed some team names
 
 import Description from 'components/Description';
-import Hero from 'components/Hero';
 import JoinUsBar from 'components/JoinUsBar';
 import { TeamProps } from 'components/Team/Team';
 import Teams from 'components/Teams';
-
 import SiteData from 'Data';
 import { ALL_DRIVERS_NOT_ALUMNI_QUERY, DESCRIPTION_QUERY } from 'data/queries';
 import { AllDriversQuery } from 'generated/cms/types';
 import client from 'utils/apollo_client';
+import Image from 'next/image';
+import aboutUsHero from 'assets/netsonsImages/aboutUs_hero.png'; // Import image directly
 
 interface AboutProps {
   data: AllDriversQuery;
@@ -106,19 +106,32 @@ const getTeams = (data: AllDriversQuery) => {
 const About = ({ data, description }: AboutProps) => {
   return (
     <div>
-      {/* Hero Section */}
-      <Hero
-        backgroundImage={SiteData.aboutUsHeroBackground}
-        height="700px"
-        darkness={0.5}
-        contentType="text"
-        text="About us"
-      />
+      {/* About Us Hero Section */}
+      <div className="relative w-full h-[350px] flex items-center justify-center">
+        {/* Background Image */}
+        <Image
+          src={aboutUsHero}
+          layout="fill"
+          objectFit="cover"
+          objectPosition="center 36%" // Adjust this percentage for fine control
+          alt="About Us Background"
+        />
+
+        {/* Light & Dark Mode Overlay */}
+        <div className="absolute inset-0 bg-white dark:bg-black opacity-30 dark:opacity-50 transition-opacity duration-300"></div>
+
+        {/* About Us Title */}
+        <h1 className="absolute text-4xl font-extrabold text-ec_text dark:text-ec_text_darkmode transition-colors duration-300">
+          About Us
+        </h1>
+      </div>
 
       {/* Mission Section */}
       <div className="max-w-full mx-auto px-5 lg:px-10">
         <Description title="Our mission">
-          <p>{description}</p> {/* Dynamically replaced with Contentful data */}
+          <p className="text-ec_text dark:text-ec_text_darkmode">
+            {description}
+          </p>
         </Description>
       </div>
 
@@ -126,11 +139,15 @@ const About = ({ data, description }: AboutProps) => {
       <JoinUsBar to={SiteData.JoinTarget} color="blue" />
 
       {/* Teams Section */}
-      <div className="bg-white">
+      <div className="bg-ec_background dark:bg-ec_background_darkmode">
         <div className="max-w-full mx-auto px-5 lg:px-10">
-          <Teams teams={getTeams(data)} className="pt-8 pb-12" />
+          <Teams
+            teams={getTeams(data)}
+            className="pt-8 pb-12 text-ec_text dark:text-ec_text_darkmode"
+          />
         </div>
       </div>
+      <div className="w-full h-2 bg-ec_blue dark:bg-ec_blue_darkmode my-6"></div>
     </div>
   );
 };

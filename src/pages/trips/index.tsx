@@ -44,18 +44,20 @@ const Travel = ({ data }: TravelProps) => {
 
   return (
     <div>
-      <div className="relative">
+      {/* HERO IMAGE FIX */}
+      <div className="relative w-full h-[350px]">
         <Image
-          className="md:w-full md:absolute top-1/2 right-0 md:-translate-y-1/2 -z-10"
+          className="object-cover"
           src={tripData?.image?.url || TravelPlaceholder}
+          layout="fill"
           alt={tripData?.image?.title || 'Travel preview'}
         />
-        <div className="md:backdrop-blur-xl bg-white/30">
+        <div className="absolute inset-0 bg-ec_background/30 dark:bg-ec_background_darkmode/40 backdrop-blur-xl">
           <div className="max-w-screen-lg lg:mx-auto py-10 md:py-28 px-5 sm:px-8 flex flex-col text-center md:text-left items-center">
-            <h1 className="md:mt-8 text-slate-800 font-extrabold text-4xl leading-tight header-squares-decoration w-fit">
+            <h1 className="md:mt-8 text-ec_text dark:text-ec_text_darkmode font-extrabold text-4xl leading-tight header-squares-decoration w-fit">
               E-Club goes to {tripData?.destinationCountry}
             </h1>
-            <span className="mt-3 text-slate-700 font-semibold text-xl block w-fit">
+            <span className="mt-3 text-ec_text_secondary dark:text-ec_text_secondary_darkmode font-semibold text-xl block w-fit">
               {tripData?.slogan}
             </span>
             <TravelBar
@@ -74,24 +76,24 @@ const Travel = ({ data }: TravelProps) => {
           </div>
         </div>
       </div>
-      <div className="bg-slate-100">
+
+      {/* DESCRIPTION */}
+      <div className="bg-ec_background dark:bg-ec_background_darkmode">
         <Description
-          className="max-w-screen-lg lg:mx-auto w-4/5 mx-auto font-medium text-slate-700"
+          className="max-w-screen-lg lg:mx-auto w-4/5 mx-auto font-medium text-ec_text dark:text-ec_text_darkmode"
           title={`Why should I go to ${tripData?.destinationCountry}?`}
         >
           <p className="text-justify">
-            {tripData?.description?.split('\n').map((paragraph) => {
-              return (
-                <>
-                  {paragraph}
-                  <br />
-                </>
-              );
-            })}
+            {tripData?.description?.split('\n').map((paragraph, idx) => (
+              <span key={idx}>
+                {paragraph}
+                <br />
+              </span>
+            ))}
             <br />
-            <strong className="block -mx-4 p-4 bg-white rounded-xl border-solid border-[1px] border-slate-200">
+            <strong className="block -mx-4 p-4 bg-ec_background_light dark:bg-ec_background_darkmode_light rounded-xl border border-ec_border dark:border-ec_border_darkmode">
               Registrations open{' '}
-              <span className="text-ec_orange">
+              <span className="text-ec_orange dark:text-ec_orange_darkmode">
                 {formatDateTime(tripData?.registrationsOpenDate)}
               </span>
               . Only {tripData?.availableSpots || 0} tickets are available and
@@ -100,8 +102,10 @@ const Travel = ({ data }: TravelProps) => {
             </strong>
             <br />
             {tripData?.isPolimiSponsored && (
-              // blink when reached through anchor
-              <span id="priceTerms" className="text-sm text-slate-500">
+              <span
+                id="priceTerms"
+                className="text-sm text-ec_text_secondary dark:text-ec_text_secondary_darkmode"
+              >
                 * An initiative sponsored by Politecnico di Milano. You'll have
                 to pay €
                 {(
@@ -117,7 +121,9 @@ const Travel = ({ data }: TravelProps) => {
           </p>
         </Description>
       </div>
-      <div className="bg-white">
+
+      {/* TIMELINE */}
+      <div className="bg-ec_background_light dark:bg-ec_background_darkmode_light">
         <Timeline
           theme="split"
           data={
@@ -125,19 +131,18 @@ const Travel = ({ data }: TravelProps) => {
               date: formatDate(item?.date) || '',
               title: item?.title || '',
               children:
-                item?.description?.split('\n').map((paragraph) => {
-                  return (
-                    <>
-                      {paragraph}
-                      <br />
-                    </>
-                  );
-                }) || '',
+                item?.description?.split('\n').map((paragraph, idx) => (
+                  <span key={idx}>
+                    {paragraph}
+                    <br />
+                  </span>
+                )) || '',
             })) || []
           }
-          className="py-16 max-w-screen-lg lg:mx-auto px-5 lg:px-0 font-medium text-slate-700"
+          className="py-16 max-w-screen-lg lg:mx-auto px-5 lg:px-0 font-medium text-ec_text dark:text-ec_text_darkmode"
         />
       </div>
+      <div className="w-full h-2 bg-ec_blue dark:bg-ec_blue_darkmode my-6"></div>
     </div>
   );
 };

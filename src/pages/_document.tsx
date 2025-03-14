@@ -33,6 +33,21 @@ export default function Document() {
         <link rel="manifest" href="%PUBLIC_URL%/site.webmanifest" />
       </Head>
       <body>
+        {/* Dark Mode Script - Ensures the correct theme is applied immediately */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+            (function() {
+              const theme = localStorage.getItem("theme");
+              if (theme === "dark") {
+                document.documentElement.classList.add("dark");
+              } else {
+                document.documentElement.classList.remove("dark");
+              }
+            })();
+          `,
+          }}
+        />
         <Main />
         <NextScript />
       </body>

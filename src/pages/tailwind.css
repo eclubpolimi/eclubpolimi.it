@@ -8,10 +8,10 @@
 @layer utilities {
   .header-squares-decoration {
     @apply relative
-    after:hidden md:after:block after:absolute after:bg-ec_orange
+    after:hidden md:after:block after:absolute after:bg-ec_orange dark:after:bg-ec_orange_darkmode
     after:-top-8 after:left-0 after:transform
     after:content-[''] after:w-3 after:h-3
-    before:hidden md:before:block before:absolute before:bg-ec_blue
+    before:hidden md:before:block before:absolute before:bg-ec_blue dark:before:bg-ec_blue_darkmode
     before:-top-10 before:left-2 before:transform
     before:content-[''] before:w-3 before:h-3;
   }

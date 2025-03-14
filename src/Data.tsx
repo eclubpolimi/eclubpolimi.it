@@ -9,16 +9,20 @@ import networkHeroImage from 'assets/eclub-network.png';
 import logo2 from 'assets/img-eclub-bocconi.png';
 import logo3 from 'assets/img-eclub-pavia.png';
 import logo1 from 'assets/logo-colors.png';
-
+import logo4 from 'assets/logo_white.svg';
 import { ReactNode } from 'react';
-
 /**
  * @description This class holds global, static data, to avoid duplication between production code and tests
  * @note All members of this class must be declared static
  */
+
 export default class SiteData {
   // COMMON
   static LogoWhite = logoWhite;
+
+  static isDarkMode = () =>
+    typeof window !== 'undefined' &&
+    document.documentElement.classList.contains('dark');
 
   // SUBPAGE TARGETS
   static HomeTarget = '/';
@@ -33,11 +37,13 @@ export default class SiteData {
   static NewsTarget = '/news';
   static StartupChallengeTarget = '/startupchallenge';
   static TravelTarget = '/trips';
+  static TestTarget = '/test'; // New test page link
 
   // NAVBAR
+
   static NavbarItems: Array<{ type: 'link' | 'button'; content: ReactNode }> = [
     {
-      content: <a href={this.AboutUsTarget}>About us</a>,
+      content: <a href={this.AboutUsTarget}>About Us</a>,
       type: 'link',
     },
     {
@@ -72,27 +78,35 @@ export default class SiteData {
       content: <Button to={this.JoinTarget}>Join us</Button>,
       type: 'button',
     },
+    // {
+    //   content: <a href={this.TestTarget}>Test</a>, // New test page link
+    //   type: 'link',
+    // },
   ];
 
   // HOMEPAGE
   static Sponsors = [
     {
       src: '/netsonsImages/Astra.png',
+      darkSrc: '/netsonsImages/Astra_darkmode.png',
       href: 'https://astraincubator.com',
       alt: 'Astra incubator',
     },
     {
       src: '/netsonsImages/Tutored.png',
+      darkSrc: '/netsonsImages/Tutored_darkmode.png',
       href: 'https://www.tutored.me',
       alt: 'Tutored',
     },
     {
       src: '/netsonsImages/Polihub.png',
+      darkSrc: '/netsonsImages/Polihub_darkmode.png',
       href: 'https://www.polihub.it/it/',
       alt: 'Polihub',
     },
     {
       src: '/netsonsImages/Jemp.png',
+      darkSrc: '/netsonsImages/Jemp.png',
       href: 'https://www.jemp.it',
       alt: 'Jemp',
     },
@@ -103,15 +117,14 @@ export default class SiteData {
   static HomepageHeroBackground = homepageHeroBackground;
 
   // ABOUT US
-  static aboutUsHeroBackground = '/netsonsImages/aboutUs_hero.png';
 
   // LESSONS PIA (placeholder)
   static LessonsPIA = pialessons;
   static PIAHeroBackground = '/netsonsImages/pia_hero.png';
 
   // JOIN US
-  static ApplyDriverLink = 'https://forms.gle/NWyuKPKhxDtEVYAA6';
-  static ApplyExplorerLink = 'https://forms.gle/CUsujfatS28vioox9';
+  static ApplyDriverLink = 'https://forms.gle/NWyuKPKhxDtEVYAA6'; //depracated, not changed from here
+  static ApplyExplorerLink = 'https://forms.gle/CUsujfatS28vioox9'; //depracated, not changed from here
 
   // JOIN US CARD EXPLORER
   static explorerAdvantages = [
@@ -165,10 +178,15 @@ export default class SiteData {
   ];
 
   static NetworkMembers = [
-    { alt: 'E-Club Polimi', href: 'https://www.eclubpolimi.it/', src: logo1 },
+    {
+      alt: 'E-Club Polimi',
+      href: 'https://www.eclubpolimi.it/',
+      src: logo1,
+      darkSrc: logo4,
+    },
     {
       alt: 'E-Club Bocconi',
-      href: 'https://www.unibocconi.it/wps/wcm/connect/bocconi/sitopubblico_it/albero+di+navigazione/home/corsi+di+studio/studenti+iscritti/campus+life/attivita+studentesche/associazioni+studentesche/elenco+annuale/e-club',
+      href: 'https://www.eclubbocconi.com/',
 
       src: logo2,
     },

@@ -23,9 +23,11 @@ const Button = ({
 }: ButtonProps) => {
   // Dynamic styles based on theme
   const themeStyles = {
-    orange: 'bg-ec_orange hover:bg-ec_orange_hover text-white',
-    light: 'bg-white hover:bg-gray-300 text-[#001066]', // White background and dark blue text
-    dark: 'bg-black hover:bg-gray-800 text-white',
+    orange:
+      'bg-ec_orange dark:bg-ec_orange_darkmode hover:bg-ec_orange_hover dark:hover:bg-ec_orange_hover_darkmode text-white',
+    light:
+      'bg-white dark:bg-ec_background_darkmode hover:bg-gray-300 dark:hover:bg-ec_grey_darkmode text-ec_blue dark:text-ec_text_darkmode',
+    dark: 'bg-black dark:bg-ec_blue_darkmode hover:bg-gray-800 dark:hover:bg-ec_grey_darkmode text-white dark:text-ec_text_darkmode',
   };
 
   // Fallback to default orange styling if theme is undefined

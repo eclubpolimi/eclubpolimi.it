@@ -3,10 +3,9 @@ type ParagraphTitleProps = {
 };
 
 const ParagraphTitle = ({ text }: ParagraphTitleProps) => {
-  //text è il parametro per inserire il testo interno
   return (
-    <div className="bg-ec_blue py-4">
-      <p className="text-lg font-bold text-white text-center py-2 m-0">
+    <div className="bg-ec_blue dark:bg-ec_blue_darkmode py-4">
+      <p className="text-lg font-bold text-white dark:text-ec_text_darkmode text-center py-2 m-0">
         {text}
       </p>
     </div>

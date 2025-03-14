@@ -8,12 +8,14 @@ import Sponsors from 'components/Sponsors';
 import Timeline from 'components/Timeline';
 
 import LogoStartupChallenge from 'assets/logo_startupchallenge.jpg';
+import LogoStartupChallengeDark from 'assets/logo_startupchallenge_darkmode.jpg';
 import SiteData from 'Data';
 
 import { LATEST_STARTUP_CHALLENGE_QUERY } from 'data/queries';
 import { StartupChallengeDataQuery } from 'generated/cms/types';
 import client from 'utils/apollo_client';
 import { formatDate } from 'utils/formatting';
+import { useEffect, useState } from 'react';
 
 interface StartupChallengeProps {
   data: StartupChallengeDataQuery;
@@ -51,6 +53,7 @@ const StartupChallenge = ({
   submissionsEnabled,
 }: StartupChallengeProps) => {
   const challengeData = data?.startupchallengeCollection?.items[0];
+  // console.log("Rendered Sponsor Logos:", challengeData?.sponsorsCollection?.items.map(sponsor => sponsor?.logo?.url));
 
   return (
     <div className="w-full">
@@ -59,10 +62,10 @@ const StartupChallenge = ({
       flex flex-col-reverse md:flex-row text-center md:text-left items-center md:gap-10"
       >
         <div className="w-full md:w-1/2">
-          <h1 className="mt-8 text-slate-800 font-extrabold text-4xl leading-tight header-squares-decoration">
+          <h1 className="mt-8 text-ec_text dark:text-ec_text_darkmode font-extrabold text-4xl leading-tight header-squares-decoration">
             University Startup Challenge Milan
           </h1>
-          <span className="mt-3 text-slate-600 font-semibold text-xl block">
+          <span className="mt-3 text-ec_text dark:text-ec_text_darkmode font-semibold text-xl block">
             The first Milan startup challenge organized by Entrepreneurship Club
             Polimi and Bocconi, for all Politecnico, Bocconi, Statale and
             Cattolica students
@@ -77,7 +80,7 @@ const StartupChallenge = ({
               Apply here
             </Button>
             {challengeData?.submissionsOpenDate && (
-              <p className="text-sm text-gray-400">
+              <p className="text-sm text-ec_grey">
                 Registrations open on{' '}
                 {formatDate(challengeData.submissionsOpenDate)}
               </p>
@@ -85,28 +88,41 @@ const StartupChallenge = ({
           </div>
         </div>
         <div className="w-full md:w-1/2 flex justify-center">
-          <Image
-            className="lg:w-3/4"
-            src={LogoStartupChallenge}
-            alt="Startup challenge logo"
-          />
+          <div className="lg:w-3/4 relative">
+            {/* Light mode logo */}
+            <Image
+              className="block dark:hidden"
+              src={LogoStartupChallenge}
+              alt="Startup challenge logo"
+            />
+
+            {/* Dark mode logo */}
+            <Image
+              className="hidden dark:block"
+              src={LogoStartupChallengeDark}
+              alt="Startup challenge logo"
+            />
+          </div>
         </div>
       </div>
-      <div className="py-0 bg-slate-50">
+      <div className="py-0 bg-ec_background dark:bg-ec_background_darkmode">
         <Sponsors
           title="Organizers in partnership with"
           logos={
-            challengeData?.organizersCollection?.items.map((entry) => ({
-              src: entry?.logo?.url || '',
-              alt: entry?.name || '',
-              href: entry?.url || '',
-            })) || []
+            challengeData?.organizersCollection?.items
+              ? challengeData.organizersCollection.items.map((entry) => ({
+                  src: entry?.logo?.url || '',
+                  darkSrc: entry?.logoDark?.url || entry?.logo?.url || '',
+                  alt: entry?.name || '',
+                  href: entry?.url || '',
+                }))
+              : []
           }
         />
       </div>
       <div className="max-w-screen-lg lg:mx-auto px-5 lg:px-0">
         <Description title="A two-weekend entrepreneurship event and competition">
-          <p className="text-justify">
+          <p className="text-ec_text dark:text-ec_text_darkmode text-justify">
             The University Startup challenge is a unique event that brings
             together Politecnico, Bocconi, Statale and Cattolica students with
             the goal of delivering a groundbreaking start-up idea to solve the
@@ -155,24 +171,26 @@ const StartupChallenge = ({
         to={challengeData?.signUpLink || ''}
         disabled={!submissionsEnabled}
       />
-      <div className="py-0 bg-slate-50">
+      <div className="py-0 bg-ec_background dark:bg-ec_background_darkmode">
         <Sponsors
-          title="The partners of last year's edition"
+          title="Partners of previous editions"
           logos={
             challengeData?.sponsorsCollection?.items.map((sponsor) => ({
               src: sponsor?.logo?.url || '',
+              darkSrc: sponsor?.logoDark?.url || sponsor?.logo?.url || '', // ✅ Ensures `darkSrc` is always a string
               alt: sponsor?.name || '',
               href: sponsor?.url || '',
             })) || []
           }
         />
-        <p className="text-right text-xs">
+
+        {/* <p className="text-right text-xs text-ec_grey dark:text-ec_grey_darkmode">
+
           {' '}
-          *Iniziativa realizzata con il contributo del Politecnico di
-          Milano.{' '}
-        </p>
+          *Iniziativa realizzata con il contributo del Politecnico di Milano.{' '}
+        </p> */}
       </div>
-      <div className="lg:px-0 py-0 relative w-full">
+      {/* <div className="lg:px-0 py-0 relative w-full">
         <Image
           src={SiteData.SC2022_board}
           className="object-cover -z-10 brightness-75 w-full h-auto"
@@ -184,30 +202,31 @@ const StartupChallenge = ({
           className="absolute h-min lg:py-2 rounded-xl md:inset-x-1/3 md:top-8 top-4 flex flex-col"
           title="Last Year Event"
         >
-          <h1 className="md:text-center lg:px-0 px-1 text-slate-100 mb-5 [text-shadow:0px_4px_8px_black]">
+          <h1 className="md:text-center lg:px-0 px-1 text-ec_text dark:text-ec_text_darkmode mb-5 [text-shadow:0px_4px_8px_black]">
             Last Year Event
           </h1>
           <div className="lg:mx-auto md:px-0 px-4">
             <ul className="list-none">
               <li>
-                <h1 className="lg:mt-6 text-slate-100 font-bold text-xl [text-shadow:0px_4px_8px_black]">
+                <h1 className="lg:mt-6 text-ec_text dark:text-ec_text_darkmode font-bold text-xl [text-shadow:0px_4px_8px_black]">
                   Sementa - Winner of ATM Prize
                 </h1>
               </li>
               <li>
-                <h1 className="lg:mt-6 text-slate-100 font-bold text-xl [text-shadow:0px_4px_8px_black]">
+                <h1 className="lg:mt-6 text-ec_text dark:text-ec_text_darkmode font-bold text-xl [text-shadow:0px_4px_8px_black]">
                   Neunek - Winner of PoliHub Prize
                 </h1>
               </li>
               <li>
-                <h1 className="lg:mt-6 text-slate-100 font-bold text-xl [text-shadow:0px_4px_8px_black]">
+                <h1 className="lg:mt-6 text-ec_text dark:text-ec_text_darkmode font-bold text-xl [text-shadow:0px_4px_8px_black]">
                   Specis - Winner of B4i Prize
                 </h1>
               </li>
             </ul>
           </div>
         </div>
-      </div>
+      </div> */}
+      <div className="w-full h-2 bg-ec_blue dark:bg-ec_blue_darkmode my-6"></div>
     </div>
   );
 };
