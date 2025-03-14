@@ -68,9 +68,13 @@ const Network = () => {
           className="max-w-screen-lg lg:mx-auto px-5 lg:px-0 py-16"
           logos={SiteData.NetworkMembers.map((logo) => ({
             ...logo,
-            darkSrc: logo.darkSrc || logo.src, // Ensuring darkSrc is always available
+            src: typeof logo.src === 'string' ? logo.src : logo.src.src, // ✅ Convert StaticImageData to string
+            darkSrc:
+              typeof logo.darkSrc === 'string'
+                ? logo.darkSrc
+                : logo.darkSrc?.src ||
+                  (typeof logo.src === 'string' ? logo.src : logo.src.src), // ✅ Ensure darkSrc is also a string
           }))}
-          title="Network"
         />
       </div>
       <div className="w-full h-2 bg-ec_blue dark:bg-ec_blue_darkmode my-6"></div>
