@@ -19,9 +19,10 @@ const Teams = ({ teams, className }: TeamsProps) => {
           <div key={team.teamName} className="team-section">
             <div className="flex items-center">
               <div className="w-full h-[4px] bg-ec_blue dark:bg-ec_blue_darkmode"></div>
-              <div className="px-4 py-2 bg-ec_blue dark:bg-ec_blue_darkmode text-white font-bold text-2xl rounded-lg mx-4 text-center whitespace-nowrap">
+              <div className="px-4 py-2 bg-ec_blue dark:bg-ec_blue_darkmode text-white font-bold text-2xl rounded-lg mx-4 text-center sm:whitespace-nowrap whitespace-normal sm:inline-block w-auto">
                 {team.teamName}
               </div>
+
               <div className="w-full h-[4px] bg-ec_blue dark:bg-ec_blue_darkmode"></div>
             </div>
             <Team members={team.members} teamName={team.teamName} />
