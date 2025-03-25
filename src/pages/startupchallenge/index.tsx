@@ -66,9 +66,8 @@ const StartupChallenge = ({
             University Startup Challenge Milan
           </h1>
           <span className="mt-3 text-ec_text dark:text-ec_text_darkmode font-semibold text-xl block">
-            The first Milan startup challenge organized by Entrepreneurship Club
-            Polimi and Bocconi, for all Politecnico, Bocconi, Statale and
-            Cattolica students
+            The first Milan startup challenge organized by the Entrepreneurship
+            Club network, open to students of all partnered clubs' universities.
           </span>
           <div className="flex gap-4 md:flex-row flex-col items-center pt-8">
             <Button
@@ -107,7 +106,7 @@ const StartupChallenge = ({
       </div>
       <div className="py-0 bg-ec_background dark:bg-ec_background_darkmode">
         <Sponsors
-          title="Organizers in partnership with"
+          title="Organizers"
           logos={
             challengeData?.organizersCollection?.items
               ? challengeData.organizersCollection.items.map((entry) => ({
@@ -121,19 +120,19 @@ const StartupChallenge = ({
         />
       </div>
       <div className="max-w-screen-lg lg:mx-auto px-5 lg:px-0">
-        <Description title="A two-weekend entrepreneurship event and competition">
+        <Description title="A month-long entrepreneurship competition">
           <p className="text-ec_text dark:text-ec_text_darkmode text-justify">
             The University Startup challenge is a unique event that brings
-            together Politecnico, Bocconi, Statale and Cattolica students with
-            the goal of delivering a groundbreaking start-up idea to solve the
-            challenge proposed by our partners. The event will be held in person
-            at Politecnico and Bocconi campuses, and it will include seminars,
-            workshops and networking time. Participants will be given a
-            challenge by the partner companies, and they will work together in
-            groups of 4-6 people to create an innovative startup idea that will
-            help solve a practical problem for the city of Milan. The finalists
-            will present their startup pitch in front of a jury of experts and
-            the best teams will be rewarded!
+            together Politecnico, Bocconi, Statale, Cattolica, Biccoca, LIUC,
+            and UNIpd students with the goal of delivering a groundbreaking
+            start-up idea to solve the challenge proposed by our partners. The
+            event will be held in person at Politecnico and Bocconi campuses,
+            and it will include seminars, workshops and networking time.
+            Participants will be given a challenge by the partner companies, and
+            they will work together in groups of 4-6 people to create an
+            innovative startup idea that will help solve a practical problem for
+            the city of Milan. The finalists will present their startup pitch in
+            front of a jury of experts and the best teams will be rewarded!
           </p>
         </Description>
       </div>
@@ -165,7 +164,7 @@ const StartupChallenge = ({
         />
       </div>
       <JoinUsBar
-        title="Registrations open on March 22nd, 2024"
+        title="Registrations open on March 17th, 2025"
         color="blue"
         buttonText="Apply here"
         to={challengeData?.signUpLink || ''}
@@ -173,7 +172,7 @@ const StartupChallenge = ({
       />
       <div className="py-0 bg-ec_background dark:bg-ec_background_darkmode">
         <Sponsors
-          title="Partners of previous editions"
+          title="Partners"
           logos={
             challengeData?.sponsorsCollection?.items.map((sponsor) => ({
               src: sponsor?.logo?.url || '',
