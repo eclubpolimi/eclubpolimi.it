@@ -24,6 +24,24 @@ const Network = () => {
           className="absolute"
         />
       </div>
+      <div className="w-full h-2 bg-ec_blue dark:bg-ec_blue_darkmode my-6"></div>
+
+      <div className="bg-ec_background_light dark:bg-ec_background_darkmode">
+        <Sponsors
+          className="max-w-screen-lg lg:mx-auto px-5 lg:px-0 py-16"
+          title=" "
+          logos={SiteData.NetworkMembers.map((logo) => ({
+            ...logo,
+            src: typeof logo.src === 'string' ? logo.src : logo.src.src, // ✅ Convert StaticImageData to string
+            darkSrc:
+              typeof logo.darkSrc === 'string'
+                ? logo.darkSrc
+                : logo.darkSrc?.src ||
+                  (typeof logo.src === 'string' ? logo.src : logo.src.src), // ✅ Ensure darkSrc is also a string
+          }))}
+        />
+      </div>
+      <div className="w-full h-2 bg-ec_blue dark:bg-ec_blue_darkmode my-6"></div>
 
       <div className="max-w-screen-lg lg:mx-auto px-5 lg:px-0">
         <Description title="About our network">
@@ -62,21 +80,7 @@ const Network = () => {
           </p>
         </Description>
       </div>
-      <div className="w-full h-2 bg-ec_blue dark:bg-ec_blue_darkmode my-6"></div>
-      <div className="bg-ec_background_light dark:bg-ec_background_darkmode">
-        <Sponsors
-          className="max-w-screen-lg lg:mx-auto px-5 lg:px-0 py-16"
-          logos={SiteData.NetworkMembers.map((logo) => ({
-            ...logo,
-            src: typeof logo.src === 'string' ? logo.src : logo.src.src, // ✅ Convert StaticImageData to string
-            darkSrc:
-              typeof logo.darkSrc === 'string'
-                ? logo.darkSrc
-                : logo.darkSrc?.src ||
-                  (typeof logo.src === 'string' ? logo.src : logo.src.src), // ✅ Ensure darkSrc is also a string
-          }))}
-        />
-      </div>
+
       <div className="w-full h-2 bg-ec_blue dark:bg-ec_blue_darkmode my-6"></div>
     </div>
   );

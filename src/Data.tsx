@@ -9,7 +9,7 @@ import networkHeroImage from 'assets/eclub-network.png';
 import logo2 from 'assets/img-eclub-bocconi.png';
 import logo3 from 'assets/img-eclub-pavia.png';
 import logo1 from 'assets/logo-colors.png';
-import logo4 from 'assets/logo_white.svg';
+import logo4 from 'assets/logo_white.png';
 import { ReactNode } from 'react';
 /**
  * @description This class holds global, static data, to avoid duplication between production code and tests
