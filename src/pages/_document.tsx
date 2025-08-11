@@ -23,14 +23,14 @@ export default function Document() {
         <link
           rel="apple-touch-icon"
           sizes="180x180"
-          href="%PUBLIC_URL%/images/apple-touch-icon.png"
+          href="/images/apple-touch-icon.png"
         />
         <meta
           name="description"
           content="Entrepreneurship Club Polimi website"
         />
         <meta name="theme-color" content="#ffffff" />
-        <link rel="manifest" href="%PUBLIC_URL%/site.webmanifest" />
+        <link rel="manifest" href="/site.webmanifest" />
       </Head>
       <body>
         {/* Dark Mode Script - Ensures the correct theme is applied immediately */}

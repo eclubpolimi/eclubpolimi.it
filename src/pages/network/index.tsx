@@ -30,11 +30,11 @@ const Network = () => {
         <Sponsors
           className="max-w-screen-lg lg:mx-auto px-5 lg:px-0 py-16"
           title=" "
-          logos={SiteData.NetworkMembers.map((logo) => ({
+          logos={SiteData.NetworkMembers.map((logo: any) => ({
             ...logo,
             src: typeof logo.src === 'string' ? logo.src : logo.src.src, // ✅ Convert StaticImageData to string
             darkSrc:
-              typeof logo.darkSrc === 'string'
+              logo.darkSrc && typeof logo.darkSrc === 'string'
                 ? logo.darkSrc
                 : logo.darkSrc?.src ||
                   (typeof logo.src === 'string' ? logo.src : logo.src.src), // ✅ Ensure darkSrc is also a string

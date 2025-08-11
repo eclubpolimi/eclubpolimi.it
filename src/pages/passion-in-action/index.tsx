@@ -2,10 +2,8 @@ import LessonsPIA from 'components/LessonsPIA';
 import Image from 'next/image';
 
 import SiteData from 'Data';
-import Hero from 'components/Hero';
 import Description from 'components/Description';
 import ParagraphTitle from 'components/ParagraphTitle';
-// import PIAHero from 'assets/pia_hero.png'; // Import the image directly from assets
 
 const PassionInAction = () => {
   return (

@@ -7,7 +7,7 @@ import TravelBar from 'components/TravelBar';
 import TravelPlaceholder from 'assets/travelMainBackground.webp';
 
 import { LATEST_TRIP_QUERY } from 'data/queries';
-import { LatestTripDataQuery } from 'generated/cms/types';
+import { LatestTripDataQuery } from 'types/cms';
 import client from 'utils/apollo_client';
 import { formatDate, formatDateRange, formatDateTime } from 'utils/formatting';
 
@@ -24,7 +24,7 @@ export const getServerSideProps = async (): Promise<{ props: TravelProps }> => {
   // Determine if registrations are open on the server
   const isRegistrationOpen = (() => {
     const tripData = data?.tripCollection?.items[0];
-    if (!tripData) return false;
+    if (!tripData || !tripData.registrationsOpenDate) return false;
 
     const now = new Date();
     const open = new Date(tripData.registrationsOpenDate);
@@ -65,7 +65,7 @@ const Travel = ({ data }: TravelProps) => {
               info={{
                 place: tripData?.destinationCities?.[0] || '',
                 date:
-                  formatDateRange(tripData?.departDate, tripData?.returnDate) ||
+                  formatDateRange(tripData?.departDate || '', tripData?.returnDate || '') ||
                   '',
                 peoples: tripData?.availableSpots || 0,
                 price: `€${tripData?.price || 0}`,
@@ -84,7 +84,7 @@ const Travel = ({ data }: TravelProps) => {
           title={`Why should I go to ${tripData?.destinationCountry}?`}
         >
           <p className="text-justify">
-            {tripData?.description?.split('\n').map((paragraph, idx) => (
+            {tripData?.description?.split('\n').map((paragraph: string, idx: number) => (
               <span key={idx}>
                 {paragraph}
                 <br />
@@ -94,7 +94,7 @@ const Travel = ({ data }: TravelProps) => {
             <strong className="block -mx-4 p-4 bg-ec_background_light dark:bg-ec_background_darkmode_light rounded-xl border border-ec_border dark:border-ec_border_darkmode">
               Registrations open{' '}
               <span className="text-ec_orange dark:text-ec_orange_darkmode">
-                {formatDateTime(tripData?.registrationsOpenDate)}
+                {formatDateTime(tripData?.registrationsOpenDate || '')}
               </span>
               . Only {tripData?.availableSpots || 0} tickets are available and
               they'll run out quickly. Save the date and train your fingers in
@@ -127,11 +127,11 @@ const Travel = ({ data }: TravelProps) => {
         <Timeline
           theme="split"
           data={
-            tripData?.timelineCollection?.items.map((item) => ({
-              date: formatDate(item?.date) || '',
+            tripData?.timelineCollection?.items.map((item: any) => ({
+              date: formatDate(item?.date || '') || '',
               title: item?.title || '',
               children:
-                item?.description?.split('\n').map((paragraph, idx) => (
+                item?.description?.split('\n').map((paragraph: string, idx: number) => (
                   <span key={idx}>
                     {paragraph}
                     <br />

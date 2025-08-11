@@ -88,19 +88,19 @@ export default class SiteData {
   static Sponsors = [
     {
       src: '/netsonsImages/Astra.png',
-      darkSrc: '/netsonsImages/Astra_darkmode.png',
+      darkSrc: '/netsonsImages/Astra.png', // Using same image for dark mode
       href: 'https://astraincubator.com',
       alt: 'Astra incubator',
     },
     {
       src: '/netsonsImages/Tutored.png',
-      darkSrc: '/netsonsImages/Tutored_darkmode.png',
+      darkSrc: '/netsonsImages/Tutored.png', // Using same image for dark mode
       href: 'https://www.tutored.me',
       alt: 'Tutored',
     },
     {
       src: '/netsonsImages/Polihub.png',
-      darkSrc: '/netsonsImages/Polihub_darkmode.png',
+      darkSrc: '/netsonsImages/Polihub.png', // Using same image for dark mode
       href: 'https://www.polihub.it/it/',
       alt: 'Polihub',
     },

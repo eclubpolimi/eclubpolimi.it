@@ -12,10 +12,9 @@ import LogoStartupChallengeDark from 'assets/logo_startupchallenge_darkmode.jpg'
 import SiteData from 'Data';
 
 import { LATEST_STARTUP_CHALLENGE_QUERY } from 'data/queries';
-import { StartupChallengeDataQuery } from 'generated/cms/types';
+import { StartupChallengeDataQuery } from 'types/cms';
 import client from 'utils/apollo_client';
 import { formatDate } from 'utils/formatting';
-import { useEffect, useState } from 'react';
 
 interface StartupChallengeProps {
   data: StartupChallengeDataQuery;
@@ -32,7 +31,7 @@ export const getServerSideProps = async (): Promise<{
   // Determine if submissions are enabled on the server
   const submissionsEnabled = (() => {
     const pageData = data?.startupchallengeCollection?.items[0];
-    if (!pageData) return false;
+    if (!pageData || !pageData.submissionsOpenDate || !pageData.submissionsCloseDate) return false;
 
     const now = new Date();
     const open = new Date(pageData.submissionsOpenDate);
@@ -109,7 +108,7 @@ const StartupChallenge = ({
           title="Organizers"
           logos={
             challengeData?.organizersCollection?.items
-              ? challengeData.organizersCollection.items.map((entry) => ({
+              ? challengeData.organizersCollection.items.map((entry: any) => ({
                   src: entry?.logo?.url || '',
                   darkSrc: entry?.logoDark?.url || entry?.logo?.url || '',
                   alt: entry?.name || '',
@@ -154,8 +153,8 @@ const StartupChallenge = ({
       <div className="py-16 max-w-screen-lg lg:mx-auto px-5 lg:px-0">
         <Timeline
           data={
-            challengeData?.timelineCollection?.items.map((item) => ({
-              date: formatDate(item?.date) || '',
+            challengeData?.timelineCollection?.items.map((item: any) => ({
+              date: formatDate(item?.date || '') || '',
               title: item?.title || '',
               body: item?.description || '',
             })) || []
@@ -174,7 +173,7 @@ const StartupChallenge = ({
         <Sponsors
           title="Partners"
           logos={
-            challengeData?.sponsorsCollection?.items.map((sponsor) => ({
+            challengeData?.sponsorsCollection?.items.map((sponsor: any) => ({
               src: sponsor?.logo?.url || '',
               darkSrc: sponsor?.logoDark?.url || sponsor?.logo?.url || '', // ✅ Ensures `darkSrc` is always a string
               alt: sponsor?.name || '',

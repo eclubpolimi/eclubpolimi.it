@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import JoinUsCard from 'components/JoinUsCard';
-import SiteData from 'Data';
 import { JOIN_QUERY } from 'data/queries';
 import client from 'utils/apollo_client';
 import joinusHero from 'assets/homepage_hero.jpg'; // Import image directly

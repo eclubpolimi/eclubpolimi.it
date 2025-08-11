@@ -2,7 +2,7 @@ import Carousel from 'components/Carousel';
 import Timeline from 'components/Timeline';
 
 import SiteData from 'Data';
-import { EventQuery } from 'generated/cms/types';
+import { EventQuery } from 'types/cms';
 import client from 'utils/apollo_client';
 import { formatDate } from 'utils/formatting';
 import { LATEST_EVENTS_QUERY } from 'data/queries';
@@ -37,10 +37,10 @@ const Events = ({ data }: EventProps) => {
       <div className="lg:my-20 my-12 max-w-screen-lg lg:mx-auto px-5 lg:px-0">
         <Timeline
           data={
-            eventData?.map((event) => {
+            eventData?.map((event: any) => {
               return {
                 title: event?.title || '',
-                date: formatDate(event?.date) || '',
+                date: formatDate(event?.date || '') || '',
                 body: event?.description || '',
               };
             }) || []

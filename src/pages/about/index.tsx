@@ -6,10 +6,9 @@ import { TeamProps } from 'components/Team/Team';
 import Teams from 'components/Teams';
 import SiteData from 'Data';
 import { ALL_DRIVERS_NOT_ALUMNI_QUERY, DESCRIPTION_QUERY } from 'data/queries';
-import { AllDriversQuery } from 'generated/cms/types';
+import { AllDriversQuery, Driver } from 'types/cms';
 import client from 'utils/apollo_client';
 import Image from 'next/image';
-import aboutUsHero from 'assets/netsonsImages/aboutUs_hero.png'; // Import image directly
 
 interface AboutProps {
   data: AllDriversQuery;
@@ -75,7 +74,7 @@ const getTeams = (data: AllDriversQuery) => {
   }
 
   // Add drivers to their respective teams
-  drivers.forEach((driver) => {
+  drivers.forEach((driver: Driver | null) => {
     if (!driver?.team) return;
 
     // Ensure the team exists in the map before accessing it
@@ -110,10 +109,9 @@ const About = ({ data, description }: AboutProps) => {
       <div className="relative w-full h-[350px] flex items-center justify-center">
         {/* Background Image */}
         <Image
-          src={aboutUsHero}
-          layout="fill"
-          objectFit="cover"
-          objectPosition="center 36%" // Adjust this percentage for fine control
+          src="/netsonsImages/aboutUs_hero.png"
+          fill
+          style={{ objectFit: 'cover', objectPosition: 'center 36%' }}
           alt="About Us Background"
         />
 

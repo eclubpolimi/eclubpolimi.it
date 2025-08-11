@@ -1,5 +1,3 @@
-import { useState, useEffect } from 'react';
-
 const TestPage = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-10 bg-ec_background dark:bg-ec_background_darkmode transition-colors">
