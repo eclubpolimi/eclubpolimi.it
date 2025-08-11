@@ -11,8 +11,8 @@ const Network = () => {
       <div className="relative w-full h-[350px] flex items-center justify-center">
         <Image
           src={SiteData.NetworkHeroBackground}
-          layout="fill"
-          objectFit="cover"
+          fill
+          style={{ objectFit: 'cover' }}
           alt="Network Background"
           className="brightness-75"
         />

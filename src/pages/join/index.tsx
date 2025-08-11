@@ -88,9 +88,8 @@ const Join = ({ joinData }: JoinProps) => {
       <div className="relative w-full h-[250px]">
         <Image
           src={joinusHero}
-          layout="fill"
-          objectFit="cover"
-          objectPosition="center 36%" // Adjust this percentage for fine control
+          fill
+          style={{ objectFit: 'cover', objectPosition: 'center 36%' }}
           alt="About Us Background"
         />
 

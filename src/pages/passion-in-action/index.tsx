@@ -12,8 +12,8 @@ const PassionInAction = () => {
       <div className="relative w-full h-[350px] flex items-center justify-center text-white">
         <Image
           src={SiteData.PIAHeroBackground}
-          layout="fill"
-          objectFit="cover"
+          fill
+          style={{ objectFit: 'cover' }}
           alt="Passion in Action Background"
         />
         <h1 className="absolute text-4xl font-extrabold text-ec_text_darkmode dark:text-ec_text_darkmode">

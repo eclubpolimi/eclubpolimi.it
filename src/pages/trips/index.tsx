@@ -49,7 +49,8 @@ const Travel = ({ data }: TravelProps) => {
         <Image
           className="object-cover"
           src={tripData?.image?.url || TravelPlaceholder}
-          layout="fill"
+          fill
+          style={{ objectFit: 'cover' }}
           alt={tripData?.image?.title || 'Travel preview'}
         />
         <div className="absolute inset-0 bg-ec_background/30 dark:bg-ec_background_darkmode/40 backdrop-blur-xl">
