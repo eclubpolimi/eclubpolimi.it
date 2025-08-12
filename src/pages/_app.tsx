@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { ApolloProvider } from '@apollo/client';
-import Footer from 'components/Footer';
-import Navbar from 'components/Navbar';
-import SiteData from 'Data';
+import Footer from 'components/Footer/Footer';
+import Navbar from 'components/Navbar/Navbar';
+import SiteData from '@/Data';
 import client from 'utils/apollo_client';
 import './_app.css';
 import DarkModeToggle from 'components/Button/DarkModeToggle';

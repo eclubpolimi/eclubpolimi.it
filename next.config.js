@@ -1,4 +1,13 @@
-module.exports = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  typescript: {
+    // Enable type checking during build
+    ignoreBuildErrors: false,
+  },
+  eslint: {
+    // Run ESLint during builds
+    ignoreDuringBuilds: false,
+  },
   images: {
     remotePatterns: [
       {
@@ -14,3 +23,5 @@ module.exports = {
     ],
   },
 };
+
+module.exports = nextConfig;

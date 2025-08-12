@@ -1,6 +1,6 @@
 //changed startup challgenge to a white button to make it stand out and added a rocket emoji next to it
 
-import Button from 'components/Button';
+import Button from 'components/Button/Button';
 import pialessons from 'images/pialessons';
 import { ReactNode } from 'react';
 /**

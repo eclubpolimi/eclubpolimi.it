@@ -1,8 +1,8 @@
 import Image from 'next/image';
 
-import Description from 'components/Description';
-import Timeline from 'components/Timeline';
-import TravelBar from 'components/TravelBar';
+import Description from 'components/Description/Description';
+import Timeline from 'components/Timeline/Timeline';
+import TravelBar from 'components/TravelBar/TravelBar';
 import { useImageAsset } from 'hooks/useImageAssets';
 
 import { LATEST_TRIP_QUERY } from 'data/queries';

@@ -1,7 +1,7 @@
-import Button from 'components/Button';
-import JoinUsBar from 'components/JoinUsBar';
-import LabeledOutlineCard from 'components/LabeledOutlineCard';
-import SiteData from 'Data';
+import Button from 'components/Button/Button';
+import JoinUsBar from 'components/JoinUsBar/JoinUsBar';
+import LabeledOutlineCard from 'components/LabeledOutlineCard/LabeledOutlineCard';
+import SiteData from '@/Data';
 import Image from 'next/image';
 import { DESCRIPTION_QUERY } from 'data/queries';
 import client from 'utils/apollo_client';

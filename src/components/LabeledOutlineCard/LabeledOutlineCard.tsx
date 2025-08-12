@@ -1,4 +1,4 @@
-import OutlineLabel from 'components/OutlineLabel';
+import OutlineLabel from 'components/OutlineLabel/OutlineLabel';
 import { ReactNode } from 'react';
 
 type LabeledOutlineCardProps = {

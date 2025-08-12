@@ -1,8 +1,8 @@
 import Image from 'next/image';
-import SiteData from 'Data';
-import Description from 'components/Description';
-import Sponsors from 'components/Sponsors';
-import Slogan from 'components/Slogan';
+import SiteData from '@/Data';
+import Description from 'components/Description/Description';
+import Sponsors from 'components/Sponsors/Sponsors';
+import Slogan from 'components/Slogan/Slogan';
 import { useImageAsset, useNetworkMembers } from 'hooks/useImageAssets';
 
 const Network = () => {

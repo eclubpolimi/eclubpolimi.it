@@ -1,6 +1,7 @@
 // Changed container size, background color, and padding. Also, teams are now listed below each other
 
-import Team from 'components/Team';
+import React from 'react';
+import Team from 'components/Team/Team';
 import { TeamProps } from 'components/Team/Team';
 
 type TeamsProps = {

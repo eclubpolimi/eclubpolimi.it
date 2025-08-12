@@ -1,9 +1,9 @@
-import LessonsPIA from 'components/LessonsPIA';
+import LessonsPIA from 'components/LessonsPIA/LessonsPIA';
 import Image from 'next/image';
 
-import SiteData from 'Data';
-import Description from 'components/Description';
-import ParagraphTitle from 'components/ParagraphTitle';
+import SiteData from '@/Data';
+import Description from 'components/Description/Description';
+import ParagraphTitle from 'components/ParagraphTitle/ParagraphTitle';
 import { useImageAsset } from 'hooks/useImageAssets';
 
 const PassionInAction = () => {

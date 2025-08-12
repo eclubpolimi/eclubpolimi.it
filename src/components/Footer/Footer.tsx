@@ -5,9 +5,9 @@ import {
   faLinkedin,
 } from '@fortawesome/free-brands-svg-icons';
 import Image from 'next/image';
-import Sponsors from 'components/Sponsors';
+import Sponsors from 'components/Sponsors/Sponsors';
 import { useSponsors, useImageAsset } from 'hooks/useImageAssets';
-import SiteData from 'Data';
+import SiteData from '@/Data';
 
 type FooterProps = {
   logo: string;

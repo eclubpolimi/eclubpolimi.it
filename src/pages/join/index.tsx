@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import JoinUsCard from 'components/JoinUsCard';
+import JoinUsCard from 'components/JoinUsCard/JoinUsCard';
 import { JOIN_QUERY } from 'data/queries';
 import client from 'utils/apollo_client';
 import { useImageAsset } from 'hooks/useImageAssets';

@@ -3,7 +3,7 @@
 import { ReactNode, useState } from 'react';
 import MenuBurgerIcon from 'images/navbar/menu-burger.svg';
 import CrossIcon from 'images/navbar/cross.svg';
-import SiteData from 'Data';
+import SiteData from '@/Data';
 import Image from 'next/image';
 import { useImageAsset } from 'hooks/useImageAssets';
 

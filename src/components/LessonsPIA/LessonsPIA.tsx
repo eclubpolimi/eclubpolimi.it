@@ -1,4 +1,4 @@
-import TabSelector from 'components/TabSelector';
+import TabSelector from 'components/TabSelector/TabSelector';
 import Lesson, { LessonProps } from './Lesson';
 
 type LessonsPIAProps = {

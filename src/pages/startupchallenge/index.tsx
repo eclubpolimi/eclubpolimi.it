@@ -1,13 +1,13 @@
 import Image from 'next/image';
 
-import Button from 'components/Button';
-import Description from 'components/Description';
-import JoinUsBar from 'components/JoinUsBar';
-import ParagraphTitle from 'components/ParagraphTitle';
-import Sponsors from 'components/Sponsors';
-import Timeline from 'components/Timeline';
+import Button from 'components/Button/Button';
+import Description from 'components/Description/Description';
+import JoinUsBar from 'components/JoinUsBar/JoinUsBar';
+import ParagraphTitle from 'components/ParagraphTitle/ParagraphTitle';
+import Sponsors from 'components/Sponsors/Sponsors';
+import Timeline from 'components/Timeline/Timeline';
 
-import SiteData from 'Data';
+import SiteData from '@/Data';
 import { useImageAsset, useImageAssets } from 'hooks/useImageAssets';
 
 import { LATEST_STARTUP_CHALLENGE_QUERY } from 'data/queries';

@@ -1,10 +1,10 @@
 //Changed some team names
 
-import Description from 'components/Description';
-import JoinUsBar from 'components/JoinUsBar';
+import Description from 'components/Description/Description';
+import JoinUsBar from 'components/JoinUsBar/JoinUsBar';
 import { TeamProps } from 'components/Team/Team';
-import Teams from 'components/Teams';
-import SiteData from 'Data';
+import Teams from 'components/Teams/Teams';
+import SiteData from '@/Data';
 import { useImageAsset } from 'hooks/useImageAssets';
 import { ALL_DRIVERS_NOT_ALUMNI_QUERY, DESCRIPTION_QUERY } from 'data/queries';
 import { AllDriversQuery, Driver } from 'types/cms';

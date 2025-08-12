@@ -1,7 +1,7 @@
-import Carousel from 'components/Carousel';
-import Timeline from 'components/Timeline';
+import Carousel from 'components/Carousel/Carousel';
+import Timeline from 'components/Timeline/Timeline';
 
-import SiteData from 'Data';
+import SiteData from '@/Data';
 import { useCarouselImages } from 'hooks/useImageAssets';
 import { EventQuery } from 'types/cms';
 import client from 'utils/apollo_client';
