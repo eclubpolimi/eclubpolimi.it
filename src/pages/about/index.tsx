@@ -5,6 +5,7 @@ import JoinUsBar from 'components/JoinUsBar';
 import { TeamProps } from 'components/Team/Team';
 import Teams from 'components/Teams';
 import SiteData from 'Data';
+import { useImageAsset } from 'hooks/useImageAssets';
 import { ALL_DRIVERS_NOT_ALUMNI_QUERY, DESCRIPTION_QUERY } from 'data/queries';
 import { AllDriversQuery, Driver } from 'types/cms';
 import client from 'utils/apollo_client';
@@ -103,13 +104,15 @@ const getTeams = (data: AllDriversQuery) => {
 };
 
 const About = ({ data, description }: AboutProps) => {
+  const aboutHeroImage = useImageAsset('about_hero_background');
+  
   return (
     <div>
       {/* About Us Hero Section */}
       <div className="relative w-full h-[350px] flex items-center justify-center">
         {/* Background Image */}
         <Image
-          src="/netsonsImages/aboutUs_hero.png"
+          src={aboutHeroImage.url || ''}
           fill
           style={{ objectFit: 'cover', objectPosition: 'center 36%' }}
           alt="About Us Background"

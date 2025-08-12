@@ -3,8 +3,7 @@ import Image from 'next/image';
 import Description from 'components/Description';
 import Timeline from 'components/Timeline';
 import TravelBar from 'components/TravelBar';
-
-import TravelPlaceholder from 'assets/travelMainBackground.webp';
+import { useImageAsset } from 'hooks/useImageAssets';
 
 import { LATEST_TRIP_QUERY } from 'data/queries';
 import { LatestTripDataQuery } from 'types/cms';
@@ -41,6 +40,7 @@ export const getServerSideProps = async (): Promise<{ props: TravelProps }> => {
 
 const Travel = ({ data }: TravelProps) => {
   const tripData = data?.tripCollection?.items[0];
+  const travelBackgroundFallback = useImageAsset('trips_hero_background_fallback');
 
   return (
     <div>
@@ -48,7 +48,7 @@ const Travel = ({ data }: TravelProps) => {
       <div className="relative w-full h-[350px]">
         <Image
           className="object-cover"
-          src={tripData?.image?.url || TravelPlaceholder}
+          src={tripData?.image?.url || travelBackgroundFallback?.url || ''}
           fill
           style={{ objectFit: 'cover' }}
           alt={tripData?.image?.title || 'Travel preview'}

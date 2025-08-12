@@ -6,6 +6,7 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import Image from 'next/image';
 import Sponsors from 'components/Sponsors';
+import { useSponsors } from 'hooks/useImageAssets';
 import SiteData from 'Data';
 
 type FooterProps = {
@@ -23,13 +24,15 @@ const Footer = ({
   linkedinUrl,
   copyrightName,
 }: FooterProps) => {
+  const sponsors = useSponsors();
+  
   return (
     <div>
       {/* Sponsors Section */}
       <div className="bg-ec_background dark:bg-ec_background_darkmode">
         <Sponsors
           className="max-w-screen-lg lg:mx-auto px-5 lg:px-0 py-16"
-          logos={SiteData.Sponsors}
+          logos={sponsors}
         />
       </div>
 

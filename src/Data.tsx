@@ -84,29 +84,25 @@ export default class SiteData {
     // },
   ];
 
-  // HOMEPAGE
-  static Sponsors = [
+  // HOMEPAGE - SPONSORS (dynamically loaded via useSponsors hook)
+  static SponsorsData = [
     {
-      src: '/netsonsImages/Astra.png',
-      darkSrc: '/netsonsImages/Astra.png', // Using same image for dark mode
+      key: 'sponsors_astra',
       href: 'https://astraincubator.com',
       alt: 'Astra incubator',
     },
     {
-      src: '/netsonsImages/Tutored.png',
-      darkSrc: '/netsonsImages/Tutored.png', // Using same image for dark mode
+      key: 'sponsors_tutored',
       href: 'https://www.tutored.me',
       alt: 'Tutored',
     },
     {
-      src: '/netsonsImages/Polihub.png',
-      darkSrc: '/netsonsImages/Polihub.png', // Using same image for dark mode
+      key: 'sponsors_polihub',
       href: 'https://www.polihub.it/it/',
       alt: 'Polihub',
     },
     {
-      src: '/netsonsImages/Jemp.png',
-      darkSrc: '/netsonsImages/Jemp.png',
+      key: 'sponsors_jemp',
       href: 'https://www.jemp.it',
       alt: 'Jemp',
     },
@@ -120,7 +116,7 @@ export default class SiteData {
 
   // LESSONS PIA (placeholder)
   static LessonsPIA = pialessons;
-  static PIAHeroBackground = '/netsonsImages/pia_hero.png';
+  // PIAHeroBackground now uses: useImageAsset('pia_hero')
 
   // JOIN US
   static ApplyDriverLink = 'https://forms.gle/NWyuKPKhxDtEVYAA6'; //depracated, not changed from here
@@ -147,28 +143,18 @@ export default class SiteData {
     'Do you want to share your entrepreneurial experience - failure or success - with the firt entrepreneurial community of Polimi?',
   ];
 
-  // EVENTS
-  static eventsCarouselImages = [
-    {
-      image: '/netsonsImages/carousel1.jpg',
-    },
-    {
-      image: '/netsonsImages/carousel2.jpg',
-    },
-    {
-      image: '/netsonsImages/carousel3.jpg',
-    },
-    {
-      image: '/netsonsImages/carousel4.jpg',
-    },
-    {
-      image: '/netsonsImages/carousel5.jpg',
-    },
+  // EVENTS - Dynamic carousel data (images loaded via useCarouselImages hook)
+  static eventsCarouselData = [
+    { key: 'carousel_1' },
+    { key: 'carousel_2' }, 
+    { key: 'carousel_3' },
+    { key: 'carousel_4' },
+    { key: 'carousel_5' },
   ];
 
-  //NETWORK
+  //NETWORK - Dynamic images (loaded via hooks)
   static NetworkHeroImage = networkHeroImage;
-  static NetworkHeroBackground = '/netsonsImages/network_hero.jpg';
+  // NetworkHeroBackground now uses: useImageAsset('network_hero')
   static SC2022_board = '/startupChallenge/previousYear/SC2022_board.jpg';
 
   static NetworkSlogan = [

@@ -2,15 +2,10 @@ import Button from 'components/Button';
 import JoinUsBar from 'components/JoinUsBar';
 import LabeledOutlineCard from 'components/LabeledOutlineCard';
 import SiteData from 'Data';
-
-import PeopleSvg from 'assets/people_graphics.svg';
-import PeopleSvg_darkmode from 'assets/people_graphics_darkmode.png';
-import LogoStartupChallenge from 'assets/logo_startupchallenge.jpg';
-import Munich2 from 'assets/munich2.jpg';
-import Munich3 from 'assets/munich3.jpg';
 import Image from 'next/image';
 import { DESCRIPTION_QUERY } from 'data/queries';
 import client from 'utils/apollo_client';
+import { useImageAsset, useCarouselImages } from 'hooks/useImageAssets';
 
 interface HomeProps {
   textData: Record<string, string>; // Store all text snippets from Contentful
@@ -44,6 +39,14 @@ export const getServerSideProps = async (): Promise<{ props: HomeProps }> => {
 };
 
 const Home = ({ textData }: HomeProps) => {
+  // Dynamic image assets
+  const heroPeople = useImageAsset('homepage_hero_people');
+  const eventsImage = useImageAsset('homepage_section_events_image');
+  const travelImage = useImageAsset('homepage_section_travel_image');
+  const startupLogo = useImageAsset('homepage_section_startup_logo');
+  const backgroundLogo = useImageAsset('branding_learn_network_build');
+  const carouselImages = useCarouselImages();
+
   return (
     <div className="w-full">
       <div
@@ -72,15 +75,19 @@ const Home = ({ textData }: HomeProps) => {
           {/* Light Mode Image */}
           <Image
             className="lg:w-5/6 block dark:hidden"
-            src={PeopleSvg}
+            src={heroPeople?.url || ''}
             alt="People graphics"
+            width={500}
+            height={400}
           />
 
           {/* Dark Mode Image */}
           <Image
             className="lg:w-5/6 hidden dark:block"
-            src={PeopleSvg_darkmode}
+            src={heroPeople?.url || ''}
             alt="People graphics dark mode"
+            width={500}
+            height={400}
           />
         </div>
       </div>
@@ -88,7 +95,7 @@ const Home = ({ textData }: HomeProps) => {
         <div
           className="absolute my-6 mx-4 md:my-6 md:mx-6 inset-0 opacity-5 pointer-events-none"
           style={{
-            backgroundImage: `url(${SiteData.LogoLearnNetworkBuild.src})`,
+            backgroundImage: `url(${backgroundLogo?.url || ''})`,
             backgroundRepeat: 'round',
             backgroundSize: '180px',
           }}
@@ -142,18 +149,22 @@ const Home = ({ textData }: HomeProps) => {
             />
             <div className="xl:w-1/2 xl:-ml-28 border border-solid border-ec_border dark:border-ec_border_darkmode rounded-xl p-2">
               <Image
-                src={Munich2}
+                src={eventsImage?.url || ''}
                 className="rounded-xl place-self-center"
-                alt=""
+                alt="Events"
+                width={400}
+                height={300}
               />
             </div>
           </div>
           <div className="flex flex-col-reverse xl:flex-row justify-center items-center">
             <div className="xl:w-1/2 xl:-mr-28 border border-solid border-ec_orange dark:border-ec_orange_darkmode rounded-xl p-2">
               <Image
-                src={LogoStartupChallenge}
+                src={startupLogo?.url || ''}
                 className="rounded-xl place-self-center"
-                alt=""
+                alt="Startup Challenge"
+                width={400}
+                height={300}
               />
             </div>
 
@@ -179,9 +190,11 @@ const Home = ({ textData }: HomeProps) => {
             />
             <div className="xl:w-1/2 xl:-ml-28 border border-solid border-ec_border dark:border-ec_border_darkmode rounded-xl p-2">
               <Image
-                src={Munich3}
+                src={travelImage?.url || ''}
                 className="rounded-xl place-self-center"
-                alt=""
+                alt="Travel"
+                width={400}
+                height={300}
               />
             </div>
           </div>

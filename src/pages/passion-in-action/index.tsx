@@ -4,14 +4,17 @@ import Image from 'next/image';
 import SiteData from 'Data';
 import Description from 'components/Description';
 import ParagraphTitle from 'components/ParagraphTitle';
+import { useImageAsset } from 'hooks/useImageAssets';
 
 const PassionInAction = () => {
+  const piaHeroImage = useImageAsset('pia_hero_background');
+  
   return (
     <div>
       {/* Hero Section with Background Image Fix */}
       <div className="relative w-full h-[350px] flex items-center justify-center text-white">
         <Image
-          src={SiteData.PIAHeroBackground}
+          src={piaHeroImage.url || ''}
           fill
           style={{ objectFit: 'cover' }}
           alt="Passion in Action Background"

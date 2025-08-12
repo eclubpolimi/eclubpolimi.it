@@ -1,5 +1,23 @@
 // Temporary types to fix build issues until GraphQL codegen is properly configured
 
+export interface Asset {
+  url: string;
+  title?: string;
+  description?: string;
+}
+
+export interface SiteImageAsset {
+  key: string;
+  imageLightMode: Asset;
+  imageDarkMode?: Asset;
+}
+
+export interface SiteImageAssetsQuery {
+  siteImageAssetCollection: {
+    items: SiteImageAsset[];
+  };
+}
+
 export interface Driver {
   team?: string | null;
   role?: string | null;

@@ -1,8 +1,12 @@
 import Image from 'next/image';
+import { useEffect } from 'react';
+import { gql } from '@apollo/client';
 import JoinUsCard from 'components/JoinUsCard';
 import { JOIN_QUERY } from 'data/queries';
 import client from 'utils/apollo_client';
-import joinusHero from 'assets/homepage_hero.jpg'; // Import image directly
+import { useImageAsset } from 'hooks/useImageAssets';
+import { useTestQuery } from 'hooks/useTestQuery';
+// Removed fallback import to test pure dynamic loading
 
 interface JoinProps {
   joinData: {
@@ -82,15 +86,35 @@ export const getServerSideProps = async (): Promise<{ props: JoinProps }> => {
 };
 
 const Join = ({ joinData }: JoinProps) => {
+  const joinHeroImage = useImageAsset('join_hero_background');
+  
+  // Test basic GraphQL connectivity
+  useTestQuery();
+  
+  // Test Apollo Client directly
+  useEffect(() => {
+    console.log('🔧 Testing Apollo Client directly...');
+    
+    // Try to query directly with the Apollo Client
+    client.query({
+      query: gql`query TestDirect { __typename }`,
+      fetchPolicy: 'no-cache'
+    }).then(result => {
+      console.log('✅ Direct Apollo Client Query Success:', result);
+    }).catch(error => {
+      console.error('❌ Direct Apollo Client Query Error:', error);
+    });
+  }, []);
+  
   return (
     <div>
-      {/* Hero Section (Fixed with Correct Image Background Handling) */}
+      {/* Hero Section - Testing Pure Dynamic Loading (NO FALLBACKS) */}
       <div className="relative w-full h-[250px]">
         <Image
-          src={joinusHero}
+          src={joinHeroImage.url || ''}
           fill
           style={{ objectFit: 'cover', objectPosition: 'center 36%' }}
-          alt="About Us Background"
+          alt="Join Us Hero Background"
         />
 
         <div className="absolute inset-0 bg-black/50 flex items-center justify-center text-white text-2xl font-bold">

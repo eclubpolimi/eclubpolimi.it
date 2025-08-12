@@ -3,21 +3,26 @@ import SiteData from 'Data';
 import Description from 'components/Description';
 import Sponsors from 'components/Sponsors';
 import Slogan from 'components/Slogan';
+import { useImageAsset, useNetworkMembers } from 'hooks/useImageAssets';
 
 const Network = () => {
+  const networkHeroImage = useImageAsset('network_hero_background');
+  const networkHeroLogo = useImageAsset('network_hero_logo');
+  const networkMembers = useNetworkMembers();
+  
   return (
     <div>
       {/* Hero Image Fix */}
       <div className="relative w-full h-[350px] flex items-center justify-center">
         <Image
-          src={SiteData.NetworkHeroBackground}
+          src={networkHeroImage.url || ''}
           fill
           style={{ objectFit: 'cover' }}
           alt="Network Background"
           className="brightness-75"
         />
         <Image
-          src={SiteData.NetworkHeroImage}
+          src={networkHeroLogo?.url || ''}
           width={200} // Adjust as needed
           height={100}
           alt="Network Logo"
@@ -30,15 +35,7 @@ const Network = () => {
         <Sponsors
           className="max-w-screen-lg lg:mx-auto px-5 lg:px-0 py-16"
           title=" "
-          logos={SiteData.NetworkMembers.map((logo: any) => ({
-            ...logo,
-            src: typeof logo.src === 'string' ? logo.src : logo.src.src, // ✅ Convert StaticImageData to string
-            darkSrc:
-              logo.darkSrc && typeof logo.darkSrc === 'string'
-                ? logo.darkSrc
-                : logo.darkSrc?.src ||
-                  (typeof logo.src === 'string' ? logo.src : logo.src.src), // ✅ Ensure darkSrc is also a string
-          }))}
+          logos={networkMembers}
         />
       </div>
       <div className="w-full h-2 bg-ec_blue dark:bg-ec_blue_darkmode my-6"></div>

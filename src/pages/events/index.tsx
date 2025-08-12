@@ -2,6 +2,7 @@ import Carousel from 'components/Carousel';
 import Timeline from 'components/Timeline';
 
 import SiteData from 'Data';
+import { useCarouselImages } from 'hooks/useImageAssets';
 import { EventQuery } from 'types/cms';
 import client from 'utils/apollo_client';
 import { formatDate } from 'utils/formatting';
@@ -27,11 +28,12 @@ export const getServerSideProps = async (): Promise<{
 
 const Events = ({ data }: EventProps) => {
   const eventData = data?.eventCollection?.items;
+  const carouselImages = useCarouselImages();
 
   return (
     <div className="bg-ec_background dark:bg-ec_background_darkmode text-ec_text dark:text-ec_text_darkmode">
       <div className="relative w-full h-[500px] max-h-[500px] overflow-hidden">
-        <Carousel sliderData={SiteData.eventsCarouselImages} autoplay={5000} />
+        <Carousel sliderData={carouselImages.images} autoplay={5000} />
       </div>
 
       <div className="lg:my-20 my-12 max-w-screen-lg lg:mx-auto px-5 lg:px-0">

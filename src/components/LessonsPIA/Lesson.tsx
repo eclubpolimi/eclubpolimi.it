@@ -1,10 +1,11 @@
 import Image from 'next/image';
+import { useImageAsset } from 'hooks/useImageAssets';
 
 export type LessonProps = {
   lessonData: {
     name: string;
     title: string;
-    image: string;
+    imageKey: string; // Changed from 'image' to 'imageKey'
     alt: string;
     description: string;
   };
@@ -12,6 +13,9 @@ export type LessonProps = {
 };
 
 const Lesson = ({ lessonData, className = '' }: LessonProps) => {
+  // Get the image from Contentful using the imageKey
+  const lessonImage = useImageAsset(lessonData.imageKey);
+  
   return (
     <div
       className={`${className} bg-ec_background dark:bg-ec_background_darkmode p-6 rounded-lg shadow-md`}
@@ -19,7 +23,7 @@ const Lesson = ({ lessonData, className = '' }: LessonProps) => {
       <div className="flex flex-col lg:flex-row justify-center w-full h-full">
         <div className="w-full lg:w-1/2 h-96 relative flex flex-col flex-grow">
           <Image
-            src={lessonData.image}
+            src={lessonImage?.url || ''}
             alt={lessonData.alt}
             fill
             className="object-cover"
