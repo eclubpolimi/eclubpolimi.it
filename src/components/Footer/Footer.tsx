@@ -6,7 +6,7 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import Image from 'next/image';
 import Sponsors from 'components/Sponsors';
-import { useSponsors } from 'hooks/useImageAssets';
+import { useSponsors, useImageAsset } from 'hooks/useImageAssets';
 import SiteData from 'Data';
 
 type FooterProps = {
@@ -25,6 +25,7 @@ const Footer = ({
   copyrightName,
 }: FooterProps) => {
   const sponsors = useSponsors();
+  const logoWhite = useImageAsset('branding_logo_white');
   
   return (
     <div>
@@ -39,7 +40,13 @@ const Footer = ({
       {/* Footer Main Section */}
       <div className="flex flex-col items-center p-2 pb-10 bg-ec_blue dark:bg-ec_blue_darkmode">
         {/* Logo */}
-        <Image className="h-40" src={logo} alt="Logo" />
+        <Image 
+          className="w-auto h-48" 
+          src={logoWhite?.url || logo} 
+          alt="Entrepreneurship Club Polimi" 
+          width={240}
+          height={240}
+        />
 
         {/* Flex Container for Contact & Socials */}
         <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start w-full max-w-screen-lg p-5">

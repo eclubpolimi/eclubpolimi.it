@@ -5,11 +5,6 @@ import { setContext } from '@apollo/client/link/context';
 const endpoint = process.env.NEXT_PUBLIC_CMS_GRAPHQL_ENDPOINT || process.env.CMS_GRAPHQL_ENDPOINT;
 const token = process.env.NEXT_PUBLIC_CMS_ACCESS_TOKEN || process.env.CMS_ACCESS_TOKEN;
 
-console.log('🔧 Apollo Client Environment Check:', {
-  endpoint: endpoint ? `${endpoint.substring(0, 30)}...` : 'MISSING',
-  token: token ? `${token.substring(0, 10)}...` : 'MISSING'
-});
-
 // Simple HTTP link
 const httpLink = createHttpLink({
   uri: endpoint,

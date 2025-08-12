@@ -8,7 +8,7 @@ import Sponsors from 'components/Sponsors';
 import Timeline from 'components/Timeline';
 
 import SiteData from 'Data';
-import { useImageAsset } from 'hooks/useImageAssets';
+import { useImageAsset, useImageAssets } from 'hooks/useImageAssets';
 
 import { LATEST_STARTUP_CHALLENGE_QUERY } from 'data/queries';
 import { StartupChallengeDataQuery } from 'types/cms';
@@ -51,8 +51,7 @@ const StartupChallenge = ({
   submissionsEnabled,
 }: StartupChallengeProps) => {
   const challengeData = data?.startupchallengeCollection?.items[0];
-  const startupLogo = useImageAsset('homepage_section_startup_logo');
-  // console.log("Rendered Sponsor Logos:", challengeData?.sponsorsCollection?.items.map(sponsor => sponsor?.logo?.url));
+  const { getImageUrl } = useImageAssets();
 
   return (
     <div className="w-full">
@@ -90,7 +89,7 @@ const StartupChallenge = ({
             {/* Light mode logo */}
             <Image
               className="block dark:hidden"
-              src={startupLogo.url || ''}
+              src={getImageUrl('homepage_section_startup_logo', false) || ''}
               alt="Startup challenge logo"
               width={500}
               height={400}
@@ -99,7 +98,7 @@ const StartupChallenge = ({
             {/* Dark mode logo */}
             <Image
               className="hidden dark:block"
-              src={startupLogo.url || ''}
+              src={getImageUrl('homepage_section_startup_logo', true) || ''}
               alt="Startup challenge logo"
               width={500}
               height={400}

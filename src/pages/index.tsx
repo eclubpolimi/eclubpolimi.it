@@ -5,7 +5,7 @@ import SiteData from 'Data';
 import Image from 'next/image';
 import { DESCRIPTION_QUERY } from 'data/queries';
 import client from 'utils/apollo_client';
-import { useImageAsset, useCarouselImages } from 'hooks/useImageAssets';
+import { useImageAsset, useCarouselImages, useImageAssets } from 'hooks/useImageAssets';
 
 interface HomeProps {
   textData: Record<string, string>; // Store all text snippets from Contentful
@@ -40,7 +40,7 @@ export const getServerSideProps = async (): Promise<{ props: HomeProps }> => {
 
 const Home = ({ textData }: HomeProps) => {
   // Dynamic image assets
-  const heroPeople = useImageAsset('homepage_hero_people');
+  const { getImageUrl } = useImageAssets();
   const eventsImage = useImageAsset('homepage_section_events_image');
   const travelImage = useImageAsset('homepage_section_travel_image');
   const startupLogo = useImageAsset('homepage_section_startup_logo');
@@ -75,7 +75,7 @@ const Home = ({ textData }: HomeProps) => {
           {/* Light Mode Image */}
           <Image
             className="lg:w-5/6 block dark:hidden"
-            src={heroPeople?.url || ''}
+            src={getImageUrl('homepage_hero_people', false) || ''}
             alt="People graphics"
             width={500}
             height={400}
@@ -84,7 +84,7 @@ const Home = ({ textData }: HomeProps) => {
           {/* Dark Mode Image */}
           <Image
             className="lg:w-5/6 hidden dark:block"
-            src={heroPeople?.url || ''}
+            src={getImageUrl('homepage_hero_people', true) || ''}
             alt="People graphics dark mode"
             width={500}
             height={400}

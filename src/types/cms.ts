@@ -1,4 +1,4 @@
-// Temporary types to fix build issues until GraphQL codegen is properly configured
+// TypeScript interfaces for CMS data structures
 
 export interface Asset {
   url: string;

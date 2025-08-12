@@ -1,11 +1,8 @@
 import Image from 'next/image';
-import { useEffect } from 'react';
-import { gql } from '@apollo/client';
 import JoinUsCard from 'components/JoinUsCard';
 import { JOIN_QUERY } from 'data/queries';
 import client from 'utils/apollo_client';
 import { useImageAsset } from 'hooks/useImageAssets';
-import { useTestQuery } from 'hooks/useTestQuery';
 // Removed fallback import to test pure dynamic loading
 
 interface JoinProps {
@@ -87,24 +84,6 @@ export const getServerSideProps = async (): Promise<{ props: JoinProps }> => {
 
 const Join = ({ joinData }: JoinProps) => {
   const joinHeroImage = useImageAsset('join_hero_background');
-  
-  // Test basic GraphQL connectivity
-  useTestQuery();
-  
-  // Test Apollo Client directly
-  useEffect(() => {
-    console.log('🔧 Testing Apollo Client directly...');
-    
-    // Try to query directly with the Apollo Client
-    client.query({
-      query: gql`query TestDirect { __typename }`,
-      fetchPolicy: 'no-cache'
-    }).then(result => {
-      console.log('✅ Direct Apollo Client Query Success:', result);
-    }).catch(error => {
-      console.error('❌ Direct Apollo Client Query Error:', error);
-    });
-  }, []);
   
   return (
     <div>
