@@ -1,15 +1,15 @@
 //Changed some team names
 
-import Description from 'components/Description';
-import JoinUsBar from 'components/JoinUsBar';
+import Description from 'components/Description/Description';
+import JoinUsBar from 'components/JoinUsBar/JoinUsBar';
 import { TeamProps } from 'components/Team/Team';
-import Teams from 'components/Teams';
-import SiteData from 'Data';
+import Teams from 'components/Teams/Teams';
+import SiteData from '@/Data';
+import { useImageAsset } from 'hooks/useImageAssets';
 import { ALL_DRIVERS_NOT_ALUMNI_QUERY, DESCRIPTION_QUERY } from 'data/queries';
-import { AllDriversQuery } from 'generated/cms/types';
+import { AllDriversQuery, Driver } from 'types/cms';
 import client from 'utils/apollo_client';
 import Image from 'next/image';
-import aboutUsHero from 'assets/netsonsImages/aboutUs_hero.png'; // Import image directly
 
 interface AboutProps {
   data: AllDriversQuery;
@@ -75,7 +75,7 @@ const getTeams = (data: AllDriversQuery) => {
   }
 
   // Add drivers to their respective teams
-  drivers.forEach((driver) => {
+  drivers.forEach((driver: Driver | null) => {
     if (!driver?.team) return;
 
     // Ensure the team exists in the map before accessing it
@@ -104,16 +104,17 @@ const getTeams = (data: AllDriversQuery) => {
 };
 
 const About = ({ data, description }: AboutProps) => {
+  const aboutHeroImage = useImageAsset('about_hero_background');
+
   return (
     <div>
       {/* About Us Hero Section */}
       <div className="relative w-full h-[350px] flex items-center justify-center">
         {/* Background Image */}
         <Image
-          src={aboutUsHero}
-          layout="fill"
-          objectFit="cover"
-          objectPosition="center 36%" // Adjust this percentage for fine control
+          src={aboutHeroImage.url || ''}
+          fill
+          style={{ objectFit: 'cover', objectPosition: 'center 36%' }}
           alt="About Us Background"
         />
 

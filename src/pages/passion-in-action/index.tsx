@@ -1,21 +1,22 @@
-import LessonsPIA from 'components/LessonsPIA';
+import LessonsPIA from 'components/LessonsPIA/LessonsPIA';
 import Image from 'next/image';
 
-import SiteData from 'Data';
-import Hero from 'components/Hero';
-import Description from 'components/Description';
-import ParagraphTitle from 'components/ParagraphTitle';
-// import PIAHero from 'assets/pia_hero.png'; // Import the image directly from assets
+import SiteData from '@/Data';
+import Description from 'components/Description/Description';
+import ParagraphTitle from 'components/ParagraphTitle/ParagraphTitle';
+import { useImageAsset } from 'hooks/useImageAssets';
 
 const PassionInAction = () => {
+  const piaHeroImage = useImageAsset('pia_hero_background');
+
   return (
     <div>
       {/* Hero Section with Background Image Fix */}
       <div className="relative w-full h-[350px] flex items-center justify-center text-white">
         <Image
-          src={SiteData.PIAHeroBackground}
-          layout="fill"
-          objectFit="cover"
+          src={piaHeroImage.url || ''}
+          fill
+          style={{ objectFit: 'cover' }}
           alt="Passion in Action Background"
         />
         <h1 className="absolute text-4xl font-extrabold text-ec_text_darkmode dark:text-ec_text_darkmode">

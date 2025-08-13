@@ -5,8 +5,13 @@ import {
   faLinkedin,
 } from '@fortawesome/free-brands-svg-icons';
 import Image from 'next/image';
-import Sponsors from 'components/Sponsors';
-import SiteData from 'Data';
+import Sponsors from 'components/Sponsors/Sponsors';
+import {
+  InteractiveSectionGroup,
+  InteractiveSection,
+} from 'components/InteractiveSection/InteractiveSection';
+import { useSponsors, useImageAsset } from 'hooks/useImageAssets';
+import SiteData from '@/Data';
 
 type FooterProps = {
   logo: string;
@@ -23,20 +28,29 @@ const Footer = ({
   linkedinUrl,
   copyrightName,
 }: FooterProps) => {
+  const sponsors = useSponsors();
+  const logoWhite = useImageAsset('branding_logo_white');
+
   return (
     <div>
       {/* Sponsors Section */}
       <div className="bg-ec_background dark:bg-ec_background_darkmode">
         <Sponsors
           className="max-w-screen-lg lg:mx-auto px-5 lg:px-0 py-16"
-          logos={SiteData.Sponsors}
+          logos={sponsors}
         />
       </div>
 
       {/* Footer Main Section */}
       <div className="flex flex-col items-center p-2 pb-10 bg-ec_blue dark:bg-ec_blue_darkmode">
         {/* Logo */}
-        <Image className="h-40" src={logo} alt="Logo" />
+        <Image
+          className="w-auto h-48"
+          src={logoWhite?.url || logo}
+          alt="Entrepreneurship Club Polimi"
+          width={240}
+          height={240}
+        />
 
         {/* Flex Container for Contact & Socials */}
         <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start w-full max-w-screen-lg p-5">
@@ -55,29 +69,52 @@ const Footer = ({
             <h2 className="text-ec_text_darkmode text-lg font-semibold text-center lg:text-left">
               Follow Us
             </h2>
-            <div className="flex space-x-6 mt-3">
-              <a href={facebookUrl} target="_blank" rel="noreferrer">
-                <FontAwesomeIcon
-                  className="text-ec_text_darkmode"
-                  size="3x"
-                  icon={faFacebookSquare}
-                />
-              </a>
-              <a href={instagramUrl} target="_blank" rel="noreferrer">
-                <FontAwesomeIcon
-                  className="text-ec_text_darkmode"
-                  size="3x"
-                  icon={faInstagramSquare}
-                />
-              </a>
-              <a href={linkedinUrl} target="_blank" rel="noreferrer">
-                <FontAwesomeIcon
-                  className="text-ec_text_darkmode"
-                  size="3x"
-                  icon={faLinkedin}
-                />
-              </a>
-            </div>
+            <InteractiveSectionGroup
+              rememberZIndex={false}
+              defaultScaleLevel="small"
+            >
+              <div className="flex space-x-6 mt-3">
+                <InteractiveSection
+                  sectionId="facebook"
+                  elementType="image"
+                  className="inline-block"
+                >
+                  <a href={facebookUrl} target="_blank" rel="noreferrer">
+                    <FontAwesomeIcon
+                      className="text-ec_text_darkmode"
+                      size="3x"
+                      icon={faFacebookSquare}
+                    />
+                  </a>
+                </InteractiveSection>
+                <InteractiveSection
+                  sectionId="instagram"
+                  elementType="image"
+                  className="inline-block"
+                >
+                  <a href={instagramUrl} target="_blank" rel="noreferrer">
+                    <FontAwesomeIcon
+                      className="text-ec_text_darkmode"
+                      size="3x"
+                      icon={faInstagramSquare}
+                    />
+                  </a>
+                </InteractiveSection>
+                <InteractiveSection
+                  sectionId="linkedin"
+                  elementType="image"
+                  className="inline-block"
+                >
+                  <a href={linkedinUrl} target="_blank" rel="noreferrer">
+                    <FontAwesomeIcon
+                      className="text-ec_text_darkmode"
+                      size="3x"
+                      icon={faLinkedin}
+                    />
+                  </a>
+                </InteractiveSection>
+              </div>
+            </InteractiveSectionGroup>
           </div>
         </div>
 

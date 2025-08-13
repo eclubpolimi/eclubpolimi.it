@@ -1,15 +1,17 @@
-import Button from 'components/Button';
-import JoinUsBar from 'components/JoinUsBar';
-import LabeledOutlineCard from 'components/LabeledOutlineCard';
-import SiteData from 'Data';
-
-import PeopleSvg from 'assets/people_graphics.svg';
-import LogoStartupChallenge from 'assets/logo_startupchallenge.jpg';
-import Munich2 from 'assets/munich2.jpg';
-import Munich3 from 'assets/munich3.jpg';
+import Button from 'components/Button/Button';
+import JoinUsBar from 'components/JoinUsBar/JoinUsBar';
+import LabeledOutlineCard from 'components/LabeledOutlineCard/LabeledOutlineCard';
+import SiteData from '@/Data';
+import { useImageAsset } from 'hooks/useImageAssets';
 import Image from 'next/image';
 
 const OpenDay = () => {
+  // Get dynamic images from Contentful
+  const heroPeopleImage = useImageAsset('homepage_hero_people');
+  const eventsImage = useImageAsset('homepage_section_events_image');
+  const startupLogo = useImageAsset('homepage_section_startup_logo');
+  const travelImage = useImageAsset('homepage_section_travel_image');
+
   return (
     <div className="w-full">
       <div className="pb-10 pt-4 md:py-10 px-5 md:px-20 flex flex-col-reverse md:flex-row text-center md:text-left items-center md:gap-8">
@@ -35,7 +37,13 @@ const OpenDay = () => {
           </Button>
         </div>
         <div className="w-full md:w-1/2 flex justify-center">
-          <Image className="lg:w-3/4" src={PeopleSvg} alt="People graphics" />
+          <Image
+            className="lg:w-3/4"
+            src={heroPeopleImage?.url || ''}
+            alt="People graphics"
+            width={500}
+            height={400}
+          />
         </div>
       </div>
       <div className="px-5 md:px-40 py-12 flex flex-col gap-16 bg-slate-50">
@@ -60,18 +68,22 @@ const OpenDay = () => {
           />
           <div className=" xl:w-1/2 xl:-ml-28  border border-solid border-ec_orange rounded-xl p-2">
             <Image
-              src={Munich2}
+              src={eventsImage?.url || ''}
               className="rounded-xl place-self-center"
               alt=""
+              width={400}
+              height={300}
             />
           </div>
         </div>
         <div className="flex flex-col-reverse xl:flex-row justify-center items-center">
           <div className="xl:w-1/2 xl:-mr-28  border border-solid border-ec_blue rounded-xl p-2">
             <Image
-              src={LogoStartupChallenge}
+              src={startupLogo?.url || ''}
               className="rounded-xl place-self-center"
               alt=""
+              width={400}
+              height={300}
             />
           </div>
           <LabeledOutlineCard
@@ -109,9 +121,11 @@ const OpenDay = () => {
           />
           <div className=" xl:w-1/2 xl:-ml-28  border border-solid border-ec_orange rounded-xl p-2">
             <Image
-              src={Munich3}
+              src={travelImage?.url || ''}
               className="rounded-xl place-self-center"
               alt=""
+              width={400}
+              height={300}
             />
           </div>
         </div>

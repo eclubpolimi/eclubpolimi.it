@@ -1,10 +1,11 @@
 // Buttons behave differently from links, they are styled differently and have different behavior.
 
 import { ReactNode, useState } from 'react';
-import MenuBurgerIcon from 'assets/navbar/menu-burger.svg';
-import CrossIcon from 'assets/navbar/cross.svg';
-import SiteData from 'Data';
+import MenuBurgerIcon from 'images/navbar/menu-burger.svg';
+import CrossIcon from 'images/navbar/cross.svg';
+import SiteData from '@/Data';
 import Image from 'next/image';
+import { useImageAsset } from 'hooks/useImageAssets';
 
 type NavBarProps = {
   items: Array<{ type: 'link' | 'button'; content: ReactNode }>;
@@ -12,6 +13,7 @@ type NavBarProps = {
 
 const NavBar = ({ items }: NavBarProps) => {
   const [clicked, setClicked] = useState(false);
+  const logoWhite = useImageAsset('branding_logo_white');
 
   const handleMenu = () => {
     setClicked(!clicked);
@@ -37,8 +39,10 @@ const NavBar = ({ items }: NavBarProps) => {
       <div className="h-16 flex flex-col justify-center">
         <a href={SiteData.HomeTarget} onClick={closeMenu}>
           <Image
-            src={SiteData.LogoWhite}
+            src={logoWhite?.url || SiteData.LogoWhite}
             alt="Entrepreneurship Club Polimi"
+            width={200}
+            height={56}
             className="h-14 w-fit xl:p-0 pr-16"
           />
         </a>
@@ -70,9 +74,21 @@ const NavBar = ({ items }: NavBarProps) => {
 
       <div className={`h-6 w-6 absolute right-5 top-5 xl:hidden`}>
         {!clicked ? (
-          <Image src={MenuBurgerIcon} alt="Open menu" onClick={handleMenu} />
+          <Image
+            src={MenuBurgerIcon}
+            alt="Open menu"
+            width={24}
+            height={24}
+            onClick={handleMenu}
+          />
         ) : (
-          <Image src={CrossIcon} alt="Close menu" onClick={handleMenu} />
+          <Image
+            src={CrossIcon}
+            alt="Close menu"
+            width={24}
+            height={24}
+            onClick={handleMenu}
+          />
         )}
       </div>
     </nav>

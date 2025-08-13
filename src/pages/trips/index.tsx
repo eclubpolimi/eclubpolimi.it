@@ -1,13 +1,12 @@
 import Image from 'next/image';
 
-import Description from 'components/Description';
-import Timeline from 'components/Timeline';
-import TravelBar from 'components/TravelBar';
-
-import TravelPlaceholder from 'assets/travelMainBackground.webp';
+import Description from 'components/Description/Description';
+import Timeline from 'components/Timeline/Timeline';
+import TravelBar from 'components/TravelBar/TravelBar';
+import { useImageAsset } from 'hooks/useImageAssets';
 
 import { LATEST_TRIP_QUERY } from 'data/queries';
-import { LatestTripDataQuery } from 'generated/cms/types';
+import { LatestTripDataQuery } from 'types/cms';
 import client from 'utils/apollo_client';
 import { formatDate, formatDateRange, formatDateTime } from 'utils/formatting';
 
@@ -24,7 +23,7 @@ export const getServerSideProps = async (): Promise<{ props: TravelProps }> => {
   // Determine if registrations are open on the server
   const isRegistrationOpen = (() => {
     const tripData = data?.tripCollection?.items[0];
-    if (!tripData) return false;
+    if (!tripData || !tripData.registrationsOpenDate) return false;
 
     const now = new Date();
     const open = new Date(tripData.registrationsOpenDate);
@@ -41,6 +40,9 @@ export const getServerSideProps = async (): Promise<{ props: TravelProps }> => {
 
 const Travel = ({ data }: TravelProps) => {
   const tripData = data?.tripCollection?.items[0];
+  const travelBackgroundFallback = useImageAsset(
+    'trips_hero_background_fallback',
+  );
 
   return (
     <div>
@@ -48,8 +50,9 @@ const Travel = ({ data }: TravelProps) => {
       <div className="relative w-full h-[350px]">
         <Image
           className="object-cover"
-          src={tripData?.image?.url || TravelPlaceholder}
-          layout="fill"
+          src={tripData?.image?.url || travelBackgroundFallback?.url || ''}
+          fill
+          style={{ objectFit: 'cover' }}
           alt={tripData?.image?.title || 'Travel preview'}
         />
         <div className="absolute inset-0 bg-ec_background/30 dark:bg-ec_background_darkmode/40 backdrop-blur-xl">
@@ -65,8 +68,10 @@ const Travel = ({ data }: TravelProps) => {
               info={{
                 place: tripData?.destinationCities?.[0] || '',
                 date:
-                  formatDateRange(tripData?.departDate, tripData?.returnDate) ||
-                  '',
+                  formatDateRange(
+                    tripData?.departDate || '',
+                    tripData?.returnDate || '',
+                  ) || '',
                 peoples: tripData?.availableSpots || 0,
                 price: `€${tripData?.price || 0}`,
                 priceTerms: tripData?.isPolimiSponsored || false,
@@ -84,17 +89,19 @@ const Travel = ({ data }: TravelProps) => {
           title={`Why should I go to ${tripData?.destinationCountry}?`}
         >
           <p className="text-justify">
-            {tripData?.description?.split('\n').map((paragraph, idx) => (
-              <span key={idx}>
-                {paragraph}
-                <br />
-              </span>
-            ))}
+            {tripData?.description
+              ?.split('\n')
+              .map((paragraph: string, idx: number) => (
+                <span key={idx}>
+                  {paragraph}
+                  <br />
+                </span>
+              ))}
             <br />
             <strong className="block -mx-4 p-4 bg-ec_background_light dark:bg-ec_background_darkmode_light rounded-xl border border-ec_border dark:border-ec_border_darkmode">
               Registrations open{' '}
               <span className="text-ec_orange dark:text-ec_orange_darkmode">
-                {formatDateTime(tripData?.registrationsOpenDate)}
+                {formatDateTime(tripData?.registrationsOpenDate || '')}
               </span>
               . Only {tripData?.availableSpots || 0} tickets are available and
               they'll run out quickly. Save the date and train your fingers in
@@ -127,16 +134,18 @@ const Travel = ({ data }: TravelProps) => {
         <Timeline
           theme="split"
           data={
-            tripData?.timelineCollection?.items.map((item) => ({
-              date: formatDate(item?.date) || '',
+            tripData?.timelineCollection?.items.map((item: any) => ({
+              date: formatDate(item?.date || '') || '',
               title: item?.title || '',
               children:
-                item?.description?.split('\n').map((paragraph, idx) => (
-                  <span key={idx}>
-                    {paragraph}
-                    <br />
-                  </span>
-                )) || '',
+                item?.description
+                  ?.split('\n')
+                  .map((paragraph: string, idx: number) => (
+                    <span key={idx}>
+                      {paragraph}
+                      <br />
+                    </span>
+                  )) || '',
             })) || []
           }
           className="py-16 max-w-screen-lg lg:mx-auto px-5 lg:px-0 font-medium text-ec_text dark:text-ec_text_darkmode"

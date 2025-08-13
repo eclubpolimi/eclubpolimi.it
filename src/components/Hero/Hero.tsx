@@ -36,7 +36,15 @@ const Hero = ({
       {contentType === 'text' ? (
         <div className="text-white lg:text-4xl text-2xl font-bold">{text}</div>
       ) : (
-        logo && <Image className="lg:w-[400px] w-[80vw]" src={logo} alt="" />
+        logo && (
+          <Image
+            className="lg:w-[400px] w-[80vw]"
+            src={logo}
+            alt=""
+            width={400}
+            height={200}
+          />
+        )
       )}
     </div>
   );

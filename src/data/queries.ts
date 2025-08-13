@@ -8,6 +8,24 @@ import {
   TRIP_FRAGMENT,
 } from './fragments';
 
+export const SITE_IMAGE_ASSETS_QUERY = gql`
+  query SiteImageAssets($limit: Int = 100) {
+    siteImageAssetCollection(limit: $limit) {
+      items {
+        key
+        imageLightMode {
+          url
+          title
+        }
+        imageDarkMode {
+          url
+          title
+        }
+      }
+    }
+  }
+`;
+
 export const LATEST_STARTUP_CHALLENGE_QUERY = gql`
   query StartupChallengeData {
     startupchallengeCollection(limit: 1, order: name_DESC) {

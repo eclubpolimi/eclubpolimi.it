@@ -1,9 +1,9 @@
 import Image from 'next/image';
-import JoinUsCard from 'components/JoinUsCard';
-import SiteData from 'Data';
+import JoinUsCard from 'components/JoinUsCard/JoinUsCard';
 import { JOIN_QUERY } from 'data/queries';
 import client from 'utils/apollo_client';
-import joinusHero from 'assets/homepage_hero.jpg'; // Import image directly
+import { useImageAsset } from 'hooks/useImageAssets';
+// Removed fallback import to test pure dynamic loading
 
 interface JoinProps {
   joinData: {
@@ -27,7 +27,7 @@ const cleanString = (text: string | null) =>
 
 export const getServerSideProps = async (): Promise<{ props: JoinProps }> => {
   const joinData = {
-    explorerJoinLink: 'https://forms.gle/CUsujfatS28vioox9', // Default
+    explorerJoinLink: '', // No default - will be empty if not found in query
     driverJoinLink: 'https://forms.gle/NWyuKPKhxDtEVYAA6', // Default
     sponsorJoinLink: '',
     explorerBenefits: [
@@ -59,8 +59,10 @@ export const getServerSideProps = async (): Promise<{ props: JoinProps }> => {
       );
 
       if (selectedEntry) {
-        joinData.explorerJoinLink =
-          selectedEntry.explorerJoinLink || joinData.explorerJoinLink;
+        // Only set explorerJoinLink if it exists in the query
+        if (selectedEntry.explorerJoinLink) {
+          joinData.explorerJoinLink = selectedEntry.explorerJoinLink;
+        }
         joinData.driverJoinLink =
           selectedEntry.driverJoinLink || joinData.driverJoinLink;
         joinData.sponsorJoinLink =
@@ -83,16 +85,17 @@ export const getServerSideProps = async (): Promise<{ props: JoinProps }> => {
 };
 
 const Join = ({ joinData }: JoinProps) => {
+  const joinHeroImage = useImageAsset('join_hero_background');
+
   return (
     <div>
-      {/* Hero Section (Fixed with Correct Image Background Handling) */}
+      {/* Hero Section - Testing Pure Dynamic Loading (NO FALLBACKS) */}
       <div className="relative w-full h-[250px]">
         <Image
-          src={joinusHero}
-          layout="fill"
-          objectFit="cover"
-          objectPosition="center 36%" // Adjust this percentage for fine control
-          alt="About Us Background"
+          src={joinHeroImage.url || ''}
+          fill
+          style={{ objectFit: 'cover', objectPosition: 'center 36%' }}
+          alt="Join Us Hero Background"
         />
 
         <div className="absolute inset-0 bg-black/50 flex items-center justify-center text-white text-2xl font-bold">
@@ -111,16 +114,20 @@ const Join = ({ joinData }: JoinProps) => {
           Polimi has the right place for you.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-center">
-          <div className="flex justify-center">
-            <JoinUsCard
-              role="Explorer"
-              height="420px"
-              width="400px"
-              advantages={joinData.explorerBenefits}
-              to={joinData.explorerJoinLink}
-            />
-          </div>
-          <div className="flex justify-center">
+          {joinData.explorerJoinLink && (
+            <div className="flex justify-center">
+              <JoinUsCard
+                role="Explorer"
+                height="420px"
+                width="400px"
+                advantages={joinData.explorerBenefits}
+                to={joinData.explorerJoinLink}
+              />
+            </div>
+          )}
+          <div
+            className={`flex justify-center ${!joinData.explorerJoinLink ? 'md:col-span-2' : ''}`}
+          >
             <JoinUsCard
               role="Driver"
               height="420px"

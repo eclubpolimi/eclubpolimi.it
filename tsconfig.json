@@ -2,12 +2,24 @@
   "compilerOptions": {
     "plugins": [
       {
+        "name": "next"
+      },
+      {
         "name": "typescript-plugin-css-modules"
       }
     ],
     "jsx": "preserve",
-    "baseUrl": "src",
-    "target": "es2016",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "components/*": ["./src/components/*"],
+      "data/*": ["./src/data/*"],
+      "hooks/*": ["./src/hooks/*"],
+      "images/*": ["./src/images/*"],
+      "types/*": ["./src/types/*"],
+      "utils/*": ["./src/utils/*"]
+    },
+    "target": "es2017",
     "module": "esnext",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
@@ -17,16 +29,12 @@
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "noFallthroughCasesInSwitch": true,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
     "incremental": true
   },
   "exclude": ["node_modules", "build", ".vscode", "README.md", ".gitignore"],
-  "include": [
-    "./src/",
-    "./*",
-    "src/types" // Ensure TypeScript includes the custom type file
-  ]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"]
 }

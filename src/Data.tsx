@@ -1,15 +1,7 @@
 //changed startup challgenge to a white button to make it stand out and added a rocket emoji next to it
 
-import Button from 'components/Button';
-import pialessons from 'assets/pialessons';
-import homepageHeroBackground from 'assets/homepage_hero.jpg';
-import logoLearnNetworkBuild from 'assets/logo_learn_network_build.svg';
-import logoWhite from 'assets/logo_white.svg';
-import networkHeroImage from 'assets/eclub-network.png';
-import logo2 from 'assets/img-eclub-bocconi.png';
-import logo3 from 'assets/img-eclub-pavia.png';
-import logo1 from 'assets/logo-colors.png';
-import logo4 from 'assets/logo_white.png';
+import Button from 'components/Button/Button';
+import pialessons from 'images/pialessons';
 import { ReactNode } from 'react';
 /**
  * @description This class holds global, static data, to avoid duplication between production code and tests
@@ -17,8 +9,9 @@ import { ReactNode } from 'react';
  */
 
 export default class SiteData {
-  // COMMON
-  static LogoWhite = logoWhite;
+  // COMMON - This should be loaded dynamically from Contentful
+  // Components using this should use: useImageAsset('branding_logo_white')
+  static LogoWhite = ''; // Use Contentful branding_logo_white asset instead
 
   static isDarkMode = () =>
     typeof window !== 'undefined' &&
@@ -84,43 +77,42 @@ export default class SiteData {
     // },
   ];
 
-  // HOMEPAGE
-  static Sponsors = [
+  // HOMEPAGE - SPONSORS (dynamically loaded via useSponsors hook)
+  static SponsorsData = [
     {
-      src: '/netsonsImages/Astra.png',
-      darkSrc: '/netsonsImages/Astra_darkmode.png',
+      key: 'sponsors_astra',
       href: 'https://astraincubator.com',
       alt: 'Astra incubator',
     },
     {
-      src: '/netsonsImages/Tutored.png',
-      darkSrc: '/netsonsImages/Tutored_darkmode.png',
+      key: 'sponsors_tutored',
       href: 'https://www.tutored.me',
       alt: 'Tutored',
     },
     {
-      src: '/netsonsImages/Polihub.png',
-      darkSrc: '/netsonsImages/Polihub_darkmode.png',
+      key: 'sponsors_polihub',
       href: 'https://www.polihub.it/it/',
       alt: 'Polihub',
     },
     {
-      src: '/netsonsImages/Jemp.png',
-      darkSrc: '/netsonsImages/Jemp.png',
+      key: 'sponsors_jemp',
       href: 'https://www.jemp.it',
       alt: 'Jemp',
     },
   ];
 
-  static LogoLearnNetworkBuild = logoLearnNetworkBuild;
+  // These should be loaded dynamically from Contentful
+  // Use: useImageAsset('branding_learn_network_build')
+  static LogoLearnNetworkBuild = ''; // Use Contentful asset instead
 
-  static HomepageHeroBackground = homepageHeroBackground;
+  // Use: useImageAsset('homepage_hero_background')
+  static HomepageHeroBackground = ''; // Use Contentful asset instead
 
   // ABOUT US
 
   // LESSONS PIA (placeholder)
   static LessonsPIA = pialessons;
-  static PIAHeroBackground = '/netsonsImages/pia_hero.png';
+  // PIAHeroBackground now uses: useImageAsset('pia_hero')
 
   // JOIN US
   static ApplyDriverLink = 'https://forms.gle/NWyuKPKhxDtEVYAA6'; //depracated, not changed from here
@@ -147,29 +139,22 @@ export default class SiteData {
     'Do you want to share your entrepreneurial experience - failure or success - with the firt entrepreneurial community of Polimi?',
   ];
 
-  // EVENTS
-  static eventsCarouselImages = [
-    {
-      image: '/netsonsImages/carousel1.jpg',
-    },
-    {
-      image: '/netsonsImages/carousel2.jpg',
-    },
-    {
-      image: '/netsonsImages/carousel3.jpg',
-    },
-    {
-      image: '/netsonsImages/carousel4.jpg',
-    },
-    {
-      image: '/netsonsImages/carousel5.jpg',
-    },
+  // EVENTS - Dynamic carousel data (images loaded via useCarouselImages hook)
+  static eventsCarouselData = [
+    { key: 'carousel_1' },
+    { key: 'carousel_2' },
+    { key: 'carousel_3' },
+    { key: 'carousel_4' },
+    { key: 'carousel_5' },
   ];
 
-  //NETWORK
-  static NetworkHeroImage = networkHeroImage;
-  static NetworkHeroBackground = '/netsonsImages/network_hero.jpg';
-  static SC2022_board = '/startupChallenge/previousYear/SC2022_board.jpg';
+  //NETWORK - Dynamic images (loaded via hooks)
+  // Use: useImageAsset('network_hero_logo')
+  static NetworkHeroImage = ''; // Use Contentful asset instead
+  // NetworkHeroBackground now uses: useImageAsset('network_hero_background')
+
+  // DEPRECATED: This image section is commented out in startup challenge page
+  // static SC2022_board = '/startupChallenge/previousYear/SC2022_board.jpg';
 
   static NetworkSlogan = [
     'Coming together is a beginning',
@@ -177,21 +162,25 @@ export default class SiteData {
     'Working together is a success',
   ];
 
-  static NetworkMembers = [
-    {
-      alt: 'E-Club Polimi',
-      href: 'https://www.eclubpolimi.it/',
-      src: logo1,
-      darkSrc: logo4,
-    },
-    {
-      alt: 'E-Club Bocconi',
-      href: 'https://www.eclubbocconi.com/',
-
-      src: logo2,
-    },
-    { alt: 'E-Club Pavia', href: 'https://www.eclubpavia.it/', src: logo3 },
-  ];
+  // DEPRECATED: Use useNetworkMembers() hook instead - loads from Contentful
+  // static NetworkMembers = [
+  //   {
+  //     alt: 'E-Club Polimi',
+  //     href: 'https://www.eclubpolimi.it/',
+  //     src: 'placeholder-polimi.png', // Use: network_members__polimi
+  //     darkSrc: 'placeholder-polimi-dark.png',
+  //   },
+  //   {
+  //     alt: 'E-Club Bocconi',
+  //     href: 'https://www.eclubbocconi.com/',
+  //     src: 'placeholder-bocconi.png', // Use: network_members__bocconi
+  //   },
+  //   {
+  //     alt: 'E-Club Pavia',
+  //     href: 'https://www.eclubpavia.it/',
+  //     src: 'placeholder-pavia.png' // Use: network_members__pavia
+  //   },
+  // ];
 
   static SmushMaterialsEventBanner = {
     imgSource:
