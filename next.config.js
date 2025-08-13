@@ -1,8 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
-  trailingSlash: true,
-  distDir: 'build',
   typescript: {
     // Enable type checking during build
     ignoreBuildErrors: false,
@@ -12,7 +9,6 @@ const nextConfig = {
     ignoreDuringBuilds: false,
   },
   images: {
-    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',
