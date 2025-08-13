@@ -62,6 +62,42 @@ export const LATEST_STARTUP_CHALLENGE_QUERY = gql`
   ${SPONSOR_FRAGMENT}
 `;
 
+export const ALL_STARTUP_CHALLENGES_QUERY = gql`
+  query AllStartupChallengeData {
+    startupchallengeCollection(limit: 10, order: name_ASC) {
+      items {
+        name
+        signUpLink
+        submissionsOpen
+        submissionsOpenDate
+        submissionsCloseDate
+        detailedProgramDescription
+        detailedProgram {
+          ...FileUrlFragment
+        }
+        timelineCollection {
+          items {
+            ...TimelineItemFragment
+          }
+        }
+        organizersCollection {
+          items {
+            ...SponsorFragment
+          }
+        }
+        sponsorsCollection {
+          items {
+            ...SponsorFragment
+          }
+        }
+      }
+    }
+  }
+  ${FILE_URL_FRAGMENT}
+  ${TIMELINE_ITEM_FRAGMENT}
+  ${SPONSOR_FRAGMENT}
+`;
+
 export const LATEST_EVENTS_QUERY = gql`
   query Event {
     eventCollection(limit: 4, order: date_ASC) {

@@ -23,15 +23,15 @@ const NavBar = ({ items }: NavBarProps) => {
     setClicked(false);
   };
 
-  const navClass = `h-16 w-full bg-ec_blue dark:bg-ec_blue_darkmode z-50 flex flex-nowrap relative`;
+  const navClass = `h-16 w-full bg-ec_blue dark:bg-ec_blue_darkmode z-50 flex flex-nowrap relative overflow-visible`;
   const navDesktopClass = `xl:px-10 xl:flex-row xl:justify-between xl:items-center`;
   const navMobileClass = `flex-col`;
 
   const linksClass =
-    'flex px-2 gap-8 items-center bg-ec_blue dark:bg-ec_blue_darkmode transition-all';
-  const linksDesktopClass = 'xl:flex-row xl:h-full xl:static';
+    'flex px-2 gap-8 items-center bg-ec_blue dark:bg-ec_blue_darkmode transition-all overflow-visible';
+  const linksDesktopClass = 'xl:flex-row xl:h-full xl:static xl:overflow-visible';
   const linksMobileClass = `flex-col ${
-    !clicked ? 'h-0 overflow-hidden py-0' : 'py-10'
+    !clicked ? 'h-0 overflow-hidden py-0' : 'py-10 overflow-visible'
   } absolute top-16 left-0 right-0`;
 
   return (
@@ -62,7 +62,11 @@ const NavBar = ({ items }: NavBarProps) => {
               : 'whitespace-nowrap text-white dark:text-ec_text_darkmode relative group'; // Default styling for links
 
           return (
-            <li key={index} className={itemClass} onClick={closeMenu}>
+            <li 
+              key={index} 
+              className={itemClass} 
+              onClick={item.type === 'button' ? undefined : closeMenu}
+            >
               {item.content}
               {item.type !== 'button' && (
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-ec_orange dark:bg-ec_orange_darkmode group-hover:w-full transition-all duration-300"></span>

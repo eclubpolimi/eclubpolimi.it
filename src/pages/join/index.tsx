@@ -113,20 +113,18 @@ const Join = ({ joinData }: JoinProps) => {
           your network, or take an active role in organizing events, E-Club
           Polimi has the right place for you.
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center">
           {joinData.explorerJoinLink && (
-            <div className="flex justify-center">
-              <JoinUsCard
-                role="Explorer"
-                height="420px"
-                width="400px"
-                advantages={joinData.explorerBenefits}
-                to={joinData.explorerJoinLink}
-              />
-            </div>
+            <JoinUsCard
+              role="Explorer"
+              height="420px"
+              width="400px"
+              advantages={joinData.explorerBenefits}
+              to={joinData.explorerJoinLink}
+            />
           )}
           <div
-            className={`flex justify-center ${!joinData.explorerJoinLink ? 'md:col-span-2' : ''}`}
+            className={`${!joinData.explorerJoinLink ? 'md:col-span-2 flex justify-center' : ''}`}
           >
             <JoinUsCard
               role="Driver"

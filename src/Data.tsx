@@ -1,6 +1,7 @@
 //changed startup challgenge to a white button to make it stand out and added a rocket emoji next to it
 
 import Button from 'components/Button/Button';
+import StartupChallengeDropdown from 'components/StartupChallengeDropdown/StartupChallengeDropdown';
 import pialessons from 'images/pialessons';
 import { ReactNode } from 'react';
 /**
@@ -48,11 +49,7 @@ export default class SiteData {
     //   type: 'link',
     // },
     {
-      content: (
-        <Button to={this.StartupChallengeTarget} theme="light">
-          🚀 Startup Challenge
-        </Button>
-      ),
+      content: <StartupChallengeDropdown />,
       type: 'button',
     },
     {
