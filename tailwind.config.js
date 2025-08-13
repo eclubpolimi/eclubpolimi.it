@@ -21,8 +21,8 @@ module.exports = {
 
         // Dark Mode Colors
         ec_blue_darkmode: '#0A043C',
-        ec_orange_darkmode: '#8c220c',
-        ec_orange_hover_darkmode: '#a63920',
+        ec_orange_darkmode: '#af3714',
+        ec_orange_hover_darkmode: '#af4f09',
         ec_grey_darkmode: '#1F2937',
         ec_background_darkmode: '#111827',
         ec_text_darkmode: '#D1D5DB',
