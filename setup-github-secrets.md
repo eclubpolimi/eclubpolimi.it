@@ -9,11 +9,13 @@ Go to: https://github.com/eclubpolimi/eclubpolimi.it/settings/secrets/actions
 Add these secrets by clicking "New repository secret":
 
 **NEXT_PUBLIC_CMS_GRAPHQL_ENDPOINT**
+
 ```
 https://graphql.contentful.com/content/v1/spaces/b9kw9yhwywsl/environments/master
 ```
 
 **NEXT_PUBLIC_CMS_ACCESS_TOKEN**
+
 ```
 wgKnrYfqcWciYTkzILWxU-Ob3PkvGvOMm3IEzGHE_yI
 ```
@@ -27,21 +29,25 @@ Go to your Vercel dashboard: https://vercel.com/dashboard
 3. Add these variables for **Production**, **Preview**, and **Development**:
 
 **NEXT_PUBLIC_CMS_GRAPHQL_ENDPOINT**
+
 ```
 https://graphql.contentful.com/content/v1/spaces/b9kw9yhwywsl/environments/master
 ```
 
 **NEXT_PUBLIC_CMS_ACCESS_TOKEN**
+
 ```
 wgKnrYfqcWciYTkzILWxU-Ob3PkvGvOMm3IEzGHE_yI
 ```
 
 **CMS_GRAPHQL_ENDPOINT**
+
 ```
 https://graphql.contentful.com/content/v1/spaces/b9kw9yhwywsl/environments/master
 ```
 
 **CMS_ACCESS_TOKEN**
+
 ```
 wgKnrYfqcWciYTkzILWxU-Ob3PkvGvOMm3IEzGHE_yI
 ```
@@ -49,13 +55,14 @@ wgKnrYfqcWciYTkzILWxU-Ob3PkvGvOMm3IEzGHE_yI
 ### 3. Redeploy
 
 After setting up both:
+
 1. Go to Vercel dashboard and trigger a redeploy
 2. OR merge your changes to `master` to trigger GitHub Actions
 
 ## What I Fixed:
 
-1. ✅ Added NEXT_PUBLIC_ environment variables to GitHub Actions workflow
+1. ✅ Added NEXT*PUBLIC* environment variables to GitHub Actions workflow
 2. ✅ Reverted Next.js config (Vercel handles deployment automatically)
 3. ✅ Created this guide for proper Vercel setup
 
-The key issue: **NEXT_PUBLIC_** prefixed environment variables are required for client-side access to Contentful in the browser! 🚀
+The key issue: **NEXT*PUBLIC*** prefixed environment variables are required for client-side access to Contentful in the browser! 🚀
