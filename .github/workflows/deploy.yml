@@ -28,6 +28,8 @@ jobs:
           CMS_GRAPHQL_ENDPOINT: ${{ secrets.CMS_GRAPHQL_ENDPOINT }}
           CMS_ACCESS_TOKEN: ${{ secrets.CMS_ACCESS_TOKEN }}
           CMS_PREVIEW_ACCESS_TOKEN: ${{ secrets.CMS_PREVIEW_ACCESS_TOKEN }}
+          NEXT_PUBLIC_CMS_GRAPHQL_ENDPOINT: ${{ secrets.NEXT_PUBLIC_CMS_GRAPHQL_ENDPOINT }}
+          NEXT_PUBLIC_CMS_ACCESS_TOKEN: ${{ secrets.NEXT_PUBLIC_CMS_ACCESS_TOKEN }}
         run: |
           node -v
           npm -v
