@@ -30,7 +30,12 @@ export const getServerSideProps = async (): Promise<{
   // Determine if submissions are enabled on the server
   const submissionsEnabled = (() => {
     const pageData = data?.startupchallengeCollection?.items[0];
-    if (!pageData || !pageData.submissionsOpenDate || !pageData.submissionsCloseDate) return false;
+    if (
+      !pageData ||
+      !pageData.submissionsOpenDate ||
+      !pageData.submissionsCloseDate
+    )
+      return false;
 
     const now = new Date();
     const open = new Date(pageData.submissionsOpenDate);

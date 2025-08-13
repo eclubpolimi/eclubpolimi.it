@@ -36,10 +36,5 @@
     "incremental": true
   },
   "exclude": ["node_modules", "build", ".vscode", "README.md", ".gitignore"],
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts"
-  ]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"]
 }

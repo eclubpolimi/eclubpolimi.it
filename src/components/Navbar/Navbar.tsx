@@ -74,20 +74,20 @@ const NavBar = ({ items }: NavBarProps) => {
 
       <div className={`h-6 w-6 absolute right-5 top-5 xl:hidden`}>
         {!clicked ? (
-          <Image 
-            src={MenuBurgerIcon} 
-            alt="Open menu" 
+          <Image
+            src={MenuBurgerIcon}
+            alt="Open menu"
             width={24}
             height={24}
-            onClick={handleMenu} 
+            onClick={handleMenu}
           />
         ) : (
-          <Image 
-            src={CrossIcon} 
-            alt="Close menu" 
+          <Image
+            src={CrossIcon}
+            alt="Close menu"
             width={24}
             height={24}
-            onClick={handleMenu} 
+            onClick={handleMenu}
           />
         )}
       </div>

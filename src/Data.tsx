@@ -142,7 +142,7 @@ export default class SiteData {
   // EVENTS - Dynamic carousel data (images loaded via useCarouselImages hook)
   static eventsCarouselData = [
     { key: 'carousel_1' },
-    { key: 'carousel_2' }, 
+    { key: 'carousel_2' },
     { key: 'carousel_3' },
     { key: 'carousel_4' },
     { key: 'carousel_5' },
@@ -152,7 +152,7 @@ export default class SiteData {
   // Use: useImageAsset('network_hero_logo')
   static NetworkHeroImage = ''; // Use Contentful asset instead
   // NetworkHeroBackground now uses: useImageAsset('network_hero_background')
-  
+
   // DEPRECATED: This image section is commented out in startup challenge page
   // static SC2022_board = '/startupChallenge/previousYear/SC2022_board.jpg';
 
@@ -175,9 +175,9 @@ export default class SiteData {
   //     href: 'https://www.eclubbocconi.com/',
   //     src: 'placeholder-bocconi.png', // Use: network_members__bocconi
   //   },
-  //   { 
-  //     alt: 'E-Club Pavia', 
-  //     href: 'https://www.eclubpavia.it/', 
+  //   {
+  //     alt: 'E-Club Pavia',
+  //     href: 'https://www.eclubpavia.it/',
   //     src: 'placeholder-pavia.png' // Use: network_members__pavia
   //   },
   // ];

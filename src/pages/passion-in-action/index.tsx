@@ -8,7 +8,7 @@ import { useImageAsset } from 'hooks/useImageAssets';
 
 const PassionInAction = () => {
   const piaHeroImage = useImageAsset('pia_hero_background');
-  
+
   return (
     <div>
       {/* Hero Section with Background Image Fix */}

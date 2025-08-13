@@ -105,7 +105,7 @@ const getTeams = (data: AllDriversQuery) => {
 
 const About = ({ data, description }: AboutProps) => {
   const aboutHeroImage = useImageAsset('about_hero_background');
-  
+
   return (
     <div>
       {/* About Us Hero Section */}

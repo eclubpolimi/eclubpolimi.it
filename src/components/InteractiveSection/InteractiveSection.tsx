@@ -25,15 +25,19 @@ const InteractiveSectionContext = createContext<{
   defaultScaleLevel: 'tiny' | 'small' | 'medium' | 'large' | 'huge';
   handleHover: (section: string, element: string) => void;
   handleHoverEnd: () => void;
-  getElementClasses: (section: string, element: string, customScale?: 'tiny' | 'small' | 'medium' | 'large' | 'huge') => string;
+  getElementClasses: (
+    section: string,
+    element: string,
+    customScale?: 'tiny' | 'small' | 'medium' | 'large' | 'huge',
+  ) => string;
 } | null>(null);
 
 // Group component that manages state for multiple interactive sections
-export const InteractiveSectionGroup = ({ 
-  children, 
-  rememberZIndex = true, 
-  className = "",
-  defaultScaleLevel = 'small'
+export const InteractiveSectionGroup = ({
+  children,
+  rememberZIndex = true,
+  className = '',
+  defaultScaleLevel = 'small',
 }: InteractiveSectionGroupProps) => {
   const [hoveredSection, setHoveredSection] = useState<{
     section: string;
@@ -45,7 +49,7 @@ export const InteractiveSectionGroup = ({
   const handleHover = (section: string, element: string) => {
     setHoveredSection({ section, element });
     if (rememberZIndex) {
-      setLastHovered(prev => ({ ...prev, [section]: element }));
+      setLastHovered((prev) => ({ ...prev, [section]: element }));
     }
   };
 
@@ -53,25 +57,41 @@ export const InteractiveSectionGroup = ({
     setHoveredSection(null);
   };
 
-  const getScaleClasses = (scaleLevel: 'tiny' | 'small' | 'medium' | 'large' | 'huge') => {
+  const getScaleClasses = (
+    scaleLevel: 'tiny' | 'small' | 'medium' | 'large' | 'huge',
+  ) => {
     switch (scaleLevel) {
-      case 'tiny': return 'scale-[102%] xl:scale-105';
-      case 'small': return 'scale-105 xl:scale-110';
-      case 'medium': return 'scale-110 xl:scale-125';
-      case 'large': return 'scale-125 xl:scale-150';
-      case 'huge': return 'scale-150 xl:scale-[175%]';
-      default: return 'scale-105 xl:scale-110';
+      case 'tiny':
+        return 'scale-[102%] xl:scale-105';
+      case 'small':
+        return 'scale-105 xl:scale-110';
+      case 'medium':
+        return 'scale-110 xl:scale-125';
+      case 'large':
+        return 'scale-125 xl:scale-150';
+      case 'huge':
+        return 'scale-150 xl:scale-[175%]';
+      default:
+        return 'scale-105 xl:scale-110';
     }
   };
 
-  const getElementClasses = (section: string, element: string, customScale?: 'tiny' | 'small' | 'medium' | 'large' | 'huge') => {
-    const isHovered = hoveredSection?.section === section && hoveredSection?.element === element;
+  const getElementClasses = (
+    section: string,
+    element: string,
+    customScale?: 'tiny' | 'small' | 'medium' | 'large' | 'huge',
+  ) => {
+    const isHovered =
+      hoveredSection?.section === section &&
+      hoveredSection?.element === element;
     const isLastHovered = rememberZIndex && lastHovered[section] === element;
-    
+
     const baseClasses = 'transition-all duration-300 ease-in-out';
-    
-    const hoverClasses = isHovered ? getScaleClasses(customScale || defaultScaleLevel) : '';
-    
+
+    const hoverClasses = isHovered
+      ? getScaleClasses(customScale || defaultScaleLevel)
+      : '';
+
     let zIndexClasses = 'relative z-0';
     if (isHovered) {
       zIndexClasses = 'relative z-20';
@@ -81,7 +101,7 @@ export const InteractiveSectionGroup = ({
       // Default z-index: text elements on top (z-10), images below (z-0)
       zIndexClasses = element === 'text' ? 'relative z-10' : 'relative z-0';
     }
-    
+
     return `${baseClasses} ${hoverClasses} ${zIndexClasses}`;
   };
 
@@ -97,9 +117,7 @@ export const InteractiveSectionGroup = ({
 
   return (
     <InteractiveSectionContext.Provider value={contextValue}>
-      <div className={className}>
-        {children}
-      </div>
+      <div className={className}>{children}</div>
     </InteractiveSectionContext.Provider>
   );
 };
@@ -109,24 +127,26 @@ export const InteractiveSection = ({
   children,
   sectionId,
   elementType,
-  className = "",
+  className = '',
   scaleOnHover = true,
-  scaleLevel
+  scaleLevel,
 }: InteractiveSectionProps) => {
   const context = useContext(InteractiveSectionContext);
-  
+
   if (!context) {
-    throw new Error('InteractiveSection must be used within InteractiveSectionGroup');
+    throw new Error(
+      'InteractiveSection must be used within InteractiveSectionGroup',
+    );
   }
 
   const { handleHover, handleHoverEnd, getElementClasses } = context;
 
-  const elementClasses = scaleOnHover 
+  const elementClasses = scaleOnHover
     ? getElementClasses(sectionId, elementType, scaleLevel)
     : 'transition-all duration-300 ease-in-out relative z-0';
 
   return (
-    <div 
+    <div
       className={`${elementClasses} ${className}`}
       onMouseEnter={() => handleHover(sectionId, elementType)}
       onMouseLeave={handleHoverEnd}

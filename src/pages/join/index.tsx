@@ -86,7 +86,7 @@ export const getServerSideProps = async (): Promise<{ props: JoinProps }> => {
 
 const Join = ({ joinData }: JoinProps) => {
   const joinHeroImage = useImageAsset('join_hero_background');
-  
+
   return (
     <div>
       {/* Hero Section - Testing Pure Dynamic Loading (NO FALLBACKS) */}
@@ -125,7 +125,9 @@ const Join = ({ joinData }: JoinProps) => {
               />
             </div>
           )}
-          <div className={`flex justify-center ${!joinData.explorerJoinLink ? 'md:col-span-2' : ''}`}>
+          <div
+            className={`flex justify-center ${!joinData.explorerJoinLink ? 'md:col-span-2' : ''}`}
+          >
             <JoinUsCard
               role="Driver"
               height="420px"

@@ -21,7 +21,7 @@ export const useImageAssets = (): UseImageAssetsResult => {
     {
       errorPolicy: 'all',
       fetchPolicy: 'cache-first',
-    }
+    },
   );
 
   const assets = useMemo(() => {
@@ -30,13 +30,13 @@ export const useImageAssets = (): UseImageAssetsResult => {
 
   const getAsset = useMemo(() => {
     return (key: string): SiteImageAsset | undefined => {
-      return assets.find(asset => asset.key === key);
+      return assets.find((asset) => asset.key === key);
     };
   }, [assets]);
 
   const getAssetsByPrefix = useMemo(() => {
     return (prefix: string): SiteImageAsset[] => {
-      return assets.filter(asset => asset.key?.startsWith(prefix));
+      return assets.filter((asset) => asset.key?.startsWith(prefix));
     };
   }, [assets]);
 
@@ -44,8 +44,8 @@ export const useImageAssets = (): UseImageAssetsResult => {
     return (key: string, isDarkMode = false): string | undefined => {
       const asset = getAsset(key);
       if (!asset) return undefined;
-      
-      return isDarkMode 
+
+      return isDarkMode
         ? asset.imageDarkMode?.url || asset.imageLightMode?.url
         : asset.imageLightMode?.url;
     };
@@ -66,10 +66,10 @@ export const useImageAssets = (): UseImageAssetsResult => {
  */
 export const useImageAsset = (key: string) => {
   const { getAsset, getImageUrl, loading, error } = useImageAssets();
-  
+
   const asset = getAsset(key);
   const url = getImageUrl(key);
-  
+
   return {
     asset,
     url,
@@ -83,15 +83,15 @@ export const useImageAsset = (key: string) => {
  */
 export const useCarouselImages = () => {
   const { getAssetsByPrefix, loading, error } = useImageAssets();
-  
+
   const carouselAssets = getAssetsByPrefix('events_carousel');
-  
+
   // Transform to match Carousel component expected format
-  const transformedImages = carouselAssets.map(asset => ({
+  const transformedImages = carouselAssets.map((asset) => ({
     image: asset.imageLightMode?.url || '',
     alt: asset.imageLightMode?.title || 'events_carousel',
   }));
-  
+
   return {
     images: transformedImages,
     loading,
@@ -100,15 +100,15 @@ export const useCarouselImages = () => {
 };
 
 /**
- * Hook for sponsor images  
+ * Hook for sponsor images
  */
 export const useSponsors = () => {
   const { getAssetsByPrefix } = useImageAssets();
-  
+
   const sponsorAssets = getAssetsByPrefix('sponsor');
-  
+
   // Transform to match Sponsors component expected format
-  return sponsorAssets.map(asset => ({
+  return sponsorAssets.map((asset) => ({
     src: asset.imageLightMode?.url || '',
     darkSrc: asset.imageDarkMode?.url || asset.imageLightMode?.url || '',
     href: '#', // Default href - could be from asset metadata
@@ -117,15 +117,15 @@ export const useSponsors = () => {
 };
 
 /**
- * Hook for network member images  
+ * Hook for network member images
  */
 export const useNetworkMembers = () => {
   const { getAssetsByPrefix } = useImageAssets();
-  
+
   const networkAssets = getAssetsByPrefix('network_members');
-  
+
   // Transform to match Sponsors component expected format
-  return networkAssets.map(asset => ({
+  return networkAssets.map((asset) => ({
     src: asset.imageLightMode?.url || '',
     darkSrc: asset.imageDarkMode?.url || asset.imageLightMode?.url || '',
     href: '#', // Default href - could be from asset metadata

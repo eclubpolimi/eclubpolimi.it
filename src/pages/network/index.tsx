@@ -9,7 +9,7 @@ const Network = () => {
   const networkHeroImage = useImageAsset('network_hero_background');
   const networkHeroLogo = useImageAsset('network_hero_logo');
   const networkMembers = useNetworkMembers();
-  
+
   return (
     <div>
       {/* Hero Image Fix */}

@@ -1,7 +1,10 @@
 // added options to make buttons orange (join us) and blue (startup challenge)
 
 import React, { useState } from 'react';
-import { InteractiveSection, InteractiveSectionGroup } from 'components/InteractiveSection/InteractiveSection';
+import {
+  InteractiveSection,
+  InteractiveSectionGroup,
+} from 'components/InteractiveSection/InteractiveSection';
 
 export type ButtonProps = {
   to: string;
@@ -28,7 +31,7 @@ const Button = ({
 }: ButtonProps) => {
   // Generate unique ID for this button instance
   const buttonId = React.useId();
-  
+
   // Dynamic styles based on theme
   const themeStyles = {
     orange:
@@ -46,13 +49,20 @@ const Button = ({
   }`;
 
   // Wrapper component for interactive scaling
-  const ButtonWrapper = ({ children: buttonChildren }: { children: React.ReactNode }) => {
+  const ButtonWrapper = ({
+    children: buttonChildren,
+  }: {
+    children: React.ReactNode;
+  }) => {
     if (disableHoverScale || disabled) {
       return <>{buttonChildren}</>;
     }
-    
+
     return (
-      <InteractiveSectionGroup rememberZIndex={false} defaultScaleLevel={scaleLevel}>
+      <InteractiveSectionGroup
+        rememberZIndex={false}
+        defaultScaleLevel={scaleLevel}
+      >
         <InteractiveSection
           sectionId={buttonId}
           elementType="text"

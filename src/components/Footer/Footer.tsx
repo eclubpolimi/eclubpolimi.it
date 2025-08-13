@@ -6,7 +6,10 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import Image from 'next/image';
 import Sponsors from 'components/Sponsors/Sponsors';
-import { InteractiveSectionGroup, InteractiveSection } from 'components/InteractiveSection/InteractiveSection';
+import {
+  InteractiveSectionGroup,
+  InteractiveSection,
+} from 'components/InteractiveSection/InteractiveSection';
 import { useSponsors, useImageAsset } from 'hooks/useImageAssets';
 import SiteData from '@/Data';
 
@@ -27,7 +30,7 @@ const Footer = ({
 }: FooterProps) => {
   const sponsors = useSponsors();
   const logoWhite = useImageAsset('branding_logo_white');
-  
+
   return (
     <div>
       {/* Sponsors Section */}
@@ -41,10 +44,10 @@ const Footer = ({
       {/* Footer Main Section */}
       <div className="flex flex-col items-center p-2 pb-10 bg-ec_blue dark:bg-ec_blue_darkmode">
         {/* Logo */}
-        <Image 
-          className="w-auto h-48" 
-          src={logoWhite?.url || logo} 
-          alt="Entrepreneurship Club Polimi" 
+        <Image
+          className="w-auto h-48"
+          src={logoWhite?.url || logo}
+          alt="Entrepreneurship Club Polimi"
           width={240}
           height={240}
         />
@@ -66,9 +69,16 @@ const Footer = ({
             <h2 className="text-ec_text_darkmode text-lg font-semibold text-center lg:text-left">
               Follow Us
             </h2>
-            <InteractiveSectionGroup rememberZIndex={false} defaultScaleLevel="small">
+            <InteractiveSectionGroup
+              rememberZIndex={false}
+              defaultScaleLevel="small"
+            >
               <div className="flex space-x-6 mt-3">
-                <InteractiveSection sectionId="facebook" elementType="image" className="inline-block">
+                <InteractiveSection
+                  sectionId="facebook"
+                  elementType="image"
+                  className="inline-block"
+                >
                   <a href={facebookUrl} target="_blank" rel="noreferrer">
                     <FontAwesomeIcon
                       className="text-ec_text_darkmode"
@@ -77,7 +87,11 @@ const Footer = ({
                     />
                   </a>
                 </InteractiveSection>
-                <InteractiveSection sectionId="instagram" elementType="image" className="inline-block">
+                <InteractiveSection
+                  sectionId="instagram"
+                  elementType="image"
+                  className="inline-block"
+                >
                   <a href={instagramUrl} target="_blank" rel="noreferrer">
                     <FontAwesomeIcon
                       className="text-ec_text_darkmode"
@@ -86,7 +100,11 @@ const Footer = ({
                     />
                   </a>
                 </InteractiveSection>
-                <InteractiveSection sectionId="linkedin" elementType="image" className="inline-block">
+                <InteractiveSection
+                  sectionId="linkedin"
+                  elementType="image"
+                  className="inline-block"
+                >
                   <a href={linkedinUrl} target="_blank" rel="noreferrer">
                     <FontAwesomeIcon
                       className="text-ec_text_darkmode"

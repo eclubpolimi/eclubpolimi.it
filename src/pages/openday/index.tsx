@@ -37,9 +37,9 @@ const OpenDay = () => {
           </Button>
         </div>
         <div className="w-full md:w-1/2 flex justify-center">
-          <Image 
-            className="lg:w-3/4" 
-            src={heroPeopleImage?.url || ''} 
+          <Image
+            className="lg:w-3/4"
+            src={heroPeopleImage?.url || ''}
             alt="People graphics"
             width={500}
             height={400}

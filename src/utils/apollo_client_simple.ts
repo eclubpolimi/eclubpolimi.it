@@ -2,8 +2,11 @@ import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
 // Get environment variables (works with NEXT_PUBLIC prefix for client-side)
-const endpoint = process.env.NEXT_PUBLIC_CMS_GRAPHQL_ENDPOINT || process.env.CMS_GRAPHQL_ENDPOINT;
-const token = process.env.NEXT_PUBLIC_CMS_ACCESS_TOKEN || process.env.CMS_ACCESS_TOKEN;
+const endpoint =
+  process.env.NEXT_PUBLIC_CMS_GRAPHQL_ENDPOINT ||
+  process.env.CMS_GRAPHQL_ENDPOINT;
+const token =
+  process.env.NEXT_PUBLIC_CMS_ACCESS_TOKEN || process.env.CMS_ACCESS_TOKEN;
 
 // Simple HTTP link
 const httpLink = createHttpLink({
@@ -16,7 +19,7 @@ const authLink = setContext((_, { headers }) => {
     headers: {
       ...headers,
       authorization: `Bearer ${token}`,
-    }
+    },
   };
 });
 

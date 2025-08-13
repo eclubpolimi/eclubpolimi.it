@@ -15,7 +15,7 @@ export type LessonProps = {
 const Lesson = ({ lessonData, className = '' }: LessonProps) => {
   // Get the image from Contentful using the imageKey
   const lessonImage = useImageAsset(lessonData.imageKey);
-  
+
   return (
     <div
       className={`${className} bg-ec_background dark:bg-ec_background_darkmode p-6 rounded-lg shadow-md`}

@@ -40,7 +40,9 @@ export const getServerSideProps = async (): Promise<{ props: TravelProps }> => {
 
 const Travel = ({ data }: TravelProps) => {
   const tripData = data?.tripCollection?.items[0];
-  const travelBackgroundFallback = useImageAsset('trips_hero_background_fallback');
+  const travelBackgroundFallback = useImageAsset(
+    'trips_hero_background_fallback',
+  );
 
   return (
     <div>
@@ -66,8 +68,10 @@ const Travel = ({ data }: TravelProps) => {
               info={{
                 place: tripData?.destinationCities?.[0] || '',
                 date:
-                  formatDateRange(tripData?.departDate || '', tripData?.returnDate || '') ||
-                  '',
+                  formatDateRange(
+                    tripData?.departDate || '',
+                    tripData?.returnDate || '',
+                  ) || '',
                 peoples: tripData?.availableSpots || 0,
                 price: `€${tripData?.price || 0}`,
                 priceTerms: tripData?.isPolimiSponsored || false,
@@ -85,12 +89,14 @@ const Travel = ({ data }: TravelProps) => {
           title={`Why should I go to ${tripData?.destinationCountry}?`}
         >
           <p className="text-justify">
-            {tripData?.description?.split('\n').map((paragraph: string, idx: number) => (
-              <span key={idx}>
-                {paragraph}
-                <br />
-              </span>
-            ))}
+            {tripData?.description
+              ?.split('\n')
+              .map((paragraph: string, idx: number) => (
+                <span key={idx}>
+                  {paragraph}
+                  <br />
+                </span>
+              ))}
             <br />
             <strong className="block -mx-4 p-4 bg-ec_background_light dark:bg-ec_background_darkmode_light rounded-xl border border-ec_border dark:border-ec_border_darkmode">
               Registrations open{' '}
@@ -132,12 +138,14 @@ const Travel = ({ data }: TravelProps) => {
               date: formatDate(item?.date || '') || '',
               title: item?.title || '',
               children:
-                item?.description?.split('\n').map((paragraph: string, idx: number) => (
-                  <span key={idx}>
-                    {paragraph}
-                    <br />
-                  </span>
-                )) || '',
+                item?.description
+                  ?.split('\n')
+                  .map((paragraph: string, idx: number) => (
+                    <span key={idx}>
+                      {paragraph}
+                      <br />
+                    </span>
+                  )) || '',
             })) || []
           }
           className="py-16 max-w-screen-lg lg:mx-auto px-5 lg:px-0 font-medium text-ec_text dark:text-ec_text_darkmode"

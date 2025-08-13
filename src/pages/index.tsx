@@ -1,12 +1,19 @@
 import Button from 'components/Button/Button';
 import JoinUsBar from 'components/JoinUsBar/JoinUsBar';
 import LabeledOutlineCard from 'components/LabeledOutlineCard/LabeledOutlineCard';
-import { InteractiveSectionGroup, InteractiveSection } from 'components/InteractiveSection/InteractiveSection';
+import {
+  InteractiveSectionGroup,
+  InteractiveSection,
+} from 'components/InteractiveSection/InteractiveSection';
 import SiteData from '@/Data';
 import Image from 'next/image';
 import { DESCRIPTION_QUERY } from 'data/queries';
 import client from 'utils/apollo_client';
-import { useImageAsset, useCarouselImages, useImageAssets } from 'hooks/useImageAssets';
+import {
+  useImageAsset,
+  useCarouselImages,
+  useImageAssets,
+} from 'hooks/useImageAssets';
 
 interface HomeProps {
   textData: Record<string, string>; // Store all text snippets from Contentful
@@ -155,7 +162,7 @@ const Home = ({ textData }: HomeProps) => {
           <h2 className="md:text-center">
             {textData['home - a glimpse'] || 'A glimpse of what we do'}
           </h2>
-          <InteractiveSectionGroup 
+          <InteractiveSectionGroup
             rememberZIndex={false}
             defaultScaleLevel="medium"
           >
@@ -181,7 +188,9 @@ const Home = ({ textData }: HomeProps) => {
                 className="xl:w-1/2 xl:-ml-28 border border-solid border-ec_border dark:border-ec_border_darkmode rounded-xl p-2"
               >
                 <Image
-                  src={getImageUrl('homepage_section_events_image', false) || ''}
+                  src={
+                    getImageUrl('homepage_section_events_image', false) || ''
+                  }
                   className="rounded-xl place-self-center block dark:hidden"
                   alt="Events"
                   width={400}
@@ -203,7 +212,9 @@ const Home = ({ textData }: HomeProps) => {
                 className="xl:w-1/2 xl:-mr-28 border border-solid border-ec_orange dark:border-ec_orange_darkmode rounded-xl p-2"
               >
                 <Image
-                  src={getImageUrl('homepage_section_startup_logo', false) || ''}
+                  src={
+                    getImageUrl('homepage_section_startup_logo', false) || ''
+                  }
                   className="rounded-xl place-self-center block dark:hidden"
                   alt="Startup Challenge"
                   width={400}
@@ -256,7 +267,9 @@ const Home = ({ textData }: HomeProps) => {
                 className="xl:w-1/2 xl:-ml-28 border border-solid border-ec_border dark:border-ec_border_darkmode rounded-xl p-2"
               >
                 <Image
-                  src={getImageUrl('homepage_section_travel_image', false) || ''}
+                  src={
+                    getImageUrl('homepage_section_travel_image', false) || ''
+                  }
                   className="rounded-xl place-self-center block dark:hidden"
                   alt="Travel"
                   width={400}
