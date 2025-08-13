@@ -27,7 +27,7 @@ const cleanString = (text: string | null) =>
 
 export const getServerSideProps = async (): Promise<{ props: JoinProps }> => {
   const joinData = {
-    explorerJoinLink: 'https://forms.gle/CUsujfatS28vioox9', // Default
+    explorerJoinLink: '', // No default - will be empty if not found in query
     driverJoinLink: 'https://forms.gle/NWyuKPKhxDtEVYAA6', // Default
     sponsorJoinLink: '',
     explorerBenefits: [
@@ -59,8 +59,10 @@ export const getServerSideProps = async (): Promise<{ props: JoinProps }> => {
       );
 
       if (selectedEntry) {
-        joinData.explorerJoinLink =
-          selectedEntry.explorerJoinLink || joinData.explorerJoinLink;
+        // Only set explorerJoinLink if it exists in the query
+        if (selectedEntry.explorerJoinLink) {
+          joinData.explorerJoinLink = selectedEntry.explorerJoinLink;
+        }
         joinData.driverJoinLink =
           selectedEntry.driverJoinLink || joinData.driverJoinLink;
         joinData.sponsorJoinLink =
@@ -112,16 +114,18 @@ const Join = ({ joinData }: JoinProps) => {
           Polimi has the right place for you.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-center">
-          <div className="flex justify-center">
-            <JoinUsCard
-              role="Explorer"
-              height="420px"
-              width="400px"
-              advantages={joinData.explorerBenefits}
-              to={joinData.explorerJoinLink}
-            />
-          </div>
-          <div className="flex justify-center">
+          {joinData.explorerJoinLink && (
+            <div className="flex justify-center">
+              <JoinUsCard
+                role="Explorer"
+                height="420px"
+                width="400px"
+                advantages={joinData.explorerBenefits}
+                to={joinData.explorerJoinLink}
+              />
+            </div>
+          )}
+          <div className={`flex justify-center ${!joinData.explorerJoinLink ? 'md:col-span-2' : ''}`}>
             <JoinUsCard
               role="Driver"
               height="420px"

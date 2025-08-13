@@ -6,6 +6,7 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import Image from 'next/image';
 import Sponsors from 'components/Sponsors/Sponsors';
+import { InteractiveSectionGroup, InteractiveSection } from 'components/InteractiveSection/InteractiveSection';
 import { useSponsors, useImageAsset } from 'hooks/useImageAssets';
 import SiteData from '@/Data';
 
@@ -65,29 +66,37 @@ const Footer = ({
             <h2 className="text-ec_text_darkmode text-lg font-semibold text-center lg:text-left">
               Follow Us
             </h2>
-            <div className="flex space-x-6 mt-3">
-              <a href={facebookUrl} target="_blank" rel="noreferrer">
-                <FontAwesomeIcon
-                  className="text-ec_text_darkmode"
-                  size="3x"
-                  icon={faFacebookSquare}
-                />
-              </a>
-              <a href={instagramUrl} target="_blank" rel="noreferrer">
-                <FontAwesomeIcon
-                  className="text-ec_text_darkmode"
-                  size="3x"
-                  icon={faInstagramSquare}
-                />
-              </a>
-              <a href={linkedinUrl} target="_blank" rel="noreferrer">
-                <FontAwesomeIcon
-                  className="text-ec_text_darkmode"
-                  size="3x"
-                  icon={faLinkedin}
-                />
-              </a>
-            </div>
+            <InteractiveSectionGroup rememberZIndex={false} defaultScaleLevel="small">
+              <div className="flex space-x-6 mt-3">
+                <InteractiveSection sectionId="facebook" elementType="image" className="inline-block">
+                  <a href={facebookUrl} target="_blank" rel="noreferrer">
+                    <FontAwesomeIcon
+                      className="text-ec_text_darkmode"
+                      size="3x"
+                      icon={faFacebookSquare}
+                    />
+                  </a>
+                </InteractiveSection>
+                <InteractiveSection sectionId="instagram" elementType="image" className="inline-block">
+                  <a href={instagramUrl} target="_blank" rel="noreferrer">
+                    <FontAwesomeIcon
+                      className="text-ec_text_darkmode"
+                      size="3x"
+                      icon={faInstagramSquare}
+                    />
+                  </a>
+                </InteractiveSection>
+                <InteractiveSection sectionId="linkedin" elementType="image" className="inline-block">
+                  <a href={linkedinUrl} target="_blank" rel="noreferrer">
+                    <FontAwesomeIcon
+                      className="text-ec_text_darkmode"
+                      size="3x"
+                      icon={faLinkedin}
+                    />
+                  </a>
+                </InteractiveSection>
+              </div>
+            </InteractiveSectionGroup>
           </div>
         </div>
 
