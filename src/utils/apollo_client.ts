@@ -1,9 +1,9 @@
 import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
-// Get environment variables
-const endpoint = process.env.CMS_GRAPHQL_ENDPOINT;
-const token = process.env.CMS_ACCESS_TOKEN;
+// Get environment variables - NEXT_PUBLIC_ required for browser access
+const endpoint = process.env.NEXT_PUBLIC_CMS_GRAPHQL_ENDPOINT;
+const token = process.env.NEXT_PUBLIC_CMS_ACCESS_TOKEN;
 
 // Simple HTTP link
 const httpLink = createHttpLink({
