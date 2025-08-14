@@ -113,7 +113,7 @@ The website uses Contentful as a headless CMS:
 
 ### Code Formatting
 
-- Run `npm run format` (or `npx prettier --write .`) to format your code before committing 
+- Run `npm run format` (or `npx prettier --write .`) to format your code before committing
 - The project uses Prettier for consistent code formatting
 
 ## 🔄 Git Workflow
