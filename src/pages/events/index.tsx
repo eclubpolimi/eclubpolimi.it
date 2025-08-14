@@ -34,19 +34,27 @@ const Events = ({ data }: EventProps) => {
     <div className="bg-ec_background dark:bg-ec_background_darkmode text-ec_text dark:text-ec_text_darkmode">
       <div className="relative w-full h-[500px] max-h-[500px] overflow-hidden">
         <Carousel sliderData={carouselImages.images} autoplay={5000} />
+        {/* Dark Mode Overlay Only */}
+        <div className="absolute inset-0 bg-black dark:opacity-30 opacity-0 transition-opacity duration-300 pointer-events-none"></div>
       </div>
 
       <div className="lg:my-20 my-12 max-w-screen-lg lg:mx-auto px-5 lg:px-0">
         <Timeline
-          data={
-            eventData?.map((event: any) => {
+          data={[
+            ...(eventData?.map((event: any) => {
               return {
                 title: event?.title || '',
                 date: formatDate(event?.date || '') || '',
                 body: event?.description || '',
               };
-            }) || []
-          }
+            }) || []),
+            // Add coming soon event at the end
+            {
+              title: "Coming Soon...",
+              date: "",
+              body: "Stay tuned for more of our events!",
+            }
+          ]}
           theme="centered"
         />
       </div>
