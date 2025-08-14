@@ -47,26 +47,18 @@ const Footer = ({
       )}
 
       {/* Footer Main Section */}
-      <div className="flex flex-col items-center p-2 pb-10 bg-ec_blue dark:bg-ec_blue_darkmode">
-        {/* Logo */}
-        <Image
-          className="w-auto h-48"
-          src={logoWhite?.url || logo}
-          alt="Entrepreneurship Club Polimi"
-          width={240}
-          height={240}
-        />
-
-        {/* Flex Container for Contact & Socials */}
-        <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start w-full max-w-screen-lg p-5">
-          {/* Contact Us Section */}
+      <div className="flex flex-col items-center p-2 pb-6 bg-ec_blue dark:bg-ec_blue_darkmode">
+        {/* Flex Container for Logo & Socials */}
+        <div className="flex flex-col lg:flex-row justify-between items-center w-full max-w-screen-lg p-3">
+          {/* Logo Section */}
           <div className="text-center lg:text-left w-full lg:w-1/2 flex flex-col items-center">
-            <h2 className="text-ec_text_darkmode text-lg font-semibold text-center lg:text-left">
-              Have questions or want to reach out to us?
-            </h2>
-            <p className="text-ec_text_darkmode text-lg text-center lg:text-left">
-              Contact us on: info@eclubpolimi.it
-            </p>
+            <Image
+              className="w-auto h-48"
+              src={logoWhite?.url || logo}
+              alt="Entrepreneurship Club Polimi"
+              width={240}
+              height={240}
+            />
           </div>
 
           {/* Social Media Links */}
