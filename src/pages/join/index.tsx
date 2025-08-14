@@ -2,7 +2,7 @@ import Image from 'next/image';
 import JoinUsCard from 'components/JoinUsCard/JoinUsCard';
 import { JOIN_QUERY } from 'data/queries';
 import client from 'utils/apollo_client';
-import { useImageAsset } from 'hooks/useImageAssets';
+import { useImageAsset, useImageAssets } from 'hooks/useImageAssets';
 // Removed fallback import to test pure dynamic loading
 
 interface JoinProps {
@@ -86,16 +86,27 @@ export const getServerSideProps = async (): Promise<{ props: JoinProps }> => {
 
 const Join = ({ joinData }: JoinProps) => {
   const joinHeroImage = useImageAsset('join_hero_background');
+  const { getImageUrl } = useImageAssets();
 
   return (
     <div>
       {/* Hero Section - Testing Pure Dynamic Loading (NO FALLBACKS) */}
       <div className="relative w-full h-[250px]">
+        {/* Background Image - Light Mode */}
         <Image
-          src={joinHeroImage.url || ''}
+          src={getImageUrl('join_hero_background', false) || joinHeroImage.url || ''}
           fill
           style={{ objectFit: 'cover', objectPosition: 'center 36%' }}
           alt="Join Us Hero Background"
+          className="block dark:hidden"
+        />
+        {/* Background Image - Dark Mode */}
+        <Image
+          src={getImageUrl('join_hero_background', true) || joinHeroImage.url || ''}
+          fill
+          style={{ objectFit: 'cover', objectPosition: 'center 36%' }}
+          alt="Join Us Hero Background Dark Mode"
+          className="hidden dark:block"
         />
 
         <div className="absolute inset-0 bg-black/50 flex items-center justify-center text-white text-2xl font-bold">
@@ -160,9 +171,6 @@ const Join = ({ joinData }: JoinProps) => {
           </div>
         </div>
       </div>
-
-      {/* Small Blue Line for Dark Mode Transition */}
-      <div className="w-full h-2 bg-ec_blue dark:bg-ec_blue_darkmode my-6"></div>
     </div>
   );
 };
