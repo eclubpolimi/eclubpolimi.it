@@ -20,7 +20,7 @@ export default class SiteData {
 
   // SUBPAGE TARGETS
   static HomeTarget = '/';
-  static AboutUsTarget = '/about';
+  static OurTeamTarget = '/our-team';
   static EventsTarget = '/events';
   static TripsTarget = '/trips';
   static GuestsTarget = '/guests';
@@ -37,7 +37,7 @@ export default class SiteData {
 
   static NavbarItems: Array<{ type: 'link' | 'button'; content: ReactNode }> = [
     {
-      content: <a href={this.AboutUsTarget}>About Us</a>,
+      content: <a href={this.OurTeamTarget}>Our Team</a>,
       type: 'link',
     },
     {
