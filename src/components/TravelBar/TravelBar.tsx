@@ -77,7 +77,11 @@ const TravelBar = ({
           </Link>
         </li>
         <li className={liClass}>
-          <Button to={registerLink} disabled={disabled}>
+          <Button 
+            variant={registerLink.startsWith('http') ? 'external' : 'navigation'} 
+            href={registerLink} 
+            disabled={disabled}
+          >
             Register
           </Button>
         </li>
