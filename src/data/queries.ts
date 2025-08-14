@@ -21,6 +21,7 @@ export const SITE_IMAGE_ASSETS_QUERY = gql`
           url
           title
         }
+        url
       }
     }
   }
@@ -71,6 +72,7 @@ export const ALL_STARTUP_CHALLENGES_QUERY = gql`
         submissionsOpen
         submissionsOpenDate
         submissionsCloseDate
+        duration
         detailedProgramDescription
         detailedProgram {
           ...FileUrlFragment
@@ -167,4 +169,15 @@ export const JOIN_QUERY = gql`
       }
     }
   }
+`;
+
+export const ALL_SPONSORS_QUERY = gql`
+  query AllSponsors {
+    sponsorCollection {
+      items {
+        ...SponsorFragment
+      }
+    }
+  }
+  ${SPONSOR_FRAGMENT}
 `;
