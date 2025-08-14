@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import Link from 'next/link';
 
 interface StartupChallengeDropdownProps {
   className?: string;
@@ -238,11 +239,45 @@ const StartupChallengeDropdown = ({
     if (!isOpen && buttonRef.current) {
       // Calculate position when opening dropdown
       const rect = buttonRef.current.getBoundingClientRect();
-      setDropdownPosition({
-        top: rect.bottom + window.scrollY + 4, // 4px gap
-        left: rect.left + window.scrollX,
-        width: rect.width,
-      });
+      const isMobile = window.innerWidth < 1280; // xl breakpoint is 1280px
+      
+      // Check if we're in the mobile navigation menu
+      const isInMobileMenu = buttonRef.current.closest('.mobile-nav-button-wrapper') !== null;
+      
+      if (isMobile && isInMobileMenu) {
+        // When in mobile menu, position relative to the menu container
+        const navMenu = buttonRef.current.closest('ul');
+        const navMenuRect = navMenu?.getBoundingClientRect();
+        
+        if (navMenuRect) {
+          setDropdownPosition({
+            top: rect.top + window.scrollY, // Start at same height as USC button, not below it
+            left: navMenuRect.left - 256 - 8, // Position to the left of the menu with small gap
+            width: 256,
+          });
+        } else {
+          // Fallback positioning
+          setDropdownPosition({
+            top: rect.top + window.scrollY, // Start at same height as USC button
+            left: rect.left - 256 - 8,
+            width: 256,
+          });
+        }
+      } else if (isMobile) {
+        // On mobile but not in menu (shouldn't happen, but fallback)
+        setDropdownPosition({
+          top: rect.bottom + window.scrollY + 4,
+          left: window.innerWidth - 320,
+          width: 256,
+        });
+      } else {
+        // Desktop positioning (original behavior)
+        setDropdownPosition({
+          top: rect.bottom + window.scrollY + 4,
+          left: rect.left + window.scrollX,
+          width: rect.width,
+        });
+      }
     }
 
     setIsOpen(!isOpen);
@@ -290,9 +325,10 @@ const StartupChallengeDropdown = ({
         className="gradient-hover inline-flex items-center gap-2 px-6 py-2 bg-white dark:bg-ec_background_darkmode text-ec_blue dark:text-ec_text_darkmode hover:text-white font-medium rounded-xl transition-all duration-200 border border-transparent focus:outline-none focus:ring-2 focus:ring-ec_blue focus:ring-offset-2 transform hover:scale-105 active:scale-95"
       >
         <AnimatedRocket />
-        Startup Challenge
+        <span className="hidden xl:inline">Startup Challenge</span>
+        <span className="xl:hidden">USC</span>
         <svg
-          className={`w-4 h-4 transition-transform ${isOpen ? 'rotate-180' : ''}`}
+          className={`w-4 h-4 transition-transform ${isOpen ? 'xl:rotate-180 rotate-90' : 'xl:rotate-0 -rotate-90'}`}
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -321,7 +357,7 @@ const StartupChallengeDropdown = ({
           >
             {years.map((yearData, index) => (
               <div key={yearData.year}>
-                <a
+                <Link
                   href={yearData.path}
                   className="block px-4 py-3 text-sm text-ec_text dark:text-ec_text_darkmode hover:bg-ec_grey hover:bg-opacity-20 dark:hover:bg-ec_grey_darkmode transition-colors first:rounded-t-md last:rounded-b-md text-center whitespace-nowrap"
                   onClick={() => {
@@ -337,7 +373,7 @@ const StartupChallengeDropdown = ({
                       </span>
                     )}
                   </span>
-                </a>
+                </Link>
                 {index < years.length - 1 && (
                   <div className="mx-3 h-px bg-ec_grey dark:bg-ec_grey_darkmode"></div>
                 )}
