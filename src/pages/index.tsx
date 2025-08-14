@@ -287,7 +287,6 @@ const Home = ({ textData }: HomeProps) => {
           </InteractiveSectionGroup>
         </div>
       </div>
-      <div className="w-full h-2 bg-ec_blue dark:bg-ec_blue_darkmode my-6"></div>
     </div>
   );
 };
