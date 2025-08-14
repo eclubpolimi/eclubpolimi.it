@@ -1,61 +1,171 @@
-# eclubpolimi.it
+# E-Club Polimi Website
 
-The E-Club Polimi website's source code. See it in action at [eclubpolimi.it](https://www.eclubpolimi.it/).
-The website is made with [React](https://reactjs.org/) and [Next.js](https://nextjs.org/).
+![Next.js](https://img.shields.io/badge/Next.js-15.4.6-black?logo=next.js)
+![React](https://img.shields.io/badge/React-18.3.1-blue?logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.6.3-blue?logo=typescript)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-3.4.17-06B6D4?logo=tailwindcss)
 
-## Getting Started
+The official E-Club Polimi website's source code. See it live at [eclubpolimi.it](https://www.eclubpolimi.it/).
 
-Follow the steps below to get the website up and running for development.
+## 🚀 Tech Stack
+
+- **Frontend**: [React 18](https://reactjs.org/) with [Next.js 15](https://nextjs.org/)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **CMS**: [Contentful](https://www.contentful.com/) with GraphQL
+- **Icons**: [Heroicons](https://heroicons.com/) & [FontAwesome](https://fontawesome.com/)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/)
+
+## 🏗️ Project Structure
+
+```
+src/
+├── components/          # Reusable UI components
+│   ├── Button/         # Custom button component with variants
+│   ├── Navbar/         # Responsive navigation
+│   └── ...
+├── pages/              # Next.js pages and routing
+├── data/               # GraphQL queries and fragments
+├── generated/          # Auto-generated GraphQL types
+├── hooks/              # Custom React hooks
+├── types/              # TypeScript type definitions
+└── utils/              # Utility functions
+```
+
+## 🚀 Quick Start
 
 ### Prerequisites
 
-- Node.js 16+  
-  Get the latest LTS version for your platform [here](https://nodejs.org/it/download/).
+- **Node.js 18+** - Get the latest LTS version [here](https://nodejs.org/it/download/)
+- **npm** or **yarn** package manager
 
 ### Installation
 
-1. Clone the repo (can also be done with your preferred git tool)
-   ```sh
+1. **Clone the repository**
+   ```bash
    git clone https://github.com/eclubpolimi/eclubpolimi.it.git
-   ```
-2. Install required NPM packages
-   ```sh
    cd eclubpolimi.it
+   ```
+
+2. **Install dependencies**
+   ```bash
    npm ci
    ```
 
-## Usage
+3. **Set up environment variables**
+   
+   Create a `.env.local` file in the root directory:
+   ```env
+   CMS_GRAPHQL_ENDPOINT=https://graphql.contentful.com/content/v1/spaces/YOUR_SPACE_ID
+   CMS_ACCESS_TOKEN=YOUR_ACCESS_TOKEN
+   ```
+   
+   > Contact the repository maintainers for the actual API keys.
 
-From inside the root project folder, you can run the Next development server with
+4. **Generate GraphQL types**
+   ```bash
+   npm run gql-codegen
+   ```
 
-```sh
-npm run dev
+5. **Start the development server**
+   ```bash
+   npm run dev
+   ```
+
+   Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## 📜 Available Scripts
+
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Starts the development server on port 3000 |
+| `npm run build` | Creates an optimized production build |
+| `npm run start` | Runs the production build locally |
+| `npm run gql-codegen` | Generates TypeScript types from GraphQL schema |
+| `npm run gql-watch` | Watches for GraphQL changes and regenerates types |
+| `npm run format` | Formats code using Prettier |
+| `npm run format-check` | Checks code formatting |
+
+## 🔧 Development
+
+### Getting Started with Development
+
+1. **Follow the installation steps above** to set up the project
+2. **Check the development conventions** - See [`DEVELOPMENT_CONVENTIONS.md`](./DEVELOPMENT_CONVENTIONS.md) for coding standards and component usage guidelines
+3. **Start coding** - The project uses modern React patterns with TypeScript
+
+### GraphQL & CMS
+
+The website uses Contentful as a headless CMS:
+
+- Run `npm run gql-codegen` after making changes to GraphQL queries
+- Generated types are automatically created in `src/generated/cms/`
+- Content and images are loaded dynamically from Contentful
+
+### Code Formatting
+
+- Run `npm run format` to format your code before committing
+- The project uses Prettier for consistent code formatting
+
+## 🔄 Git Workflow
+
+We use GitHub Pull Requests for all contributions:
+
+1. **Create a feature branch** from `master`
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+
+2. **Make your changes** following the development conventions
+
+3. **Format your code**
+   ```bash
+   npm run format
+   ```
+
+4. **Create a Pull Request** to `master` branch
+
+5. **Code Review** - After review approval, the PR will be merged
+
+### Branch Naming Convention
+- `feature/component-name` - New features
+- `fix/issue-description` - Bug fixes  
+- `refactor/component-name` - Code improvements
+- `docs/update-readme` - Documentation updates
+
+## 🚀 Deployment
+
+The website is automatically deployed via CI/CD pipeline when changes are merged to `master`.
+
+## 🔑 Environment Variables
+
+Required environment variables for development:
+
+```env
+# Contentful CMS
+CMS_GRAPHQL_ENDPOINT=https://graphql.contentful.com/content/v1/spaces/YOUR_SPACE_ID
+CMS_ACCESS_TOKEN=YOUR_ACCESS_TOKEN
 ```
 
-or build the website with
+> **Note**: Contact repository maintainers for access to API keys and deployment credentials.
 
-```sh
-npm run build
-```
+## 🤝 Contributing
 
-and subsequently launch it with
+1. Read the [Development Conventions](./DEVELOPMENT_CONVENTIONS.md) for coding standards
+2. Follow the Git workflow described above
+3. Format your code with `npm run format` before committing
+4. Write clear commit messages and PR descriptions
 
-```sh
-npm run start
-```
+## 📄 License
 
-## Git Development Workflow
+This project is proprietary to E-Club Polimi.
 
-We make extensive use of GitHub's Pull Requests. Every contribution to the repository must be made on a separate branch
-from the `master` branch, and then PRd to it. After a review phase, the PR will be merged.
+## 📞 Support
 
-## .env and API Keys
+For questions or support:
+- Create an issue in this repository
+- Contact the E-Club Polimi development team
 
-To be able to test and develop the project locally, you must create a .env.local (or .env) file at the root of the repository, and the content of that file would be as follows:
+---
 
-```
-CMS_GRAPHQL_ENDPOINT=https://graphql.contentful.com/content/v1/spaces/YOUR_SPACE_ID \
-CMS_ACCESS_TOKEN=YOUR_ACCESS_TOKEN \
-```
-
-where YOUR_SPACE_ID abd YOUR_ACCESS_TOKEN are values that can be obtained from the services, which can be found by looking through the email of the git-repository owner's account, along with other relevant information about the site, such as the hosting, domain, and database.
+*Built with ❤️ by the E-Club Polimi team*
