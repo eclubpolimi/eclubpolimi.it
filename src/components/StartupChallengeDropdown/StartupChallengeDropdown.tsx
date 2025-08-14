@@ -287,7 +287,7 @@ const StartupChallengeDropdown = ({
         onClick={handleToggle}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        className="gradient-hover inline-flex items-center gap-2 px-6 py-2 bg-white dark:bg-ec_background_darkmode hover:bg-gradient-to-r hover:from-ec_orange hover:to-ec_orange_hover dark:hover:from-ec_orange_darkmode dark:hover:to-ec_orange_hover_darkmode text-ec_blue dark:text-ec_text_darkmode hover:text-white font-medium rounded-xl transition-all duration-200 border border-transparent focus:outline-none focus:ring-2 focus:ring-ec_blue focus:ring-offset-2 transform hover:scale-105 active:scale-95"
+        className="gradient-hover inline-flex items-center gap-2 px-6 py-2 bg-white dark:bg-ec_background_darkmode text-ec_blue dark:text-ec_text_darkmode hover:text-white font-medium rounded-xl transition-all duration-200 border border-transparent focus:outline-none focus:ring-2 focus:ring-ec_blue focus:ring-offset-2 transform hover:scale-105 active:scale-95"
       >
         <AnimatedRocket />
         Startup Challenge
