@@ -52,14 +52,14 @@ export default class SiteData {
       content: <StartupChallengeDropdown />,
       type: 'button',
     },
-    {
-      content: <a href={this.PiaTarget}>Passion in Action</a>,
-      type: 'link',
-    },
-    {
-      content: <a href={this.TravelTarget}>Travel</a>,
-      type: 'link',
-    },
+    //     {
+    //   content: <a href={this.PiaTarget}>Passion in Action</a>,
+    //   type: 'link',
+    // },
+    // {
+    //   content: <a href={this.TravelTarget}>Travel</a>,
+    //   type: 'link',
+    // },
     {
       content: <a href={this.NetworkTarget}>Network</a>,
       type: 'link',
