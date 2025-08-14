@@ -29,7 +29,8 @@ const OpenDay = () => {
             Join a community of entrepreneurs and reach your full potential
           </span>
           <Button
-            to={SiteData.JoinTarget}
+            variant="navigation"
+            href={SiteData.JoinTarget}
             theme="orange"
             className="mt-8 align-middle"
           >
