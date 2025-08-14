@@ -68,8 +68,8 @@ const Home = ({ textData }: HomeProps) => {
           </span>
           <div className="flex gap-4 md:flex-row flex-col items-center pt-8">
             <Button
-              to={SiteData.JoinTarget}
-              theme="orange"
+              variant="navigation"
+              href={SiteData.JoinTarget}
               className="align-middle"
             >
               Join us
