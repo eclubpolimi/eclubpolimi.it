@@ -14,9 +14,9 @@ const StartupChallengeDropdown = ({ className = '' }: StartupChallengeDropdownPr
   const buttonRef = useRef<HTMLButtonElement>(null);
 
   const years = [
-    { year: '2024', path: '/startupchallenge/2024' },
-    { year: '2025', path: '/startupchallenge/2025' },
-    { year: '2026', path: '/startupchallenge/2026' },
+    { year: '2026', path: '/startupchallenge/2026', isCurrent: true },
+    { year: '2025', path: '/startupchallenge/2025', isCurrent: false },
+    { year: '2024', path: '/startupchallenge/2024', isCurrent: false },
   ];
 
   // Advanced animated rocket component with Framer Motion
@@ -274,7 +274,7 @@ const StartupChallengeDropdown = ({ className = '' }: StartupChallengeDropdownPr
         onClick={handleToggle}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        className="inline-flex items-center gap-2 px-6 py-2 bg-white dark:bg-ec_background_darkmode hover:bg-gradient-to-r hover:from-ec_orange hover:to-ec_orange_hover dark:hover:from-ec_orange_darkmode dark:hover:to-ec_orange_hover_darkmode text-ec_blue dark:text-ec_text_darkmode hover:text-white font-medium rounded-xl transition-all duration-200 border border-transparent focus:outline-none focus:ring-2 focus:ring-ec_blue focus:ring-offset-2 transform hover:scale-105 active:scale-95"
+        className="gradient-hover inline-flex items-center gap-2 px-6 py-2 bg-white dark:bg-ec_background_darkmode hover:bg-gradient-to-r hover:from-ec_orange hover:to-ec_orange_hover dark:hover:from-ec_orange_darkmode dark:hover:to-ec_orange_hover_darkmode text-ec_blue dark:text-ec_text_darkmode hover:text-white font-medium rounded-xl transition-all duration-200 border border-transparent focus:outline-none focus:ring-2 focus:ring-ec_blue focus:ring-offset-2 transform hover:scale-105 active:scale-95"
       >
         <AnimatedRocket />
         Startup Challenge
@@ -299,18 +299,29 @@ const StartupChallengeDropdown = ({ className = '' }: StartupChallengeDropdownPr
             zIndex: 10001,
           }}
         >
-          {years.map((yearData) => (
-            <a
-              key={yearData.year}
-              href={yearData.path}
-              className="block px-4 py-3 text-sm text-ec_text dark:text-ec_text_darkmode hover:bg-gray-50 dark:hover:bg-ec_grey_darkmode transition-colors first:rounded-t-md last:rounded-b-md text-center whitespace-nowrap"
-              onClick={() => {
-                console.log('Dropdown item clicked:', yearData.year);
-                setIsOpen(false);
-              }}
-            >
-              USC {yearData.year}
-            </a>
+          {years.map((yearData, index) => (
+            <div key={yearData.year}>
+              <a
+                href={yearData.path}
+                className="block px-4 py-3 text-sm text-ec_text dark:text-ec_text_darkmode hover:bg-ec_grey hover:bg-opacity-20 dark:hover:bg-ec_grey_darkmode transition-colors first:rounded-t-md last:rounded-b-md text-center whitespace-nowrap"
+                onClick={() => {
+                  console.log('Dropdown item clicked:', yearData.year);
+                  setIsOpen(false);
+                }}
+              >
+                <span className="flex items-center justify-center gap-2">
+                  USC {yearData.year}
+                  {yearData.isCurrent && (
+                    <span className="px-2 py-1 bg-ec_orange dark:bg-ec_orange_darkmode text-white text-xs rounded-full font-semibold">
+                      Current
+                    </span>
+                  )}
+                </span>
+              </a>
+              {index < years.length - 1 && (
+                <div className="mx-3 h-px bg-ec_grey dark:bg-ec_grey_darkmode"></div>
+              )}
+            </div>
           ))}
         </div>,
         document.body
