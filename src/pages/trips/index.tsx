@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Description from 'components/Description/Description';
 import Timeline from 'components/Timeline/Timeline';
 import TravelBar from 'components/TravelBar/TravelBar';
-import { useImageAsset } from 'hooks/useImageAssets';
+import { useImageAsset, useImageAssets } from 'hooks/useImageAssets';
 
 import { LATEST_TRIP_QUERY } from 'data/queries';
 import { LatestTripDataQuery } from 'types/cms';
@@ -43,17 +43,27 @@ const Travel = ({ data }: TravelProps) => {
   const travelBackgroundFallback = useImageAsset(
     'trips_hero_background_fallback',
   );
+  const { getImageUrl } = useImageAssets();
 
   return (
     <div>
       {/* HERO IMAGE FIX */}
       <div className="relative w-full h-[350px]">
+        {/* Light Mode Image */}
         <Image
-          className="object-cover"
-          src={tripData?.image?.url || travelBackgroundFallback?.url || ''}
+          className="object-cover block dark:hidden"
+          src={tripData?.image?.url || getImageUrl('trips_hero_background_fallback', false) || travelBackgroundFallback?.url || ''}
           fill
           style={{ objectFit: 'cover' }}
           alt={tripData?.image?.title || 'Travel preview'}
+        />
+        {/* Dark Mode Image */}
+        <Image
+          className="object-cover hidden dark:block"
+          src={tripData?.image?.url || getImageUrl('trips_hero_background_fallback', true) || travelBackgroundFallback?.url || ''}
+          fill
+          style={{ objectFit: 'cover' }}
+          alt={tripData?.image?.title || 'Travel preview dark mode'}
         />
         <div className="absolute inset-0 bg-ec_background/30 dark:bg-ec_background_darkmode/40 backdrop-blur-xl">
           <div className="max-w-screen-lg lg:mx-auto py-10 md:py-28 px-5 sm:px-8 flex flex-col text-center md:text-left items-center">
@@ -151,7 +161,6 @@ const Travel = ({ data }: TravelProps) => {
           className="py-16 max-w-screen-lg lg:mx-auto px-5 lg:px-0 font-medium text-ec_text dark:text-ec_text_darkmode"
         />
       </div>
-      <div className="w-full h-2 bg-ec_blue dark:bg-ec_blue_darkmode my-6"></div>
     </div>
   );
 };
