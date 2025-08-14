@@ -10,6 +10,7 @@ export interface SiteImageAsset {
   key: string;
   imageLightMode: Asset;
   imageDarkMode?: Asset;
+  url?: string;
 }
 
 export interface SiteImageAssetsQuery {
@@ -47,6 +48,7 @@ export interface StartupChallengeDataQuery {
       submissionsOpen?: boolean | null;
       submissionsOpenDate?: string | null;
       submissionsCloseDate?: string | null;
+      duration?: string | null;
       detailedProgramDescription?: string | null;
       detailedProgram?: {
         url?: string | null;
