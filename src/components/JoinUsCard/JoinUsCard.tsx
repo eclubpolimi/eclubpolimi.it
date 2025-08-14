@@ -50,7 +50,7 @@ const JoinUsCard = ({
         </div>
       </div>
       <div className="mt-4 flex justify-center flex-shrink-0">
-        <Button theme="orange" to={to} disabled={closed}>
+        <Button variant="navigation" href={to} disabled={closed}>
           {closed ? 'Closed' : 'Apply Now!'}
         </Button>
       </div>
