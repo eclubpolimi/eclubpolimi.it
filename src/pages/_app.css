@@ -48,6 +48,113 @@
 ---------------------------*/
 html {
   scroll-behavior: smooth;
+}
+
+/*---------------------------
+    Mobile Navigation Overrides
+---------------------------*/
+/* Suppress desktop hover effects in mobile navigation */
+.mobile-nav-item a span {
+  display: none !important;
+}
+
+.mobile-nav-item a {
+  text-decoration: none !important;
+  position: static !important;
+}
+
+.mobile-nav-item a:hover span {
+  display: none !important;
+  width: 0 !important;
+}
+
+/* Mobile-only styles - only apply on screens smaller than xl (1280px) */
+@media (max-width: 1279px) {
+  /* Make buttons fill the entire mobile nav section */
+  li[class*="border-b"] > div > button,
+  li[class*="border-b"] > div > div > button,
+  li[class*="border-b"] > div > div > div > a,
+  li[class*="border-b"] > div > div > div > div > a,
+  li[class*="border-b"] .mobile-nav-button-wrapper button {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 56px !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    justify-content: center !important;
+    align-items: center !important;
+    display: flex !important;
+    padding: 16px !important;
+  }
+
+  /* Disable interactive scaling for mobile navigation buttons */
+  .mobile-nav-button-wrapper > div > div,
+  .mobile-nav-button-wrapper:hover > div > div,
+  .mobile-nav-button-wrapper button,
+  .mobile-nav-button-wrapper button:hover {
+    transform: scale(1) !important;
+    transition: color 0.2s, background-color 0.2s !important;
+  }
+
+  /* Disable scaling for InteractiveSection containers */
+  .mobile-nav-button-wrapper [class*="InteractiveSection"],
+  .mobile-nav-button-wrapper [data-section-id] {
+    transform: scale(1) !important;
+    transition: none !important;
+  }
+
+  /* Preserve rocket animations - disable scaling, allow other transforms */
+  .mobile-nav-button-wrapper [class*="rocket"],
+  .mobile-nav-button-wrapper [class*="particle"],
+  .mobile-nav-button-wrapper svg:not(.transition-transform) {
+    transition: initial !important;
+    animation: initial !important;
+  }
+
+  /* Arrow rotation styles */
+  .mobile-nav-button-wrapper svg.transition-transform {
+    transition: transform 0.2s ease !important;
+  }
+
+  .mobile-nav-button-wrapper svg.rotate-90 {
+    transform: rotate(90deg) !important;
+  }
+
+  .mobile-nav-button-wrapper svg.rotate-180 {
+    transform: rotate(180deg) !important;
+  }
+
+  .mobile-nav-button-wrapper svg.-rotate-90 {
+    transform: rotate(-90deg) !important;
+  }
+
+  /* Force Join Us Button component to fill width */
+  .mobile-nav-button-wrapper > div,
+  .mobile-nav-button-wrapper > div > div,
+  .mobile-nav-button-wrapper > div > div > div,
+  .mobile-nav-button-wrapper a,
+  .mobile-nav-button-wrapper Link {
+    width: 100% !important;
+    height: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    min-height: 56px !important;
+  }
+
+  /* Add rounded bottom corners to the last button to match menu */
+  li:last-child .mobile-nav-button-wrapper > div,
+  li:last-child .mobile-nav-button-wrapper > div > div,
+  li:last-child .mobile-nav-button-wrapper > div > div > div,
+  li:last-child .mobile-nav-button-wrapper a,
+  li:last-child .mobile-nav-button-wrapper Link {
+    border-radius: 0 0 0.5rem 0.5rem !important;
+  }
+}
+
+html {
   scroll-padding-top: 15%;
 }
 
