@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useRouter } from 'next/router';
 import { ApolloProvider } from '@apollo/client';
 import Footer from 'components/Footer/Footer';
 import Navbar from 'components/Navbar/Navbar';
@@ -13,6 +14,8 @@ type MyAppProps = {
 };
 
 const MyApp = ({ Component, pageProps }: MyAppProps) => {
+  const router = useRouter();
+  
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
 
@@ -22,6 +25,9 @@ const MyApp = ({ Component, pageProps }: MyAppProps) => {
       document.documentElement.classList.remove('dark');
     }
   }, []);
+
+  // Determine if sponsors should be shown based on current route
+  const showSponsors = router.pathname === '/' || router.pathname === '/network';
 
   return (
     <ApolloProvider client={client}>
@@ -34,6 +40,7 @@ const MyApp = ({ Component, pageProps }: MyAppProps) => {
           facebookUrl="https://www.facebook.com/eclubpolimi/"
           instagramUrl="https://www.instagram.com/eclubpolimi/"
           linkedinUrl="https://www.linkedin.com/company/eclubpolimi/"
+          showSponsors={showSponsors}
         />
         <div className="fixed bottom-4 left-4 z-50 bg-ec_blue dark:bg-ec_blue_darkmode p-2 rounded-full shadow-lg sm:bottom-6 sm:left-6 md:bottom-8 md:left-8">
           <DarkModeToggle />
