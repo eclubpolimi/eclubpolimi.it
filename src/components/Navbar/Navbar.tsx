@@ -1,11 +1,13 @@
 // Buttons behave differently from links, they are styled differently and have different behavior.
 
-import { ReactNode, useState } from 'react';
+import React, { ReactNode, useState } from 'react';
+import Link from 'next/link';
 import MenuBurgerIcon from 'images/navbar/menu-burger.svg';
 import CrossIcon from 'images/navbar/cross.svg';
 import SiteData from '@/Data';
 import Image from 'next/image';
 import { useImageAsset } from 'hooks/useImageAssets';
+import Button from 'components/Button/Button';
 import {
   InteractiveSectionGroup,
   InteractiveSection,
@@ -27,39 +29,93 @@ const NavBar = ({ items }: NavBarProps) => {
     setClicked(false);
   };
 
-  const navClass = `h-16 w-full bg-ec_blue dark:bg-ec_blue_darkmode z-50 flex flex-nowrap relative overflow-visible`;
-  const navDesktopClass = `xl:px-10 xl:flex-row xl:justify-between xl:items-center`;
-  const navMobileClass = `flex-col`;
-
-  const linksClass =
-    'flex px-2 gap-8 items-center bg-ec_blue dark:bg-ec_blue_darkmode transition-all overflow-visible';
-  const linksDesktopClass =
-    'xl:flex-row xl:h-full xl:static xl:overflow-visible';
-  const linksMobileClass = `flex-col ${
-    !clicked ? 'h-0 overflow-hidden py-0' : 'py-10 overflow-visible'
-  } absolute top-16 left-0 right-0`;
-
   return (
-    <nav className={`${navClass} ${navDesktopClass} ${navMobileClass}`}>
-      <div className="h-16 flex flex-col justify-center">
-        <InteractiveSectionGroup
-          defaultScaleLevel="small"
-          rememberZIndex={false}
-        >
-          <InteractiveSection sectionId="navbar-logo" elementType="image">
-            <a href={SiteData.HomeTarget} onClick={closeMenu}>
-              <Image
-                src={logoWhite?.url || SiteData.LogoWhite}
-                alt="Entrepreneurship Club Polimi"
-                width={200}
-                height={56}
-                className="h-14 w-fit xl:p-0 pr-16"
-              />
-            </a>
-          </InteractiveSection>
-        </InteractiveSectionGroup>
+    <nav className="h-16 w-full bg-ec_blue dark:bg-ec_blue_darkmode z-50 relative">
+      {/* Desktop and Mobile Container */}
+      <div className="h-16 flex justify-between items-center px-5 xl:px-10">
+        
+        {/* Logo Section */}
+        <div className="flex items-center">
+          <InteractiveSectionGroup
+            defaultScaleLevel="small"
+            rememberZIndex={false}
+          >
+            <InteractiveSection sectionId="navbar-logo" elementType="image" className="inline-block">
+              <Link href={SiteData.HomeTarget} onClick={closeMenu} className="inline-block">
+                <Image
+                  src={logoWhite?.url || SiteData.LogoWhite}
+                  alt="Entrepreneurship Club Polimi"
+                  width={200}
+                  height={56}
+                  className="h-14 w-auto"
+                />
+              </Link>
+            </InteractiveSection>
+          </InteractiveSectionGroup>
+        </div>
+
+        {/* Desktop Navigation Links - Hidden on mobile, visible on xl */}
+        <ul className="hidden xl:flex gap-8 items-center h-full">
+          {items.map((item, index) => {
+            if (!item.type) {
+              console.error(
+                `Navbar item ${index} has no type field! Rendering errors may occur, make sure to set a type for each navbar element.`,
+              );
+            }
+
+            const itemClass =
+              item.type === 'button'
+                ? 'custom-button-class'
+                : 'whitespace-nowrap text-white dark:text-ec_text_darkmode relative group';
+
+            return (
+              <li key={index} className={itemClass}>
+                {item.content}
+                {item.type !== 'button' && (
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-ec_orange dark:bg-ec_orange_darkmode group-hover:w-full transition-all duration-300"></span>
+                )}
+              </li>
+            );
+          })}
+        </ul>
+
+        {/* Mobile Burger Menu - Visible on mobile, hidden on xl */}
+        <div className="xl:hidden z-50">
+          <InteractiveSectionGroup
+            defaultScaleLevel="medium"
+            rememberZIndex={false}
+          >
+            <InteractiveSection sectionId="mobile-burger-menu" elementType="text" className="inline-block">
+              <div className="cursor-pointer p-2" onClick={handleMenu}>
+                {!clicked ? (
+                  <Image
+                    src={MenuBurgerIcon}
+                    alt="Open menu"
+                    width={24}
+                    height={24}
+                    className="cursor-pointer"
+                  />
+                ) : (
+                  <Image
+                    src={CrossIcon}
+                    alt="Close menu"
+                    width={24}
+                    height={24}
+                    className="cursor-pointer"
+                  />
+                )}
+              </div>
+            </InteractiveSection>
+          </InteractiveSectionGroup>
+        </div>
       </div>
-      <ul className={`${linksClass} ${linksDesktopClass} ${linksMobileClass}`}>
+
+      {/* Mobile Navigation Menu - Dropdown */}
+      <ul className={`xl:hidden flex flex-col bg-ec_blue dark:bg-ec_blue_darkmode transition-all duration-300 rounded-b-lg border border-ec_border_light dark:border-ec_border_darkmode ${
+        !clicked 
+          ? 'h-0 overflow-hidden' 
+          : 'overflow-visible shadow-xl'
+      } absolute top-16 right-5 min-w-max z-40`}>
         {items.map((item, index) => {
           if (!item.type) {
             console.error(
@@ -67,46 +123,36 @@ const NavBar = ({ items }: NavBarProps) => {
             );
           }
 
-          // Conditionally apply styling
-          const itemClass =
-            item.type === 'button'
-              ? 'custom-button-class' // Special class for buttons
-              : 'whitespace-nowrap text-white dark:text-ec_text_darkmode relative group'; // Default styling for links
+          // Mobile-specific styling - centered alignment and equal heights, no extra padding
+          const mobileItemClass = item.type === 'button'
+            ? 'flex justify-center items-center h-14 border-b border-ec_border_light dark:border-ec_border_darkmode border-opacity-30 last:border-b-0'
+            : 'flex justify-center items-center h-14 text-white dark:text-ec_text_darkmode hover:bg-ec_orange hover:bg-opacity-10 dark:hover:bg-ec_orange_darkmode dark:hover:bg-opacity-10 transition-all duration-200 border-b border-ec_border_light dark:border-ec_border_darkmode border-opacity-30 last:border-b-0 active:bg-ec_orange active:bg-opacity-20 cursor-pointer';
+
+          const handleLinkClick = () => {
+            if (item.type === 'link') {
+              closeMenu();
+            }
+          };
+
+          // For mobile, handle buttons and links differently
+          const mobileContent = item.type === 'button' ? (
+            // For buttons, create a wrapper that takes full space
+            <div className="w-full h-full mobile-nav-button-wrapper">
+              {item.content}
+            </div>
+          ) : (
+            <div className="mobile-nav-item text-center font-medium w-full px-4">
+              {item.content}
+            </div>
+          );
 
           return (
-            <li
-              key={index}
-              className={itemClass}
-              onClick={item.type === 'button' ? undefined : closeMenu}
-            >
-              {item.content}
-              {item.type !== 'button' && (
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-ec_orange dark:bg-ec_orange_darkmode group-hover:w-full transition-all duration-300"></span>
-              )}
+            <li key={index} className={mobileItemClass} onClick={handleLinkClick}>
+              {mobileContent}
             </li>
           );
         })}
       </ul>
-
-      <div className={`h-6 w-6 absolute right-5 top-5 xl:hidden`}>
-        {!clicked ? (
-          <Image
-            src={MenuBurgerIcon}
-            alt="Open menu"
-            width={24}
-            height={24}
-            onClick={handleMenu}
-          />
-        ) : (
-          <Image
-            src={CrossIcon}
-            alt="Close menu"
-            width={24}
-            height={24}
-            onClick={handleMenu}
-          />
-        )}
-      </div>
     </nav>
   );
 };
