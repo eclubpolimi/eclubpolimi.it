@@ -136,9 +136,9 @@ button.gradient-hover:hover {
   color: var(--text-color-onorangehover);
 }
 
-/* Dark mode version uses the original gradient instead of hover gradient */
+/* Dark mode version uses the light gradient (Gradient 3) */
 .dark button.gradient-hover:hover {
-  background: var(--orange-gradient);
+  background: var(--orange-gradient-light);
   color: white;
 }
 
