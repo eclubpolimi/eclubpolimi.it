@@ -33,7 +33,8 @@ const NavBar = ({ items }: NavBarProps) => {
 
   const linksClass =
     'flex px-2 gap-8 items-center bg-ec_blue dark:bg-ec_blue_darkmode transition-all overflow-visible';
-  const linksDesktopClass = 'xl:flex-row xl:h-full xl:static xl:overflow-visible';
+  const linksDesktopClass =
+    'xl:flex-row xl:h-full xl:static xl:overflow-visible';
   const linksMobileClass = `flex-col ${
     !clicked ? 'h-0 overflow-hidden py-0' : 'py-10 overflow-visible'
   } absolute top-16 left-0 right-0`;
@@ -41,11 +42,11 @@ const NavBar = ({ items }: NavBarProps) => {
   return (
     <nav className={`${navClass} ${navDesktopClass} ${navMobileClass}`}>
       <div className="h-16 flex flex-col justify-center">
-        <InteractiveSectionGroup defaultScaleLevel="small" rememberZIndex={false}>
-          <InteractiveSection
-            sectionId="navbar-logo"
-            elementType="image"
-          >
+        <InteractiveSectionGroup
+          defaultScaleLevel="small"
+          rememberZIndex={false}
+        >
+          <InteractiveSection sectionId="navbar-logo" elementType="image">
             <a href={SiteData.HomeTarget} onClick={closeMenu}>
               <Image
                 src={logoWhite?.url || SiteData.LogoWhite}
@@ -73,9 +74,9 @@ const NavBar = ({ items }: NavBarProps) => {
               : 'whitespace-nowrap text-white dark:text-ec_text_darkmode relative group'; // Default styling for links
 
           return (
-            <li 
-              key={index} 
-              className={itemClass} 
+            <li
+              key={index}
+              className={itemClass}
               onClick={item.type === 'button' ? undefined : closeMenu}
             >
               {item.content}

@@ -16,7 +16,9 @@ interface OurTeamProps {
   description: string; // New prop for mission description
 }
 
-export const getServerSideProps = async (): Promise<{ props: OurTeamProps }> => {
+export const getServerSideProps = async (): Promise<{
+  props: OurTeamProps;
+}> => {
   const { data } = await client.query<AllDriversQuery>({
     query: ALL_DRIVERS_NOT_ALUMNI_QUERY,
   });
@@ -113,7 +115,11 @@ const OurTeam = ({ data, description }: OurTeamProps) => {
       <div className="relative w-full h-[350px] flex items-center justify-center">
         {/* Background Image - Light Mode */}
         <Image
-          src={getImageUrl('about_hero_background', false) || aboutHeroImage.url || ''}
+          src={
+            getImageUrl('about_hero_background', false) ||
+            aboutHeroImage.url ||
+            ''
+          }
           fill
           style={{ objectFit: 'cover', objectPosition: 'center 36%' }}
           alt="Our Team Background"
@@ -121,7 +127,11 @@ const OurTeam = ({ data, description }: OurTeamProps) => {
         />
         {/* Background Image - Dark Mode */}
         <Image
-          src={getImageUrl('about_hero_background', true) || aboutHeroImage.url || ''}
+          src={
+            getImageUrl('about_hero_background', true) ||
+            aboutHeroImage.url ||
+            ''
+          }
           fill
           style={{ objectFit: 'cover', objectPosition: 'center 36%' }}
           alt="Our Team Background Dark Mode"

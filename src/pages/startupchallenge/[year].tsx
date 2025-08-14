@@ -26,7 +26,9 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const { year } = context.params as { year: string };
 
   try {
-    const { data } = await client.query<{ startupchallengeCollection: { items: any[] } }>({
+    const { data } = await client.query<{
+      startupchallengeCollection: { items: any[] };
+    }>({
       query: ALL_STARTUP_CHALLENGES_QUERY,
     });
 
@@ -38,7 +40,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     };
 
     const selectedIndex = yearToIndex[year];
-    const challengeData = data?.startupchallengeCollection?.items[selectedIndex] || null;
+    const challengeData =
+      data?.startupchallengeCollection?.items[selectedIndex] || null;
 
     // Determine if submissions are enabled on the server
     const submissionsEnabled = (() => {
@@ -52,12 +55,16 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       const now = new Date();
       const open = new Date(challengeData.submissionsOpenDate);
       const closed = new Date(challengeData.submissionsCloseDate);
-      return open <= now && now <= closed && challengeData.submissionsOpen === true;
+      return (
+        open <= now && now <= closed && challengeData.submissionsOpen === true
+      );
     })();
 
     return {
       props: {
-        data: challengeData ? { startupchallengeCollection: { items: [challengeData] } } : null,
+        data: challengeData
+          ? { startupchallengeCollection: { items: [challengeData] } }
+          : null,
         submissionsEnabled: submissionsEnabled,
         year: year,
       },
@@ -94,8 +101,8 @@ const StartupChallengeYear = ({
             Coming Soon!
           </p>
           <p className="text-ec_text_secondary dark:text-ec_text_secondary_darkmode max-w-2xl">
-            The details for the {year} edition of the University Startup Challenge are not yet available. 
-            Stay tuned for updates!
+            The details for the {year} edition of the University Startup
+            Challenge are not yet available. Stay tuned for updates!
           </p>
         </div>
       </div>
@@ -159,7 +166,9 @@ const StartupChallengeYear = ({
 
       {/* Description Section */}
       <div className="max-w-screen-lg lg:mx-auto px-5 lg:px-0">
-        <Description title={`A${challengeData?.duration ? ` ${challengeData.duration}-long` : ' month-long'} entrepreneurship competition`}>
+        <Description
+          title={`A${challengeData?.duration ? ` ${challengeData.duration}-long` : ' month-long'} entrepreneurship competition`}
+        >
           <p className="text-ec_text dark:text-ec_text_darkmode text-center">
             {challengeData?.detailedProgramDescription ||
               `The University Startup Challenge ${year} is a unique event that brings
@@ -212,14 +221,14 @@ const StartupChallengeYear = ({
           <div className="py-0 bg-ec_background dark:bg-ec_background_darkmode">
             <Sponsors
               title="Organizers"
-              logos={
-                challengeData.organizersCollection.items.map((entry: any) => ({
+              logos={challengeData.organizersCollection.items.map(
+                (entry: any) => ({
                   src: entry?.logo?.url || '',
                   darkSrc: entry?.logoDark?.url || entry?.logo?.url || '',
                   alt: entry?.name || '',
                   href: entry?.url || '',
-                }))
-              }
+                }),
+              )}
             />
           </div>
         )}
@@ -239,14 +248,14 @@ const StartupChallengeYear = ({
           <div className="py-0 bg-ec_background dark:bg-ec_background_darkmode">
             <Sponsors
               title="Partners"
-              logos={
-                challengeData.sponsorsCollection.items.map((sponsor: any) => ({
+              logos={challengeData.sponsorsCollection.items.map(
+                (sponsor: any) => ({
                   src: sponsor?.logo?.url || '',
                   darkSrc: sponsor?.logoDark?.url || sponsor?.logo?.url || '',
                   alt: sponsor?.name || '',
                   href: sponsor?.url || '',
-                }))
-              }
+                }),
+              )}
             />
           </div>
         )}
@@ -257,8 +266,6 @@ const StartupChallengeYear = ({
         to={challengeData?.signUpLink || ''}
         disabled={!submissionsEnabled}
       />
-
-
     </div>
   );
 };

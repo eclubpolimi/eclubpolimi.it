@@ -15,7 +15,7 @@ type MyAppProps = {
 
 const MyApp = ({ Component, pageProps }: MyAppProps) => {
   const router = useRouter();
-  
+
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
 
@@ -27,7 +27,8 @@ const MyApp = ({ Component, pageProps }: MyAppProps) => {
   }, []);
 
   // Determine if sponsors should be shown based on current route
-  const showSponsors = router.pathname === '/' || router.pathname === '/network';
+  const showSponsors =
+    router.pathname === '/' || router.pathname === '/network';
 
   return (
     <ApolloProvider client={client}>

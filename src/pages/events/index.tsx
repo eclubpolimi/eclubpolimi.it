@@ -50,10 +50,10 @@ const Events = ({ data }: EventProps) => {
             }) || []),
             // Add coming soon event at the end
             {
-              title: "Coming Soon...",
-              date: "",
-              body: "Stay tuned for more of our events!",
-            }
+              title: 'Coming Soon...',
+              date: '',
+              body: 'Stay tuned for more of our events!',
+            },
           ]}
           theme="centered"
         />

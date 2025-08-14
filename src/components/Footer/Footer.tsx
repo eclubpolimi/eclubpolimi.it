@@ -115,7 +115,11 @@ const Footer = ({
                   elementType="image"
                   className="inline-block"
                 >
-                  <a href="mailto:info@eclubpolimi.it" target="_blank" rel="noreferrer">
+                  <a
+                    href="mailto:info@eclubpolimi.it"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <FontAwesomeIcon
                       className="text-ec_text_darkmode"
                       size="3x"

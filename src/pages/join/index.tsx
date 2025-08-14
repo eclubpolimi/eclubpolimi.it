@@ -94,7 +94,11 @@ const Join = ({ joinData }: JoinProps) => {
       <div className="relative w-full h-[250px]">
         {/* Background Image - Light Mode */}
         <Image
-          src={getImageUrl('join_hero_background', false) || joinHeroImage.url || ''}
+          src={
+            getImageUrl('join_hero_background', false) ||
+            joinHeroImage.url ||
+            ''
+          }
           fill
           style={{ objectFit: 'cover', objectPosition: 'center 36%' }}
           alt="Join Us Hero Background"
@@ -102,7 +106,9 @@ const Join = ({ joinData }: JoinProps) => {
         />
         {/* Background Image - Dark Mode */}
         <Image
-          src={getImageUrl('join_hero_background', true) || joinHeroImage.url || ''}
+          src={
+            getImageUrl('join_hero_background', true) || joinHeroImage.url || ''
+          }
           fill
           style={{ objectFit: 'cover', objectPosition: 'center 36%' }}
           alt="Join Us Hero Background Dark Mode"

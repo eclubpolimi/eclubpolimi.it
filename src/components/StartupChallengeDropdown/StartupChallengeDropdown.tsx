@@ -6,10 +6,16 @@ interface StartupChallengeDropdownProps {
   className?: string;
 }
 
-const StartupChallengeDropdown = ({ className = '' }: StartupChallengeDropdownProps) => {
+const StartupChallengeDropdown = ({
+  className = '',
+}: StartupChallengeDropdownProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
-  const [dropdownPosition, setDropdownPosition] = useState({ top: 0, left: 0, width: 0 });
+  const [dropdownPosition, setDropdownPosition] = useState({
+    top: 0,
+    left: 0,
+    width: 0,
+  });
   const dropdownRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
@@ -35,9 +41,9 @@ const StartupChallengeDropdown = ({ className = '' }: StartupChallengeDropdownPr
             });
           }
         };
-        
+
         updatePosition();
-        
+
         if (isHovered) {
           const interval = setInterval(updatePosition, 50);
           return () => clearInterval(interval);
@@ -49,7 +55,7 @@ const StartupChallengeDropdown = ({ className = '' }: StartupChallengeDropdownPr
       <>
         <div ref={rocketRef} className="relative inline-block overflow-visible">
           <motion.div
-            animate={isHovered ? "launch" : "idle"}
+            animate={isHovered ? 'launch' : 'idle'}
             variants={{
               idle: {
                 y: 0,
@@ -67,29 +73,31 @@ const StartupChallengeDropdown = ({ className = '' }: StartupChallengeDropdownPr
                 transition: {
                   duration: 1.5,
                   times: [0, 0.3, 0.7, 1],
-                  ease: "easeOut"
-                }
-              }
+                  ease: 'easeOut',
+                },
+              },
             }}
             style={{
-              filter: isHovered ? 'drop-shadow(0 0 12px rgba(255, 165, 0, 0.8))' : 'none'
+              filter: isHovered
+                ? 'drop-shadow(0 0 12px rgba(255, 165, 0, 0.8))'
+                : 'none',
             }}
             className="inline-block"
           >
             🚀
           </motion.div>
-          
+
           {/* Replacement rocket that slides in from bottom when original launches */}
           <AnimatePresence>
             {isHovered && (
               <motion.div
                 className="absolute inset-0 inline-block"
-                initial={{ 
+                initial={{
                   y: 20,
                   x: -5,
                   opacity: 0,
                   scale: 0.5,
-                  rotate: 45
+                  rotate: 45,
                 }}
                 animate={{
                   y: 0,
@@ -103,12 +111,12 @@ const StartupChallengeDropdown = ({ className = '' }: StartupChallengeDropdownPr
                   x: -5,
                   opacity: 0,
                   scale: 0.5,
-                  rotate: 45
+                  rotate: 45,
                 }}
                 transition={{
                   delay: 1.0, // Appears near the end of launch
                   duration: 0.5,
-                  ease: "backOut"
+                  ease: 'backOut',
                 }}
               >
                 🚀
@@ -118,110 +126,115 @@ const StartupChallengeDropdown = ({ className = '' }: StartupChallengeDropdownPr
         </div>
 
         {/* Portal for particles - renders outside navbar */}
-        {isHovered && typeof window !== 'undefined' && createPortal(
-          <div className="pointer-events-none fixed inset-0 z-[10000]" style={{ overflow: 'visible' }}>
-            <AnimatePresence>
-              {/* Multiple circle particles bursting out */}
-              {[...Array(8)].map((_, i) => {
-                const angle = (i / 8) * 360; // Distribute evenly in circle
-                const distance = 20 + Math.random() * 15; // Random distance
-                return (
+        {isHovered &&
+          typeof window !== 'undefined' &&
+          createPortal(
+            <div
+              className="pointer-events-none fixed inset-0 z-[10000]"
+              style={{ overflow: 'visible' }}
+            >
+              <AnimatePresence>
+                {/* Multiple circle particles bursting out */}
+                {[...Array(8)].map((_, i) => {
+                  const angle = (i / 8) * 360; // Distribute evenly in circle
+                  const distance = 20 + Math.random() * 15; // Random distance
+                  return (
+                    <motion.div
+                      key={`particle-${i}`}
+                      className="absolute pointer-events-none"
+                      style={{
+                        top: rocketPosition.top + 8,
+                        left: rocketPosition.left + 8,
+                        zIndex: 10001,
+                      }}
+                      initial={{
+                        opacity: 0,
+                        scale: 0,
+                      }}
+                      animate={{
+                        opacity: [0, 1, 0.7, 0],
+                        scale: [0, 1, 0.5, 0],
+                        x: [0, Math.cos((angle * Math.PI) / 180) * distance],
+                        y: [0, Math.sin((angle * Math.PI) / 180) * distance],
+                      }}
+                      exit={{ opacity: 0 }}
+                      transition={{
+                        duration: 1.5,
+                        delay: 0.2 + i * 0.05,
+                        ease: 'easeOut',
+                      }}
+                    >
+                      <div className="w-2 h-2 bg-yellow-400 rounded-full shadow-lg shadow-yellow-400/50"></div>
+                    </motion.div>
+                  );
+                })}
+
+                {/* Additional exhaust particles trailing behind */}
+                {[...Array(6)].map((_, i) => (
                   <motion.div
-                    key={`particle-${i}`}
+                    key={`exhaust-${i}`}
                     className="absolute pointer-events-none"
                     style={{
-                      top: rocketPosition.top + 8,
-                      left: rocketPosition.left + 8,
-                      zIndex: 10001,
+                      top: rocketPosition.top + 10,
+                      left: rocketPosition.left + 5,
+                      zIndex: 10000,
                     }}
-                    initial={{ 
-                      opacity: 0, 
+                    initial={{
+                      opacity: 0,
                       scale: 0,
                     }}
                     animate={{
-                      opacity: [0, 1, 0.7, 0],
-                      scale: [0, 1, 0.5, 0],
-                      x: [0, Math.cos(angle * Math.PI / 180) * distance],
-                      y: [0, Math.sin(angle * Math.PI / 180) * distance],
+                      opacity: [0, 0.8, 0.4, 0],
+                      scale: [0, 1, 1.5, 2],
+                      x: [0, -8 - i * 3],
+                      y: [0, 2 + Math.random() * 4],
                     }}
                     exit={{ opacity: 0 }}
                     transition={{
-                      duration: 1.5,
-                      delay: 0.2 + i * 0.05,
-                      ease: "easeOut"
+                      duration: 2,
+                      delay: i * 0.1,
+                      ease: 'easeOut',
                     }}
                   >
-                    <div className="w-2 h-2 bg-yellow-400 rounded-full shadow-lg shadow-yellow-400/50"></div>
+                    <div className="w-1.5 h-1.5 bg-orange-400 rounded-full opacity-60"></div>
                   </motion.div>
-                );
-              })}
+                ))}
 
-              {/* Additional exhaust particles trailing behind */}
-              {[...Array(6)].map((_, i) => (
+                {/* Launch glow effect */}
                 <motion.div
-                  key={`exhaust-${i}`}
                   className="absolute pointer-events-none"
                   style={{
-                    top: rocketPosition.top + 10,
-                    left: rocketPosition.left + 5,
-                    zIndex: 10000,
+                    top: rocketPosition.top,
+                    left: rocketPosition.left,
+                    zIndex: 9999,
                   }}
-                  initial={{ 
-                    opacity: 0, 
-                    scale: 0,
+                  initial={{
+                    opacity: 0,
+                    scale: 1,
                   }}
                   animate={{
-                    opacity: [0, 0.8, 0.4, 0],
-                    scale: [0, 1, 1.5, 2],
-                    x: [0, -8 - i * 3],
-                    y: [0, 2 + Math.random() * 4],
+                    opacity: [0, 0.6, 0],
+                    scale: [1, 2.5, 4],
                   }}
                   exit={{ opacity: 0 }}
                   transition={{
-                    duration: 2,
-                    delay: i * 0.1,
-                    ease: "easeOut"
+                    duration: 1.2,
+                    ease: 'easeOut',
                   }}
                 >
-                  <div className="w-1.5 h-1.5 bg-orange-400 rounded-full opacity-60"></div>
+                  <div className="w-6 h-6 bg-orange-400 rounded-full blur-sm opacity-30"></div>
                 </motion.div>
-              ))}
-
-              {/* Launch glow effect */}
-              <motion.div
-                className="absolute pointer-events-none"
-                style={{
-                  top: rocketPosition.top,
-                  left: rocketPosition.left,
-                  zIndex: 9999,
-                }}
-                initial={{ 
-                  opacity: 0, 
-                  scale: 1,
-                }}
-                animate={{
-                  opacity: [0, 0.6, 0],
-                  scale: [1, 2.5, 4],
-                }}
-                exit={{ opacity: 0 }}
-                transition={{
-                  duration: 1.2,
-                  ease: "easeOut"
-                }}
-              >
-                <div className="w-6 h-6 bg-orange-400 rounded-full blur-sm opacity-30"></div>
-              </motion.div>
-            </AnimatePresence>
-          </div>,
-          document.body
-        )}
+              </AnimatePresence>
+            </div>,
+            document.body,
+          )}
       </>
     );
   };
 
   const handleToggle = () => {
     console.log('Dropdown toggle clicked, current state:', isOpen);
-    
+
     if (!isOpen && buttonRef.current) {
       // Calculate position when opening dropdown
       const rect = buttonRef.current.getBoundingClientRect();
@@ -231,14 +244,14 @@ const StartupChallengeDropdown = ({ className = '' }: StartupChallengeDropdownPr
         width: rect.width,
       });
     }
-    
+
     setIsOpen(!isOpen);
   };
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
-        dropdownRef.current && 
+        dropdownRef.current &&
         !dropdownRef.current.contains(event.target as Node) &&
         buttonRef.current &&
         !buttonRef.current.contains(event.target as Node)
@@ -284,48 +297,55 @@ const StartupChallengeDropdown = ({ className = '' }: StartupChallengeDropdownPr
           stroke="currentColor"
           viewBox="0 0 24 24"
         >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M19 9l-7 7-7-7"
+          />
         </svg>
       </button>
 
-      {isOpen && typeof window !== 'undefined' && createPortal(
-        <div 
-          ref={dropdownRef}
-          className="fixed bg-white dark:bg-ec_background_darkmode border border-ec_border_light dark:border-ec_border_darkmode rounded-md shadow-2xl backdrop-blur-sm"
-          style={{
-            top: dropdownPosition.top,
-            left: dropdownPosition.left,
-            minWidth: Math.max(dropdownPosition.width, 200),
-            zIndex: 10001,
-          }}
-        >
-          {years.map((yearData, index) => (
-            <div key={yearData.year}>
-              <a
-                href={yearData.path}
-                className="block px-4 py-3 text-sm text-ec_text dark:text-ec_text_darkmode hover:bg-ec_grey hover:bg-opacity-20 dark:hover:bg-ec_grey_darkmode transition-colors first:rounded-t-md last:rounded-b-md text-center whitespace-nowrap"
-                onClick={() => {
-                  console.log('Dropdown item clicked:', yearData.year);
-                  setIsOpen(false);
-                }}
-              >
-                <span className="flex items-center justify-center gap-2">
-                  USC {yearData.year}
-                  {yearData.isCurrent && (
-                    <span className="px-2 py-1 bg-ec_orange dark:bg-ec_orange_darkmode text-white text-xs rounded-full font-semibold">
-                      Current
-                    </span>
-                  )}
-                </span>
-              </a>
-              {index < years.length - 1 && (
-                <div className="mx-3 h-px bg-ec_grey dark:bg-ec_grey_darkmode"></div>
-              )}
-            </div>
-          ))}
-        </div>,
-        document.body
-      )}
+      {isOpen &&
+        typeof window !== 'undefined' &&
+        createPortal(
+          <div
+            ref={dropdownRef}
+            className="fixed bg-white dark:bg-ec_background_darkmode border border-ec_border_light dark:border-ec_border_darkmode rounded-md shadow-2xl backdrop-blur-sm"
+            style={{
+              top: dropdownPosition.top,
+              left: dropdownPosition.left,
+              minWidth: Math.max(dropdownPosition.width, 200),
+              zIndex: 10001,
+            }}
+          >
+            {years.map((yearData, index) => (
+              <div key={yearData.year}>
+                <a
+                  href={yearData.path}
+                  className="block px-4 py-3 text-sm text-ec_text dark:text-ec_text_darkmode hover:bg-ec_grey hover:bg-opacity-20 dark:hover:bg-ec_grey_darkmode transition-colors first:rounded-t-md last:rounded-b-md text-center whitespace-nowrap"
+                  onClick={() => {
+                    console.log('Dropdown item clicked:', yearData.year);
+                    setIsOpen(false);
+                  }}
+                >
+                  <span className="flex items-center justify-center gap-2">
+                    USC {yearData.year}
+                    {yearData.isCurrent && (
+                      <span className="px-2 py-1 bg-ec_orange dark:bg-ec_orange_darkmode text-white text-xs rounded-full font-semibold">
+                        Current
+                      </span>
+                    )}
+                  </span>
+                </a>
+                {index < years.length - 1 && (
+                  <div className="mx-3 h-px bg-ec_grey dark:bg-ec_grey_darkmode"></div>
+                )}
+              </div>
+            ))}
+          </div>,
+          document.body,
+        )}
     </div>
   );
 };

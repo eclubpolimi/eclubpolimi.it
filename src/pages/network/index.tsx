@@ -47,11 +47,7 @@ const Network = () => {
       {/* Orange bordered container for sponsors - matching homepage style */}
       <div className="flex justify-center px-5 lg:px-0 py-4">
         <div className="border border-solid border-ec_orange dark:border-ec_orange_darkmode rounded-xl p-6 w-full max-w-6xl">
-          <Sponsors
-            className="flex-1"
-            title=" "
-            logos={networkMembers}
-          />
+          <Sponsors className="flex-1" title=" " logos={networkMembers} />
         </div>
       </div>
 
