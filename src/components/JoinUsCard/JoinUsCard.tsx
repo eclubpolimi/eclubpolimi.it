@@ -2,8 +2,7 @@ import Button from 'components/Button/Button';
 
 type JoinUsCardProps = {
   height: string;
-  width: string;
-  advantages: Array<string>;
+  advantages: string[];
   role: string;
   to: string;
   closed?: boolean;
@@ -12,7 +11,6 @@ type JoinUsCardProps = {
 
 const JoinUsCard = ({
   height,
-  width,
   advantages = [], // Ensure it's always an array
   role,
   to,

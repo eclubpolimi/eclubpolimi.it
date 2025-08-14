@@ -8,16 +8,21 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from 'next/image';
 
+type CarouselSlide = {
+  image: string;
+  alt: string;
+};
+
 type CarouselProps = {
-  sliderData: any;
+  sliderData: CarouselSlide[];
   autoplay: number;
   className?: string;
 };
 
-const Carousel = ({ sliderData, autoplay, className = '' }: CarouselProps) => {
+const Carousel = ({ sliderData, autoplay }: CarouselProps) => {
   const [current, setCurrent] = useState(0);
   const [time, setTime] = useState(0);
-  const [timer, setTimer] = useState<any>(null);
+  const [timer, setTimer] = useState<NodeJS.Timeout | null>(null);
   const [existsTimer, setExistsTimer] = useState(1);
 
   const arrowSize = '40px';
@@ -28,7 +33,11 @@ const Carousel = ({ sliderData, autoplay, className = '' }: CarouselProps) => {
       setTimer(interval);
     };
     initTimer();
-    return () => clearInterval(timer);
+    return () => {
+      if (timer) {
+        clearInterval(timer);
+      }
+    };
   }, []);
 
   const tick = () => {
@@ -55,7 +64,9 @@ const Carousel = ({ sliderData, autoplay, className = '' }: CarouselProps) => {
   const unmountTimer = () => {
     if (existsTimer === 1) {
       setExistsTimer(0);
-      clearInterval(timer);
+      if (timer) {
+        clearInterval(timer);
+      }
     }
   };
 
@@ -90,7 +101,7 @@ const Carousel = ({ sliderData, autoplay, className = '' }: CarouselProps) => {
         </div>
       </div>
       <div className="w-full max-h-[400px]">
-        {sliderData.map((slide: any, index: number) => (
+        {sliderData.map((slide: CarouselSlide, index: number) => (
           <div
             className={` transition-opacity duration-1000 ${
               index === current ? 'opacity-100' : 'h-0 opacity-0'

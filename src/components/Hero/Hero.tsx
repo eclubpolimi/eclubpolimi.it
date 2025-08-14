@@ -7,7 +7,6 @@ type HeroProps = {
   contentType: string;
   text?: string;
   logo?: StaticImageData | string;
-  alignTop?: boolean;
 };
 
 const Hero = ({
@@ -17,7 +16,6 @@ const Hero = ({
   contentType,
   text,
   logo,
-  alignTop = false,
 }: HeroProps) => {
   return (
     <div

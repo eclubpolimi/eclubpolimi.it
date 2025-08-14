@@ -135,7 +135,6 @@ const Join = ({ joinData }: JoinProps) => {
             <JoinUsCard
               role="Explorer"
               height="420px"
-              width="400px"
               advantages={joinData.explorerBenefits}
               to={joinData.explorerJoinLink}
             />
@@ -146,7 +145,6 @@ const Join = ({ joinData }: JoinProps) => {
             <JoinUsCard
               role="Driver"
               height="420px"
-              width="400px"
               advantages={joinData.driverBenefits}
               to={joinData.driverJoinLink}
             />
@@ -170,7 +168,6 @@ const Join = ({ joinData }: JoinProps) => {
             <JoinUsCard
               role="Collaborator"
               height="420px"
-              width="400px"
               advantages={joinData.sponsorBenefits}
               to={joinData.sponsorJoinLink}
             />

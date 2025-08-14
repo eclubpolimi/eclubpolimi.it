@@ -12,7 +12,6 @@ import {
   InteractiveSection,
 } from 'components/InteractiveSection/InteractiveSection';
 import { useSponsors, useImageAsset } from 'hooks/useImageAssets';
-import SiteData from '@/Data';
 
 type FooterProps = {
   logo: string;

@@ -7,7 +7,6 @@ import CrossIcon from 'images/navbar/cross.svg';
 import SiteData from '@/Data';
 import Image from 'next/image';
 import { useImageAsset } from 'hooks/useImageAssets';
-import Button from 'components/Button/Button';
 import {
   InteractiveSectionGroup,
   InteractiveSection,
@@ -138,7 +137,7 @@ const NavBar = ({ items }: NavBarProps) => {
           const mobileItemClass =
             item.type === 'button'
               ? 'flex justify-center items-center h-14 border-b border-ec_border_light dark:border-ec_border_darkmode border-opacity-30 last:border-b-0'
-              : 'flex justify-center items-center h-14 text-white dark:text-ec_text_darkmode hover:bg-ec_orange hover:bg-opacity-10 dark:hover:bg-ec_orange_darkmode dark:hover:bg-opacity-10 transition-all duration-200 border-b border-ec_border_light dark:border-ec_border_darkmode border-opacity-30 last:border-b-0 active:bg-ec_orange active:bg-opacity-20 cursor-pointer';
+              : 'flex justify-center items-center h-14 text-white dark:text-ec_text_darkmode hover:bg-white hover:bg-opacity-20 dark:hover:bg-ec_text_darkmode dark:hover:bg-opacity-20 transition-all duration-200 border-b border-ec_border_light dark:border-ec_border_darkmode border-opacity-30 last:border-b-0 active:bg-white active:bg-opacity-30 dark:active:bg-ec_text_darkmode dark:active:bg-opacity-30 cursor-pointer';
 
           const handleLinkClick = () => {
             if (item.type === 'link') {
