@@ -159,8 +159,8 @@ const StartupChallengeYear = ({
 
       {/* Description Section */}
       <div className="max-w-screen-lg lg:mx-auto px-5 lg:px-0">
-        <Description title="A month-long entrepreneurship competition">
-          <p className="text-ec_text dark:text-ec_text_darkmode text-justify">
+        <Description title={`A${challengeData?.duration ? ` ${challengeData.duration}-long` : ' month-long'} entrepreneurship competition`}>
+          <p className="text-ec_text dark:text-ec_text_darkmode text-center">
             {challengeData?.detailedProgramDescription ||
               `The University Startup Challenge ${year} is a unique event that brings
               together students from leading universities with the goal of delivering groundbreaking
@@ -250,6 +250,15 @@ const StartupChallengeYear = ({
             />
           </div>
         )}
+      <JoinUsBar
+        title={`Apply for USC ${year}`}
+        color="blue"
+        buttonText="Apply here"
+        to={challengeData?.signUpLink || ''}
+        disabled={!submissionsEnabled}
+      />
+
+
     </div>
   );
 };
