@@ -1,7 +1,10 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 import Button from '@/components/Button/Button';
 
 const HiddenPage = () => {
+  const router = useRouter();
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-ec_background dark:bg-ec_background_darkmode">
       <div className="text-center">
@@ -33,13 +36,13 @@ const HiddenPage = () => {
               e.currentTarget.style.background = isDarkMode ? 'white' : 'black';
               e.currentTarget.style.color = isDarkMode ? 'black' : 'white';
             }}
-            onClick={() => window.location.href = '/'}
+            onClick={() => router.push('/')}
           >
             Default Button
           </button>
           
           {/* Custom Button Component */}
-          <Button to="/" className="px-6 py-3">
+          <Button variant="navigation" href="/">
             Custom Button
           </Button>
         </div>
