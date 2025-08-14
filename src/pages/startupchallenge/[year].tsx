@@ -125,7 +125,8 @@ const StartupChallengeYear = ({
           </span>
           <div className="flex gap-4 md:flex-row flex-col items-center pt-8">
             <Button
-              to={challengeData?.signUpLink || ''}
+              variant="external"
+              href={challengeData?.signUpLink || ''}
               theme="orange"
               className="align-middle"
               disabled={!submissionsEnabled}
@@ -184,8 +185,8 @@ const StartupChallengeYear = ({
       {challengeData?.detailedProgram && (
         <div className="w-full flex items-center justify-center pb-10">
           <Button
-            forceAnchor
-            to={challengeData.detailedProgram.url || ''}
+            variant="external"
+            href={challengeData.detailedProgram.url || ''}
             theme="orange"
           >
             Detailed program
