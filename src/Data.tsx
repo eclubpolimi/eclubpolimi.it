@@ -1,9 +1,11 @@
-//changed startup challgenge to a white button to make it stand out and added a rocket emoji next to it
+// Global static data for the E-Club website
 
+import Link from 'next/link';
 import Button from 'components/Button/Button';
 import StartupChallengeDropdown from 'components/StartupChallengeDropdown/StartupChallengeDropdown';
 import pialessons from 'images/pialessons';
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
+
 /**
  * @description This class holds global, static data, to avoid duplication between production code and tests
  * @note All members of this class must be declared static
@@ -37,15 +39,15 @@ export default class SiteData {
 
   static NavbarItems: Array<{ type: 'link' | 'button'; content: ReactNode }> = [
     {
-      content: <a href={this.OurTeamTarget}>Our Team</a>,
+      content: <Link href={this.OurTeamTarget}>Our Team</Link>,
       type: 'link',
     },
     {
-      content: <a href={this.EventsTarget}>Events</a>,
+      content: <Link href={this.EventsTarget}>Events</Link>,
       type: 'link',
     },
     // {
-    //   content: <a href={this.StartupChallengeTarget}>Startup Challenge</a>,
+    //   content: <Link href={this.StartupChallengeTarget}>Startup Challenge</Link>,
     //   type: 'link',
     // },
     {
@@ -53,23 +55,23 @@ export default class SiteData {
       type: 'button',
     },
     //     {
-    //   content: <a href={this.PiaTarget}>Passion in Action</a>,
+    //   content: <Link href={this.PiaTarget}>Passion in Action</Link>,
     //   type: 'link',
     // },
     // {
-    //   content: <a href={this.TravelTarget}>Travel</a>,
+    //   content: <Link href={this.TravelTarget}>Travel</Link>,
     //   type: 'link',
     // },
     {
-      content: <a href={this.NetworkTarget}>Network</a>,
+      content: <Link href={this.NetworkTarget}>Network</Link>,
       type: 'link',
     },
     {
-      content: <Button to={this.JoinTarget}>Join us</Button>,
+      content: <Button variant="navigation" href={this.JoinTarget}>Join us</Button>,
       type: 'button',
     },
     // {
-    //   content: <a href={this.TestTarget}>Test</a>, // New test page link
+    //   content: <Link href={this.TestTarget}>Test</Link>, // New test page link
     //   type: 'link',
     // },
   ];
