@@ -16,6 +16,8 @@
     #fc3f1a 90%
   );
   --orange-gradient-hover: linear-gradient(60deg, #ff793f 10%, #fc5833 90%);
+  --orange-gradient-light: linear-gradient(60deg, #fc3f1a 10%, #fc5833 90%);
+  --orange-gradient-dark: linear-gradient(60deg, #af3714 10%, #af4f09 90%);
   --text-color: #121212;
   --background-color: #ffffff;
   --navbar-background: #ffffff;
