@@ -135,4 +135,5 @@ const OpenDay = () => {
   );
 };
 
-export default OpenDay;
+// DISABLED: Page moved to _disabled folder - comment out export to prevent access
+// export default OpenDay;

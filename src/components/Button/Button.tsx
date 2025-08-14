@@ -15,29 +15,29 @@ export type ButtonProps = {
   className?: string;
   children: React.ReactNode;
   scaleLevel?: 'tiny' | 'small' | 'medium' | 'large' | 'huge';
-  disableHoverScale?: boolean; // Now defaults to false (scaling enabled by default)
+  disableHoverScale?: boolean;
 };
 
 const Button = ({
   to,
   onClick = () => undefined,
   forceAnchor = false,
-  theme = 'orange', // Default theme remains orange - this is now the standard
+  theme = 'orange', // Default theme remains orange
   disabled,
   className = '',
   children,
   scaleLevel = 'small',
-  disableHoverScale = false, // Now defaults to false - hover scaling is enabled by default
+  disableHoverScale = false,
 }: ButtonProps) => {
   // Generate unique ID for this button instance
   const buttonId = React.useId();
 
-  // Dynamic styles based on theme - Orange is the default standard theme
+  // Dynamic styles based on theme
   const themeStyles = {
     orange:
       'bg-ec_orange dark:bg-ec_orange_darkmode hover:bg-ec_orange_hover dark:hover:bg-ec_orange_hover_darkmode text-white',
     light:
-      'bg-white dark:bg-ec_background_darkmode hover:bg-gray-100 dark:hover:bg-ec_grey_darkmode text-ec_blue dark:text-ec_text_darkmode',
+      'bg-white dark:bg-ec_background_darkmode hover:bg-gray-300 dark:hover:bg-ec_grey_darkmode text-ec_blue dark:text-ec_text_darkmode',
     dark: 'bg-black dark:bg-ec_blue_darkmode hover:bg-gray-800 dark:hover:bg-ec_grey_darkmode text-white dark:text-ec_text_darkmode',
   };
 

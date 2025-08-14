@@ -19,4 +19,5 @@ const Travel = () => {
   );
 };
 
-export default Travel;
+// DISABLED: Page moved to _disabled folder - comment out export to prevent access
+// export default Travel;

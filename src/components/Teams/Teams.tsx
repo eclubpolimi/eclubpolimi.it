@@ -44,13 +44,15 @@ const Teams = ({ teams, className }: TeamsProps) => {
                     // For now, we'll show an alert
                     alert(`PDF download for ${team.teamName} will be available soon!`);
                   }}
-                  className="group flex items-center gap-2"
+                  className="group"
                 >
-                  <FontAwesomeIcon 
-                    icon={faDownload} 
-                    className="text-sm group-hover:animate-bounce" 
-                  />
-                  <span className="text-sm font-medium">Team Info</span>
+                  <div className="flex items-center gap-2">
+                    <FontAwesomeIcon 
+                      icon={faDownload} 
+                      className="text-sm group-hover:animate-bounce" 
+                    />
+                    <span className="text-sm font-medium">Team Info</span>
+                  </div>
                 </Button>
               </div>
             )}
