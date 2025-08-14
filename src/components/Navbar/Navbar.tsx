@@ -33,15 +33,22 @@ const NavBar = ({ items }: NavBarProps) => {
     <nav className="h-16 w-full bg-ec_blue dark:bg-ec_blue_darkmode z-50 relative">
       {/* Desktop and Mobile Container */}
       <div className="h-16 flex justify-between items-center px-5 xl:px-10">
-        
         {/* Logo Section */}
         <div className="flex items-center">
           <InteractiveSectionGroup
             defaultScaleLevel="small"
             rememberZIndex={false}
           >
-            <InteractiveSection sectionId="navbar-logo" elementType="image" className="inline-block">
-              <Link href={SiteData.HomeTarget} onClick={closeMenu} className="inline-block">
+            <InteractiveSection
+              sectionId="navbar-logo"
+              elementType="image"
+              className="inline-block"
+            >
+              <Link
+                href={SiteData.HomeTarget}
+                onClick={closeMenu}
+                className="inline-block"
+              >
                 <Image
                   src={logoWhite?.url || SiteData.LogoWhite}
                   alt="Entrepreneurship Club Polimi"
@@ -85,7 +92,11 @@ const NavBar = ({ items }: NavBarProps) => {
             defaultScaleLevel="medium"
             rememberZIndex={false}
           >
-            <InteractiveSection sectionId="mobile-burger-menu" elementType="text" className="inline-block">
+            <InteractiveSection
+              sectionId="mobile-burger-menu"
+              elementType="text"
+              className="inline-block"
+            >
               <div className="cursor-pointer p-2" onClick={handleMenu}>
                 {!clicked ? (
                   <Image
@@ -111,11 +122,11 @@ const NavBar = ({ items }: NavBarProps) => {
       </div>
 
       {/* Mobile Navigation Menu - Dropdown */}
-      <ul className={`xl:hidden flex flex-col bg-ec_blue dark:bg-ec_blue_darkmode transition-all duration-300 rounded-b-lg border border-ec_border_light dark:border-ec_border_darkmode ${
-        !clicked 
-          ? 'h-0 overflow-hidden' 
-          : 'overflow-visible shadow-xl'
-      } absolute top-16 right-5 min-w-max z-40`}>
+      <ul
+        className={`xl:hidden flex flex-col bg-ec_blue dark:bg-ec_blue_darkmode transition-all duration-300 rounded-b-lg border border-ec_border_light dark:border-ec_border_darkmode ${
+          !clicked ? 'h-0 overflow-hidden' : 'overflow-visible shadow-xl'
+        } absolute top-16 right-5 min-w-max z-40`}
+      >
         {items.map((item, index) => {
           if (!item.type) {
             console.error(
@@ -124,9 +135,10 @@ const NavBar = ({ items }: NavBarProps) => {
           }
 
           // Mobile-specific styling - centered alignment and equal heights, no extra padding
-          const mobileItemClass = item.type === 'button'
-            ? 'flex justify-center items-center h-14 border-b border-ec_border_light dark:border-ec_border_darkmode border-opacity-30 last:border-b-0'
-            : 'flex justify-center items-center h-14 text-white dark:text-ec_text_darkmode hover:bg-ec_orange hover:bg-opacity-10 dark:hover:bg-ec_orange_darkmode dark:hover:bg-opacity-10 transition-all duration-200 border-b border-ec_border_light dark:border-ec_border_darkmode border-opacity-30 last:border-b-0 active:bg-ec_orange active:bg-opacity-20 cursor-pointer';
+          const mobileItemClass =
+            item.type === 'button'
+              ? 'flex justify-center items-center h-14 border-b border-ec_border_light dark:border-ec_border_darkmode border-opacity-30 last:border-b-0'
+              : 'flex justify-center items-center h-14 text-white dark:text-ec_text_darkmode hover:bg-ec_orange hover:bg-opacity-10 dark:hover:bg-ec_orange_darkmode dark:hover:bg-opacity-10 transition-all duration-200 border-b border-ec_border_light dark:border-ec_border_darkmode border-opacity-30 last:border-b-0 active:bg-ec_orange active:bg-opacity-20 cursor-pointer';
 
           const handleLinkClick = () => {
             if (item.type === 'link') {
@@ -135,19 +147,24 @@ const NavBar = ({ items }: NavBarProps) => {
           };
 
           // For mobile, handle buttons and links differently
-          const mobileContent = item.type === 'button' ? (
-            // For buttons, create a wrapper that takes full space
-            <div className="w-full h-full mobile-nav-button-wrapper">
-              {item.content}
-            </div>
-          ) : (
-            <div className="mobile-nav-item text-center font-medium w-full px-4">
-              {item.content}
-            </div>
-          );
+          const mobileContent =
+            item.type === 'button' ? (
+              // For buttons, create a wrapper that takes full space
+              <div className="w-full h-full mobile-nav-button-wrapper">
+                {item.content}
+              </div>
+            ) : (
+              <div className="mobile-nav-item text-center font-medium w-full px-4">
+                {item.content}
+              </div>
+            );
 
           return (
-            <li key={index} className={mobileItemClass} onClick={handleLinkClick}>
+            <li
+              key={index}
+              className={mobileItemClass}
+              onClick={handleLinkClick}
+            >
               {mobileContent}
             </li>
           );

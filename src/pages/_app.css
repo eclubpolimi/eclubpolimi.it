@@ -71,11 +71,11 @@ html {
 /* Mobile-only styles - only apply on screens smaller than xl (1280px) */
 @media (max-width: 1279px) {
   /* Make buttons fill the entire mobile nav section */
-  li[class*="border-b"] > div > button,
-  li[class*="border-b"] > div > div > button,
-  li[class*="border-b"] > div > div > div > a,
-  li[class*="border-b"] > div > div > div > div > a,
-  li[class*="border-b"] .mobile-nav-button-wrapper button {
+  li[class*='border-b'] > div > button,
+  li[class*='border-b'] > div > div > button,
+  li[class*='border-b'] > div > div > div > a,
+  li[class*='border-b'] > div > div > div > div > a,
+  li[class*='border-b'] .mobile-nav-button-wrapper button {
     width: 100% !important;
     height: 100% !important;
     min-height: 56px !important;
@@ -93,19 +93,21 @@ html {
   .mobile-nav-button-wrapper button,
   .mobile-nav-button-wrapper button:hover {
     transform: scale(1) !important;
-    transition: color 0.2s, background-color 0.2s !important;
+    transition:
+      color 0.2s,
+      background-color 0.2s !important;
   }
 
   /* Disable scaling for InteractiveSection containers */
-  .mobile-nav-button-wrapper [class*="InteractiveSection"],
+  .mobile-nav-button-wrapper [class*='InteractiveSection'],
   .mobile-nav-button-wrapper [data-section-id] {
     transform: scale(1) !important;
     transition: none !important;
   }
 
   /* Preserve rocket animations - disable scaling, allow other transforms */
-  .mobile-nav-button-wrapper [class*="rocket"],
-  .mobile-nav-button-wrapper [class*="particle"],
+  .mobile-nav-button-wrapper [class*='rocket'],
+  .mobile-nav-button-wrapper [class*='particle'],
   .mobile-nav-button-wrapper svg:not(.transition-transform) {
     transition: initial !important;
     animation: initial !important;

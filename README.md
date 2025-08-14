@@ -21,15 +21,19 @@ The official E-Club Polimi website's source code. See it live at [eclubpolimi.it
 ```
 src/
 ├── components/          # Reusable UI components
-│   ├── Button/         # Custom button component with variants
-│   ├── Navbar/         # Responsive navigation
 │   └── ...
 ├── pages/              # Next.js pages and routing
+│   └── ...
 ├── data/               # GraphQL queries and fragments
+│   └── ...
 ├── generated/          # Auto-generated GraphQL types
+│   └── ...
 ├── hooks/              # Custom React hooks
+│   └── ...
 ├── types/              # TypeScript type definitions
+│   └── ...
 └── utils/              # Utility functions
+│   └── ...
 ```
 
 ## 🚀 Quick Start
@@ -37,37 +41,42 @@ src/
 ### Prerequisites
 
 - **Node.js 18+** - Get the latest LTS version [here](https://nodejs.org/it/download/)
-- **npm** or **yarn** package manager
+- **npm** (recommended) or **yarn** package manager
 
 ### Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/eclubpolimi/eclubpolimi.it.git
    cd eclubpolimi.it
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm ci
    ```
 
 3. **Set up environment variables**
-   
+
    Create a `.env.local` file in the root directory:
+
    ```env
    CMS_GRAPHQL_ENDPOINT=https://graphql.contentful.com/content/v1/spaces/YOUR_SPACE_ID
    CMS_ACCESS_TOKEN=YOUR_ACCESS_TOKEN
    ```
-   
+
    > Contact the repository maintainers for the actual API keys.
 
 4. **Generate GraphQL types**
+
    ```bash
    npm run gql-codegen
    ```
 
 5. **Start the development server**
+
    ```bash
    npm run dev
    ```
@@ -76,15 +85,15 @@ src/
 
 ## 📜 Available Scripts
 
-| Command | Description |
-|---------|-------------|
-| `npm run dev` | Starts the development server on port 3000 |
-| `npm run build` | Creates an optimized production build |
-| `npm run start` | Runs the production build locally |
-| `npm run gql-codegen` | Generates TypeScript types from GraphQL schema |
-| `npm run gql-watch` | Watches for GraphQL changes and regenerates types |
-| `npm run format` | Formats code using Prettier |
-| `npm run format-check` | Checks code formatting |
+| Command                | Description                                       |
+| ---------------------- | ------------------------------------------------- |
+| `npm run dev`          | Starts the development server on port 3000        |
+| `npm run build`        | Creates an optimized production build             |
+| `npm run start`        | Runs the production build locally                 |
+| `npm run gql-codegen`  | Generates TypeScript types from GraphQL schema    |
+| `npm run gql-watch`    | Watches for GraphQL changes and regenerates types |
+| `npm run format`       | Formats code using Prettier                       |
+| `npm run format-check` | Checks code formatting                            |
 
 ## 🔧 Development
 
@@ -112,6 +121,7 @@ The website uses Contentful as a headless CMS:
 We use GitHub Pull Requests for all contributions:
 
 1. **Create a feature branch** from `master`
+
    ```bash
    git checkout -b feature/your-feature-name
    ```
@@ -119,6 +129,7 @@ We use GitHub Pull Requests for all contributions:
 2. **Make your changes** following the development conventions
 
 3. **Format your code**
+
    ```bash
    npm run format
    ```
@@ -128,8 +139,9 @@ We use GitHub Pull Requests for all contributions:
 5. **Code Review** - After review approval, the PR will be merged
 
 ### Branch Naming Convention
+
 - `feature/component-name` - New features
-- `fix/issue-description` - Bug fixes  
+- `fix/issue-description` - Bug fixes
 - `refactor/component-name` - Code improvements
 - `docs/update-readme` - Documentation updates
 
@@ -163,9 +175,10 @@ This project is proprietary to E-Club Polimi.
 ## 📞 Support
 
 For questions or support:
+
 - Create an issue in this repository
 - Contact the E-Club Polimi development team
 
 ---
 
-*Built with ❤️ by the E-Club Polimi team*
+_Built with ❤️ by the E-Club Polimi team_

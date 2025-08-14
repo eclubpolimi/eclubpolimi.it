@@ -67,7 +67,11 @@ export default class SiteData {
       type: 'link',
     },
     {
-      content: <Button variant="navigation" href={this.JoinTarget}>Join us</Button>,
+      content: (
+        <Button variant="navigation" href={this.JoinTarget}>
+          Join us
+        </Button>
+      ),
       type: 'button',
     },
     // {

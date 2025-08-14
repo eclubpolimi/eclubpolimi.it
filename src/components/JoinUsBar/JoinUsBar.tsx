@@ -53,7 +53,12 @@ const JoinUsBar = ({
       className={`${getBackgroundColor()} ${getBorderColor()} border ${className} flex flex-col gap-6 py-12 justify-center items-center`}
     >
       <h2 className={getTitleColor()}>{getTitle()}</h2>
-      <Button variant="navigation" href={to} theme={getButtonColor()} disabled={disabled}>
+      <Button
+        variant="navigation"
+        href={to}
+        theme={getButtonColor()}
+        disabled={disabled}
+      >
         {getButtonText()}
       </Button>
     </div>

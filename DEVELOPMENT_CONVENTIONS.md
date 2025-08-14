@@ -1,6 +1,7 @@
 # E-Club Website Development Conventions
 
 ## Overview
+
 This document outlines coding conventions and best practices for the E-Club website. Following these conventions ensures consistency, maintainability, and optimal user experience as the codebase is passed between teams.
 
 ---
@@ -8,9 +9,11 @@ This document outlines coding conventions and best practices for the E-Club webs
 ## 🔗 Navigation & Routing
 
 ### Use Next.js Link for Internal Navigation
+
 **Always use `Link` from Next.js for internal page navigation** to enable smooth client-side routing.
 
 #### ✅ Correct
+
 ```tsx
 import Link from 'next/link';
 
@@ -21,6 +24,7 @@ import Link from 'next/link';
 ```
 
 #### ❌ Incorrect
+
 ```tsx
 // This causes full page reloads - AVOID
 <a href="/about">About Us</a>
@@ -28,9 +32,11 @@ import Link from 'next/link';
 ```
 
 ### Use `<a>` Tags for External Links
+
 Use regular anchor tags for external URLs, downloads, and special protocols.
 
 #### ✅ Correct
+
 ```tsx
 // External websites
 <a href="https://google.com" target="_blank" rel="noopener noreferrer">
@@ -48,6 +54,7 @@ Use regular anchor tags for external URLs, downloads, and special protocols.
 ```
 
 ### Quick Decision Guide
+
 - **Internal route** (`/about`, `/events`) → Use `Link`
 - **External URL** (`https://...`) → Use `<a>` with `target="_blank"`
 - **File download** (`.pdf`, `.doc`) → Use `<a>` with `download`
@@ -58,10 +65,13 @@ Use regular anchor tags for external URLs, downloads, and special protocols.
 ## 🎯 Button Component Usage
 
 ### Button Variants
+
 The custom Button component has three distinct variants for different use cases:
 
 #### Navigation Buttons (Internal Routing)
+
 For internal routing with Next.js Link:
+
 ```tsx
 <Button variant="navigation" href="/join">
   Join Us
@@ -69,7 +79,9 @@ For internal routing with Next.js Link:
 ```
 
 #### External Link Buttons
+
 For external URLs:
+
 ```tsx
 <Button variant="external" href="https://forms.google.com">
   Apply Now
@@ -77,7 +89,9 @@ For external URLs:
 ```
 
 #### Action Buttons (Click Handlers)
+
 For click handlers (proper HTML button element):
+
 ```tsx
 <Button variant="action" onClick={() => downloadPDF()}>
   Download PDF
@@ -85,6 +99,7 @@ For click handlers (proper HTML button element):
 ```
 
 ### Button Themes
+
 ```tsx
 // Orange theme (default)
 <Button variant="navigation" href="/about">About</Button>
@@ -101,16 +116,18 @@ For click handlers (proper HTML button element):
 ```
 
 ### Migration from Old API
+
 The Button component has been redesigned to separate navigation and action concerns properly.
 
-| Old Prop | New API |
-|----------|---------|
-| `to="/internal"` | `variant="navigation" href="/internal"` |
+| Old Prop                    | New API                                          |
+| --------------------------- | ------------------------------------------------ |
+| `to="/internal"`            | `variant="navigation" href="/internal"`          |
 | `to="https://external.com"` | `variant="external" href="https://external.com"` |
-| `to="#"` with `onClick` | `variant="action" onClick={handler}` |
-| `forceAnchor={true}` | Use `variant="external"` |
+| `to="#"` with `onClick`     | `variant="action" onClick={handler}`             |
+| `forceAnchor={true}`        | Use `variant="external"`                         |
 
 **Before:**
+
 ```tsx
 <Button to="/about">About</Button>
 <Button to="https://google.com">Google</Button>
@@ -118,6 +135,7 @@ The Button component has been redesigned to separate navigation and action conce
 ```
 
 **After:**
+
 ```tsx
 <Button variant="navigation" href="/about">About</Button>
 <Button variant="external" href="https://google.com">Google</Button>
@@ -127,6 +145,7 @@ The Button component has been redesigned to separate navigation and action conce
 ### Complete Props Reference
 
 #### Common Props (all variants)
+
 - `theme?: 'orange' | 'light' | 'dark'` - Visual theme (default: 'orange')
 - `disabled?: boolean` - Disable the button
 - `className?: string` - Additional CSS classes
@@ -135,23 +154,27 @@ The Button component has been redesigned to separate navigation and action conce
 - `disableHoverScale?: boolean` - Disable hover scaling
 
 #### Navigation Variant
+
 - `variant: 'navigation'`
 - `href: string` - Internal route
 - `onClick?: () => void` - Optional click handler
 
 #### External Variant
+
 - `variant: 'external'`
 - `href: string` - External URL
 - `onClick?: () => void` - Optional click handler
-- `target?: '_blank' | '_self'` - Link target (default: '_blank')
+- `target?: '_blank' | '_self'` - Link target (default: '\_blank')
 - `rel?: string` - Link relationship (default: 'noopener noreferrer')
 
 #### Action Variant
+
 - `variant: 'action'`
 - `onClick: () => void` - Required click handler
 - `type?: 'button' | 'submit' | 'reset'` - Button type (default: 'button')
 
 ### Benefits of New Design
+
 1. **Semantic HTML**: Proper `<button>` elements for actions, `<a>` for navigation
 2. **Better Accessibility**: Screen readers can properly identify interactive elements
 3. **Type Safety**: TypeScript prevents invalid prop combinations
@@ -163,20 +186,24 @@ The Button component has been redesigned to separate navigation and action conce
 ## 🎨 Styling Conventions
 
 ### Tailwind CSS Classes
+
 - Use Tailwind utility classes for styling
 - Group related classes together for readability
 - Use dark mode variants: `dark:bg-ec_background_darkmode`
 
 #### ✅ Good Class Organization
+
 ```tsx
-<div className="flex flex-col items-center justify-center gap-4 p-6 
-                bg-white dark:bg-ec_background_darkmode 
-                border border-ec_border_light dark:border-ec_border_darkmode 
+<div className="flex flex-col items-center justify-center gap-4 p-6
+                bg-white dark:bg-ec_background_darkmode
+                border border-ec_border_light dark:border-ec_border_darkmode
                 rounded-lg shadow-md">
 ```
 
 ### Color System
+
 Use the predefined E-Club color variables:
+
 - **Orange**: `ec_orange`, `ec_orange_darkmode`, `ec_orange_hover`
 - **Blue**: `ec_blue`, `ec_blue_darkmode`
 - **Text**: `ec_text`, `ec_text_darkmode`
@@ -188,6 +215,7 @@ Use the predefined E-Club color variables:
 ## 🏗️ Component Structure
 
 ### Import Organization
+
 ```tsx
 // 1. React/Next.js imports
 import React, { useState } from 'react';
@@ -211,6 +239,7 @@ import type { ComponentProps } from './types';
 ```
 
 ### TypeScript Props
+
 Always define clear TypeScript interfaces for component props:
 
 ```tsx
@@ -221,7 +250,12 @@ interface ComponentProps {
   onClose: () => void;
 }
 
-const Component = ({ title, description, isVisible = true, onClose }: ComponentProps) => {
+const Component = ({
+  title,
+  description,
+  isVisible = true,
+  onClose,
+}: ComponentProps) => {
   // Component implementation
 };
 ```
@@ -231,6 +265,7 @@ const Component = ({ title, description, isVisible = true, onClose }: ComponentP
 ## 📱 Responsive Design
 
 ### Mobile-First Approach
+
 Use Tailwind's responsive prefixes in mobile-first order:
 
 ```tsx
@@ -240,6 +275,7 @@ Use Tailwind's responsive prefixes in mobile-first order:
 ```
 
 ### Common Breakpoints
+
 - **Base**: Mobile (default)
 - **md**: Tablet (768px+)
 - **lg**: Desktop (1024px+)
@@ -250,6 +286,7 @@ Use Tailwind's responsive prefixes in mobile-first order:
 ## 🎭 Interactive Elements
 
 ### InteractiveSection Usage
+
 Use InteractiveSection components for hover effects:
 
 ```tsx
@@ -267,6 +304,7 @@ Use InteractiveSection components for hover effects:
 ## 📄 File Organization
 
 ### Component Structure
+
 ```
 components/
   ComponentName/
@@ -277,6 +315,7 @@ components/
 ```
 
 ### Naming Conventions
+
 - **Components**: PascalCase (`Button`, `StartupChallengeDropdown`)
 - **Files**: PascalCase for components, camelCase for utilities
 - **Variables**: camelCase (`isVisible`, `userInfo`)
@@ -287,6 +326,7 @@ components/
 ## 🔧 Performance Best Practices
 
 ### Image Optimization
+
 Always use Next.js Image component:
 
 ```tsx
@@ -298,17 +338,18 @@ import Image from 'next/image';
   width={800}
   height={600}
   className="w-full h-auto"
-/>
+/>;
 ```
 
 ### Dynamic Imports
+
 Use dynamic imports for heavy components:
 
 ```tsx
 import dynamic from 'next/dynamic';
 
 const HeavyComponent = dynamic(() => import('./HeavyComponent'), {
-  loading: () => <p>Loading...</p>
+  loading: () => <p>Loading...</p>,
 });
 ```
 
@@ -328,23 +369,28 @@ const HeavyComponent = dynamic(() => import('./HeavyComponent'), {
 ## 🔧 Responsive Design Best Practices
 
 ### Mobile Navigation
+
 For responsive navigation, use clear separation between mobile and desktop layouts:
 
 ```tsx
-{/* Desktop Navigation - Hidden on mobile */}
+{
+  /* Desktop Navigation - Hidden on mobile */
+}
 <ul className="hidden xl:flex gap-8 items-center">
   {/* Desktop nav items */}
-</ul>
+</ul>;
 
-{/* Mobile Navigation - Hidden on desktop */}
-<div className="xl:hidden">
-  {/* Mobile burger menu */}
-</div>
+{
+  /* Mobile Navigation - Hidden on desktop */
+}
+<div className="xl:hidden">{/* Mobile burger menu */}</div>;
 
-{/* Mobile Dropdown - Only shown when clicked */}
+{
+  /* Mobile Dropdown - Only shown when clicked */
+}
 <ul className={`xl:hidden ${isOpen ? 'block' : 'hidden'}`}>
   {/* Mobile nav items */}
-</ul>
+</ul>;
 ```
 
 ---
@@ -352,6 +398,7 @@ For responsive navigation, use clear separation between mobile and desktop layou
 ## 🚀 Getting Started Checklist
 
 Before making changes:
+
 - [ ] Understand the existing component structure
 - [ ] Check if similar functionality already exists
 - [ ] Use the custom Button component for buttons
@@ -363,4 +410,4 @@ Before making changes:
 
 ---
 
-*This document should be updated as new conventions are established. When in doubt, follow the patterns established in existing components.*
+_This document should be updated as new conventions are established. When in doubt, follow the patterns established in existing components._

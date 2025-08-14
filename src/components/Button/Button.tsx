@@ -1,7 +1,7 @@
 // Redesigned Button component with proper separation of navigation and action concerns
 //
 // Usage examples:
-// 
+//
 // Navigation (internal routes):
 // <Button variant="navigation" href="/about">About Us</Button>
 //
@@ -52,7 +52,10 @@ type ActionButtonProps = BaseButtonProps & {
 };
 
 // Union type for all button variants
-export type ButtonProps = NavigationButtonProps | ExternalLinkButtonProps | ActionButtonProps;
+export type ButtonProps =
+  | NavigationButtonProps
+  | ExternalLinkButtonProps
+  | ActionButtonProps;
 
 const Button = (props: ButtonProps) => {
   // Extract common props

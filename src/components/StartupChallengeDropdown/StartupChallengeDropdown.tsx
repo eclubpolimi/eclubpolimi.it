@@ -240,15 +240,16 @@ const StartupChallengeDropdown = ({
       // Calculate position when opening dropdown
       const rect = buttonRef.current.getBoundingClientRect();
       const isMobile = window.innerWidth < 1280; // xl breakpoint is 1280px
-      
+
       // Check if we're in the mobile navigation menu
-      const isInMobileMenu = buttonRef.current.closest('.mobile-nav-button-wrapper') !== null;
-      
+      const isInMobileMenu =
+        buttonRef.current.closest('.mobile-nav-button-wrapper') !== null;
+
       if (isMobile && isInMobileMenu) {
         // When in mobile menu, position relative to the menu container
         const navMenu = buttonRef.current.closest('ul');
         const navMenuRect = navMenu?.getBoundingClientRect();
-        
+
         if (navMenuRect) {
           setDropdownPosition({
             top: rect.top + window.scrollY, // Start at same height as USC button, not below it
