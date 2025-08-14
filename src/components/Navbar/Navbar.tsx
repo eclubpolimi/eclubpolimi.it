@@ -6,6 +6,10 @@ import CrossIcon from 'images/navbar/cross.svg';
 import SiteData from '@/Data';
 import Image from 'next/image';
 import { useImageAsset } from 'hooks/useImageAssets';
+import {
+  InteractiveSectionGroup,
+  InteractiveSection,
+} from 'components/InteractiveSection/InteractiveSection';
 
 type NavBarProps = {
   items: Array<{ type: 'link' | 'button'; content: ReactNode }>;
@@ -37,15 +41,22 @@ const NavBar = ({ items }: NavBarProps) => {
   return (
     <nav className={`${navClass} ${navDesktopClass} ${navMobileClass}`}>
       <div className="h-16 flex flex-col justify-center">
-        <a href={SiteData.HomeTarget} onClick={closeMenu}>
-          <Image
-            src={logoWhite?.url || SiteData.LogoWhite}
-            alt="Entrepreneurship Club Polimi"
-            width={200}
-            height={56}
-            className="h-14 w-fit xl:p-0 pr-16"
-          />
-        </a>
+        <InteractiveSectionGroup defaultScaleLevel="small" rememberZIndex={false}>
+          <InteractiveSection
+            sectionId="navbar-logo"
+            elementType="image"
+          >
+            <a href={SiteData.HomeTarget} onClick={closeMenu}>
+              <Image
+                src={logoWhite?.url || SiteData.LogoWhite}
+                alt="Entrepreneurship Club Polimi"
+                width={200}
+                height={56}
+                className="h-14 w-fit xl:p-0 pr-16"
+              />
+            </a>
+          </InteractiveSection>
+        </InteractiveSectionGroup>
       </div>
       <ul className={`${linksClass} ${linksDesktopClass} ${linksMobileClass}`}>
         {items.map((item, index) => {
