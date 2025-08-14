@@ -113,7 +113,7 @@ The website uses Contentful as a headless CMS:
 
 ### Code Formatting
 
-- Run `npm run format` to format your code before committing
+- Run `npm run format` (or `npx prettier --write .`) to format your code before committing 
 - The project uses Prettier for consistent code formatting
 
 ## 🔄 Git Workflow
@@ -136,9 +136,9 @@ We use GitHub Pull Requests for all contributions:
 
 4. **Create a Pull Request** to `master` branch
 
-5. **Code Review** - After review approval, the PR will be merged
+5. **Code Review** - After review by a colleague/admin and approval, the PR will be merged
 
-### Branch Naming Convention
+### Branch Naming Convention (not strict, but recommended)
 
 - `feature/component-name` - New features
 - `fix/issue-description` - Bug fixes
@@ -154,31 +154,28 @@ The website is automatically deployed via CI/CD pipeline when changes are merged
 Required environment variables for development:
 
 ```env
-# Contentful CMS
+# Contentful CMS - NEXT_PUBLIC_ prefix required for browser access
+NEXT_PUBLIC_CMS_GRAPHQL_ENDPOINT=https://graphql.contentful.com/content/v1/spaces/YOUR_SPACE_ID
+NEXT_PUBLIC_CMS_ACCESS_TOKEN=YOUR_ACCESS_TOKEN
+
+# Alternative server-side only variables (if using server-side rendering)
 CMS_GRAPHQL_ENDPOINT=https://graphql.contentful.com/content/v1/spaces/YOUR_SPACE_ID
 CMS_ACCESS_TOKEN=YOUR_ACCESS_TOKEN
 ```
 
-> **Note**: Contact repository maintainers for access to API keys and deployment credentials.
+> **Note**: The `NEXT_PUBLIC_` prefix is required for environment variables that need to be accessible in the browser. Everything else you need (e.g. tokens) can be found on the inherited accounts and emails.
 
 ## 🤝 Contributing
 
 1. Read the [Development Conventions](./DEVELOPMENT_CONVENTIONS.md) for coding standards
 2. Follow the Git workflow described above
-3. Format your code with `npm run format` before committing
+3. Format your code with `npm run format` before committing (otherwise dedicated automated tests will fail)
 4. Write clear commit messages and PR descriptions
 
 ## 📄 License
 
 This project is proprietary to E-Club Polimi.
 
-## 📞 Support
-
-For questions or support:
-
-- Create an issue in this repository
-- Contact the E-Club Polimi development team
-
 ---
 
-_Built with ❤️ by the E-Club Polimi team_
+_Built with ❤️ by the Ever-lasting E-Club Polimi IT team_
