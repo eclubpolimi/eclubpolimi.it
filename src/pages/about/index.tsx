@@ -118,13 +118,8 @@ const About = ({ data, description }: AboutProps) => {
           alt="About Us Background"
         />
 
-        {/* Light & Dark Mode Overlay */}
-        <div className="absolute inset-0 bg-white dark:bg-black opacity-30 dark:opacity-50 transition-opacity duration-300"></div>
-
-        {/* About Us Title */}
-        <h1 className="absolute text-4xl font-extrabold text-ec_text dark:text-ec_text_darkmode transition-colors duration-300">
-          About Us
-        </h1>
+        {/* Dark Mode Overlay Only */}
+        <div className="absolute inset-0 bg-black dark:opacity-50 opacity-0 transition-opacity duration-300"></div>
       </div>
 
       {/* Mission Section */}
