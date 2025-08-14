@@ -6,10 +6,6 @@ import { TeamProps } from 'components/Team/Team';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDownload } from '@fortawesome/free-solid-svg-icons';
 import Button from '@/components/Button/Button';
-import {
-  InteractiveSectionGroup,
-  InteractiveSection,
-} from 'components/InteractiveSection/InteractiveSection';
 
 type TeamsProps = {
   teams: Array<TeamProps>;
@@ -37,7 +33,7 @@ const Teams = ({ teams, className }: TeamsProps) => {
             {team.teamName.toLowerCase() !== 'board' && (
               <div className="flex justify-center mt-4 mb-6">
                 <Button
-                  to="#"
+                  variant="action"
                   onClick={() => {
                     // TODO: Replace with actual PDF URL from future query
                     console.log(`Download PDF for ${team.teamName}`);
