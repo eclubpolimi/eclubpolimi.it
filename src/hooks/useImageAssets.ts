@@ -111,7 +111,7 @@ export const useSponsors = () => {
   return sponsorAssets.map((asset) => ({
     src: asset.imageLightMode?.url || '',
     darkSrc: asset.imageDarkMode?.url || asset.imageLightMode?.url || '',
-    href: '#', // Default href - could be from asset metadata
+    href: asset.url || '#', // Use the URL field from siteImageAsset if available
     alt: asset.imageLightMode?.title || 'Sponsor logo',
   }));
 };
@@ -128,7 +128,7 @@ export const useNetworkMembers = () => {
   return networkAssets.map((asset) => ({
     src: asset.imageLightMode?.url || '',
     darkSrc: asset.imageDarkMode?.url || asset.imageLightMode?.url || '',
-    href: '#', // Default href - could be from asset metadata
+    href: asset.url || '#', // Use the URL field from siteImageAsset if available
     alt: asset.imageLightMode?.title || 'Network member logo',
   }));
 };
