@@ -35,11 +35,11 @@ const SlideCard = ({ frontImage, height, width, cardText }: SlideCardProps) => {
         fill
         className="object-cover"
       />
-      <div className="absolute bg-ec_background dark:bg-ec_background_darkmode bottom-0 left-0 right-0 w-full transition-height duration-500 h-20 group-hover:h-full overflow-hidden flex flex-col items-center">
-        <div className="text-lg font-semibold pt-4 text-ec_text dark:text-ec_text_darkmode">
+      <div className="absolute bg-ec_background dark:bg-ec_background_darkmode transition-colors duration-300 bottom-0 left-0 right-0 w-full transition-height duration-500 h-20 group-hover:h-full overflow-hidden flex flex-col items-center">
+        <div className="text-lg font-semibold pt-4 text-ec_text dark:text-ec_text_darkmode transition-colors duration-300">
           {cardText.nameSurname}
         </div>
-        <div className="text-ec_grey_darkmode dark:text-ec_grey">
+        <div className="text-ec_grey_darkmode dark:text-ec_grey transition-colors duration-300">
           {cardText.role}
         </div>
 
@@ -51,7 +51,7 @@ const SlideCard = ({ frontImage, height, width, cardText }: SlideCardProps) => {
               color={cardText.marksColor}
             />
             <div className="ml-2 text-xs">
-              <div className="text-ec_text dark:text-ec_text_darkmode">
+              <div className="text-ec_text dark:text-ec_text_darkmode transition-colors duration-300">
                 {cardText.quote}
               </div>
               <div className="w-full text-ec_grey  text-left">
@@ -70,7 +70,7 @@ const SlideCard = ({ frontImage, height, width, cardText }: SlideCardProps) => {
                 <FontAwesomeIcon
                   icon={faEnvelope}
                   size="2x"
-                  className="transition duration-200 text-ec_grey dark:text-ec_grey_darkmode hover:text-ec_text dark:hover:text-ec_text_darkmode"
+                  className="transition duration-200 text-ec_grey dark:text-ec_grey_darkmode transition-colors duration-300 hover:text-ec_text dark:hover:text-ec_text_darkmode"
                 />
               </a>
             )}
@@ -80,7 +80,7 @@ const SlideCard = ({ frontImage, height, width, cardText }: SlideCardProps) => {
                 <FontAwesomeIcon
                   icon={faInstagram}
                   size="2x"
-                  className="transition duration-200 text-ec_grey dark:text-ec_grey_darkmode hover:text-ec_text dark:hover:text-ec_text_darkmode"
+                  className="transition duration-200 text-ec_grey dark:text-ec_grey_darkmode transition-colors duration-300 hover:text-ec_text dark:hover:text-ec_text_darkmode"
                 />
               </a>
             )}
@@ -90,7 +90,7 @@ const SlideCard = ({ frontImage, height, width, cardText }: SlideCardProps) => {
                 <FontAwesomeIcon
                   icon={faLinkedinIn}
                   size="2x"
-                  className="transition duration-200 text-ec_grey dark:text-ec_grey_darkmode hover:text-ec_text dark:hover:text-ec_text_darkmode"
+                  className="transition duration-200 text-ec_grey dark:text-ec_grey_darkmode transition-colors duration-300 hover:text-ec_text dark:hover:text-ec_text_darkmode"
                 />
               </a>
             )}

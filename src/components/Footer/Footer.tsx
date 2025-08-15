@@ -37,7 +37,7 @@ const Footer = ({
     <div>
       {/* Sponsors Section */}
       {showSponsors && (
-        <div className="bg-ec_background dark:bg-ec_background_darkmode">
+        <div className="bg-ec_background dark:bg-ec_background_darkmode transition-colors duration-300">
           <Sponsors
             className="max-w-screen-lg lg:mx-auto px-5 lg:px-0 py-16"
             logos={sponsors}
@@ -46,7 +46,7 @@ const Footer = ({
       )}
 
       {/* Footer Main Section */}
-      <div className="flex flex-col items-center p-2 pb-6 bg-ec_blue dark:bg-ec_blue_darkmode">
+      <div className="flex flex-col items-center p-2 pb-6 bg-ec_blue dark:bg-ec_blue_darkmode transition-colors duration-300">
         {/* Flex Container for Logo & Socials */}
         <div className="flex flex-col lg:flex-row justify-between items-center w-full max-w-screen-lg p-3">
           {/* Logo Section */}

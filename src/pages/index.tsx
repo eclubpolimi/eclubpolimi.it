@@ -57,10 +57,10 @@ const Home = ({ textData }: HomeProps) => {
       flex flex-col-reverse md:flex-row text-center md:text-left items-center md:gap-10"
       >
         <div className="w-full md:w-1/2">
-          <h1 className="mt-8 text-ec_text dark:text-ec_text_darkmode font-extrabold text-4xl leading-tight header-squares-decoration">
+          <h1 className="mt-8 text-ec_text dark:text-ec_text_darkmode transition-colors duration-300 font-extrabold text-4xl leading-tight header-squares-decoration">
             Entrepreneurship Club Polimi
           </h1>
-          <span className="mt-3 text-ec_grey_darkmode dark:text-ec_grey font-semibold text-xl block">
+          <span className="mt-3 text-ec_grey_darkmode dark:text-ec_grey transition-colors duration-300 font-semibold text-xl block">
             {textData['home - tagline'] ||
               'A community of entrepreneurial-minded people to reach your full potential'}
           </span>
@@ -94,7 +94,7 @@ const Home = ({ textData }: HomeProps) => {
           />
         </div>
       </div>
-      <div className="bg-ec_background dark:bg-ec_background_darkmode relative overflow-hidden">
+      <div className="bg-ec_background dark:bg-ec_background_darkmode transition-colors duration-300 relative overflow-hidden">
         <div
           className="absolute my-6 mx-4 md:my-6 md:mx-6 inset-0 opacity-5 pointer-events-none"
           style={{
@@ -155,7 +155,7 @@ const Home = ({ textData }: HomeProps) => {
         </div>
       </div>
 
-      <div className="bg-ec_background dark:bg-ec_background_darkmode">
+      <div className="bg-ec_background dark:bg-ec_background_darkmode transition-colors duration-300">
         <div className="px-5 md:px-40 py-12 flex flex-col gap-12 md:max-w-7xl mx-auto">
           <h2 className="md:text-center">
             {textData['home - a glimpse'] || 'A glimpse of what we do'}

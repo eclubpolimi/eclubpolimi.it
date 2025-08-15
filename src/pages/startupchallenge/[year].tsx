@@ -91,13 +91,13 @@ const StartupChallengeYear = ({
     return (
       <div className="w-full">
         <div className="md:mx-auto md:my-28 px-5 sm:px-8 py-4 md:py-0 max-w-6xl flex flex-col text-center items-center min-h-[400px] justify-center">
-          <h1 className="text-ec_text dark:text-ec_text_darkmode font-extrabold text-4xl leading-tight mb-6">
+          <h1 className="text-ec_text dark:text-ec_text_darkmode font-extrabold text-4xl leading-tight mb-6 transition-colors duration-300">
             University Startup Challenge {year}
           </h1>
-          <p className="text-ec_text_secondary dark:text-ec_text_secondary_darkmode text-xl mb-8">
+          <p className="text-ec_text_secondary dark:text-ec_text_secondary_darkmode text-xl mb-8 transition-colors duration-300">
             Coming Soon!
           </p>
-          <p className="text-ec_text_secondary dark:text-ec_text_secondary_darkmode max-w-2xl">
+          <p className="text-ec_text_secondary dark:text-ec_text_secondary_darkmode max-w-2xl transition-colors duration-300">
             The details for the {year} edition of the University Startup
             Challenge are not yet available. Stay tuned for updates!
           </p>
@@ -113,10 +113,10 @@ const StartupChallengeYear = ({
       flex flex-col-reverse md:flex-row text-center md:text-left items-center md:gap-10"
       >
         <div className="w-full md:w-1/2">
-          <h1 className="mt-8 text-ec_text dark:text-ec_text_darkmode font-extrabold text-4xl leading-tight header-squares-decoration">
+          <h1 className="mt-8 text-ec_text dark:text-ec_text_darkmode font-extrabold text-4xl leading-tight header-squares-decoration transition-colors duration-300">
             University Startup Challenge {year}
           </h1>
-          <span className="mt-3 text-ec_text dark:text-ec_text_darkmode font-semibold text-xl block">
+          <span className="mt-3 text-ec_text dark:text-ec_text_darkmode font-semibold text-xl block transition-colors duration-300">
             The first Milan startup challenge organized by the Entrepreneurship
             Club network, open to students of all partnered clubs' universities.
           </span>
@@ -167,7 +167,7 @@ const StartupChallengeYear = ({
         <Description
           title={`A${challengeData?.duration ? ` ${challengeData.duration}-long` : ' month-long'} entrepreneurship competition`}
         >
-          <p className="text-ec_text dark:text-ec_text_darkmode text-center">
+          <p className="text-ec_text dark:text-ec_text_darkmode text-center transition-colors duration-300">
             {challengeData?.detailedProgramDescription ||
               `The University Startup Challenge ${year} is a unique event that brings
               together students from leading universities with the goal of delivering groundbreaking
@@ -232,7 +232,7 @@ const StartupChallengeYear = ({
       {/* Organizers Section */}
       {challengeData?.organizersCollection?.items &&
         challengeData.organizersCollection.items.length > 0 && (
-          <div className="py-16 bg-ec_background dark:bg-ec_background_darkmode">
+          <div className="py-16 bg-ec_background dark:bg-ec_background_darkmode transition-colors duration-300">
             <Sponsors
               title="Organizers"
               logos={challengeData.organizersCollection.items.map(
@@ -266,7 +266,7 @@ const StartupChallengeYear = ({
       {/* Sponsors Section */}
       {challengeData?.sponsorsCollection?.items &&
         challengeData.sponsorsCollection.items.length > 0 && (
-          <div className="py-16 bg-ec_background dark:bg-ec_background_darkmode">
+          <div className="py-16 bg-ec_background dark:bg-ec_background_darkmode transition-colors duration-300">
             <Sponsors
               title="Partners"
               logos={challengeData.sponsorsCollection.items.map(

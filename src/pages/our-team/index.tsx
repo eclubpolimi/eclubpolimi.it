@@ -147,7 +147,7 @@ const OurTeam = ({ data, description }: OurTeamProps) => {
       {/* Mission Section */}
       <div className="max-w-full mx-auto px-5 lg:px-10">
         <Description title="Our mission">
-          <p className="text-ec_text dark:text-ec_text_darkmode">
+          <p className="text-ec_text dark:text-ec_text_darkmode transition-colors duration-300">
             {description}
           </p>
         </Description>
@@ -157,11 +157,11 @@ const OurTeam = ({ data, description }: OurTeamProps) => {
       <JoinUsBar to={SiteData.JoinTarget} color="blue" />
 
       {/* Teams Section */}
-      <div className="bg-ec_background dark:bg-ec_background_darkmode">
+      <div className="bg-ec_background dark:bg-ec_background_darkmode transition-colors duration-300">
         <div className="max-w-full mx-auto px-5 lg:px-10">
           <Teams
             teams={getTeams(data)}
-            className="pt-8 pb-12 text-ec_text dark:text-ec_text_darkmode"
+            className="pt-8 pb-12 text-ec_text dark:text-ec_text_darkmode transition-colors duration-300"
           />
         </div>
       </div>

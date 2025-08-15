@@ -4,6 +4,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 /*---------------------------
+    Dark Mode Transitions
+---------------------------*/
+/* Targeted smooth transitions for dark mode reactive elements */
+[class*='text-ec_'][class*='dark:text-'],
+[class*='bg-ec_'][class*='dark:bg-'],
+.ec-transition {
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/*---------------------------
     Light Mode Default Styles
 ---------------------------*/
 :root {

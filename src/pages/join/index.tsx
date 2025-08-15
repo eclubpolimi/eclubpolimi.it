@@ -127,10 +127,10 @@ const Join = ({ joinData }: JoinProps) => {
 
       {/* Student Membership Section */}
       <div className="max-w-5xl mx-auto px-6 py-16">
-        <h2 className="text-3xl font-bold text-ec_text dark:text-ec_text_darkmode text-center mb-6">
+        <h2 className="text-3xl font-bold text-ec_text dark:text-ec_text_darkmode transition-colors duration-300 text-center mb-6">
           Join as a Student
         </h2>
-        <p className="text-ec_text_secondary dark:text-ec_text_secondary_darkmode text-center max-w-2xl mx-auto mb-10">
+        <p className="text-ec_text_secondary dark:text-ec_text_secondary_darkmode transition-colors duration-300 text-center max-w-2xl mx-auto mb-10">
           Whether you're looking to engage with like-minded individuals, build
           your network, or take an active role in organizing events, E-Club
           Polimi has the right place for you.
@@ -158,12 +158,12 @@ const Join = ({ joinData }: JoinProps) => {
       </div>
 
       {/* Collaboration Section */}
-      <div className="bg-ec_background_light dark:bg-ec_background_darkmode py-20 px-6">
+      <div className="bg-ec_background_light dark:bg-ec_background_darkmode transition-colors duration-300 py-20 px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="text-ec_text_light dark:text-ec_text_darkmode">
+          <div className="text-ec_text_light dark:text-ec_text_darkmode transition-colors duration-300">
             <h2 className="text-3xl font-bold mb-4">Partner with Us</h2>
           </div>
-          <p className="text-ec_text_secondary dark:text-ec_text_secondary_darkmode mb-8">
+          <p className="text-ec_text_secondary dark:text-ec_text_secondary_darkmode transition-colors duration-300 mb-8">
             We collaborate with organizations, startups, and professionals to
             create impactful experiences for our members. If you're looking to
             share your expertise, mentor students, or contribute to our

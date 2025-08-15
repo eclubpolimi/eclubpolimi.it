@@ -31,7 +31,7 @@ const TravelBar = ({
   className = '',
 }: TravelBarProps) => {
   const liClass = `flex md:flex-col md:px-10 md:gap-1 items-center whitespace-nowrap
-  text-ec_text dark:text-ec_text_darkmode font-medium justify-between md:justify-center
+  text-ec_text dark:text-ec_text_darkmode transition-colors duration-300 font-medium justify-between md:justify-center
   border-solid `;
 
   const borderClass = `border-b-2 md:border-b-0 md:border-r-2
@@ -42,7 +42,7 @@ const TravelBar = ({
       <ul
         className="grid grid-rows-5 md:grid-rows-1 content-evenly
       md:grid-cols-5 place-content-stretch gap-2 md:gap-0 md:justify-center px-8 md:pl-4 py-4
-      bg-ec_background_light dark:bg-ec_background_darkmode_light rounded-xl border-solid border-[1px] border-ec_border dark:border-ec_border_darkmode drop-shadow-lg dark:drop-shadow-none"
+      bg-ec_background_light dark:bg-ec_background_darkmode_light transition-colors duration-300 rounded-xl border-solid border-[1px] border-ec_border dark:border-ec_border_darkmode drop-shadow-lg dark:drop-shadow-none"
       >
         <li className={liClass + borderClass}>
           <FontAwesomeIcon icon={faMapMarkedAlt} />
@@ -68,7 +68,7 @@ const TravelBar = ({
             <p>
               <span>{info.price}</span>
               {info.priceTerms && (
-                <span className="text-ec_text_secondary dark:text-ec_text_secondary_darkmode">
+                <span className="text-ec_text_secondary dark:text-ec_text_secondary_darkmode transition-colors duration-300">
                   *
                 </span>
               )}

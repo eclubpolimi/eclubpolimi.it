@@ -12,7 +12,7 @@ const LessonsPIA = ({ lessons, className }: LessonsPIAProps) => {
     content: (
       <Lesson
         lessonData={lesson}
-        className="text-ec_text dark:text-ec_text_darkmode"
+        className="text-ec_text dark:text-ec_text_darkmode transition-colors duration-300"
       />
     ), // Applying text color change inside the Lesson component
   }));

@@ -29,7 +29,7 @@ const NavBar = ({ items }: NavBarProps) => {
   };
 
   return (
-    <nav className="h-16 w-full bg-ec_blue dark:bg-ec_blue_darkmode z-50 relative">
+    <nav className="h-16 w-full bg-ec_blue dark:bg-ec_blue_darkmode transition-colors duration-300 z-50 relative">
       {/* Desktop and Mobile Container */}
       <div className="h-16 flex justify-between items-center px-5 xl:px-10">
         {/* Logo Section */}
@@ -72,13 +72,13 @@ const NavBar = ({ items }: NavBarProps) => {
             const itemClass =
               item.type === 'button'
                 ? 'custom-button-class'
-                : 'whitespace-nowrap text-white dark:text-ec_text_darkmode relative group';
+                : 'whitespace-nowrap text-white dark:text-ec_text_darkmode transition-colors duration-300 relative group';
 
             return (
               <li key={index} className={itemClass}>
                 {item.content}
                 {item.type !== 'button' && (
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-ec_orange dark:bg-ec_orange_darkmode group-hover:w-full transition-all duration-300"></span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-ec_orange dark:bg-ec_orange_darkmode transition-colors duration-300 group-hover:w-full transition-all duration-300"></span>
                 )}
               </li>
             );

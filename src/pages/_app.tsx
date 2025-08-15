@@ -29,17 +29,21 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     <ApolloProvider client={client}>
       <div className="bg-white dark:bg-gray-900 text-black dark:text-white min-h-screen transition-colors duration-300">
-        <Navbar items={SiteData.NavbarItems} />
-        <Component {...pageProps} />
-        <Footer
-          logo={SiteData.LogoWhite}
-          copyrightName="E-Club Polimi"
-          facebookUrl="https://www.facebook.com/eclubpolimi/"
-          instagramUrl="https://www.instagram.com/eclubpolimi/"
-          linkedinUrl="https://www.linkedin.com/company/eclubpolimi/"
-          showSponsors={showSponsors}
-        />
-        <div className="fixed bottom-4 left-4 z-50 bg-ec_blue dark:bg-ec_blue_darkmode p-2 rounded-full shadow-lg sm:bottom-6 sm:left-6 md:bottom-8 md:left-8">
+        <div className="transition-colors duration-300">
+          <Navbar items={SiteData.NavbarItems} />
+          <main className="transition-colors duration-300">
+            <Component {...pageProps} />
+          </main>
+          <Footer
+            logo={SiteData.LogoWhite}
+            copyrightName="E-Club Polimi"
+            facebookUrl="https://www.facebook.com/eclubpolimi/"
+            instagramUrl="https://www.instagram.com/eclubpolimi/"
+            linkedinUrl="https://www.linkedin.com/company/eclubpolimi/"
+            showSponsors={showSponsors}
+          />
+        </div>
+        <div className="fixed bottom-4 left-4 z-50 bg-ec_blue dark:bg-ec_blue_darkmode transition-colors duration-300 p-2 rounded-full shadow-lg sm:bottom-6 sm:left-6 md:bottom-8 md:left-8">
           <DarkModeToggle />
         </div>
       </div>

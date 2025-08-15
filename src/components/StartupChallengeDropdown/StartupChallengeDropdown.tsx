@@ -74,16 +74,16 @@ const getStatusFromDates = (
 const getStatusStyle = (status: ChallengeStatus) => {
   switch (status) {
     case 'Registration Open':
-      return 'bg-green-500 dark:bg-green-600 text-white'; // Green for active registration
+      return 'bg-green-500 dark:bg-green-600 text-white transition-colors duration-300'; // Green for active registration
     case 'Ongoing':
-      return 'bg-blue-500 dark:bg-blue-600 text-white'; // Blue for active/current
+      return 'bg-blue-500 dark:bg-blue-600 text-white transition-colors duration-300'; // Blue for active/current
     case 'Starting Soon':
-      return 'bg-yellow-500 dark:bg-yellow-600 text-white'; // Yellow for upcoming
+      return 'bg-yellow-500 dark:bg-yellow-600 text-white transition-colors duration-300'; // Yellow for upcoming
     case 'Finished':
-      return 'bg-gray-500 dark:bg-gray-600 text-white'; // Gray for completed
+      return 'bg-gray-500 dark:bg-gray-600 text-white transition-colors duration-300'; // Gray for completed
     case 'Coming Soon':
     default:
-      return 'bg-purple-500 dark:bg-purple-600 text-white'; // Purple for future
+      return 'bg-purple-500 dark:bg-purple-600 text-white transition-colors duration-300'; // Purple for future
   }
 };
 
@@ -458,7 +458,7 @@ const StartupChallengeDropdown = ({
         onClick={handleToggle}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        className="gradient-hover inline-flex items-center gap-2 px-6 py-2 bg-white dark:bg-ec_background_darkmode text-ec_blue dark:text-ec_text_darkmode hover:text-white font-medium rounded-xl transition-all duration-200 border border-transparent focus:outline-none focus:ring-2 focus:ring-ec_blue focus:ring-offset-2 transform hover:scale-105 active:scale-95"
+        className="gradient-hover inline-flex items-center gap-2 px-6 py-2 bg-white dark:bg-ec_background_darkmode text-ec_blue dark:text-ec_text_darkmode transition-colors duration-300 hover:text-white font-medium rounded-xl transition-all duration-200 border border-transparent focus:outline-none focus:ring-2 focus:ring-ec_blue focus:ring-offset-2 transform hover:scale-105 active:scale-95"
       >
         <AnimatedRocket />
         <span className="hidden xl:inline">Startup Challenge</span>
@@ -483,7 +483,7 @@ const StartupChallengeDropdown = ({
         createPortal(
           <div
             ref={dropdownRef}
-            className="fixed bg-white dark:bg-ec_background_darkmode border border-ec_border_light dark:border-ec_border_darkmode rounded-md shadow-2xl backdrop-blur-sm"
+            className="fixed bg-white dark:bg-ec_background_darkmode transition-colors duration-300 border border-ec_border_light dark:border-ec_border_darkmode rounded-md shadow-2xl backdrop-blur-sm"
             style={{
               top: dropdownPosition.top,
               left: dropdownPosition.left,
@@ -495,7 +495,7 @@ const StartupChallengeDropdown = ({
               <div key={yearData.year}>
                 <Link
                   href={yearData.path}
-                  className="block px-4 py-3 text-sm text-ec_text dark:text-ec_text_darkmode hover:bg-ec_grey hover:bg-opacity-20 dark:hover:bg-ec_grey_darkmode transition-colors first:rounded-t-md last:rounded-b-md text-center whitespace-nowrap"
+                  className="block px-4 py-3 text-sm text-ec_text dark:text-ec_text_darkmode hover:bg-ec_grey hover:bg-opacity-20 dark:hover:bg-ec_grey_darkmode transition-colors duration-300 first:rounded-t-md last:rounded-b-md text-center whitespace-nowrap"
                   onClick={() => {
                     console.log('Dropdown item clicked:', yearData.year);
                     setIsOpen(false);
@@ -511,7 +511,7 @@ const StartupChallengeDropdown = ({
                   </span>
                 </Link>
                 {index < years.length - 1 && (
-                  <div className="h-px bg-gray-200 dark:bg-gray-600"></div>
+                  <div className="h-px bg-gray-200 dark:bg-gray-600 transition-colors duration-300"></div>
                 )}
               </div>
             ))}

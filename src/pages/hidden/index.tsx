@@ -6,15 +6,15 @@ const HiddenPage = () => {
   const router = useRouter();
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-ec_background dark:bg-ec_background_darkmode">
+    <div className="min-h-screen flex items-center justify-center bg-ec_background dark:bg-ec_background_darkmode transition-colors duration-300">
       <div className="text-center">
-        <h1 className="text-4xl font-bold text-ec_text dark:text-ec_text_darkmode mb-4">
+        <h1 className="text-4xl font-bold text-ec_text dark:text-ec_text_darkmode transition-colors duration-300 mb-4">
           🔒 Hidden Page
         </h1>
-        <p className="text-xl text-ec_text dark:text-ec_text_darkmode mb-4">
+        <p className="text-xl text-ec_text dark:text-ec_text_darkmode transition-colors duration-300 mb-4">
           This is a secret page that can only be accessed via direct URL.
         </p>
-        <p className="text-ec_text_secondary dark:text-ec_text_secondary_darkmode mb-8">
+        <p className="text-ec_text_secondary dark:text-ec_text_secondary_darkmode transition-colors duration-300 mb-8">
           You found the hidden easter egg! 🎉
         </p>
 

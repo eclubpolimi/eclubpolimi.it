@@ -53,7 +53,7 @@ const Network = () => {
 
       <div className="max-w-screen-lg lg:mx-auto px-5 lg:px-0">
         <Description title="About our network">
-          <p className="text-ec_text dark:text-ec_text_darkmode">
+          <p className="text-ec_text dark:text-ec_text_darkmode transition-colors duration-300">
             The Entrepreneurship Club Network is a community of thinkers and
             doers motivated by the same passion for innovation and disruption.
             Our network of clubs aims at spreading the entrepreneurial spirit
@@ -72,7 +72,7 @@ const Network = () => {
 
       <div className="max-w-screen-lg lg:mx-auto px-5 lg:px-0">
         <Description title="Entrepreneurship Clubs in Italy">
-          <p className="text-ec_text dark:text-ec_text_darkmode">
+          <p className="text-ec_text dark:text-ec_text_darkmode transition-colors duration-300">
             The first Entrepreneurship Club was founded in 2011 in Bocconi
             University in Milan. The core values (Learn, Network, Build)
             remained present ever since and are everyday refined by our

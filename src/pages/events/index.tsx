@@ -30,7 +30,7 @@ const Events = ({ data }: EventProps) => {
   const carouselImages = useCarouselImages();
 
   return (
-    <div className="bg-ec_background dark:bg-ec_background_darkmode text-ec_text dark:text-ec_text_darkmode">
+    <div className="bg-ec_background dark:bg-ec_background_darkmode text-ec_text dark:text-ec_text_darkmode transition-colors duration-300">
       <div className="relative w-full h-[500px] max-h-[500px] overflow-hidden">
         <Carousel sliderData={carouselImages.images} autoplay={5000} />
         {/* Dark Mode Overlay Only */}
