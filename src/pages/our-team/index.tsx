@@ -114,7 +114,7 @@ const OurTeam = ({ data, description }: OurTeamProps) => {
   return (
     <div>
       {/* Our Team Hero Section */}
-      <div className="relative w-full h-[350px] flex items-center justify-center">
+      <div className="relative w-full h-[500px] flex items-center justify-center">
         {/* Background Image - Light Mode */}
         <Image
           src={

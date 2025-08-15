@@ -16,7 +16,7 @@ const Network = () => {
         <Image
           src={getImageUrl('network_hero_background', false) || ''}
           fill
-          style={{ objectFit: 'cover' }}
+          style={{ objectFit: 'cover', objectPosition: 'center 45%' }}
           alt="Network Background"
           className="brightness-75"
         />

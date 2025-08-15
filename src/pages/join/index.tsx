@@ -3,7 +3,6 @@ import JoinUsCard from 'components/JoinUsCard/JoinUsCard';
 import { JOIN_QUERY } from 'data/queries';
 import client from 'utils/apollo_client';
 import { useImageAsset, useImageAssets } from 'hooks/useImageAssets';
-// Removed fallback import to test pure dynamic loading
 
 interface JoinProps {
   joinData: {
@@ -27,8 +26,8 @@ const cleanString = (text: string | null) =>
 
 export const getServerSideProps = async (): Promise<{ props: JoinProps }> => {
   const joinData = {
-    explorerJoinLink: '', // No default - will be empty if not found in query
-    driverJoinLink: 'https://forms.gle/NWyuKPKhxDtEVYAA6', // Default
+    explorerJoinLink: '',
+    driverJoinLink: 'https://forms.gle/NWyuKPKhxDtEVYAA6',
     sponsorJoinLink: '',
     explorerBenefits: [
       'Membership Badge',
@@ -53,7 +52,6 @@ export const getServerSideProps = async (): Promise<{ props: JoinProps }> => {
     });
 
     if (data?.joinCollection?.items) {
-      // Find the correct entry by title
       const selectedEntry = data.joinCollection.items.find(
         (
           item: {
@@ -66,7 +64,6 @@ export const getServerSideProps = async (): Promise<{ props: JoinProps }> => {
       );
 
       if (selectedEntry) {
-        // Only set explorerJoinLink if it exists in the query
         if (selectedEntry.explorerJoinLink) {
           joinData.explorerJoinLink = selectedEntry.explorerJoinLink;
         }
@@ -97,9 +94,8 @@ const Join = ({ joinData }: JoinProps) => {
 
   return (
     <div>
-      {/* Hero Section - Testing Pure Dynamic Loading (NO FALLBACKS) */}
-      <div className="relative w-full h-[250px]">
-        {/* Background Image - Light Mode */}
+      {/* Hero Image */}
+      <div className="relative w-full h-[400px]">
         <Image
           src={
             getImageUrl('join_hero_background', false) ||
@@ -107,69 +103,25 @@ const Join = ({ joinData }: JoinProps) => {
             ''
           }
           fill
-          style={{ objectFit: 'cover', objectPosition: 'center 36%' }}
+          style={{ objectFit: 'cover', objectPosition: 'center 40%' }}
           alt="Join Us Hero Background"
-          className="block dark:hidden"
         />
-        {/* Background Image - Dark Mode */}
-        <Image
-          src={
-            getImageUrl('join_hero_background', true) || joinHeroImage.url || ''
-          }
-          fill
-          style={{ objectFit: 'cover', objectPosition: 'center 36%' }}
-          alt="Join Us Hero Background Dark Mode"
-          className="hidden dark:block"
-        />
-
-        <div className="absolute inset-0 bg-black dark:opacity-50 opacity-0 transition-opacity duration-300"></div>
+        <div className="absolute inset-0 bg-black dark:opacity-30 opacity-0 transition-opacity duration-300"></div>
       </div>
 
-      {/* Student Membership Section */}
-      <div className="max-w-5xl mx-auto px-6 py-16">
-        <h2 className="text-3xl font-bold text-ec_text dark:text-ec_text_darkmode transition-colors duration-300 text-center mb-6">
-          Join as a Student
-        </h2>
-        <p className="text-ec_text_secondary dark:text-ec_text_secondary_darkmode transition-colors duration-300 text-center max-w-2xl mx-auto mb-10">
-          Whether you're looking to engage with like-minded individuals, build
-          your network, or take an active role in organizing events, E-Club
-          Polimi has the right place for you.
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center">
-          {joinData.explorerJoinLink && (
-            <JoinUsCard
-              role="Explorer"
-              height="420px"
-              advantages={joinData.explorerBenefits}
-              to={joinData.explorerJoinLink}
-            />
-          )}
-          <div
-            className={`${!joinData.explorerJoinLink ? 'md:col-span-2 flex justify-center' : ''}`}
-          >
+      {/* Cards Section */}
+      <div className="py-16 px-6">
+        <div className="max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Driver Card */}
             <JoinUsCard
               role="Driver"
               height="420px"
               advantages={joinData.driverBenefits}
               to={joinData.driverJoinLink}
             />
-          </div>
-        </div>
-      </div>
-
-      {/* Collaboration Section */}
-      <div className="bg-ec_background_light dark:bg-ec_background_darkmode transition-colors duration-300 py-20 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="text-ec_text_light dark:text-ec_text_darkmode transition-colors duration-300">
-            <h2 className="text-3xl font-bold mb-4">Partner with Us</h2>
-          </div>
-          <p className="text-ec_text_secondary dark:text-ec_text_secondary_darkmode transition-colors duration-300 mb-8">
-            We collaborate with organizations, startups, and professionals to
-            create impactful experiences for our members. If you're looking to
-            share your expertise, mentor students, or contribute to our
-            community, we’d love to hear from you.
-          </p>
-          <div className="flex justify-center">
+            
+            {/* Sponsor Card */}
             <JoinUsCard
               role="Collaborator"
               height="420px"
