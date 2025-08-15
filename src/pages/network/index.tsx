@@ -12,7 +12,7 @@ const Network = () => {
   return (
     <div>
       {/* Hero Image Fix */}
-      <div className="relative w-full h-[350px] flex items-center justify-center">
+      <div className="relative w-full h-[500px] flex items-center justify-center">
         <Image
           src={getImageUrl('network_hero_background', false) || ''}
           fill

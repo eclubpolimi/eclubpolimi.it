@@ -123,7 +123,7 @@ const OurTeam = ({ data, description }: OurTeamProps) => {
             ''
           }
           fill
-          style={{ objectFit: 'cover', objectPosition: 'center 36%' }}
+          style={{ objectFit: 'cover', objectPosition: 'center 60%' }}
           alt="Our Team Background"
           className="block dark:hidden"
         />
@@ -135,7 +135,7 @@ const OurTeam = ({ data, description }: OurTeamProps) => {
             ''
           }
           fill
-          style={{ objectFit: 'cover', objectPosition: 'center 36%' }}
+          style={{ objectFit: 'cover', objectPosition: 'center 60%' }}
           alt="Our Team Background Dark Mode"
           className="hidden dark:block"
         />

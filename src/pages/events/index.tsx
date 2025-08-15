@@ -31,13 +31,13 @@ const Events = ({ data }: EventProps) => {
 
   return (
     <div className="bg-ec_background dark:bg-ec_background_darkmode text-ec_text dark:text-ec_text_darkmode transition-colors duration-300">
-      <div className="relative w-full h-[500px] max-h-[500px] overflow-hidden">
-        <Carousel sliderData={carouselImages.images} autoplay={5000} />
+      <div className="relative w-full overflow-hidden" style={{ height: '500px' }}>
+        <Carousel sliderData={carouselImages.images} autoplay={5000} height={500} verticalPosition={60} />
         {/* Dark Mode Overlay Only */}
         <div className="absolute inset-0 bg-black dark:opacity-30 opacity-0 transition-opacity duration-300 pointer-events-none"></div>
       </div>
 
-      <div className="lg:my-20 my-12 max-w-screen-lg lg:mx-auto px-5 lg:px-0">
+      <div className="lg:my-10 my-6 max-w-screen-lg lg:mx-auto px-5 lg:px-0">
         <Timeline
           data={[
             ...(eventData?.map(
