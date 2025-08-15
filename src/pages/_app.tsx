@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { ApolloProvider } from '@apollo/client';
+import { AppProps } from 'next/app';
 import Footer from 'components/Footer/Footer';
 import Navbar from 'components/Navbar/Navbar';
 import SiteData from '@/Data';
@@ -8,12 +9,7 @@ import client from 'utils/apollo_client';
 import './_app.css';
 import DarkModeToggle from 'components/Button/DarkModeToggle';
 
-type MyAppProps = {
-  Component: any;
-  pageProps: any;
-};
-
-const MyApp = ({ Component, pageProps }: MyAppProps) => {
+const MyApp = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();
 
   useEffect(() => {

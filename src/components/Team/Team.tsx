@@ -1,7 +1,6 @@
 //members are now centered in their team, not aligned left, and we display up to 5 members per row
 
 import React from 'react';
-import Image from 'next/image';
 import SlideCard from 'components/SlideCard/SlideCard';
 import { SlideCardProps } from 'components/SlideCard/SlideCard';
 

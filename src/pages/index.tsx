@@ -10,9 +10,9 @@ import Image from 'next/image';
 import { DESCRIPTION_QUERY } from 'data/queries';
 import client from 'utils/apollo_client';
 import {
-  useImageAsset,
-  useCarouselImages,
   useImageAssets,
+  useImageAsset,
+  useSponsors,
 } from 'hooks/useImageAssets';
 
 interface HomeProps {
@@ -50,7 +50,6 @@ const Home = ({ textData }: HomeProps) => {
   // Dynamic image assets
   const { getImageUrl } = useImageAssets();
   const backgroundLogo = useImageAsset('branding_learn_network_build');
-  const carouselImages = useCarouselImages();
 
   return (
     <div className="w-full">

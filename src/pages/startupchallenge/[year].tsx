@@ -8,8 +8,7 @@ import ParagraphTitle from 'components/ParagraphTitle/ParagraphTitle';
 import Sponsors from 'components/Sponsors/Sponsors';
 import Timeline from 'components/Timeline/Timeline';
 
-import SiteData from '@/Data';
-import { useImageAsset, useImageAssets } from 'hooks/useImageAssets';
+import { useImageAssets } from 'hooks/useImageAssets';
 
 import { ALL_STARTUP_CHALLENGES_QUERY } from 'data/queries';
 import { StartupChallengeDataQuery } from 'types/cms';

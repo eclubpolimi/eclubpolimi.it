@@ -1,4 +1,4 @@
-import { useQuery } from '@apollo/client';
+import { useQuery, ApolloError } from '@apollo/client';
 import { useMemo } from 'react';
 import { SITE_IMAGE_ASSETS_QUERY } from '../data/queries';
 import { SiteImageAssetsQuery, SiteImageAsset } from '../types/cms';
@@ -6,7 +6,7 @@ import { SiteImageAssetsQuery, SiteImageAsset } from '../types/cms';
 export interface UseImageAssetsResult {
   assets: SiteImageAsset[];
   loading: boolean;
-  error: any;
+  error: ApolloError | undefined;
   getAsset: (key: string) => SiteImageAsset | undefined;
   getAssetsByPrefix: (prefix: string) => SiteImageAsset[];
   getImageUrl: (key: string, isDarkMode?: boolean) => string | undefined;
