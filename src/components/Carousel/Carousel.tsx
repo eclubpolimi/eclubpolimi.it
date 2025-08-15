@@ -21,7 +21,12 @@ type CarouselProps = {
   verticalPosition?: number;
 };
 
-const Carousel = ({ sliderData, autoplay, height = 300, verticalPosition = 50 }: CarouselProps) => {
+const Carousel = ({
+  sliderData,
+  autoplay,
+  height = 300,
+  verticalPosition = 50,
+}: CarouselProps) => {
   const [current, setCurrent] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [timer, setTimer] = useState<NodeJS.Timeout | null>(null);
@@ -31,7 +36,7 @@ const Carousel = ({ sliderData, autoplay, height = 300, verticalPosition = 50 }:
   useEffect(() => {
     if (!isPaused) {
       const interval = setInterval(() => {
-        setCurrent(prev => prev < sliderData.length - 1 ? prev + 1 : 0);
+        setCurrent((prev) => (prev < sliderData.length - 1 ? prev + 1 : 0));
       }, autoplay);
       setTimer(interval);
       return () => clearInterval(interval);

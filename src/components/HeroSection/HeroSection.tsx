@@ -60,9 +60,11 @@ const HeroSection = ({
       />
 
       {/* Dark Mode Overlay */}
-      <div 
+      <div
         className="absolute inset-0 bg-black dark:opacity-50 opacity-0 transition-opacity duration-300 pointer-events-none"
-        style={{ '--tw-bg-opacity': overlayOpacity / 100 } as React.CSSProperties}
+        style={
+          { '--tw-bg-opacity': overlayOpacity / 100 } as React.CSSProperties
+        }
       ></div>
     </div>
   );

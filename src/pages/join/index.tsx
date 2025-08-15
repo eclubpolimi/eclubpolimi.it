@@ -120,7 +120,7 @@ const Join = ({ joinData }: JoinProps) => {
               advantages={joinData.driverBenefits}
               to={joinData.driverJoinLink}
             />
-            
+
             {/* Sponsor Card */}
             <JoinUsCard
               role="Collaborator"
