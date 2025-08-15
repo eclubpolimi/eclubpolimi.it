@@ -154,7 +154,7 @@ const Home = ({ textData }: HomeProps) => {
           </InteractiveSectionGroup>
         </div>
       </div>
-      <JoinUsBar to={SiteData.JoinTarget} color="blue" />
+
       <div className="bg-ec_background dark:bg-ec_background_darkmode">
         <div className="px-5 md:px-40 py-12 flex flex-col gap-12 md:max-w-7xl mx-auto">
           <h2 className="md:text-center">
