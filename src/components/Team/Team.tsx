@@ -20,20 +20,30 @@ const Team = ({ members }: TeamProps) => {
     width: '210px',
   };
 
+  // Split members into rows of max 5
+  const rows = [];
+  for (let i = 0; i < members.length; i += 5) {
+    rows.push(members.slice(i, i + 5));
+  }
+
   return (
     <div className="h-full w-full flex flex-col justify-center">
-      <div className="grid justify-items-center align-middle sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-        {members.map((member, index) => (
-          <div key={index} className="flex justify-center items-center">
+      {rows.map((row, rowIndex) => (
+        <div
+          key={rowIndex}
+          className="flex justify-center items-center gap-8 mb-4"
+        >
+          {row.map((member, index) => (
             <SlideCard
+              key={index}
               frontImage={member.image}
               height={cardSize.height}
               width={cardSize.width}
               cardText={member.cardText}
             />
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      ))}
     </div>
   );
 };

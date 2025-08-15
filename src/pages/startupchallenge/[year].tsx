@@ -232,7 +232,7 @@ const StartupChallengeYear = ({
       {/* Organizers Section */}
       {challengeData?.organizersCollection?.items &&
         challengeData.organizersCollection.items.length > 0 && (
-          <div className="py-0 bg-ec_background dark:bg-ec_background_darkmode">
+          <div className="py-16 bg-ec_background dark:bg-ec_background_darkmode">
             <Sponsors
               title="Organizers"
               logos={challengeData.organizersCollection.items.map(
@@ -266,7 +266,7 @@ const StartupChallengeYear = ({
       {/* Sponsors Section */}
       {challengeData?.sponsorsCollection?.items &&
         challengeData.sponsorsCollection.items.length > 0 && (
-          <div className="py-0 bg-ec_background dark:bg-ec_background_darkmode">
+          <div className="py-16 bg-ec_background dark:bg-ec_background_darkmode">
             <Sponsors
               title="Partners"
               logos={challengeData.sponsorsCollection.items.map(
