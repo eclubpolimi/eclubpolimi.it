@@ -33,9 +33,11 @@ const LabeledOutlineCard = ({
         className={`relative border border-solid border-ec_border dark:border-ec_border_darkmode 
         rounded-xl p-4 lg:p-8 my-4 -mt-8 pt-12 lg:pt-12 
         shadow-md md:shadow-lg transition 
-        bg-ec_background dark:bg-ec_background_darkmode`}
+        bg-ec_background dark:bg-ec_background_darkmode transition-colors duration-300`}
       >
-        <p className="text-ec_text dark:text-ec_text_darkmode">{text}</p>
+        <p className="text-ec_text dark:text-ec_text_darkmode transition-colors duration-300">
+          {text}
+        </p>
       </div>
     </div>
   );

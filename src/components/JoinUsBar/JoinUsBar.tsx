@@ -23,17 +23,21 @@ const JoinUsBar = ({
 
   const getTitleColor = () => {
     return {
-      orange: 'text-white dark:text-ec_text_darkmode',
-      blue: 'text-white dark:text-ec_text_darkmode',
-      white: 'text-ec_text dark:text-ec_text_darkmode',
+      orange:
+        'text-white dark:text-ec_text_darkmode transition-colors duration-300',
+      blue: 'text-white dark:text-ec_text_darkmode transition-colors duration-300',
+      white:
+        'text-ec_text dark:text-ec_text_darkmode transition-colors duration-300',
     }[color];
   };
 
   const getBackgroundColor = () => {
     return {
-      orange: 'bg-ec_orange dark:bg-ec_orange_darkmode',
-      blue: 'bg-ec_blue dark:bg-ec_blue_darkmode',
-      white: 'bg-ec_background dark:bg-ec_background_darkmode',
+      orange:
+        'bg-ec_orange dark:bg-ec_orange_darkmode transition-colors duration-300',
+      blue: 'bg-ec_blue dark:bg-ec_blue_darkmode transition-colors duration-300',
+      white:
+        'bg-ec_background dark:bg-ec_background_darkmode transition-colors duration-300',
     }[color];
   };
 
@@ -53,7 +57,12 @@ const JoinUsBar = ({
       className={`${getBackgroundColor()} ${getBorderColor()} border ${className} flex flex-col gap-6 py-12 justify-center items-center`}
     >
       <h2 className={getTitleColor()}>{getTitle()}</h2>
-      <Button to={to} theme={getButtonColor()} disabled={disabled}>
+      <Button
+        variant="navigation"
+        href={to}
+        theme={getButtonColor()}
+        disabled={disabled}
+      >
         {getButtonText()}
       </Button>
     </div>

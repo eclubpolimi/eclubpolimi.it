@@ -1,4 +1,4 @@
-import { useQuery } from '@apollo/client';
+import { useQuery, ApolloError } from '@apollo/client';
 import { useMemo } from 'react';
 import { SITE_IMAGE_ASSETS_QUERY } from '../data/queries';
 import { SiteImageAssetsQuery, SiteImageAsset } from '../types/cms';
@@ -6,7 +6,7 @@ import { SiteImageAssetsQuery, SiteImageAsset } from '../types/cms';
 export interface UseImageAssetsResult {
   assets: SiteImageAsset[];
   loading: boolean;
-  error: any;
+  error: ApolloError | undefined;
   getAsset: (key: string) => SiteImageAsset | undefined;
   getAssetsByPrefix: (prefix: string) => SiteImageAsset[];
   getImageUrl: (key: string, isDarkMode?: boolean) => string | undefined;
@@ -111,7 +111,7 @@ export const useSponsors = () => {
   return sponsorAssets.map((asset) => ({
     src: asset.imageLightMode?.url || '',
     darkSrc: asset.imageDarkMode?.url || asset.imageLightMode?.url || '',
-    href: '#', // Default href - could be from asset metadata
+    href: asset.url || '#', // Use the URL field from siteImageAsset if available
     alt: asset.imageLightMode?.title || 'Sponsor logo',
   }));
 };
@@ -128,7 +128,7 @@ export const useNetworkMembers = () => {
   return networkAssets.map((asset) => ({
     src: asset.imageLightMode?.url || '',
     darkSrc: asset.imageDarkMode?.url || asset.imageLightMode?.url || '',
-    href: '#', // Default href - could be from asset metadata
+    href: asset.url || '#', // Use the URL field from siteImageAsset if available
     alt: asset.imageLightMode?.title || 'Network member logo',
   }));
 };

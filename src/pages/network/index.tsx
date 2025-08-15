@@ -3,46 +3,57 @@ import SiteData from '@/Data';
 import Description from 'components/Description/Description';
 import Sponsors from 'components/Sponsors/Sponsors';
 import Slogan from 'components/Slogan/Slogan';
-import { useImageAsset, useNetworkMembers } from 'hooks/useImageAssets';
+import { useImageAssets, useNetworkMembers } from 'hooks/useImageAssets';
 
 const Network = () => {
-  const networkHeroImage = useImageAsset('network_hero_background');
-  const networkHeroLogo = useImageAsset('network_hero_logo');
+  const { getImageUrl } = useImageAssets();
   const networkMembers = useNetworkMembers();
 
   return (
     <div>
       {/* Hero Image Fix */}
-      <div className="relative w-full h-[350px] flex items-center justify-center">
+      <div className="relative w-full h-[500px] flex items-center justify-center">
         <Image
-          src={networkHeroImage.url || ''}
+          src={getImageUrl('network_hero_background', false) || ''}
           fill
-          style={{ objectFit: 'cover' }}
+          style={{ objectFit: 'cover', objectPosition: 'center 45%' }}
           alt="Network Background"
           className="brightness-75"
         />
-        <Image
-          src={networkHeroLogo?.url || ''}
-          width={200} // Adjust as needed
-          height={100}
-          alt="Network Logo"
-          className="absolute"
-        />
+        {/* Dark Mode Overlay Only */}
+        <div className="absolute inset-0 bg-black dark:opacity-50 opacity-0 transition-opacity duration-300"></div>
       </div>
-      <div className="w-full h-2 bg-ec_blue dark:bg-ec_blue_darkmode my-6"></div>
 
-      <div className="bg-ec_background_light dark:bg-ec_background_darkmode">
-        <Sponsors
-          className="max-w-screen-lg lg:mx-auto px-5 lg:px-0 py-16"
-          title=" "
-          logos={networkMembers}
+      {/* Network Logo positioned below hero image */}
+      <div className="flex justify-center py-8">
+        {/* Light Mode Logo */}
+        <Image
+          src={getImageUrl('network_hero_logo', false) || ''}
+          width={250}
+          height={125}
+          alt="Network Logo"
+          className="block dark:hidden"
+        />
+        {/* Dark Mode Logo */}
+        <Image
+          src={getImageUrl('network_hero_logo', true) || ''}
+          width={250}
+          height={125}
+          alt="Network Logo Dark Mode"
+          className="hidden dark:block"
         />
       </div>
-      <div className="w-full h-2 bg-ec_blue dark:bg-ec_blue_darkmode my-6"></div>
+
+      {/* Orange bordered container for sponsors - matching homepage style */}
+      <div className="flex justify-center px-5 lg:px-0 py-4">
+        <div className="border border-solid border-ec_orange dark:border-ec_orange_darkmode rounded-xl p-6 w-full max-w-6xl">
+          <Sponsors className="flex-1" title=" " logos={networkMembers} />
+        </div>
+      </div>
 
       <div className="max-w-screen-lg lg:mx-auto px-5 lg:px-0">
         <Description title="About our network">
-          <p className="text-ec_text dark:text-ec_text_darkmode">
+          <p className="text-ec_text dark:text-ec_text_darkmode transition-colors duration-300">
             The Entrepreneurship Club Network is a community of thinkers and
             doers motivated by the same passion for innovation and disruption.
             Our network of clubs aims at spreading the entrepreneurial spirit
@@ -61,7 +72,7 @@ const Network = () => {
 
       <div className="max-w-screen-lg lg:mx-auto px-5 lg:px-0">
         <Description title="Entrepreneurship Clubs in Italy">
-          <p className="text-ec_text dark:text-ec_text_darkmode">
+          <p className="text-ec_text dark:text-ec_text_darkmode transition-colors duration-300">
             The first Entrepreneurship Club was founded in 2011 in Bocconi
             University in Milan. The core values (Learn, Network, Build)
             remained present ever since and are everyday refined by our
@@ -77,8 +88,6 @@ const Network = () => {
           </p>
         </Description>
       </div>
-
-      <div className="w-full h-2 bg-ec_blue dark:bg-ec_blue_darkmode my-6"></div>
     </div>
   );
 };

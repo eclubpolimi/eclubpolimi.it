@@ -5,18 +5,20 @@ import JoinUsBar from 'components/JoinUsBar/JoinUsBar';
 import { TeamProps } from 'components/Team/Team';
 import Teams from 'components/Teams/Teams';
 import SiteData from '@/Data';
-import { useImageAsset } from 'hooks/useImageAssets';
+import { useImageAsset, useImageAssets } from 'hooks/useImageAssets';
 import { ALL_DRIVERS_NOT_ALUMNI_QUERY, DESCRIPTION_QUERY } from 'data/queries';
 import { AllDriversQuery, Driver } from 'types/cms';
 import client from 'utils/apollo_client';
 import Image from 'next/image';
 
-interface AboutProps {
+interface OurTeamProps {
   data: AllDriversQuery;
   description: string; // New prop for mission description
 }
 
-export const getServerSideProps = async (): Promise<{ props: AboutProps }> => {
+export const getServerSideProps = async (): Promise<{
+  props: OurTeamProps;
+}> => {
   const { data } = await client.query<AllDriversQuery>({
     query: ALL_DRIVERS_NOT_ALUMNI_QUERY,
   });
@@ -33,7 +35,9 @@ export const getServerSideProps = async (): Promise<{ props: AboutProps }> => {
     // Find the "mission" entry from Contentful
     missionDescription =
       descriptionData?.decriptionParagraphCollection?.items.find(
-        (item: any) => item.textArea === 'about us - our mission',
+        (
+          item: { textArea?: string | null; textField?: string | null } | null,
+        ) => item?.textArea === 'about us - our mission',
       )?.textField || missionDescription;
   } catch (error) {
     console.error('Error fetching mission description:', error);
@@ -103,34 +107,47 @@ const getTeams = (data: AllDriversQuery) => {
   return teams;
 };
 
-const About = ({ data, description }: AboutProps) => {
+const OurTeam = ({ data, description }: OurTeamProps) => {
   const aboutHeroImage = useImageAsset('about_hero_background');
+  const { getImageUrl } = useImageAssets();
 
   return (
     <div>
-      {/* About Us Hero Section */}
-      <div className="relative w-full h-[350px] flex items-center justify-center">
-        {/* Background Image */}
+      {/* Our Team Hero Section */}
+      <div className="relative w-full h-[500px] flex items-center justify-center">
+        {/* Background Image - Light Mode */}
         <Image
-          src={aboutHeroImage.url || ''}
+          src={
+            getImageUrl('about_hero_background', false) ||
+            aboutHeroImage.url ||
+            ''
+          }
           fill
-          style={{ objectFit: 'cover', objectPosition: 'center 36%' }}
-          alt="About Us Background"
+          style={{ objectFit: 'cover', objectPosition: 'center 60%' }}
+          alt="Our Team Background"
+          className="block dark:hidden"
+        />
+        {/* Background Image - Dark Mode */}
+        <Image
+          src={
+            getImageUrl('about_hero_background', true) ||
+            aboutHeroImage.url ||
+            ''
+          }
+          fill
+          style={{ objectFit: 'cover', objectPosition: 'center 60%' }}
+          alt="Our Team Background Dark Mode"
+          className="hidden dark:block"
         />
 
-        {/* Light & Dark Mode Overlay */}
-        <div className="absolute inset-0 bg-white dark:bg-black opacity-30 dark:opacity-50 transition-opacity duration-300"></div>
-
-        {/* About Us Title */}
-        <h1 className="absolute text-4xl font-extrabold text-ec_text dark:text-ec_text_darkmode transition-colors duration-300">
-          About Us
-        </h1>
+        {/* Dark Mode Overlay Only */}
+        <div className="absolute inset-0 bg-black dark:opacity-50 opacity-0 transition-opacity duration-300"></div>
       </div>
 
       {/* Mission Section */}
       <div className="max-w-full mx-auto px-5 lg:px-10">
         <Description title="Our mission">
-          <p className="text-ec_text dark:text-ec_text_darkmode">
+          <p className="text-ec_text dark:text-ec_text_darkmode transition-colors duration-300">
             {description}
           </p>
         </Description>
@@ -140,17 +157,16 @@ const About = ({ data, description }: AboutProps) => {
       <JoinUsBar to={SiteData.JoinTarget} color="blue" />
 
       {/* Teams Section */}
-      <div className="bg-ec_background dark:bg-ec_background_darkmode">
+      <div className="bg-ec_background dark:bg-ec_background_darkmode transition-colors duration-300">
         <div className="max-w-full mx-auto px-5 lg:px-10">
           <Teams
             teams={getTeams(data)}
-            className="pt-8 pb-12 text-ec_text dark:text-ec_text_darkmode"
+            className="pt-8 pb-12 text-ec_text dark:text-ec_text_darkmode transition-colors duration-300"
           />
         </div>
       </div>
-      <div className="w-full h-2 bg-ec_blue dark:bg-ec_blue_darkmode my-6"></div>
     </div>
   );
 };
 
-export default About;
+export default OurTeam;

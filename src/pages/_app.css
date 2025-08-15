@@ -4,6 +4,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 /*---------------------------
+    Dark Mode Transitions
+---------------------------*/
+/* Targeted smooth transitions for dark mode reactive elements */
+[class*='text-ec_'][class*='dark:text-'],
+[class*='bg-ec_'][class*='dark:bg-'],
+.ec-transition {
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/*---------------------------
     Light Mode Default Styles
 ---------------------------*/
 :root {
@@ -16,6 +29,8 @@
     #fc3f1a 90%
   );
   --orange-gradient-hover: linear-gradient(60deg, #ff793f 10%, #fc5833 90%);
+  --orange-gradient-light: linear-gradient(60deg, #fc3f1a 10%, #fc5833 90%);
+  --orange-gradient-dark: linear-gradient(60deg, #af3714 10%, #af4f09 90%);
   --text-color: #121212;
   --background-color: #ffffff;
   --navbar-background: #ffffff;
@@ -46,6 +61,115 @@
 ---------------------------*/
 html {
   scroll-behavior: smooth;
+}
+
+/*---------------------------
+    Mobile Navigation Overrides
+---------------------------*/
+/* Suppress desktop hover effects in mobile navigation */
+.mobile-nav-item a span {
+  display: none !important;
+}
+
+.mobile-nav-item a {
+  text-decoration: none !important;
+  position: static !important;
+}
+
+.mobile-nav-item a:hover span {
+  display: none !important;
+  width: 0 !important;
+}
+
+/* Mobile-only styles - only apply on screens smaller than xl (1280px) */
+@media (max-width: 1279px) {
+  /* Make buttons fill the entire mobile nav section */
+  li[class*='border-b'] > div > button,
+  li[class*='border-b'] > div > div > button,
+  li[class*='border-b'] > div > div > div > a,
+  li[class*='border-b'] > div > div > div > div > a,
+  li[class*='border-b'] .mobile-nav-button-wrapper button {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 56px !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    justify-content: center !important;
+    align-items: center !important;
+    display: flex !important;
+    padding: 16px !important;
+  }
+
+  /* Disable interactive scaling for mobile navigation buttons */
+  .mobile-nav-button-wrapper > div > div,
+  .mobile-nav-button-wrapper:hover > div > div,
+  .mobile-nav-button-wrapper button,
+  .mobile-nav-button-wrapper button:hover {
+    transform: scale(1) !important;
+    transition:
+      color 0.2s,
+      background-color 0.2s !important;
+  }
+
+  /* Disable scaling for InteractiveSection containers */
+  .mobile-nav-button-wrapper [class*='InteractiveSection'],
+  .mobile-nav-button-wrapper [data-section-id] {
+    transform: scale(1) !important;
+    transition: none !important;
+  }
+
+  /* Preserve rocket animations - disable scaling, allow other transforms */
+  .mobile-nav-button-wrapper [class*='rocket'],
+  .mobile-nav-button-wrapper [class*='particle'],
+  .mobile-nav-button-wrapper svg:not(.transition-transform) {
+    transition: initial !important;
+    animation: initial !important;
+  }
+
+  /* Arrow rotation styles */
+  .mobile-nav-button-wrapper svg.transition-transform {
+    transition: transform 0.2s ease !important;
+  }
+
+  .mobile-nav-button-wrapper svg.rotate-90 {
+    transform: rotate(90deg) !important;
+  }
+
+  .mobile-nav-button-wrapper svg.rotate-180 {
+    transform: rotate(180deg) !important;
+  }
+
+  .mobile-nav-button-wrapper svg.-rotate-90 {
+    transform: rotate(-90deg) !important;
+  }
+
+  /* Force Join Us Button component to fill width */
+  .mobile-nav-button-wrapper > div,
+  .mobile-nav-button-wrapper > div > div,
+  .mobile-nav-button-wrapper > div > div > div,
+  .mobile-nav-button-wrapper a,
+  .mobile-nav-button-wrapper Link {
+    width: 100% !important;
+    height: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    min-height: 56px !important;
+  }
+
+  /* Add rounded bottom corners to the last button to match menu */
+  li:last-child .mobile-nav-button-wrapper > div,
+  li:last-child .mobile-nav-button-wrapper > div > div,
+  li:last-child .mobile-nav-button-wrapper > div > div > div,
+  li:last-child .mobile-nav-button-wrapper a,
+  li:last-child .mobile-nav-button-wrapper Link {
+    border-radius: 0 0 0.5rem 0.5rem !important;
+  }
+}
+
+html {
   scroll-padding-top: 15%;
 }
 
@@ -129,9 +253,15 @@ button {
     color 0.3s ease;
 }
 
-button:hover {
+button.gradient-hover:hover {
   background: var(--orange-gradient-hover);
   color: var(--text-color-onorangehover);
+}
+
+/* Dark mode version uses the light gradient (Gradient 3) */
+.dark button.gradient-hover:hover {
+  background: var(--orange-gradient-light);
+  color: white;
 }
 
 html {

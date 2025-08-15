@@ -21,6 +21,7 @@ export const SITE_IMAGE_ASSETS_QUERY = gql`
           url
           title
         }
+        url
       }
     }
   }
@@ -35,6 +36,45 @@ export const LATEST_STARTUP_CHALLENGE_QUERY = gql`
         submissionsOpen
         submissionsOpenDate
         submissionsCloseDate
+        finishDate
+        detailedProgramDescription
+        detailedProgram {
+          ...FileUrlFragment
+        }
+        timelineCollection {
+          items {
+            ...TimelineItemFragment
+          }
+        }
+        organizersCollection {
+          items {
+            ...SponsorFragment
+          }
+        }
+        sponsorsCollection {
+          items {
+            ...SponsorFragment
+          }
+        }
+      }
+    }
+  }
+  ${FILE_URL_FRAGMENT}
+  ${TIMELINE_ITEM_FRAGMENT}
+  ${SPONSOR_FRAGMENT}
+`;
+
+export const ALL_STARTUP_CHALLENGES_QUERY = gql`
+  query AllStartupChallengeData {
+    startupchallengeCollection(limit: 10, order: name_ASC) {
+      items {
+        name
+        signUpLink
+        submissionsOpen
+        submissionsOpenDate
+        submissionsCloseDate
+        duration
+        finishDate
         detailedProgramDescription
         detailedProgram {
           ...FileUrlFragment
@@ -131,4 +171,15 @@ export const JOIN_QUERY = gql`
       }
     }
   }
+`;
+
+export const ALL_SPONSORS_QUERY = gql`
+  query AllSponsors {
+    sponsorCollection {
+      items {
+        ...SponsorFragment
+      }
+    }
+  }
+  ${SPONSOR_FRAGMENT}
 `;

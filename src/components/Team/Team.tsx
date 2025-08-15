@@ -25,14 +25,13 @@ const Team = ({ members }: TeamProps) => {
     <div className="h-full w-full flex flex-col justify-center">
       <div className="grid justify-items-center align-middle sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
         {members.map((member, index) => (
-          <div key={index} className="flex justify-center items-center">
-            <SlideCard
-              frontImage={member.image}
-              height={cardSize.height}
-              width={cardSize.width}
-              cardText={member.cardText}
-            />
-          </div>
+          <SlideCard
+            key={index}
+            frontImage={member.image}
+            height={cardSize.height}
+            width={cardSize.width}
+            cardText={member.cardText}
+          />
         ))}
       </div>
     </div>
