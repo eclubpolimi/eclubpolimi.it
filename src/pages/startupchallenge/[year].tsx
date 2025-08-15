@@ -287,13 +287,6 @@ const StartupChallengeYear = ({
             />
           </div>
         )}
-      <JoinUsBar
-        title={`Apply for USC ${year}`}
-        color="blue"
-        buttonText="Apply here"
-        to={challengeData?.signUpLink || ''}
-        disabled={!submissionsEnabled}
-      />
     </div>
   );
 };

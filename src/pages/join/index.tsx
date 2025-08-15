@@ -122,9 +122,7 @@ const Join = ({ joinData }: JoinProps) => {
           className="hidden dark:block"
         />
 
-        <div className="absolute inset-0 bg-black/50 flex items-center justify-center text-white text-2xl font-bold">
-          Join the E-Club Polimi Community
-        </div>
+        <div className="absolute inset-0 bg-black dark:opacity-50 opacity-0 transition-opacity duration-300"></div>
       </div>
 
       {/* Student Membership Section */}

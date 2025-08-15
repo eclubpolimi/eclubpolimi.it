@@ -501,17 +501,17 @@ const StartupChallengeDropdown = ({
                     setIsOpen(false);
                   }}
                 >
-                  <span className="flex items-center justify-center gap-2">
-                    USC {yearData.year}
+                  <span className="flex items-center justify-between w-full gap-3">
+                    <span>USC {yearData.year}</span>
                     <span
-                      className={`px-2 py-1 text-white text-xs rounded-full font-semibold ${getStatusStyle(yearData.status)}`}
+                      className={`px-2 py-1 text-white text-xs rounded-full font-semibold min-w-[90px] text-center ${getStatusStyle(yearData.status)}`}
                     >
                       {yearData.status}
                     </span>
                   </span>
                 </Link>
                 {index < years.length - 1 && (
-                  <div className="mx-3 h-px bg-ec_grey dark:bg-ec_grey_darkmode"></div>
+                  <div className="h-px bg-gray-200 dark:bg-gray-600"></div>
                 )}
               </div>
             ))}
