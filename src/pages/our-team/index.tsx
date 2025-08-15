@@ -35,7 +35,9 @@ export const getServerSideProps = async (): Promise<{
     // Find the "mission" entry from Contentful
     missionDescription =
       descriptionData?.decriptionParagraphCollection?.items.find(
-        (item: any) => item.textArea === 'about us - our mission',
+        (
+          item: { textArea?: string | null; textField?: string | null } | null,
+        ) => item?.textArea === 'about us - our mission',
       )?.textField || missionDescription;
   } catch (error) {
     console.error('Error fetching mission description:', error);

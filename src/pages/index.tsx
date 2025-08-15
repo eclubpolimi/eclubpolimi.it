@@ -9,11 +9,7 @@ import SiteData from '@/Data';
 import Image from 'next/image';
 import { DESCRIPTION_QUERY } from 'data/queries';
 import client from 'utils/apollo_client';
-import {
-  useImageAssets,
-  useImageAsset,
-  useSponsors,
-} from 'hooks/useImageAssets';
+import { useImageAssets, useImageAsset } from 'hooks/useImageAssets';
 
 interface HomeProps {
   textData: Record<string, string>; // Store all text snippets from Contentful
@@ -29,7 +25,10 @@ export const getServerSideProps = async (): Promise<{ props: HomeProps }> => {
 
     // Convert Contentful response into a key-value store
     textData = data?.decriptionParagraphCollection?.items.reduce(
-      (acc: Record<string, string>, item: any) => {
+      (
+        acc: Record<string, string>,
+        item: { textArea: string; textField: string },
+      ) => {
         acc[item.textArea] = item.textField;
         return acc;
       },

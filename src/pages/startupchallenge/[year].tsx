@@ -25,9 +25,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const { year } = context.params as { year: string };
 
   try {
-    const { data } = await client.query<{
-      startupchallengeCollection: { items: any[] };
-    }>({
+    const { data } = await client.query<StartupChallengeDataQuery>({
       query: ALL_STARTUP_CHALLENGES_QUERY,
     });
 
@@ -202,12 +200,28 @@ const StartupChallengeYear = ({
               <Timeline
                 data={
                   challengeData.timelineCollection.items
-                    .filter((item: any) => item !== null)
-                    .map((item: any) => ({
-                      date: formatDate(item?.date || '') || '',
-                      title: item?.title || '',
-                      body: item?.description || '',
-                    })) || []
+                    .filter(
+                      (
+                        item: {
+                          date?: string | null;
+                          title?: string | null;
+                          description?: string | null;
+                        } | null,
+                      ) => item !== null,
+                    )
+                    .map(
+                      (
+                        item: {
+                          date?: string | null;
+                          title?: string | null;
+                          description?: string | null;
+                        } | null,
+                      ) => ({
+                        date: formatDate(item?.date || '') || '',
+                        title: item?.title || '',
+                        body: item?.description || '',
+                      }),
+                    ) || []
                 }
                 theme="split"
               />
@@ -222,7 +236,14 @@ const StartupChallengeYear = ({
             <Sponsors
               title="Organizers"
               logos={challengeData.organizersCollection.items.map(
-                (entry: any) => ({
+                (
+                  entry: {
+                    name?: string | null;
+                    url?: string | null;
+                    logo?: { url?: string | null } | null;
+                    logoDark?: { url?: string | null } | null;
+                  } | null,
+                ) => ({
                   src: entry?.logo?.url || '',
                   darkSrc: entry?.logoDark?.url || entry?.logo?.url || '',
                   alt: entry?.name || '',
@@ -249,7 +270,14 @@ const StartupChallengeYear = ({
             <Sponsors
               title="Partners"
               logos={challengeData.sponsorsCollection.items.map(
-                (sponsor: any) => ({
+                (
+                  sponsor: {
+                    name?: string | null;
+                    url?: string | null;
+                    logo?: { url?: string | null } | null;
+                    logoDark?: { url?: string | null } | null;
+                  } | null,
+                ) => ({
                   src: sponsor?.logo?.url || '',
                   darkSrc: sponsor?.logoDark?.url || sponsor?.logo?.url || '',
                   alt: sponsor?.name || '',

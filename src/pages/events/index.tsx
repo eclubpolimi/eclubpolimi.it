@@ -40,13 +40,23 @@ const Events = ({ data }: EventProps) => {
       <div className="lg:my-20 my-12 max-w-screen-lg lg:mx-auto px-5 lg:px-0">
         <Timeline
           data={[
-            ...(eventData?.map((event: any) => {
-              return {
-                title: event?.title || '',
-                date: formatDate(event?.date || '') || '',
-                body: event?.description || '',
-              };
-            }) || []),
+            ...(eventData?.map(
+              (
+                event: {
+                  date?: string | null;
+                  title?: string | null;
+                  description?: string | null;
+                  location?: string | null;
+                  registrationLink?: string | null;
+                } | null,
+              ) => {
+                return {
+                  title: event?.title || '',
+                  date: formatDate(event?.date || '') || '',
+                  body: event?.description || '',
+                };
+              },
+            ) || []),
             // Add coming soon event at the end
             {
               title: 'Coming Soon...',

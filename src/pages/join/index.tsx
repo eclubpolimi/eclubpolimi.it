@@ -55,7 +55,14 @@ export const getServerSideProps = async (): Promise<{ props: JoinProps }> => {
     if (data?.joinCollection?.items) {
       // Find the correct entry by title
       const selectedEntry = data.joinCollection.items.find(
-        (item: any) => item.title === 'Join Us Links',
+        (
+          item: {
+            title?: string | null;
+            explorerJoinLink?: string | null;
+            driverJoinLink?: string | null;
+            sponsorJoinLink?: string | null;
+          } | null,
+        ) => item?.title === 'Join Us Links',
       );
 
       if (selectedEntry) {
