@@ -36,6 +36,7 @@ export const LATEST_STARTUP_CHALLENGE_QUERY = gql`
         submissionsOpen
         submissionsOpenDate
         submissionsCloseDate
+        finishDate
         detailedProgramDescription
         detailedProgram {
           ...FileUrlFragment
@@ -73,6 +74,7 @@ export const ALL_STARTUP_CHALLENGES_QUERY = gql`
         submissionsOpenDate
         submissionsCloseDate
         duration
+        finishDate
         detailedProgramDescription
         detailedProgram {
           ...FileUrlFragment

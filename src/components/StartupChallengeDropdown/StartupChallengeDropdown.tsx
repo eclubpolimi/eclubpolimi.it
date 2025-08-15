@@ -2,10 +2,90 @@ import { useState, useRef, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
+import { useQuery } from '@apollo/client';
+import { ALL_STARTUP_CHALLENGES_QUERY } from 'data/queries';
+import { StartupChallengeDataQuery } from 'types/cms';
 
 interface StartupChallengeDropdownProps {
   className?: string;
 }
+
+type ChallengeStatus =
+  | 'Coming Soon'
+  | 'Starting Soon'
+  | 'Registration Open'
+  | 'Ongoing'
+  | 'Finished';
+
+interface ChallengeData {
+  year: string;
+  path: string;
+  status: ChallengeStatus;
+  data?: {
+    name?: string | null;
+    submissionsOpenDate?: string | null;
+    submissionsCloseDate?: string | null;
+    finishDate?: string | null;
+  } | null;
+}
+
+const getStatusFromDates = (
+  submissionsOpenDate?: string | null,
+  submissionsCloseDate?: string | null,
+  finishDate?: string | null,
+): ChallengeStatus => {
+  const now = new Date();
+
+  if (!submissionsOpenDate || !submissionsCloseDate || !finishDate) {
+    return 'Coming Soon';
+  }
+
+  const openDate = new Date(submissionsOpenDate);
+  const closeDate = new Date(submissionsCloseDate);
+  const endDate = new Date(finishDate);
+
+  // Debug logging
+  console.log('Status calculation:', {
+    now: now.toISOString(),
+    openDate: openDate.toISOString(),
+    closeDate: closeDate.toISOString(),
+    endDate: endDate.toISOString(),
+  });
+
+  if (now > endDate) {
+    return 'Finished';
+  }
+
+  if (now > closeDate && now <= endDate) {
+    return 'Ongoing';
+  }
+
+  if (now >= openDate && now <= closeDate) {
+    return 'Registration Open';
+  }
+
+  if (now < openDate) {
+    return 'Starting Soon';
+  }
+
+  return 'Coming Soon';
+};
+
+const getStatusStyle = (status: ChallengeStatus) => {
+  switch (status) {
+    case 'Registration Open':
+      return 'bg-green-500 dark:bg-green-600 text-white'; // Green for active registration
+    case 'Ongoing':
+      return 'bg-blue-500 dark:bg-blue-600 text-white'; // Blue for active/current
+    case 'Starting Soon':
+      return 'bg-yellow-500 dark:bg-yellow-600 text-white'; // Yellow for upcoming
+    case 'Finished':
+      return 'bg-gray-500 dark:bg-gray-600 text-white'; // Gray for completed
+    case 'Coming Soon':
+    default:
+      return 'bg-purple-500 dark:bg-purple-600 text-white'; // Purple for future
+  }
+};
 
 const StartupChallengeDropdown = ({
   className = '',
@@ -20,11 +100,66 @@ const StartupChallengeDropdown = ({
   const dropdownRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
-  const years = [
-    { year: '2026', path: '/startupchallenge/2026', isCurrent: true },
-    { year: '2025', path: '/startupchallenge/2025', isCurrent: false },
-    { year: '2024', path: '/startupchallenge/2024', isCurrent: false },
+  // Fetch startup challenge data
+  const { data: challengeData } = useQuery<StartupChallengeDataQuery>(
+    ALL_STARTUP_CHALLENGES_QUERY,
+  );
+
+  // Process the data and calculate statuses
+  const years: ChallengeData[] = [
+    { year: '2026', path: '/startupchallenge/2026', status: 'Coming Soon' },
+    { year: '2025', path: '/startupchallenge/2025', status: 'Coming Soon' },
+    { year: '2024', path: '/startupchallenge/2024', status: 'Coming Soon' },
   ];
+
+  // Update years with actual data when available
+  if (challengeData?.startupchallengeCollection?.items) {
+    challengeData.startupchallengeCollection.items.forEach((item) => {
+      if (item?.name) {
+        // Extract year from name (assuming format like "USC 2026" or "Startup Challenge 2026")
+        const yearMatch = item.name.match(/(\d{4})/);
+        if (yearMatch) {
+          const year = yearMatch[1];
+          const existingYearIndex = years.findIndex((y) => y.year === year);
+
+          if (existingYearIndex !== -1) {
+            const status = getStatusFromDates(
+              item.submissionsOpenDate,
+              item.submissionsCloseDate,
+              item.finishDate,
+            );
+
+            years[existingYearIndex] = {
+              ...years[existingYearIndex],
+              status,
+              data: item,
+            };
+
+            console.log(`Updated USC ${year} with status: ${status}`);
+          } else {
+            // If we find a year that's not in our hardcoded list, add it
+            const status = getStatusFromDates(
+              item.submissionsOpenDate,
+              item.submissionsCloseDate,
+              item.finishDate,
+            );
+
+            years.push({
+              year,
+              path: `/startupchallenge/${year}`,
+              status,
+              data: item,
+            });
+
+            console.log(`Added new USC ${year} with status: ${status}`);
+          }
+        }
+      }
+    });
+
+    // Sort years in descending order (newest first)
+    years.sort((a, b) => parseInt(b.year) - parseInt(a.year));
+  }
 
   // Advanced animated rocket component with Framer Motion
   const AnimatedRocket = () => {
@@ -368,11 +503,11 @@ const StartupChallengeDropdown = ({
                 >
                   <span className="flex items-center justify-center gap-2">
                     USC {yearData.year}
-                    {yearData.isCurrent && (
-                      <span className="px-2 py-1 bg-ec_orange dark:bg-ec_orange_darkmode text-white text-xs rounded-full font-semibold">
-                        Current
-                      </span>
-                    )}
+                    <span
+                      className={`px-2 py-1 text-white text-xs rounded-full font-semibold ${getStatusStyle(yearData.status)}`}
+                    >
+                      {yearData.status}
+                    </span>
                   </span>
                 </Link>
                 {index < years.length - 1 && (

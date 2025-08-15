@@ -49,6 +49,7 @@ export interface StartupChallengeDataQuery {
       submissionsOpenDate?: string | null;
       submissionsCloseDate?: string | null;
       duration?: string | null;
+      finishDate?: string | null;
       detailedProgramDescription?: string | null;
       detailedProgram?: {
         url?: string | null;
