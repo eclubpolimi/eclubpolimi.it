@@ -20,6 +20,7 @@ type FooterProps = {
   linkedinUrl: string;
   copyrightName: string;
   showSponsors?: boolean;
+  enabled?: boolean; // New prop to control visibility
 };
 
 const Footer = ({
@@ -29,9 +30,12 @@ const Footer = ({
   linkedinUrl,
   copyrightName,
   showSponsors = false,
+  enabled = true,
 }: FooterProps) => {
   const sponsors = useSponsors();
   const logoWhite = useImageAsset('branding_logo_white');
+
+  if (!enabled) return null;
 
   return (
     <div>

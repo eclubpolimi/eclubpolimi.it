@@ -26,6 +26,9 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   const showSponsors =
     router.pathname === '/' || router.pathname === '/network';
 
+  // Determine if footer should be enabled
+  const footerEnabled = router.pathname !== '/join';
+
   return (
     <ApolloProvider client={client}>
       <div className="bg-white dark:bg-gray-900 text-black dark:text-white min-h-screen transition-colors duration-300">
@@ -41,6 +44,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
             instagramUrl="https://www.instagram.com/eclubpolimi/"
             linkedinUrl="https://www.linkedin.com/company/eclubpolimi/"
             showSponsors={showSponsors}
+            enabled={footerEnabled}
           />
         </div>
         <div className="fixed bottom-4 left-4 z-50 bg-ec_blue dark:bg-ec_blue_darkmode transition-colors duration-300 p-2 rounded-full shadow-lg sm:bottom-6 sm:left-6 md:bottom-8 md:left-8">
