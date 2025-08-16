@@ -11,6 +11,7 @@ import {
   InteractiveSectionGroup,
   InteractiveSection,
 } from 'components/InteractiveSection/InteractiveSection';
+import styles from './Navbar.module.css';
 
 type NavBarProps = {
   items: Array<{ type: 'link' | 'button'; content: ReactNode }>;
@@ -78,7 +79,7 @@ const NavBar = ({ items }: NavBarProps) => {
               <li key={index} className={itemClass}>
                 {item.content}
                 {item.type !== 'button' && (
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-ec_orange dark:bg-ec_orange_darkmode transition-colors duration-300 group-hover:w-full transition-all duration-300"></span>
+                  <span className={styles['navbar-underline']}></span>
                 )}
               </li>
             );
