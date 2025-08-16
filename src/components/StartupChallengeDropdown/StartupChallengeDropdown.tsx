@@ -381,24 +381,12 @@ const StartupChallengeDropdown = ({
         buttonRef.current.closest('.mobile-nav-button-wrapper') !== null;
 
       if (isMobile && isInMobileMenu) {
-        // When in mobile menu, position relative to the menu container
-        const navMenu = buttonRef.current.closest('ul');
-        const navMenuRect = navMenu?.getBoundingClientRect();
-
-        if (navMenuRect) {
-          setDropdownPosition({
-            top: rect.top + window.scrollY, // Start at same height as USC button, not below it
-            left: navMenuRect.left - 256 - 8, // Position to the left of the menu with small gap
-            width: 256,
-          });
-        } else {
-          // Fallback positioning
-          setDropdownPosition({
-            top: rect.top + window.scrollY, // Start at same height as USC button
-            left: rect.left - 256 - 8,
-            width: 256,
-          });
-        }
+        // Make dropdown spawn to the left of the button
+        setDropdownPosition({
+          top: rect.top + window.scrollY, // align top with button
+          left: rect.left + window.scrollX - 220, // position to the left of the button by dropdown width
+          width: 220,
+        });
       } else if (isMobile) {
         // On mobile but not in menu (shouldn't happen, but fallback)
         setDropdownPosition({
@@ -487,7 +475,8 @@ const StartupChallengeDropdown = ({
             style={{
               top: dropdownPosition.top,
               left: dropdownPosition.left,
-              minWidth: Math.max(dropdownPosition.width, 200),
+              width: '220px',
+              minWidth: '0',
               zIndex: 10001,
             }}
           >
