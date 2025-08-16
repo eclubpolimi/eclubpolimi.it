@@ -104,7 +104,8 @@ export const ALL_STARTUP_CHALLENGES_QUERY = gql`
 
 export const LATEST_EVENTS_QUERY = gql`
   query Event {
-    eventCollection(limit: 4, order: date_ASC) {
+    # Increase limit to fetch all events (was limited to 4)
+    eventCollection(limit: 25, order: date_ASC) {
       items {
         ...EventFragment
       }
