@@ -7,6 +7,25 @@
   stroke-width: 5.5;
   stroke-linecap: round;
 }
+
+.navbar-underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #fc3f1a;
+  transition: width 0.3s ease-out;
+}
+
+:global(.dark) .navbar-underline {
+  background-color: #af3714;
+}
+
+:global(.group:hover) .navbar-underline {
+  width: 100%;
+}
+
 .ham_top {
   stroke-dasharray: 40 121;
 }
