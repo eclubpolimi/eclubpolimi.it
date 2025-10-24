@@ -21,6 +21,7 @@ import Link from 'next/link';
 <Link href="/about">About Us</Link>
 <Link href="/events">Events</Link>
 <Link href="/startupchallenge/2025">USC 2025</Link>
+lol
 ```
 
 #### ❌ Incorrect
