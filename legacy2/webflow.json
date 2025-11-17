@@ -1,0 +1,12 @@
+{
+  "cloud": {
+    "framework": "astro"
+  },
+  "devlink": {
+    "rootDir": "./src/site-components",
+    "cssModules": true,
+    "fileExtensions": {
+      "js": "jsx"
+    }
+  }
+}
