@@ -1,0 +1,4 @@
+name = "astro-blaxel-volume-4"
+type = "volume-template"
+defaultSize = 2048
+directory = "app"
