@@ -37,3 +37,4 @@ yarn-error.log*
 # Cloudflare
 .wrangler/
 worker-configuration.d.ts
+node_modules/
