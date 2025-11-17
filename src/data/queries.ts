@@ -1,0 +1,186 @@
+import { gql } from '@apollo/client';
+import {
+  DRIVER_FRAGMENT,
+  EVENT_FRAGMENT,
+  FILE_URL_FRAGMENT,
+  SPONSOR_FRAGMENT,
+  TIMELINE_ITEM_FRAGMENT,
+  TRIP_FRAGMENT,
+} from './fragments';
+
+export const SITE_IMAGE_ASSETS_QUERY = gql`
+  query SiteImageAssets($limit: Int = 100) {
+    siteImageAssetCollection(limit: $limit) {
+      items {
+        key
+        imageLightMode {
+          url
+          title
+        }
+        imageDarkMode {
+          url
+          title
+        }
+        url
+      }
+    }
+  }
+`;
+
+export const LATEST_STARTUP_CHALLENGE_QUERY = gql`
+  query StartupChallengeData {
+    startupchallengeCollection(limit: 1, order: name_DESC) {
+      items {
+        name
+        signUpLink
+        submissionsOpen
+        submissionsOpenDate
+        submissionsCloseDate
+        finishDate
+        detailedProgramDescription
+        detailedProgram {
+          ...FileUrlFragment
+        }
+        timelineCollection {
+          items {
+            ...TimelineItemFragment
+          }
+        }
+        organizersCollection {
+          items {
+            ...SponsorFragment
+          }
+        }
+        sponsorsCollection {
+          items {
+            ...SponsorFragment
+          }
+        }
+      }
+    }
+  }
+  ${FILE_URL_FRAGMENT}
+  ${TIMELINE_ITEM_FRAGMENT}
+  ${SPONSOR_FRAGMENT}
+`;
+
+export const ALL_STARTUP_CHALLENGES_QUERY = gql`
+  query AllStartupChallengeData {
+    startupchallengeCollection(limit: 10, order: name_ASC) {
+      items {
+        name
+        signUpLink
+        submissionsOpen
+        submissionsOpenDate
+        submissionsCloseDate
+        duration
+        finishDate
+        detailedProgramDescription
+        detailedProgram {
+          ...FileUrlFragment
+        }
+        timelineCollection {
+          items {
+            ...TimelineItemFragment
+          }
+        }
+        organizersCollection {
+          items {
+            ...SponsorFragment
+          }
+        }
+        sponsorsCollection {
+          items {
+            ...SponsorFragment
+          }
+        }
+      }
+    }
+  }
+  ${FILE_URL_FRAGMENT}
+  ${TIMELINE_ITEM_FRAGMENT}
+  ${SPONSOR_FRAGMENT}
+`;
+
+export const LATEST_EVENTS_QUERY = gql`
+  query Event {
+    # Increase limit to fetch all events (was limited to 4)
+    eventCollection(limit: 25, order: date_ASC) {
+      items {
+        ...EventFragment
+      }
+    }
+  }
+  ${EVENT_FRAGMENT}
+`;
+
+export const LATEST_TRIP_QUERY = gql`
+  query LatestTripData {
+    tripCollection(limit: 1, order: departDate_DESC) {
+      items {
+        ...TripFragment
+      }
+    }
+  }
+  ${TRIP_FRAGMENT}
+`;
+
+export const ALL_DRIVERS_NOT_ALUMNI_QUERY = gql`
+  query AllDrivers {
+    driverCollection(where: { isAlumni: false }) {
+      items {
+        ...DriverFragment
+      }
+    }
+  }
+  ${DRIVER_FRAGMENT}
+`;
+
+export const DRIVERS_FOR_TEAM_QUERY = gql`
+  query DriversForTeam($team: String) {
+    driverCollection(where: { team: $team }) {
+      items {
+        ...DriverFragment
+      }
+    }
+  }
+  ${DRIVER_FRAGMENT}
+`;
+
+export const DESCRIPTION_QUERY = gql`
+  query DescriptionQuery {
+    decriptionParagraphCollection {
+      items {
+        textArea
+        textField
+      }
+    }
+  }
+`;
+
+export const JOIN_QUERY = gql`
+  query JoinQuery {
+    joinCollection {
+      items {
+        title
+        explorerJoinLink
+        driverJoinLink
+        sponsorJoinLink
+        driverBenefits
+        explorerBenefits
+        sponsorBenefits
+      }
+    }
+  }
+`;
+
+export const ALL_SPONSORS_QUERY = gql`
+  query AllSponsors {
+    sponsorCollection {
+      items {
+        ...SponsorFragment
+      }
+    }
+  }
+  ${SPONSOR_FRAGMENT}
+`;
