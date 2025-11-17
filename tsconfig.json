@@ -1,40 +1,24 @@
 {
+  "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    "plugins": [
-      {
-        "name": "next"
-      },
-      {
-        "name": "typescript-plugin-css-modules"
-      }
-    ],
-    "jsx": "preserve",
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"],
-      "components/*": ["./src/components/*"],
-      "data/*": ["./src/data/*"],
-      "hooks/*": ["./src/hooks/*"],
-      "images/*": ["./src/images/*"],
-      "types/*": ["./src/types/*"],
-      "utils/*": ["./src/utils/*"]
+      "@/*": ["./src/*"]
     },
-    "target": "es2017",
-    "module": "esnext",
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "skipLibCheck": true,
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "allowSyntheticDefaultImports": true,
-    "noFallthroughCasesInSwitch": true,
-    "moduleResolution": "bundler",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "incremental": true
+    "verbatimModuleSyntax": false,
+    "types": ["@cloudflare/workers-types/2023-07-01"]
   },
-  "exclude": ["node_modules", "build", ".vscode", "README.md", ".gitignore"],
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"]
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": [
+    ".astro",
+    ".codesandbox",
+    ".devcontainer",
+    "dist",
+    "generated",
+    "node_modules",
+    "src/site-components/**/*",
+    "lost+found"
+  ]
 }

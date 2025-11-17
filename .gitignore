@@ -1,34 +1,39 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# Dependencies
+node_modules/
+package-lock.json
 
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
-.next
+# Build outputs
+dist/
+.astro/
+.wrangler/
 
-# testing
-/coverage
-
-# production
-/build
-
-# storybook build
-/storybook-static
-
-# misc
-.DS_Store
+# Environment variables
 .env
 .env.local
-.env.development.local
-.env.test.local
-.env.production.local
-.idea/
+.env.production
+.dev.vars
 
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-**/*.icloud
+# Temporary files
+*.tmp
+.temp/
 
-# generated files
-generated/
+# Cloudflare
+.wrangler/
+worker-configuration.d.ts

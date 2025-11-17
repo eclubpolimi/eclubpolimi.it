@@ -1,0 +1,14 @@
+---
+import MainLayout from '../layouts/main.astro';
+import Hero from './home/Hero';
+import CoreValues from './home/CoreValues';
+import WhatWeDo from './home/WhatWeDo';
+import Sponsors from './home/Sponsors';
+---
+
+<MainLayout>
+  <Hero client:load />
+  <CoreValues client:load />
+  <WhatWeDo client:load />
+  <Sponsors client:load />
+</MainLayout>

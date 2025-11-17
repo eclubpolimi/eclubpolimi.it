@@ -1,0 +1,55 @@
+---
+// Import fonts and global styles
+import '../../generated/fonts.css';
+import '../../generated/webflow.css';
+import '../site-components/global.css';
+import '../styles/global.css';
+
+// Import components
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
+import ThemeToggle from '../components/ThemeToggle';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content="Entrepreneurship Club Polimi - Fostering innovation and entrepreneurship at Politecnico di Milano" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>E-Club Polimi</title>
+    
+    <!-- Dark mode script (runs before page render to prevent flash) -->
+    <script is:inline>
+      (function() {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+        } else {
+          document.documentElement.classList.remove("dark");
+        }
+      })();
+    </script>
+  </head>
+  
+  <body class="bg-white dark:bg-gray-900 text-black dark:text-white min-h-screen transition-colors duration-300">
+    <div class="flex flex-col min-h-screen transition-colors duration-300">
+      <!-- Navigation -->
+      <Navbar client:load />
+      
+      <!-- Main content -->
+      <main class="flex-grow transition-colors duration-300">
+        <slot />
+      </main>
+      
+      <!-- Footer -->
+      <Footer client:load />
+    </div>
+    
+    <!-- Theme toggle button -->
+    <ThemeToggle client:load />
+  </body>
+</html>

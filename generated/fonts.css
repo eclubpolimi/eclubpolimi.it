@@ -1,0 +1,10 @@
+/**
+GENERATED FILE
+
+fonts.css is generated automatically by Webflow and contains all font imports and declarations.
+Any changes to this file will be overwritten the next time your app is loaded in the workbench.
+
+This file should be imported before webflow.css to ensure proper font loading.
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Bitter:400,700,400italic|Changa+One:400,400italic|Droid+Sans:400,700|Droid+Serif:400,700,400italic,700italic|Exo:100,200,300,400,500,600,700,800,900,100italic,200italic,300italic,400italic,500italic,600italic,700italic,800italic,900italic|Great+Vibes:400|Inconsolata:400,700|Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic|Merriweather:300,400,700,900,300italic,400italic,700italic,900italic|Montserrat:100,200,300,400,500,600,700,800,900,100italic,200italic,300italic,400italic,500italic,600italic,700italic,800italic,900italic|Open+Sans:300,400,600,700,800,300italic,400italic,600italic,700italic,800italic|Oswald:200,300,400,500,600,700|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic|Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic|Varela:400|Varela+Round:400|Vollkorn:400,700,400italic,700italic&display=swap');
