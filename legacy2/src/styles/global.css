@@ -1,0 +1,204 @@
+@import "tailwindcss";
+@import "../../generated/webflow.css";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --body-font: var(--body-font);
+  --heading-font: var(--heading-font);
+  --button-font: var(--button-font);
+}
+
+:root {
+  --body-font: var(--_apps---typography--body-font);
+  --heading-font: var(--_apps---typography--heading-font);
+  --button-font: var(--_apps---typography--button-font);
+  --radius: var(--_apps---sizes--radius);
+  --background: var(--_apps---colors--background);
+  --foreground: var(--_apps---colors--foreground);
+  --card: var(--_apps---colors--card);
+  --card-foreground: var(--_apps---colors--card-foreground);
+  --popover: var(--_apps---colors--popover);
+  --popover-foreground: var(--_apps---colors--popover-foreground);
+  --primary: var(--_apps---colors--primary);
+  --primary-foreground: var(--_apps---colors--primary-foreground);
+  --secondary: var(--_apps---colors--secondary);
+  --secondary-foreground: var(--_apps---colors--secondary-foreground);
+  --muted: var(--_apps---colors--muted);
+  --muted-foreground: var(--_apps---colors--muted-foreground);
+  --accent: var(--_apps---colors--accent);
+  --accent-foreground: var(--_apps---colors--accent-foreground);
+  --destructive: var(--_apps---colors--destructive);
+  --border: var(--_apps---colors--border);
+  --input: var(--_apps---colors--input);
+  --ring: var(--_apps---colors--ring);
+  --chart-1: var(--_apps---charts--chart-1);
+  --chart-2: var(--_apps---charts--chart-2);
+  --chart-3: var(--_apps---charts--chart-3);
+  --chart-4: var(--_apps---charts--chart-4);
+  --chart-5: var(--_apps---charts--chart-5);
+  --sidebar: var(--_apps---sidebar--sidebar);
+  --sidebar-foreground: var(--_apps---sidebar--sidebar-foreground);
+  --sidebar-primary: var(--_apps---sidebar--sidebar-primary);
+  --sidebar-primary-foreground: var(
+    --_apps---sidebar--sidebar-primary-foreground
+  );
+  --sidebar-accent: var(--_apps---sidebar--sidebar-accent);
+  --sidebar-accent-foreground: var(
+    --_apps---sidebar--sidebar-accent-foreground
+  );
+  --sidebar-border: var(--_apps---sidebar--sidebar-border);
+  --sidebar-ring: var(--_apps---sidebar--sidebar-ring);
+}
+
+.dark {
+  --body-font: var(--_apps---typography--body-font);
+  --heading-font: var(--_apps---typography--heading-font);
+  --button-font: var(--_apps---typography--button-font);
+  --radius: var(--_apps---sizes--radius);
+  --background: var(--_apps---colors--background-dark);
+  --foreground: var(--_apps---colors--foreground-dark);
+  --card: var(--_apps---colors--card-dark);
+  --card-foreground: var(
+    --_apps---colors--card-foreground-dark
+  );
+  --popover: var(--_apps---colors--popover-dark);
+  --popover-foreground: var(
+    --_apps---colors--popover-foreground-dark
+  );
+  --primary: var(--_apps---colors--primary-dark);
+  --primary-foreground: var(--_apps---colors--primary-foreground-dark);
+  --secondary: var(--_apps---colors--secondary-dark);
+  --secondary-foreground: var(
+    --_apps---colors--secondary-foreground-dark
+  );
+  --muted: var(--_apps---colors--muted-dark);
+  --muted-foreground: var(
+    --_apps---colors--muted-foreground-dark
+  );
+  --accent: var(--_apps---colors--accent);
+  --accent-foreground: var(--_apps---colors--accent-foreground);
+  --destructive: var(--_apps---colors--destructive-dark);
+  --border: var(--_apps---colors--border-dark);
+  --input: var(--_apps---colors--input-dark);
+  --ring: var(--_apps---colors--ring-dark);
+  --chart-1: var(--_apps---charts--chart-1-dark);
+  --chart-2: var(--_apps---charts--chart-2-dark);
+  --chart-3: var(--_apps---charts--chart-3-dark);
+  --chart-4: var(--_apps---charts--chart-4-dark);
+  --chart-5: var(--_apps---charts--chart-5-dark);
+  --sidebar: var(--_apps---sidebar--sidebar-dark);
+  --sidebar-foreground: var(
+    --_apps---sidebar--sidebar-foreground-dark
+  );
+  --sidebar-primary: var(--_apps---sidebar--sidebar-primary-dark);
+  --sidebar-primary-foreground: var(
+    --_apps---sidebar--sidebar-primary-foreground-dark
+  );
+  --sidebar-accent: var(--_apps---sidebar--sidebar-accent-dark);
+  --sidebar-accent-foreground: var(
+    --_apps---sidebar--sidebar-accent-foreground-dark
+  );
+  --sidebar-border: var(--_apps---sidebar--sidebar-border-dark);
+  --sidebar-ring: var(--_apps---sidebar--sidebar-ring-dark);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--body-font);
+  }
+
+  p, a, div {
+    font-family: var(--body-font);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--heading-font);
+  }
+  
+  button {
+    font-family: var(--button-font);
+  }
+}
+
+/* Custom font utility classes */
+.font-heading {
+  font-family: var(--heading-font);
+}
+
+.font-body {
+  font-family: var(--body-font);
+}
+
+.font-button {
+  font-family: var(--button-font);
+}
+
+/* Overrides */
+:is(
+  button[role="combobox"],
+  button[role="checkbox"],
+  button[role="radio"],
+  button[data-slot="select-trigger"],
+  button[data-slot="button"]:not(:has(> svg):not(:has(> :not(svg))))
+) {
+  border-color: var(--input);
+  border-style: solid;
+  border-width: 1px;
+}
+
+:is(a, button).bg-primary {
+  background-color: var(--primary);
+}
+
+:is(a, button).text-primary-foreground {
+  color: var(--primary-foreground);
+}
+
+:is(a, button).hover\:bg-primary\/90:hover {
+  background-color: var(--primary) !important;
+  opacity: 0.9;
+}
