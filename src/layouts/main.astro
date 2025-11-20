@@ -33,12 +33,9 @@ const faviconUrl = faviconSponsor?.logo?.url ?? '/favicon.ico';
       document.documentElement.classList.remove('dark');
       try { localStorage.removeItem('theme'); } catch (e) {}
       (function() {
-        const setVh = () => {
-          const vh = (window.innerHeight || window.document.documentElement.clientHeight) * 0.01;
-          document.documentElement.style.setProperty('--vh', `${vh}px`);
-        };
-        setVh();
-        window.addEventListener('resize', setVh);
+        // Capture the initial viewport height once per page load to stabilize hero heights on mobile.
+        const initialVh = (window.innerHeight || document.documentElement.clientHeight) * 0.01;
+        document.documentElement.style.setProperty('--vh-static', `${initialVh}px`);
       })();
     </script>
   </head>
