@@ -3,25 +3,25 @@ const items = [
     title: "Events",
     kicker: "Community First",
     description:
-      "We curate high-quality gatherings with founders, investors, and operators. From intimate firesides to large-format talks, every session is built to be actionable and inspiring.",
+      "Join sessions with entrepreneurs, innovators, and business leaders. Hear their stories, take part in discussions, and gain insights you can put into practice.",
     image:
-      "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1200&auto=format&fit=crop",
+      "https://images.pexels.com/photos/3321793/pexels-photo-3321793.jpeg",
   },
   {
     title: "Startup Challenge",
     kicker: "Hands-on Building",
     description:
-      "Our flagship challenge puts cross-university teams on real problems. Mentors, workshops, and demos guide students from idea to pitch in an immersive sprint.",
+      "Participate in our flagship challenge with students from Politecnico di Milano, Bocconi, Università Statale, and Università Cattolica. Collaborate in cross-disciplinary teams, work with mentors, and turn ideas into tested solutions—gaining hands-on experience in entrepreneurship, problem-solving, and early-stage startup development.",
     image:
-      "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1200&auto=format&fit=crop",
+      "https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg",
   },
   {
     title: "Travel",
     kicker: "Global Exposure",
     description:
-      "We visit Europe’s most vibrant startup hubs to learn from founders on-site. Expect company walk-throughs, cultural immersion, and new perspectives on innovation.",
+      "Explore Europe’s top startup hubs. Meet founders, visit innovative companies, and immerse yourself in diverse cultures to broaden your perspective on entrepreneurship.",
     image:
-      "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1200&auto=format&fit=crop",
+      "https://images.pexels.com/photos/11278700/pexels-photo-11278700.jpeg",
   },
 ];
 
@@ -47,9 +47,8 @@ export default function WhatWeDo() {
             return (
               <div
                 key={item.title}
-                className={`flex flex-col gap-8 md:gap-14 items-center ${
-                  isReversed ? "md:flex-row-reverse" : "md:flex-row"
-                }`}
+                className={`flex flex-col gap-8 md:gap-14 items-center ${isReversed ? "md:flex-row-reverse" : "md:flex-row"
+                  }`}
               >
                 <div className="w-full md:w-1/2">
                   <div className="rounded-3xl overflow-hidden shadow-xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-700">
