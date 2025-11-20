@@ -1,14 +1,26 @@
 ---
-import MainLayout from '../layouts/main.astro';
-import Hero from './home/Hero';
-import CoreValues from './home/CoreValues';
-import WhatWeDo from './home/WhatWeDo';
-import Sponsors from './home/Sponsors';
+import MainLayout from "../layouts/main.astro";
+import Hero from "./home/Hero";
+import CoreValues from "./home/CoreValues";
+import WhatWeDo from "./home/WhatWeDo";
+import Sponsors from "./home/Sponsors";
+import { fetchSponsorsFromContentful } from "../lib/contentful";
+
+// Whitelist the sponsor names you want to show
+const allowedSponsorNames = [
+  "sponsor_polihub",
+  "sponsor_astra",
+  "sponsor_polimi",
+];
+
+const sponsors = (await fetchSponsorsFromContentful()).filter((s) =>
+  allowedSponsorNames.includes((s.name ?? "").trim()),
+);
 ---
 
 <MainLayout>
   <Hero client:load />
   <CoreValues client:load />
   <WhatWeDo client:load />
-  <Sponsors client:load />
+  <Sponsors client:load sponsors={sponsors} />
 </MainLayout>

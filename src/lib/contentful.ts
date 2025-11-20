@@ -64,6 +64,27 @@ const SITE_IMAGE_QUERY = /* GraphQL */ `
   }
 `;
 
+const SPONSOR_QUERY = /* GraphQL */ `
+  query Sponsors {
+    sponsorCollection(limit: 50) {
+      items {
+        name
+        url
+        logo {
+          url
+          description
+          title
+        }
+        logoDark {
+          url
+          description
+          title
+        }
+      }
+    }
+  }
+`;
+
 export type SiteImageAsset = {
   key?: string | null;
   url?: string | null;
@@ -83,6 +104,21 @@ export type EventEntry = {
   title?: string | null;
   date?: string | null;
   description?: string | null;
+};
+
+export type SponsorEntry = {
+  name?: string | null;
+  url?: string | null;
+  logo?: {
+    url?: string | null;
+    description?: string | null;
+    title?: string | null;
+  } | null;
+  logoDark?: {
+    url?: string | null;
+    description?: string | null;
+    title?: string | null;
+  } | null;
 };
 
 export async function fetchTeamMembersFromContentful() {
@@ -192,4 +228,28 @@ export async function fetchEventsFromContentful(): Promise<EventEntry[]> {
 
   const payload = await response.json();
   return payload?.data?.eventCollection?.items ?? [];
+}
+
+export async function fetchSponsorsFromContentful(): Promise<SponsorEntry[]> {
+  if (!SPACE || !DELIVERY_TOKEN) {
+    return [];
+  }
+
+  const url = `https://graphql.contentful.com/content/v1/spaces/${SPACE}/environments/${ENVIRONMENT}`;
+
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${DELIVERY_TOKEN}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({query: SPONSOR_QUERY}),
+  });
+
+  if (!response.ok) {
+    return [];
+  }
+
+  const payload = await response.json();
+  return payload?.data?.sponsorCollection?.items ?? [];
 }
