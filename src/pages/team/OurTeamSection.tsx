@@ -1,7 +1,7 @@
 import TeamMemberCard from '../../components/TeamMemberCard';
-import {marked} from 'marked';
+import { marked } from 'marked';
 import sanitizeHtml from 'sanitize-html';
-import type {SiteImageAsset} from '../../lib/contentful';
+import type { SiteImageAsset } from '../../lib/contentful';
 
 type ContentfulTeamMember = {
   nameSurname?: string | null;
@@ -89,13 +89,18 @@ const markdownToHtml = (markdown?: string | null): string | undefined => {
   if (typeof raw !== 'string') {
     return undefined;
   }
-  return sanitizeHtml(raw, {
+  const sanitized = sanitizeHtml(raw, {
     allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img', 'h1', 'h2', 'h3']),
     allowedAttributes: {
       ...sanitizeHtml.defaults.allowedAttributes,
       img: ['src', 'alt', 'title'],
     },
   });
+  // Convert list items to paragraphs to avoid unintended <li> rendering from markdown bullets.
+  return sanitized
+    .replace(/<\/?ul[^>]*>/g, '')
+    .replace(/<li[^>]*>/g, '<p>')
+    .replace(/<\/li>/g, '</p>');
 };
 
 const TEAM_DESCRIPTIONS: Record<string, DescriptionContent> = {
@@ -242,7 +247,7 @@ const arrangeMembersForSection = (title: string, members: CarouselMember[]) => {
 const parseDescriptionText = (text?: string | null): DescriptionContent | undefined => {
   const html = markdownToHtml(text);
   if (!html) return undefined;
-  return {html};
+  return { html };
 };
 
 const buildDescriptionsFromContentful = (entries?: ContentfulTeamDescription[]) => {
@@ -319,7 +324,7 @@ function TeamSectionBlock({
             {sectionDescription.html ? (
               <div
                 className="prose prose-sm text-gray-600 dark:text-gray-300 max-w-none break-words"
-                dangerouslySetInnerHTML={{__html: sectionDescription.html}}
+                dangerouslySetInnerHTML={{ __html: sectionDescription.html }}
               />
             ) : (
               <>
@@ -357,16 +362,17 @@ function TeamSectionBlock({
 }
 
 export default function OurTeamSection(props: OurTeamSectionProps = {}) {
-  const {teamMembers, teamDescriptions, heroImage} = props;
+  const { teamMembers, teamDescriptions, heroImage } = props;
   if (teamMembers && teamMembers.length > 0) {
     console.log('[OurTeamSection] First team member received:', teamMembers[0]);
   }
   const sectionsToRender = buildTeamSections(teamMembers);
   const visibleSections = sectionsToRender.length ? sectionsToRender : FALLBACK_SECTIONS;
   const descriptionOverrides = buildDescriptionsFromContentful(teamDescriptions);
-  const combinedDescriptions = {...TEAM_DESCRIPTIONS, ...descriptionOverrides};
+  const combinedDescriptions = { ...TEAM_DESCRIPTIONS, ...descriptionOverrides };
   const missionDescription = combinedDescriptions['Our Mission'];
   const missionIntro = missionDescription?.intro ?? DEFAULT_MISSION_INTRO;
+  const missionHtml = missionDescription?.html ?? markdownToHtml(missionIntro);
   const heroImageLight = heroImage?.imageLightMode?.url ?? heroImage?.url ?? undefined;
   const heroImageDark = heroImage?.imageDarkMode?.url ?? heroImageLight;
   const heroAlt =
@@ -429,36 +435,23 @@ export default function OurTeamSection(props: OurTeamSectionProps = {}) {
                 <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
                   Our Mission
                 </h2>
-                {missionDescription?.html ? (
+                {missionHtml ? (
                   <div
-                    className="prose prose-base text-gray-700 dark:text-gray-300 max-w-none"
-                    dangerouslySetInnerHTML={{__html: missionDescription.html}}
+                    className="prose prose-base text-gray-700 dark:text-gray-300 max-w-none prose-p:leading-relaxed prose-headings:text-gray-900 dark:prose-headings:text-white text-left"
+                    dangerouslySetInnerHTML={{ __html: missionHtml }}
                   />
-                ) : (
-                  <>
-                    <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-                      {missionIntro}
-                    </p>
-                    {missionDescription?.bullets?.length ? (
-                      <ul className="mt-4 list-disc list-inside text-gray-600 dark:text-gray-400 space-y-2">
-                        {missionDescription.bullets.map((bullet) => (
-                          <li key={bullet}>{bullet}</li>
-                        ))}
-                      </ul>
-                    ) : null}
-                  </>
-                )}
+                ) : null}
               </div>
             </div>
           </div>
         </div>
 
         {/* E-Club Teams Title */}
-        <div className="text-center mb-16 animate-fade-in">
+        {/* <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">
             E-Club Teams
           </h2>
-        </div>
+        </div> */}
 
         {/* Team Sections with Carousels */}
         <div className="space-y-16">

@@ -59,13 +59,6 @@ export default function EventTimeline({ events }: EventTimelineProps) {
 
             {/* Mobile layout: stacked */}
             <div className="md:hidden relative space-y-3">
-              <div
-                className="absolute left-3 top-2 w-4 h-4 rounded-full -translate-x-1/2"
-                style={{
-                  backgroundColor: accent,
-                  boxShadow: '0 0 0 6px rgba(255,255,255,0.6)',
-                }}
-              />
               <span
                 className={`inline-flex px-4 py-2 rounded-full text-sm font-semibold text-white shadow-md bg-gradient-to-r ${
                   isUpcoming ? gradientOrange : gradient
