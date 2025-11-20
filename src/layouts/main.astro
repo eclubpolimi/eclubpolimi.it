@@ -30,13 +30,13 @@ const faviconUrl = faviconSponsor?.logo?.url ?? '/favicon.ico';
     <meta name="theme-color" content="#ffffff" />
     <title>E-Club Polimi</title>
     <script is:inline>
+      // Force light mode
       document.documentElement.classList.remove('dark');
       try { localStorage.removeItem('theme'); } catch (e) {}
-      (function() {
-        // Capture the initial viewport height once per page load to stabilize hero heights on mobile.
-        const initialVh = (window.innerHeight || document.documentElement.clientHeight) * 0.01;
-        document.documentElement.style.setProperty('--vh-static', `${initialVh}px`);
-      })();
+      // Lock a stable viewport height for this session (no resize listener)
+      const initialVh = (window.innerHeight || document.documentElement.clientHeight) * 0.01;
+      document.documentElement.style.setProperty('--vh-static', `${initialVh}px`);
+      document.documentElement.style.setProperty('--vh-static-px', `${initialVh * 100}px`);
     </script>
   </head>
   
