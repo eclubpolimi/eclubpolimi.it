@@ -63,8 +63,7 @@ eclubpolimi/
 │
 ├── astro.config.mjs            # Astro configuration
 ├── tsconfig.json               # TypeScript configuration
-├── package.json                # Dependencies
-├── wrangler.jsonc              # Cloudflare Workers config
+├── package.json                # Dependencies & scripts
 └── README.md                   # Project documentation
 ```
 
@@ -123,7 +122,8 @@ Events Page (events.astro)
 - **UI Library**: React 19.x
 - **Styling**: Tailwind CSS 4.x
 - **UI Components**: shadCN UI
-- **Deployment**: Cloudflare Workers
+- **Deployment**: Vercel Serverless
+- **CMS / Data**: Contentful
 - **Type Safety**: TypeScript
 
 ## 📦 Build & Development
@@ -136,8 +136,8 @@ npm run dev              # Start dev server on port 3000
 npm run build           # Build for production
 npm run preview         # Preview production build
 
-# Deployment
-npm run deploy          # Deploy to Cloudflare Workers
+# Deployment (Vercel)
+vercel deploy --prod
 ```
 
 ## ✅ Code Quality
@@ -163,7 +163,6 @@ npm run deploy          # Deploy to Cloudflare Workers
 - `astro.config.mjs` - Astro framework settings
 - `tsconfig.json` - TypeScript compiler options
 - `components.json` - shadCN UI configuration
-- `wrangler.jsonc` - Cloudflare Workers settings
 - `package.json` - Project dependencies
 
 ## 📊 Bundle Size (Optimized)
@@ -178,10 +177,10 @@ npm run deploy          # Deploy to Cloudflare Workers
 1. **Content**: Add real images and content
 2. **SEO**: Add meta tags and Open Graph
 3. **Analytics**: Integrate tracking (optional)
-4. **CMS**: Add Webflow CMS integration (optional)
+4. **CMS**: Sync content models in Contentful and wire API calls
 5. **Forms**: Implement contact forms (optional)
 
 ---
 
-**Last Updated**: November 2025  
-**Status**: ✅ Production Ready
+**Last Updated**: March 2026  
+**Status**: ✅ Production Ready for Vercel + Contentful

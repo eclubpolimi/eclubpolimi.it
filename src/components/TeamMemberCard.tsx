@@ -1,72 +1,96 @@
-import { useState } from 'react';
+import { Instagram, Linkedin } from 'lucide-react';
 
 interface TeamMemberCardProps {
   name: string;
   role: string;
   photo: string;
-  quote: string;
-  author: string;
+  instagramLink?: string;
+  linkedinLink?: string;
 }
 
-export default function TeamMemberCard({ name, role, photo, quote, author }: TeamMemberCardProps) {
-  const [isFlipped, setIsFlipped] = useState(false);
+export default function TeamMemberCard({
+  name,
+  role,
+  photo,
+  instagramLink,
+  linkedinLink,
+}: TeamMemberCardProps) {
+  const hasLinks = Boolean(instagramLink || linkedinLink);
+  const isCoordinator = role.toLowerCase().includes('coordinator');
+
+  const wrapperClasses = [
+    'group w-full max-w-[215px]',
+    isCoordinator ? 'rounded-2xl p-[3px] bg-gradient-to-r from-[#4cc9ff50] via-[#4c7bff70] to-[#4cc9ff50]' : '',
+  ]
+    .join(' ')
+    .trim();
+
+  const cardClasses = [
+    'w-full flex flex-col rounded-2xl bg-white dark:bg-gray-900 shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border',
+    isCoordinator ? 'border-[#8ac7ff]/70' : 'border-white/60 dark:border-gray-800',
+  ]
+    .join(' ')
+    .trim();
 
   return (
-    <div
-      className="relative w-full h-96 cursor-pointer group"
-      onClick={() => setIsFlipped(!isFlipped)}
-      onMouseEnter={() => setIsFlipped(true)}
-      onMouseLeave={() => setIsFlipped(false)}
-    >
-      {/* Front of card */}
-      <div
-        className={`absolute inset-0 bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 p-6 flex flex-col items-center justify-center ${
-          isFlipped ? 'opacity-0 pointer-events-none' : 'opacity-100'
-        }`}
-      >
-        <div className="w-32 h-32 mb-6 rounded-full overflow-hidden bg-gradient-to-br from-[#2B5DAA] to-[#1e3a5f] flex items-center justify-center shadow-lg">
+    <div className={wrapperClasses}>
+      <div className={cardClasses}>
+        {/* 图片区域 */}
+        <div className="relative w-full aspect-square overflow-hidden rounded-[16px] bg-gradient-to-b from-gray-200 to-gray-300 dark:from-gray-800 dark:to-gray-900">
           {photo ? (
             <img
               src={photo}
               alt={name}
-              className="w-full h-full object-cover"
+              className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+              loading="lazy"
             />
           ) : (
-            <span className="text-4xl text-white">👤</span>
+            <div className="w-full h-full flex items-center justify-center text-4xl text-gray-500 bg-white/40">
+              👤
+            </div>
+          )}
+
+          {/* Hover 时出现的黑色渐变 + 中间两个 icon */}
+          {hasLinks && (
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              {/* 全覆盖的渐变 */}
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black flex items-end justify-center pb-[5px] gap-4">
+                {instagramLink && (
+                  <a
+                    href={instagramLink}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="transition-transform duration-200 hover:scale-110"
+                    aria-label={`${name} Instagram profile`}
+                  >
+                    <Instagram className="w-8 h-8 text-white" />
+                  </a>
+                )}
+                {linkedinLink && (
+                  <a
+                    href={linkedinLink}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="transition-transform duration-200 hover:scale-110"
+                    aria-label={`${name} LinkedIn profile`}
+                  >
+                    <Linkedin className="w-8 h-8 text-white" />
+                  </a>
+                )}
+              </div>
+            </div>
           )}
         </div>
-        <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 text-center">
-          {name}
-        </h3>
-        <p className="text-lg font-medium text-[#2B5DAA] dark:text-[#4A90E2] text-center">
-          {role}
-        </p>
-        <div className="mt-6 text-gray-400 dark:text-gray-500 text-sm">
-          Hover or click for more
-        </div>
-      </div>
 
-      {/* Back of card */}
-      <div
-        className={`absolute inset-0 bg-gradient-to-br from-[#2B5DAA] to-[#1e3a5f] dark:from-[#1a2942] dark:to-[#0d1829] rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 p-8 flex flex-col items-center justify-center text-white ${
-          isFlipped ? 'opacity-100' : 'opacity-0 pointer-events-none'
-        }`}
-      >
-        <svg
-          className="w-12 h-12 text-white/30 mb-4"
-          fill="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-        </svg>
-        <p className="text-lg text-center leading-relaxed italic font-light">
-          "{quote}"
-        </p>
-        {author && (
-          <div className="mt-6 text-sm font-medium opacity-70">
-            — {author}
-          </div>
-        )}
+        {/* 名字 + 职位，保持你原来的白色底设计 */}
+        <div className="px-4 pt-0 pb-4">
+          <h5 className="text-xs font-semibold text-gray-900 dark:text-white leading-tight uppercase tracking-wide">
+            {name}
+          </h5>
+          <p className="mt-1 text-sm text-[#2B5DAA] dark:text-[#8FB7FF]">
+            {role}
+          </p>
+        </div>
       </div>
     </div>
   );

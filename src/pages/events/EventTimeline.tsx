@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { baseUrl } from '../../lib/base-url';
 
 interface Event {
@@ -6,6 +5,7 @@ interface Event {
   title: string;
   description: string;
   year: number;
+  isoDate?: string | null;
 }
 
 interface EventTimelineProps {
@@ -13,242 +13,205 @@ interface EventTimelineProps {
 }
 
 export default function EventTimeline({ events }: EventTimelineProps) {
-  const [expandedCards, setExpandedCards] = useState<Set<number>>(new Set());
+  const gradient = 'from-[#2B5DAA] to-[#1e3a5f]';
+  const gradientOrange = 'from-[#FF7A18] to-[#FF3D00]';
+  const accent = '#FC3F1A';
 
-  const toggleExpand = (index: number) => {
-    setExpandedCards((prev) => {
-      const newSet = new Set(prev);
-      if (newSet.has(index)) {
-        newSet.delete(index);
-      } else {
-        newSet.add(index);
-      }
-      return newSet;
-    });
-  };
+  const startOfToday = new Date();
+  startOfToday.setHours(0, 0, 0, 0);
 
-  // Reverse the events array to show latest first
-  const reversedEvents = [...events].reverse();
+  const upcomingEvents: Event[] = [];
+  const pastEvents: Event[] = [];
 
-  // Find where to insert the "and so much more" gap (between last 2024 event and first 2022 event)
-  const findGapIndex = () => {
-    for (let i = 0; i < reversedEvents.length - 1; i++) {
-      if (reversedEvents[i].year === 2024 && reversedEvents[i + 1].year === 2022) {
-        return i + 1;
-      }
+  events.forEach((e) => {
+    const d = e.isoDate ? new Date(e.isoDate) : null;
+    const valid = d && !isNaN(d.getTime());
+    if (valid && d.getTime() >= startOfToday.getTime()) {
+      upcomingEvents.push(e);
+    } else {
+      pastEvents.push(e);
     }
-    return -1;
-  };
+  });
 
-  const gapIndex = findGapIndex();
-  
-  // Calculate where the solid line should end (before October 24, 2024)
-  const solidLineEndIndex = gapIndex > 0 ? gapIndex - 1 : reversedEvents.length;
+  const renderSection = (list: Event[], isUpcoming: boolean) => (
+    <div className="relative pl-8 md:pl-0 space-y-12 md:space-y-20">
+      {/* Mobile vertical line */}
+      <div
+        className={`md:hidden absolute left-3 top-0 bottom-0 w-1 bg-gradient-to-b ${isUpcoming ? gradientOrange : gradient} rounded-full`}
+      />
+      {list.map((event, index) => {
+        const isLeft = index % 2 === 0;
+        return (
+          <div
+            key={`${event.title}-${index}`}
+            className="relative md:grid md:grid-cols-[1fr_1fr] md:gap-8 min-h-[180px] pt-4"
+          >
+            {/* Center dot per event (desktop only) */}
+            <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 top-2 z-10">
+              <div
+                className="w-4 h-4 rounded-full"
+                style={{
+                  backgroundColor: accent,
+                  boxShadow: '0 0 0 6px rgba(255,255,255,0.6)',
+                }}
+              />
+            </div>
+
+            {/* Mobile layout: stacked */}
+            <div className="md:hidden relative space-y-3">
+              <div
+                className="absolute left-3 top-2 w-4 h-4 rounded-full -translate-x-1/2"
+                style={{
+                  backgroundColor: accent,
+                  boxShadow: '0 0 0 6px rgba(255,255,255,0.6)',
+                }}
+              />
+              <span
+                className={`inline-flex px-4 py-2 rounded-full text-sm font-semibold text-white shadow-md bg-gradient-to-r ${
+                  isUpcoming ? gradientOrange : gradient
+                }`}
+              >
+                {event.date}
+              </span>
+              <h4 className="text-xl font-bold text-slate-900">{event.title}</h4>
+              <div className="bg-white rounded-2xl shadow-xl border border-slate-100 p-[10px]">
+                <p className="text-slate-600 leading-relaxed">{event.description}</p>
+              </div>
+            </div>
+
+            {/* Desktop layout: timeline with alternating sides */}
+            <div className="hidden md:grid md:grid-cols-[1fr_1fr] md:gap-8 md:col-span-2">
+              {/* Left column */}
+              <div className="flex flex-col items-end md:pr-[15px]">
+                {isLeft ? (
+                  <span className={`px-5 py-2 rounded-full text-sm font-semibold text-white shadow-md bg-gradient-to-r ${isUpcoming ? gradientOrange : gradient} self-end`}>
+                    {event.date}
+                  </span>
+                ) : (
+                  <>
+                    <h4 className="text-2xl font-bold text-slate-900 mb-2 text-right md:mr-2">
+                      {event.title}
+                    </h4>
+                    <div className="bg-white rounded-2xl shadow-xl border border-slate-100 p-[10px] max-w-xl text-right">
+                      <p className="text-slate-600 leading-relaxed">{event.description}</p>
+                    </div>
+                  </>
+                )}
+              </div>
+
+              {/* Right column */}
+              <div className="flex flex-col items-start md:pl-[15px]">
+                {!isLeft ? (
+                  <span className={`px-5 py-2 rounded-full text-sm font-semibold text-white shadow-md bg-gradient-to-r ${isUpcoming ? gradientOrange : gradient} self-start`}>
+                    {event.date}
+                  </span>
+                ) : (
+                  <>
+                    <h4 className="text-2xl font-bold text-slate-900 mb-2 text-left md:ml-2">
+                      {event.title}
+                    </h4>
+                    <div className="bg-white rounded-2xl shadow-xl border border-slate-100 p-[10px] max-w-xl text-left">
+                      <p className="text-slate-600 leading-relaxed">{event.description}</p>
+                    </div>
+                  </>
+                )}
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 pt-32 pb-20 px-4 md:px-5 transition-colors duration-300">
-      <div className="max-w-5xl mx-auto">
+    <div className="min-h-screen bg-gray-50 pt-28 pb-20 px-4 md:px-5">
+      <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16 animate-fade-in px-2">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6">
+        {/* <div className="text-center mb-16 px-2">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-4">
             Our Events
           </h1>
-          <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            Discover our journey through workshops, visits, and networking events. Click on any card to learn more!
+          <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto">
+            Discover our journey through workshops, visits, and networking events.
           </p>
-        </div>
+        </div> */}
 
-        {/* Timeline */}
-        <div className="relative">
-          {/* Vertical Solid Orange Line - stops before October 24, 2024 */}
-          <div 
-            className="absolute left-4 md:left-1/2 top-0 w-0.5 bg-[#FC3F1A] transform md:-translate-x-1/2"
-            style={{
-              height: gapIndex > 0 ? `calc(${(solidLineEndIndex / reversedEvents.length) * 100}% - 6rem)` : '100%'
-            }}
-          ></div>
-
-          {/* Events */}
-          <div className="space-y-12">
-            {reversedEvents.map((event, index) => {
-              const isExpanded = expandedCards.has(index);
-              const isLastBeforeGap = gapIndex !== -1 && index === gapIndex - 1;
-              const isInDottedSection = index >= gapIndex - 1;
-              
-              return (
-                <div key={index}>
-                  <div
-                    className={`relative flex items-start ${
-                      index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-                    } flex-col`}
-                  >
-                    {/* Timeline Dot */}
-                    <div className="absolute left-4 md:left-1/2 w-4 h-4 rounded-full bg-[#FC3F1A] transform md:-translate-x-1/2 ring-4 ring-white dark:ring-gray-900 z-10"></div>
-
-                    {/* Dotted line for October 24, 2024 event and beyond */}
-                    {isInDottedSection && (
-                      <div 
-                        className="absolute left-4 md:left-1/2 w-1 transform md:-translate-x-1/2 top-0 z-[1]"
-                        style={{
-                          height: isLastBeforeGap ? 'calc(100% + 3rem)' : '100%',
-                          backgroundImage: 'repeating-linear-gradient(0deg, #FC3F1A, #FC3F1A 8px, transparent 8px, transparent 16px)',
-                          backgroundSize: '2px 100%',
-                          backgroundPosition: 'center',
-                          backgroundRepeat: 'repeat-y'
-                        }}
-                      ></div>
-                    )}
-
-                    {/* Card Container */}
-                    <div
-                      className={`pl-10 md:pl-0 pr-0 md:pr-0 ${
-                        index % 2 === 0 ? 'md:mr-auto md:pr-12' : 'md:ml-auto md:pl-12'
-                      } md:w-[calc(50%-2rem)] w-[calc(100%-2.5rem)]`}
-                    >
-                      <div
-                        className={`relative rounded-xl shadow-lg cursor-pointer overflow-hidden transition-all duration-500 ease-out ${
-                          isExpanded ? 'bg-[#FC3F1A]' : 'bg-[#224371]'
-                        }`}
-                        style={{
-                          height: isExpanded ? 'auto' : '200px',
-                        }}
-                        onClick={() => toggleExpand(index)}
-                      >
-                        {/* Collapsed State - Title & Date */}
-                        <div
-                          className={`p-4 md:p-6 flex flex-col justify-center items-center text-center transition-all duration-500 ${
-                            isExpanded ? 'opacity-0 h-0 overflow-hidden' : 'opacity-100 h-[200px]'
-                          }`}
-                        >
-                          <div className="mb-3 md:mb-4">
-                            <span className="px-3 md:px-4 py-1.5 md:py-2 bg-white/20 backdrop-blur-sm rounded-full text-xs md:text-sm font-semibold text-white">
-                              {event.date}
-                            </span>
-                          </div>
-                          <h3 className="text-lg md:text-2xl font-bold text-white mb-3 md:mb-4 px-2 md:px-4">
-                            {event.title}
-                          </h3>
-                          <p className="text-white/70 text-xs md:text-sm">Click to read more →</p>
-                        </div>
-
-                        {/* Expanded State - Full Description */}
-                        <div
-                          className={`p-4 md:p-6 transition-all duration-500 ${
-                            isExpanded ? 'opacity-100' : 'opacity-0 absolute inset-0 pointer-events-none'
-                          }`}
-                        >
-                          <div className="mb-2 md:mb-3">
-                            <span className="px-2.5 md:px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-xs font-semibold text-white">
-                              {event.date}
-                            </span>
-                          </div>
-                          <h4 className="text-lg md:text-xl font-bold text-white mb-3 md:mb-4">
-                            {event.title}
-                          </h4>
-                          <p className="text-white text-sm md:text-base leading-relaxed mb-3 md:mb-4">
-                            {event.description}
-                          </p>
-                          <p className="text-white/70 text-xs md:text-sm">Click to collapse ←</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Gap between 2022 and 2024 with "and so much more" */}
-                  {index === gapIndex - 1 && (
-                    <div className="relative py-20">
-                      {/* Extended dotted line with better visibility - more dashes */}
-                      <div 
-                        className="absolute left-4 md:left-1/2 w-1 transform md:-translate-x-1/2 h-full z-[2]"
-                        style={{
-                          backgroundImage: 'repeating-linear-gradient(0deg, #FC3F1A, #FC3F1A 8px, transparent 8px, transparent 16px)',
-                          backgroundSize: '2px 100%',
-                          backgroundPosition: 'center',
-                          backgroundRepeat: 'repeat-y'
-                        }}
-                      ></div>
-                      
-                      {/* "and so much more" text */}
-                      <div className="relative flex items-center justify-center">
-                        <div className="pl-10 md:pl-0 relative z-10">
-                          <div className="bg-white dark:bg-gray-800 px-8 py-4 rounded-full shadow-lg border-2 border-[#FC3F1A]">
-                            <p className="text-xl md:text-2xl font-bold text-[#FC3F1A] italic">
-                              and so much more...
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-
-            {/* Coming Soon Section with solid line */}
-            <div className="relative flex items-start md:flex-row flex-col">
-              {/* Solid line for Coming Soon section */}
-              <div className="absolute left-4 md:left-1/2 w-0.5 bg-[#FC3F1A] transform md:-translate-x-1/2 top-0 h-full"></div>
-              
-              {/* Timeline Dot with Animation */}
-              <div className="absolute left-4 md:left-1/2 w-4 h-4 rounded-full bg-[#FC3F1A] transform md:-translate-x-1/2 ring-4 ring-white dark:ring-gray-900 z-10 animate-pulse"></div>
-
-              {/* Content Card */}
-              <div className="pl-10 md:pl-0 pr-0 md:mr-auto md:pr-12 md:w-[calc(50%-2rem)] w-[calc(100%-2.5rem)]">
-                <div className="bg-gradient-to-br from-[#224371] to-[#1a2f54] rounded-xl shadow-lg p-6 md:p-8 text-center">
-                  <div className="text-5xl md:text-6xl mb-3 md:mb-4">🚀</div>
-                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-2 md:mb-3">Coming Soon...</h3>
-                  <p className="text-gray-200 text-base md:text-lg mb-4 md:mb-0">Stay tuned for more of our events!</p>
-                  <div className="mt-4 md:mt-6">
-                    <a
-                      href={`${baseUrl}/join`}
-                      className="inline-block text-white px-5 md:px-6 py-2.5 md:py-3 rounded-lg text-sm md:text-base font-semibold transition-all duration-300 hover:scale-105"
-                      style={{ backgroundColor: '#FC3F1A' } as React.CSSProperties}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.backgroundColor = '#E03515';
-                        e.currentTarget.style.opacity = '0.95';
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.backgroundColor = '#FC3F1A';
-                        e.currentTarget.style.opacity = '1';
-                      }}
-                    >
-                      Join E-Club to Stay Updated
-                    </a>
-                  </div>
-                </div>
+        {/* Coming Soon banner (top) */}
+        <div className="mb-16">
+          <div className={`relative overflow-hidden rounded-2xl p-8 md:p-10 shadow-xl bg-gradient-to-r ${gradient}`}>
+            <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_top_left,#fff,transparent_40%)]" />
+            <div className="relative z-10 text-center text-white">
+              <div className="text-5xl md:text-6xl mb-4 leading-none">🚀</div>
+              <h2 className="text-2xl md:text-3xl font-bold mb-2">More events coming soon</h2>
+              <p className="text-white/90 max-w-2xl mx-auto mb-6">
+                Stay tuned for our next workshops and visits. Join E-Club to get first access.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a
+                  href={`${baseUrl}/join`}
+                  className="inline-block text-white px-6 md:px-8 py-3 md:py-3.5 rounded-full text-base md:text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 bg-white/15 border border-white/25"
+                >
+                  Join Us
+                </a>
               </div>
             </div>
           </div>
         </div>
 
+        <div className="relative">
+          {/* Mobile single vertical line */}
+          <div className={`md:hidden absolute left-3 top-0 bottom-0 w-1 bg-gradient-to-b ${gradient} rounded-full`} />
+
+          {upcomingEvents.length > 0 && (
+            <div className="relative mb-16 pt-12">
+              {/* Vertical line desktop only */}
+              <div
+                className={`hidden md:block absolute left-1/2 top-12 h-[calc(100%-12px)] w-1 bg-gradient-to-b ${gradient} rounded-full -translate-x-1/2`}
+              />
+              <div className="mb-8 text-center relative">
+                <span className="hidden md:inline-flex px-5 py-2 rounded-full text-sm font-semibold text-white shadow-md bg-gradient-to-r from-[#FF7A18] to-[#FF3D00]">
+                  Upcoming Events
+                </span>
+              </div>
+              {renderSection(upcomingEvents, true)}
+            </div>
+          )}
+
+          {pastEvents.length > 0 && (
+            <div className="relative mt-16 pt-12">
+              {/* Vertical line desktop only */}
+              <div
+                className={`hidden md:block absolute left-1/2 top-12 h-[calc(100%-12px)] w-1 bg-gradient-to-b ${gradient} rounded-full -translate-x-1/2`}
+              />
+              <div className="mb-8 text-center relative">
+                <span className="hidden md:inline-flex px-5 py-2 rounded-full text-sm font-semibold text-white shadow-md bg-gradient-to-r from-[#1e3a5f] to-[#2B5DAA]">
+                  Past Events
+                </span>
+              </div>
+              {renderSection(pastEvents, false)}
+            </div>
+          )}
+        </div>
+
         {/* CTA Section */}
-        <div className="mt-20 text-center bg-white dark:bg-gray-800 rounded-2xl p-6 md:p-12 shadow-xl mx-2 md:mx-0">
-          <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-3 md:mb-4">
+        <div className="mt-20 text-center bg-white rounded-2xl p-6 md:p-12 shadow-xl mx-2 md:mx-0 border border-slate-100">
+          <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-3 md:mb-4">
             Want to Attend Our Events?
           </h3>
-          <p className="text-base md:text-xl text-gray-600 dark:text-gray-400 mb-6 md:mb-8 max-w-2xl mx-auto px-2">
+          <p className="text-base md:text-xl text-slate-600 mb-6 md:mb-8 max-w-2xl mx-auto px-2">
             Join E-Club Polimi to get exclusive access to all our events, workshops, and networking
             opportunities.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center px-2">
             <a
               href={`${baseUrl}/join`}
-              className="inline-block text-white px-6 md:px-8 py-3 md:py-4 rounded-lg text-base md:text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
-              style={{ backgroundColor: '#FC3F1A' } as React.CSSProperties}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = '#E03515';
-                e.currentTarget.style.opacity = '0.95';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = '#FC3F1A';
-                e.currentTarget.style.opacity = '1';
-              }}
+              className="inline-block text-white px-6 md:px-8 py-3 md:py-4 rounded-full text-base md:text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 bg-gradient-to-r from-[#2B5DAA] to-[#1e3a5f]"
             >
               Join Us Now
             </a>
             <a
               href={`${baseUrl}/network`}
-              className="inline-block bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-6 md:px-8 py-3 md:py-4 rounded-lg text-base md:text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+              className="inline-block bg-slate-100 text-slate-800 px-6 md:px-8 py-3 md:py-4 rounded-full text-base md:text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
             >
               Explore Our Network
             </a>

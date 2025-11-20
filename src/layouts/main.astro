@@ -9,6 +9,10 @@ import '../styles/global.css';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import ThemeToggle from '../components/ThemeToggle';
+import {fetchSiteImagesFromContentful} from '../lib/contentful';
+
+const siteImages = await fetchSiteImagesFromContentful();
+const brandingLogo = siteImages.find((asset) => asset.key?.toLowerCase() === 'branding_logo_white');
 ---
 
 <!DOCTYPE html>
@@ -38,7 +42,7 @@ import ThemeToggle from '../components/ThemeToggle';
   <body class="bg-white dark:bg-gray-900 text-black dark:text-white min-h-screen transition-colors duration-300">
     <div class="flex flex-col min-h-screen transition-colors duration-300">
       <!-- Navigation -->
-      <Navbar client:load />
+      <Navbar client:load currentPath={Astro.url.pathname} brandingLogo={brandingLogo} />
       
       <!-- Main content -->
       <main class="flex-grow transition-colors duration-300">
@@ -46,7 +50,7 @@ import ThemeToggle from '../components/ThemeToggle';
       </main>
       
       <!-- Footer -->
-      <Footer client:load />
+      <Footer client:load brandingLogo={brandingLogo} />
     </div>
     
     <!-- Theme toggle button -->

@@ -1,8 +1,29 @@
 ---
 import MainLayout from '../layouts/main.astro';
 import OurTeamSection from './team/OurTeamSection.tsx';
+import {
+  fetchTeamMembersFromContentful,
+  fetchTeamDescriptionsFromContentful,
+  fetchSiteImagesFromContentful,
+} from '../lib/contentful';
+
+const [teamMembers, teamDescriptions, siteImages] = await Promise.all([
+  fetchTeamMembersFromContentful(),
+  fetchTeamDescriptionsFromContentful(),
+  fetchSiteImagesFromContentful(),
+]);
+console.log('[Our Team Page] First Contentful team member:', teamMembers?.[0]);
+
+const heroAsset = siteImages?.find(
+  (asset) => asset.key?.toLowerCase() === 'driver_hero_background'
+);
 ---
 
 <MainLayout>
-  <OurTeamSection client:load />
+  <OurTeamSection
+    client:load
+    teamMembers={teamMembers}
+    teamDescriptions={teamDescriptions}
+    heroImage={heroAsset}
+  />
 </MainLayout>
