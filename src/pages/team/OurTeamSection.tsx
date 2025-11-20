@@ -315,19 +315,19 @@ function TeamSectionBlock({
         <h3 className="text-3xl font-bold text-gray-900 dark:text-white">{title}</h3>
         <div className="mt-4 h-[3px] bg-gray-200 dark:bg-gray-700 rounded-full" />
         {sectionDescription && (
-          <div className="mt-4 space-y-2 text-gray-600 dark:text-gray-300">
+          <div className="mt-4 space-y-2 text-gray-600 dark:text-gray-300 break-words">
             {sectionDescription.html ? (
               <div
-                className="prose prose-sm text-gray-600 dark:text-gray-300 max-w-none"
+                className="prose prose-sm text-gray-600 dark:text-gray-300 max-w-none break-words"
                 dangerouslySetInnerHTML={{__html: sectionDescription.html}}
               />
             ) : (
               <>
                 {sectionDescription.intro && (
-                  <p className="text-base">{sectionDescription.intro}</p>
+                  <p className="text-base break-words">{sectionDescription.intro}</p>
                 )}
                 {sectionDescription.bullets && sectionDescription.bullets.length > 0 && (
-                  <ul className="list-disc list-inside space-y-1 text-sm">
+                  <ul className="list-disc list-inside space-y-1 text-sm break-words">
                     {sectionDescription.bullets.map((bullet) => (
                       <li key={bullet}>{bullet}</li>
                     ))}
@@ -376,7 +376,7 @@ export default function OurTeamSection(props: OurTeamSectionProps = {}) {
     heroImage?.imageDarkMode?.title ??
     'Our Team Hero Image';
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-20 px-5 transition-colors duration-300">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-20 px-5 transition-colors duration-300 overflow-x-hidden">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16 animate-fade-in">

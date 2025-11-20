@@ -34,7 +34,11 @@ export default function EventTimeline({ events }: EventTimelineProps) {
   });
 
   const renderSection = (list: Event[], isUpcoming: boolean) => (
-    <div className="relative space-y-16 md:space-y-20">
+    <div className="relative pl-8 md:pl-0 space-y-12 md:space-y-20">
+      {/* Mobile vertical line */}
+      <div
+        className={`md:hidden absolute left-3 top-0 bottom-0 w-1 bg-gradient-to-b ${isUpcoming ? gradientOrange : gradient} rounded-full`}
+      />
       {list.map((event, index) => {
         const isLeft = index % 2 === 0;
         return (
@@ -42,8 +46,8 @@ export default function EventTimeline({ events }: EventTimelineProps) {
             key={`${event.title}-${index}`}
             className="relative md:grid md:grid-cols-[1fr_1fr] md:gap-8 min-h-[180px] pt-4"
           >
-            {/* Center dot per event */}
-            <div className="absolute left-6 md:left-1/2 md:-translate-x-1/2 top-4 flex items-start">
+            {/* Center dot per event (desktop only) */}
+            <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 top-2 z-10">
               <div
                 className="w-4 h-4 rounded-full"
                 style={{
@@ -53,58 +57,65 @@ export default function EventTimeline({ events }: EventTimelineProps) {
               />
             </div>
 
-            {/* Left column */}
-            <div className="flex flex-col items-end md:pr-[15px]">
-              {isLeft ? (
-                <span className={`hidden md:inline-flex px-5 py-2 rounded-full text-sm font-semibold text-white shadow-md bg-gradient-to-r ${isUpcoming ? gradientOrange : gradient} self-end`}>
-                  {event.date}
-                </span>
-              ) : (
-                <>
-                  {/* Title and card on left side for right-hand events */}
-                  <h4 className="text-xl md:text-2xl font-bold text-slate-900 mb-2 text-right md:mr-2">
-                    {event.title}
-                  </h4>
-                  <div className="bg-white rounded-2xl shadow-xl border border-slate-100 p-[10px] md:p-[10px] max-w-xl text-right">
-                    <p className="text-slate-600 leading-relaxed">{event.description}</p>
-                  </div>
-                </>
-              )}
-              {/* mobile date for right-side cards (shown above title) */}
-              {!isLeft && (
-                <div className="md:hidden mb-2 self-start">
-                  <span className={`inline-flex px-4 py-2 rounded-full text-sm font-semibold text-white shadow-lg bg-gradient-to-r ${gradient}`}>
-                    {event.date}
-                  </span>
-                </div>
-              )}
+            {/* Mobile layout: stacked */}
+            <div className="md:hidden relative space-y-3">
+              <div
+                className="absolute left-3 top-2 w-4 h-4 rounded-full -translate-x-1/2"
+                style={{
+                  backgroundColor: accent,
+                  boxShadow: '0 0 0 6px rgba(255,255,255,0.6)',
+                }}
+              />
+              <span
+                className={`inline-flex px-4 py-2 rounded-full text-sm font-semibold text-white shadow-md bg-gradient-to-r ${
+                  isUpcoming ? gradientOrange : gradient
+                }`}
+              >
+                {event.date}
+              </span>
+              <h4 className="text-xl font-bold text-slate-900">{event.title}</h4>
+              <div className="bg-white rounded-2xl shadow-xl border border-slate-100 p-[10px]">
+                <p className="text-slate-600 leading-relaxed">{event.description}</p>
+              </div>
             </div>
 
-            {/* Right column */}
-            <div className="flex flex-col items-start md:pl-[15px] md:col-start-2">
-              {!isLeft ? (
-                <span className={`hidden md:inline-flex px-5 py-2 rounded-full text-sm font-semibold text-white shadow-md bg-gradient-to-r ${isUpcoming ? gradientOrange : gradient} self-start`}>
-                  {event.date}
-                </span>
-              ) : (
-                <>
-                  {/* Title and card on right side for left-hand events */}
-                  <h4 className="text-xl md:text-2xl font-bold text-slate-900 mb-2 text-left md:ml-2">
-                    {event.title}
-                  </h4>
-                  <div className="bg-white rounded-2xl shadow-xl border border-slate-100 p-[10px] md:p-[10px] max-w-xl text-left">
-                    <p className="text-slate-600 leading-relaxed">{event.description}</p>
-                  </div>
-                </>
-              )}
-              {/* mobile date for left-side cards (shown above title) */}
-              {isLeft && (
-                <div className="md:hidden mb-2 self-end">
-                  <span className={`inline-flex px-4 py-2 rounded-full text-sm font-semibold text-white shadow-lg bg-gradient-to-r ${gradient}`}>
+            {/* Desktop layout: timeline with alternating sides */}
+            <div className="hidden md:grid md:grid-cols-[1fr_1fr] md:gap-8 md:col-span-2">
+              {/* Left column */}
+              <div className="flex flex-col items-end md:pr-[15px]">
+                {isLeft ? (
+                  <span className={`px-5 py-2 rounded-full text-sm font-semibold text-white shadow-md bg-gradient-to-r ${isUpcoming ? gradientOrange : gradient} self-end`}>
                     {event.date}
                   </span>
-                </div>
-              )}
+                ) : (
+                  <>
+                    <h4 className="text-2xl font-bold text-slate-900 mb-2 text-right md:mr-2">
+                      {event.title}
+                    </h4>
+                    <div className="bg-white rounded-2xl shadow-xl border border-slate-100 p-[10px] max-w-xl text-right">
+                      <p className="text-slate-600 leading-relaxed">{event.description}</p>
+                    </div>
+                  </>
+                )}
+              </div>
+
+              {/* Right column */}
+              <div className="flex flex-col items-start md:pl-[15px]">
+                {!isLeft ? (
+                  <span className={`px-5 py-2 rounded-full text-sm font-semibold text-white shadow-md bg-gradient-to-r ${isUpcoming ? gradientOrange : gradient} self-start`}>
+                    {event.date}
+                  </span>
+                ) : (
+                  <>
+                    <h4 className="text-2xl font-bold text-slate-900 mb-2 text-left md:ml-2">
+                      {event.title}
+                    </h4>
+                    <div className="bg-white rounded-2xl shadow-xl border border-slate-100 p-[10px] max-w-xl text-left">
+                      <p className="text-slate-600 leading-relaxed">{event.description}</p>
+                    </div>
+                  </>
+                )}
+              </div>
             </div>
           </div>
         );
@@ -147,35 +158,40 @@ export default function EventTimeline({ events }: EventTimelineProps) {
           </div>
         </div>
 
-        {upcomingEvents.length > 0 && (
-          <div className="relative mb-16 pt-12">
-            {/* Vertical line */}
-            <div
-              className={`absolute left-6 md:left-1/2 top-12 h-[calc(100%-12px)] w-1 bg-gradient-to-b ${gradient} rounded-full md:-translate-x-1/2`}
-            />
-            <div className="mb-8 text-center relative">
-              <span className="inline-flex px-5 py-2 rounded-full text-sm font-semibold text-white shadow-md bg-gradient-to-r from-[#FF7A18] to-[#FF3D00]">
-                Upcoming Events
-              </span>
-            </div>
-            {renderSection(upcomingEvents, true)}
-          </div>
-        )}
+        <div className="relative">
+          {/* Mobile single vertical line */}
+          <div className={`md:hidden absolute left-3 top-0 bottom-0 w-1 bg-gradient-to-b ${gradient} rounded-full`} />
 
-        {pastEvents.length > 0 && (
-          <div className="relative mt-16 pt-12">
-            {/* Vertical line */}
-            <div
-              className={`absolute left-6 md:left-1/2 top-12 h-[calc(100%-12px)] w-1 bg-gradient-to-b ${gradient} rounded-full md:-translate-x-1/2`}
-            />
-            <div className="mb-8 text-center relative">
-              <span className="inline-flex px-5 py-2 rounded-full text-sm font-semibold text-white shadow-md bg-gradient-to-r from-[#1e3a5f] to-[#2B5DAA]">
-                Past Events
-              </span>
+          {upcomingEvents.length > 0 && (
+            <div className="relative mb-16 pt-12">
+              {/* Vertical line desktop only */}
+              <div
+                className={`hidden md:block absolute left-1/2 top-12 h-[calc(100%-12px)] w-1 bg-gradient-to-b ${gradient} rounded-full -translate-x-1/2`}
+              />
+              <div className="mb-8 text-center relative">
+                <span className="hidden md:inline-flex px-5 py-2 rounded-full text-sm font-semibold text-white shadow-md bg-gradient-to-r from-[#FF7A18] to-[#FF3D00]">
+                  Upcoming Events
+                </span>
+              </div>
+              {renderSection(upcomingEvents, true)}
             </div>
-            {renderSection(pastEvents, false)}
-          </div>
-        )}
+          )}
+
+          {pastEvents.length > 0 && (
+            <div className="relative mt-16 pt-12">
+              {/* Vertical line desktop only */}
+              <div
+                className={`hidden md:block absolute left-1/2 top-12 h-[calc(100%-12px)] w-1 bg-gradient-to-b ${gradient} rounded-full -translate-x-1/2`}
+              />
+              <div className="mb-8 text-center relative">
+                <span className="hidden md:inline-flex px-5 py-2 rounded-full text-sm font-semibold text-white shadow-md bg-gradient-to-r from-[#1e3a5f] to-[#2B5DAA]">
+                  Past Events
+                </span>
+              </div>
+              {renderSection(pastEvents, false)}
+            </div>
+          )}
+        </div>
 
         {/* CTA Section */}
         <div className="mt-20 text-center bg-white rounded-2xl p-6 md:p-12 shadow-xl mx-2 md:mx-0 border border-slate-100">

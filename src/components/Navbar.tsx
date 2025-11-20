@@ -71,11 +71,11 @@ export default function Navbar({ currentPath = '/', brandingLogo }: NavbarProps)
     <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md shadow-md transition-colors duration-300 bg-gradient-to-r from-[#2B5DAA] to-[#1e3a5f]">
       <div className="px-5 md:px-20 py-4 flex justify-between items-center">
         {/* Logo */}
-        <a href={baseUrl || '/'} className="flex items-center space-x-2">
+        <a href={baseUrl || '/'} className="flex items-center space-x-2 min-w-0 max-w-[70%]">
           {logoLight ? (
             <picture className="h-12 flex items-center">
               {logoDark && <source media="(prefers-color-scheme: dark)" srcSet={logoDark} />}
-              <img src={logoLight} alt={logoAlt} className="h-16 w-auto object-contain" loading="lazy" />
+              <img src={logoLight} alt={logoAlt} className="h-16 w-auto object-contain max-w-full" loading="lazy" />
             </picture>
           ) : (
             <span className="text-2xl font-bold text-white">
@@ -205,7 +205,7 @@ export default function Navbar({ currentPath = '/', brandingLogo }: NavbarProps)
 
         {/* Mobile Menu Button - Changed to white */}
         <button
-          className="md:hidden text-white focus:outline-none"
+          className="md:hidden text-white focus:outline-none flex-shrink-0 ml-3"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
         >
