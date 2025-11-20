@@ -32,7 +32,8 @@ This is the official website for the Entrepreneurship Club at Politecnico di Mil
 - **Framework:** Astro
 - **UI Components:** React + shadCN UI
 - **Styling:** Tailwind CSS
-- **Deployment:** Cloudflare Workers
+- **Deployment:** Vercel Serverless
+- **Content Platform:** Contentful CMS (GraphQL/REST)
 - **Design System:** Webflow variables
 
 ---
@@ -71,6 +72,27 @@ This is the official website for the Entrepreneurship Club at Politecnico di Mil
 | `npm run dev` | Start development server |
 | `npm run build` | Build for production |
 | `npm run preview` | Preview production build |
+
+### Contentful Environment
+
+Create a `.env` file (or configure Vercel Environment Variables) with your Contentful credentials before wiring data fetching into components:
+
+```
+CONTENTFUL_SPACE_ID=xxxx
+CONTENTFUL_ENVIRONMENT=master
+CONTENTFUL_DELIVERY_TOKEN=xxxx
+CONTENTFUL_PREVIEW_TOKEN=xxxx
+```
+
+These variables are available to your Astro pages via `import.meta.env` and can power server-side loaders or API routes that query Contentful.
+
+### Deploying to Vercel
+
+1. Install the [Vercel CLI](https://vercel.com/docs/cli) and log in.
+2. Build locally if desired: `npm run build`.
+3. Run `vercel deploy --prod` (or connect the GitHub repo inside the Vercel dashboard for automatic deploys).
+
+Vercel will inject the environment variables from your project settings and serve the built Astro app from its global edge network.
 
 ---
 

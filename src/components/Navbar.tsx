@@ -20,6 +20,12 @@ export default function Navbar() {
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-8">
           <a
+            href={`${baseUrl}/`}
+            className="text-white hover:text-gray-200 transition-colors duration-200"
+          >
+            Home
+          </a>
+          <a
             href={`${baseUrl}/our-team`}
             className="text-white hover:text-gray-200 transition-colors duration-200"
           >
@@ -162,6 +168,13 @@ export default function Navbar() {
       {isOpen && (
         <div className="md:hidden border-t border-white/20 transition-colors duration-300" style={{ backgroundColor: '#120A68' }}>
           <div className="px-5 py-4 space-y-4">
+            <a
+              href={`${baseUrl}/`}
+              className="block text-white hover:text-gray-200 transition-colors duration-200 py-2"
+              onClick={() => setIsOpen(false)}
+            >
+              Home
+            </a>
             <a
               href={`${baseUrl}/our-team`}
               className="block text-white hover:text-gray-200 transition-colors duration-200 py-2"

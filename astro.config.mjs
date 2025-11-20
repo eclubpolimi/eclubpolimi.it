@@ -1,8 +1,7 @@
 import {defineConfig} from 'astro/config';
-import cloudflare from '@astrojs/cloudflare';
 import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
-import vercel from '@astrojs/vercel/serverless';
+import vercel from '@astrojs/vercel';
 
 // Patches node_modules/vite/dist/client/client.mjs
 function patchViteErrorOverlay() {

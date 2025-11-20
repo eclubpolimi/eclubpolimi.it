@@ -1,388 +1,394 @@
 import TeamMemberCard from '../../components/TeamMemberCard';
-import useEmblaCarousel from 'embla-carousel-react';
-import { useCallback } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import {marked} from 'marked';
+import sanitizeHtml from 'sanitize-html';
 
-// Team data organized by department
-const teamData = {
-  board: [
-    {
-      name: "Alessandro D. B.",
-      role: "President",
-      photo: "",
-      quote: "If opportunity doesn't knock, build a door",
-      author: "Milton Berle"
-    },
-    {
-      name: "Gabriele D.",
-      role: "Vice-President",
-      photo: "",
-      quote: "L'ingegno è vedere possibilità dove gli altri non ne vedono [Ingenuity is seeing possibilities where others see none]",
-      author: "Enrico Mattei"
-    },
-    {
-      name: "Lorenzo B.",
-      role: "Treasurer",
-      photo: "",
-      quote: "We are who we choose to be.",
-      author: "Green Goblin, from Spider-Man"
-    },
-    {
-      name: "Serena T.",
-      role: "Secretary",
-      photo: "",
-      quote: "The time is always right to do what is right",
-      author: "Martin Luther King Jr"
-    },
-    {
-      name: "Elena F.",
-      role: "Public Relations",
-      photo: "",
-      quote: "You miss 100% of the shots you don't take",
-      author: "Wayne Gretzky"
-    }
-  ],
-  humanCapital: [
-    {
-      name: "Guadalupe R.",
-      role: "Coordinator",
-      photo: "",
-      quote: "Our greatest glory is not in never falling, but in rising every time we fall.",
-      author: "Confucius"
-    },
-    {
-      name: "Cleta O. L.",
-      role: "Member",
-      photo: "",
-      quote: "I'm intimidated by the fear of being average",
-      author: "Taylor Swift"
-    },
-    {
-      name: "Daniel J. C.",
-      role: "Member",
-      photo: "",
-      quote: "An Investment in knowledge pays the best interest.",
-      author: "Benjamin Franklin"
-    },
-    {
-      name: "Emanuele L. R.",
-      role: "Member",
-      photo: "",
-      quote: "every day demands that extra step to go beyond the hedge and face the unknown",
-      author: "myself"
-    },
-    {
-      name: "Leonardo B.",
-      role: "Member",
-      photo: "",
-      quote: "Make something people want",
-      author: "Paul Graham"
-    }
-  ],
-  events: [
-    {
-      name: "Claudia D.",
-      role: "Coordinator",
-      photo: "",
-      quote: "The only way to fight against fleeting time is to live it intensely and draw from it quickly, like from a rushing torrent that will not flow forever.",
-      author: "De Brevitate Vitae, Seneca"
-    },
-    {
-      name: "Chris B.",
-      role: "Member",
-      photo: "",
-      quote: "Ad Alta",
-      author: "Family's coat of arms"
-    },
-    {
-      name: "Amanda M.",
-      role: "Member",
-      photo: "",
-      quote: "The only real failure is the failure to try",
-      author: "Deborah Moggach"
-    },
-    {
-      name: "Marco V.",
-      role: "Member",
-      photo: "",
-      quote: "Carpe diem, quam minimum credula postero",
-      author: "Orazio Flacco"
-    },
-    {
-      name: "Stella A.",
-      role: "Member",
-      photo: "",
-      quote: "Una buona pratica preliminare di qualunque altra è la pratica della meraviglia. Esercitarsi a non sapere e a meravigliarsi",
-      author: "Chandra Candiani"
-    },
-    {
-      name: "Arzum Ö.",
-      role: "Member",
-      photo: "",
-      quote: "The people who are crazy enough to think they can change the world are the ones who do.",
-      author: "Steve Jobs"
-    },
-    {
-      name: "Maja M.",
-      role: "Member",
-      photo: "",
-      quote: "If you want to win the race, you have to reach the goal first.",
-      author: "Alan Ford"
-    },
-    {
-      name: "Sharlotte G.",
-      role: "Member",
-      photo: "",
-      quote: "Three words are important to me: inspiration, creation, and sharing.",
-      author: "Agnès Varda"
-    },
-    {
-      name: "Andrea D.",
-      role: "Member",
-      photo: "",
-      quote: "I'm not a kid anymore. And I'm excited for all the amazing things to come.",
-      author: "Paris Hilton"
-    }
-  ],
-  corporate: [
-    {
-      name: "Greta S.",
-      role: "Coordinator",
-      photo: "",
-      quote: "Don't wait for opportunity. Create it.",
-      author: "George Bernard Shaw"
-    },
-    {
-      name: "Francesco R.",
-      role: "Member",
-      photo: "",
-      quote: "Stay Hungry, Stay Foolish",
-      author: "Steve Jobs"
-    },
-    {
-      name: "Stefano S.",
-      role: "Member",
-      photo: "",
-      quote: "You better have a strategy, or you could be a statistic",
-      author: "Michael Porter"
-    },
-    {
-      name: "Leonardo A.",
-      role: "Member",
-      photo: "",
-      quote: "L'angoscia è la vertigine della libertà",
-      author: "Søren Kierkegaard"
-    },
-    {
-      name: "Lucrezia B.",
-      role: "Member",
-      photo: "",
-      quote: "What you think, you become. What you feel, you attract. What you imagine, you create.",
-      author: "Buddha"
-    },
-    {
-      name: "Leonardo B.",
-      role: "Member",
-      photo: "",
-      quote: "Everything is energy, and that's all there is to it. Match the frequency of the reality you want, and you cannot help but get that reality",
-      author: "Albert Einstein"
-    },
-    {
-      name: "Riccardo C.",
-      role: "Member",
-      photo: "",
-      quote: "Float like a butterfly, sting like a bee",
-      author: "Muhammad Ali"
-    }
-  ],
-  marketing: [
-    {
-      name: "Samuele R.",
-      role: "Coordinator",
-      photo: "",
-      quote: "Carpe diem",
-      author: "Horace"
-    },
-    {
-      name: "Beatrice M.",
-      role: "Member",
-      photo: "",
-      quote: "The future depends on what you do today",
-      author: "Mahatma Gandhi"
-    },
-    {
-      name: "Ahmad A.",
-      role: "Member",
-      photo: "",
-      quote: "Pressure is a privilege",
-      author: "Billie Jean King"
-    },
-    {
-      name: "Himadri B. D.",
-      role: "Member",
-      photo: "",
-      quote: "Risk comes from not knowing what you are doing",
-      author: "Warren Buffet"
-    },
-    {
-      name: "Gaia V.",
-      role: "Member",
-      photo: "",
-      quote: "It is the goal of all to improve, advance, progress, grow",
-      author: "Tony McNamara - Poor Things"
-    },
-    {
-      name: "Viktor T.",
-      role: "Member",
-      photo: "",
-      quote: "Vivamus moriendum est",
-      author: "Seneca"
-    },
-    {
-      name: "Cleta O. L.",
-      role: "Member",
-      photo: "",
-      quote: "In the midst of chaos, there is also opportunity",
-      author: "Sun Tzu"
-    },
-    {
-      name: "Jessica L.",
-      role: "Member",
-      photo: "",
-      quote: "Everyone knew it was impossible, until a fool who didn't know came along and did it.",
-      author: "Albert Einstein"
-    },
-    {
-      name: "Raffaele S.",
-      role: "Member",
-      photo: "",
-      quote: "Make mistakes faster",
-      author: "Andy Grove"
-    }
-  ],
-  it: [
-    {
-      name: "Yuwei L.",
-      role: "Coordinator",
-      photo: "",
-      quote: "Do not dwell in the past, do not dream of the future, concentrate the mind on the present moment.",
-      author: "Buddha"
-    },
-    {
-      name: "Abransh B.",
-      role: "Vice Coordinator",
-      photo: "",
-      quote: "A little life is worth a little pain",
-      author: "me?"
-    },
-    {
-      name: "Thanakorn T.",
-      role: "Member",
-      photo: "",
-      quote: "Do great minds think alike or completely differently?",
-      author: "HSBC"
-    },
-    {
-      name: "Antonio R.",
-      role: "Member",
-      photo: "",
-      quote: "Audantes fortuna iuvat",
-      author: "Virgil"
-    },
-    {
-      name: "Giuseppe M.",
-      role: "Member",
-      photo: "",
-      quote: "I'm exactly where i need to be to become what i meant to be",
-      author: "Giuseppe Musella"
-    },
-    {
-      name: "Jose P. L.",
-      role: "Member",
-      photo: "",
-      quote: "How little we dare considering how short life is",
-      author: "Unknown"
-    }
-  ]
+type ContentfulTeamMember = {
+  nameSurname?: string | null;
+  team?: string | null;
+  role?: string | null;
+  email?: string | null;
+  instagramLink?: string | null;
+  linkedinLink?: string | null;
+  quote?: string | null;
+  quoteAuthor?: string | null;
+  image?: {
+    url?: string | null;
+    description?: string | null;
+  } | null;
 };
 
-interface CarouselSectionProps {
-  title: string;
-  members: Array<{
-    name: string;
-    role: string;
-    photo: string;
-    quote: string;
-    author?: string;
-  }>;
-}
+type CarouselMember = {
+  name: string;
+  role: string;
+  photo: string;
+  quote?: string;
+  author?: string;
+  instagramLink?: string;
+  linkedinLink?: string;
+};
 
-function CarouselSection({ title, members }: CarouselSectionProps) {
-  const [emblaRef, emblaApi] = useEmblaCarousel({
-    align: 'start',
-    loop: true, // Enable infinite loop
-    slidesToScroll: 1,
-    breakpoints: {
-      '(min-width: 768px)': { slidesToScroll: 2 },
-      '(min-width: 1024px)': { slidesToScroll: 3 }
+type TeamSectionData = {
+  title: string;
+  members: CarouselMember[];
+};
+
+type ContentfulTeamDescription = {
+  textArea?: string | null;
+  textField?: string | null;
+};
+
+type DescriptionContent = {
+  intro?: string;
+  bullets?: string[];
+  html?: string;
+};
+
+type OurTeamSectionProps = {
+  teamMembers?: ContentfulTeamMember[];
+  teamDescriptions?: ContentfulTeamDescription[];
+  heroImage?: SiteImageAsset;
+};
+
+type SiteImageAsset = {
+  key?: string | null;
+  url?: string | null;
+  imageLightMode?: {
+    url?: string | null;
+    description?: string | null;
+    title?: string | null;
+  } | null;
+  imageDarkMode?: {
+    url?: string | null;
+    description?: string | null;
+    title?: string | null;
+  } | null;
+};
+
+// Team data organized by department
+const fallbackTeamData = {
+  board: [],
+  events: [],
+  corporate: [],
+  humanCapital: [],
+  marketing: [],
+  it: []
+};
+
+const TEAM_TITLE_ORDER = [
+  'Board',
+  'Human Capital and Internal Processes',
+  'Events',
+  'Corporate and External Relationships',
+  'Marketing',
+  'Information Technology',
+];
+
+const FALLBACK_SECTIONS: TeamSectionData[] = [
+  { title: 'Board', members: fallbackTeamData.board },
+  { title: 'Human Capital and Internal Processes', members: fallbackTeamData.humanCapital },
+  { title: 'Events', members: fallbackTeamData.events },
+  { title: 'Corporate and External Relationships', members: fallbackTeamData.corporate },
+  { title: 'Marketing', members: fallbackTeamData.marketing },
+  { title: 'Information Technology', members: fallbackTeamData.it },
+];
+
+const DEFAULT_QUOTE = 'Proud member of E-Club Polimi.';
+const DEFAULT_AUTHOR = 'E-Club Polimi';
+const DEFAULT_MISSION_INTRO =
+  'Our core mission is to create impactful opportunities for students by organizing high-quality events—from intimate networking sessions to large-scale gatherings. As an active part of Milan\'s entrepreneurial ecosystem, we bridge the gap between aspiring founders, industry leaders, and like-minded university clubs. Through strategic partnerships and cross-border collaborations, we are expanding our reach across Europe to empower the next generation of innovators and changemakers.';
+
+const markdownToHtml = (markdown?: string | null): string | undefined => {
+  if (!markdown) return undefined;
+  const raw = marked.parse(markdown);
+  if (typeof raw !== 'string') {
+    return undefined;
+  }
+  return sanitizeHtml(raw, {
+    allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img', 'h1', 'h2', 'h3']),
+    allowedAttributes: {
+      ...sanitizeHtml.defaults.allowedAttributes,
+      img: ['src', 'alt', 'title'],
+    },
+  });
+};
+
+const TEAM_DESCRIPTIONS: Record<string, DescriptionContent> = {
+  Board: {
+    intro: 'Lead the strategic direction, partnerships, and impact of E-Club.',
+    bullets: [
+      'Craft the club vision and yearly roadmap',
+      'Coordinate with all departments to ensure aligned execution',
+      'Represent E-Club in institutional and external occasions',
+    ],
+  },
+  Events: {
+    intro: 'Plan and execute events that resonate with our three core pillars.',
+    bullets: [
+      'Manage logistics, run of show, and budgets',
+      'Coordinate task forces on WhatsApp and Notion',
+      'Collaborate with Corporate Relations and Marketing teams',
+    ],
+  },
+  'Human Capital and Internal Processes': {
+    intro: 'Grow and support the people that make E-Club possible.',
+    bullets: [
+      'Lead recruiting and onboarding',
+      'Own internal communications and knowledge sharing',
+      'Promote culture initiatives and member success',
+    ],
+  },
+  'Corporate and External Relationships': {
+    intro: 'Build long-term partnerships with companies and associations.',
+    bullets: [
+      'Scout and manage sponsors',
+      'Coordinate collaborations with other student clubs',
+      'Showcase partner value through custom touchpoints',
+    ],
+  },
+  Marketing: {
+    intro: 'Tell the E-Club story across channels and formats.',
+    bullets: [
+      'Design campaigns for launches and announcements',
+      'Run social media and newsletter content',
+      'Collaborate with Events to capture highlights',
+    ],
+  },
+  'Information Technology': {
+    intro: 'Ship the digital experiences that power our community.',
+    bullets: [
+      'Maintain the website and internal tools',
+      'Support events with registration and analytics',
+      'Prototype new experiences leveraging automation',
+    ],
+  },
+  'Our Mission': {
+    intro: DEFAULT_MISSION_INTRO,
+    bullets: [],
+  },
+};
+
+const DESCRIPTION_SLUG_TO_TITLE: Record<string, string> = {
+  driver_board: 'Board',
+  driver_events: 'Events',
+  driver_hc: 'Human Capital and Internal Processes',
+  driver_corporate: 'Corporate and External Relationships',
+  driver_marketing: 'Marketing',
+  driver_it: 'Information Technology',
+  driver_ourMission: 'Our Mission',
+};
+
+const normalizeTeamTitle = (team?: string | null) => {
+  if (!team) return 'Other';
+  const key = team.trim().toLowerCase();
+  if (key.includes('corporate')) {
+    return 'Corporate and External Relationships';
+  }
+  if (key.includes('human capital')) {
+    return 'Human Capital and Internal Processes';
+  }
+  if (key.includes('information')) {
+    return 'Information Technology';
+  }
+  if (key.includes('board')) {
+    return 'Board';
+  }
+  if (key.includes('event')) {
+    return 'Events';
+  }
+  if (key.includes('marketing')) {
+    return 'Marketing';
+  }
+  return team;
+};
+
+const buildQuote = (member: ContentfulTeamMember) => {
+  if (member.quote) return member.quote;
+  if (member.instagramLink) return 'Let’s connect on Instagram.';
+  if (member.linkedinLink) return 'Let’s connect on LinkedIn.';
+  if (member.email) return `Email me at ${member.email}`;
+  return DEFAULT_QUOTE;
+};
+
+const buildAuthor = (member: ContentfulTeamMember) =>
+  member.quoteAuthor ?? member.role ?? DEFAULT_AUTHOR;
+
+const BOARD_ROLE_ORDER = [
+  'president',
+  'vice-president',
+  'treasurer',
+  'secretary',
+  'public relations',
+];
+
+const prioritizeCoordinators = (members: CarouselMember[]) => {
+  const coordinators: CarouselMember[] = [];
+  const others: CarouselMember[] = [];
+
+  members.forEach((member) => {
+    const role = member.role?.toLowerCase() ?? '';
+    if (role.includes('coordinator')) {
+      coordinators.push(member);
+    } else {
+      others.push(member);
     }
   });
 
-  const scrollPrev = useCallback(() => {
-    if (emblaApi) emblaApi.scrollPrev();
-  }, [emblaApi]);
+  return [...coordinators, ...others];
+};
 
-  const scrollNext = useCallback(() => {
-    if (emblaApi) emblaApi.scrollNext();
-  }, [emblaApi]);
+const arrangeMembersForSection = (title: string, members: CarouselMember[]) => {
+  let arranged = prioritizeCoordinators(members);
+
+  if (title === 'Board') {
+    arranged = [...arranged].sort((a, b) => {
+      const roleA = a.role.toLowerCase();
+      const roleB = b.role.toLowerCase();
+      const indexA = BOARD_ROLE_ORDER.findIndex((role) => roleA.includes(role));
+      const indexB = BOARD_ROLE_ORDER.findIndex((role) => roleB.includes(role));
+      const fallback = BOARD_ROLE_ORDER.length;
+      return (indexA === -1 ? fallback : indexA) - (indexB === -1 ? fallback : indexB);
+    });
+  }
+
+  return arranged;
+};
+
+const parseDescriptionText = (text?: string | null): DescriptionContent | undefined => {
+  const html = markdownToHtml(text);
+  if (!html) return undefined;
+  return {html};
+};
+
+const buildDescriptionsFromContentful = (entries?: ContentfulTeamDescription[]) => {
+  const map: Record<string, DescriptionContent> = {};
+  entries?.forEach((entry) => {
+    const slug = entry.textArea ?? '';
+    const title = DESCRIPTION_SLUG_TO_TITLE[slug];
+    if (!title) return;
+    const description = parseDescriptionText(entry.textField);
+    if (description) {
+      map[title] = description;
+    }
+  });
+  return map;
+};
+
+const mapMemberToCarousel = (member: ContentfulTeamMember): CarouselMember => ({
+  name: member.nameSurname ?? 'E-Club Member',
+  role: member.role ?? member.team ?? 'Member',
+  photo: member.image?.url ?? '',
+  quote: buildQuote(member),
+  author: buildAuthor(member),
+  instagramLink: member.instagramLink ?? undefined,
+  linkedinLink: member.linkedinLink ?? undefined,
+});
+
+const buildTeamSections = (members?: ContentfulTeamMember[]): TeamSectionData[] => {
+  if (!members?.length) return [];
+
+  const grouped = new Map<string, CarouselMember[]>();
+
+  members.forEach((member) => {
+    const title = normalizeTeamTitle(member.team);
+    const normalizedMember = mapMemberToCarousel(member);
+    const existing = grouped.get(title);
+    if (existing) {
+      existing.push(normalizedMember);
+    } else {
+      grouped.set(title, [normalizedMember]);
+    }
+  });
+
+  const orderedSections: TeamSectionData[] = [];
+
+  TEAM_TITLE_ORDER.forEach((title) => {
+    const sectionMembers = grouped.get(title);
+    if (sectionMembers?.length) {
+      orderedSections.push({ title, members: arrangeMembersForSection(title, sectionMembers) });
+      grouped.delete(title);
+    }
+  });
+
+  grouped.forEach((sectionMembers, title) => {
+    orderedSections.push({ title, members: arrangeMembersForSection(title, sectionMembers) });
+  });
+
+  return orderedSections;
+};
+
+function TeamSectionBlock({
+  title,
+  members,
+  description,
+}: TeamSectionData & { description?: DescriptionContent }) {
+  const sectionDescription = description ?? TEAM_DESCRIPTIONS[title];
 
   return (
-    <div className="mb-20">
-      <div className="flex items-center justify-between mb-10">
-        <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-          {title}
-        </h2>
-        <div className="flex gap-2">
-          <button
-            onClick={scrollPrev}
-            className="p-2 rounded-full bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 border border-gray-200 dark:border-gray-700"
-            aria-label="Previous"
-          >
-            <ChevronLeft className="w-6 h-6 text-gray-700 dark:text-gray-300" />
-          </button>
-          <button
-            onClick={scrollNext}
-            className="p-2 rounded-full bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 border border-gray-200 dark:border-gray-700"
-            aria-label="Next"
-          >
-            <ChevronRight className="w-6 h-6 text-gray-700 dark:text-gray-300" />
-          </button>
-        </div>
+    <section className="space-y-6">
+      <div>
+        <h3 className="text-3xl font-bold text-gray-900 dark:text-white">{title}</h3>
+        <div className="mt-4 h-[3px] bg-gray-200 dark:bg-gray-700 rounded-full" />
+        {sectionDescription && (
+          <div className="mt-4 space-y-2 text-gray-600 dark:text-gray-300">
+            {sectionDescription.html ? (
+              <div
+                className="prose prose-sm text-gray-600 dark:text-gray-300 max-w-none"
+                dangerouslySetInnerHTML={{__html: sectionDescription.html}}
+              />
+            ) : (
+              <>
+                {sectionDescription.intro && (
+                  <p className="text-base">{sectionDescription.intro}</p>
+                )}
+                {sectionDescription.bullets && sectionDescription.bullets.length > 0 && (
+                  <ul className="list-disc list-inside space-y-1 text-sm">
+                    {sectionDescription.bullets.map((bullet) => (
+                      <li key={bullet}>{bullet}</li>
+                    ))}
+                  </ul>
+                )}
+              </>
+            )}
+          </div>
+        )}
       </div>
 
-      <div className="overflow-hidden" ref={emblaRef}>
-        <div className="flex gap-6">
-          {members.map((member, index) => (
-            <div
-              key={index}
-              className="flex-none w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
-            >
-              <TeamMemberCard
-                name={member.name}
-                role={member.role}
-                photo={member.photo}
-                quote={member.quote}
-                author={member.author}
-              />
-            </div>
-          ))}
-        </div>
+      <div className="grid gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+        {members.map((member, index) => (
+          <div key={`${member.name}-${index}`} className="flex justify-center">
+            <TeamMemberCard
+              name={member.name}
+              role={member.role}
+              photo={member.photo}
+              instagramLink={member.instagramLink}
+              linkedinLink={member.linkedinLink}
+            />
+          </div>
+        ))}
       </div>
-    </div>
+    </section>
   );
 }
 
-export default function OurTeamSection() {
+export default function OurTeamSection(props: OurTeamSectionProps = {}) {
+  const {teamMembers, teamDescriptions, heroImage} = props;
+  if (teamMembers && teamMembers.length > 0) {
+    console.log('[OurTeamSection] First team member received:', teamMembers[0]);
+  }
+  const sectionsToRender = buildTeamSections(teamMembers);
+  const visibleSections = sectionsToRender.length ? sectionsToRender : FALLBACK_SECTIONS;
+  const descriptionOverrides = buildDescriptionsFromContentful(teamDescriptions);
+  const combinedDescriptions = {...TEAM_DESCRIPTIONS, ...descriptionOverrides};
+  const missionDescription = combinedDescriptions['Our Mission'];
+  const missionIntro = missionDescription?.intro ?? DEFAULT_MISSION_INTRO;
+  const heroImageLight = heroImage?.imageLightMode?.url ?? heroImage?.url ?? undefined;
+  const heroImageDark = heroImage?.imageDarkMode?.url ?? heroImageLight;
+  const heroAlt =
+    heroImage?.imageLightMode?.description ??
+    heroImage?.imageDarkMode?.description ??
+    heroImage?.imageLightMode?.title ??
+    heroImage?.imageDarkMode?.title ??
+    'Our Team Hero Image';
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-20 px-5 transition-colors duration-300">
       <div className="max-w-7xl mx-auto">
@@ -396,32 +402,66 @@ export default function OurTeamSection() {
         {/* Mission Section with Image */}
         <div className="mb-20 animate-fade-in-delay">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Left side - Image placeholder */}
-            <div className="w-full h-96 bg-gradient-to-br from-[#2B5DAA] to-[#1e3a5f] rounded-2xl shadow-xl flex items-center justify-center overflow-hidden">
-              <div className="text-white/30 text-center p-8">
-                <svg className="w-24 h-24 mx-auto mb-4" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clipRule="evenodd" />
-                </svg>
-                <p className="text-sm">Landscape image placeholder</p>
-                <p className="text-xs mt-2">Replace with actual team photo</p>
-              </div>
+            {/* Left side - Image */}
+            <div className="w-full h-96 rounded-2xl shadow-xl overflow-hidden bg-gradient-to-br from-[#2B5DAA] to-[#1e3a5f] flex items-center justify-center">
+              {heroImageLight ? (
+                <picture className="w-full h-full">
+                  {heroImageDark && (
+                    <source media="(prefers-color-scheme: dark)" srcSet={heroImageDark} />
+                  )}
+                  <img
+                    src={heroImageLight}
+                    alt={heroAlt}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </picture>
+              ) : (
+                <div className="text-white/30 text-center p-8">
+                  <svg className="w-24 h-24 mx-auto mb-4" fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                      fillRule="evenodd"
+                      d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <p className="text-sm">Landscape image placeholder</p>
+                  <p className="text-xs mt-2">Replace with actual team photo</p>
+                </div>
+              )}
             </div>
 
             {/* Right side - Text content */}
             <div className="space-y-8">
               {/* Introductory text without title */}
-              <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+              {/* <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
                 We are a student-driven association dedicated to fostering entrepreneurship, innovation, and collaboration within our university and beyond.
-              </p>
+              </p> */}
 
               {/* Our Mission section */}
               <div>
                 <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
                   Our Mission
                 </h2>
-                <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-                  Our core mission is to create impactful opportunities for students by organizing high-quality events—from intimate networking sessions to large-scale gatherings. As an active part of Milan's entrepreneurial ecosystem, we bridge the gap between aspiring founders, industry leaders, and like-minded university clubs. Through strategic partnerships and cross-border collaborations, we are expanding our reach across Europe to empower the next generation of innovators and changemakers.
-                </p>
+                {missionDescription?.html ? (
+                  <div
+                    className="prose prose-base text-gray-700 dark:text-gray-300 max-w-none"
+                    dangerouslySetInnerHTML={{__html: missionDescription.html}}
+                  />
+                ) : (
+                  <>
+                    <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                      {missionIntro}
+                    </p>
+                    {missionDescription?.bullets?.length ? (
+                      <ul className="mt-4 list-disc list-inside text-gray-600 dark:text-gray-400 space-y-2">
+                        {missionDescription.bullets.map((bullet) => (
+                          <li key={bullet}>{bullet}</li>
+                        ))}
+                      </ul>
+                    ) : null}
+                  </>
+                )}
               </div>
             </div>
           </div>
@@ -436,29 +476,14 @@ export default function OurTeamSection() {
 
         {/* Team Sections with Carousels */}
         <div className="space-y-16">
-          <CarouselSection title="Board" members={teamData.board} />
-          
-          <CarouselSection 
-            title="Human Capital and Internal Processes" 
-            members={teamData.humanCapital} 
-          />
-          
-          <CarouselSection 
-            title="Events" 
-            members={teamData.events} 
-          />
-          
-          <CarouselSection 
-            title="Corporate and External Relationships" 
-            members={teamData.corporate} 
-          />
-          
-          <CarouselSection title="Marketing" members={teamData.marketing} />
-          
-          <CarouselSection 
-            title="Information Technology" 
-            members={teamData.it} 
-          />
+          {visibleSections.map((section) => (
+            <TeamSectionBlock
+              key={section.title}
+              title={section.title}
+              members={section.members}
+              description={combinedDescriptions[section.title]}
+            />
+          ))}
         </div>
 
         {/* Call to Action */}
@@ -468,7 +493,7 @@ export default function OurTeamSection() {
               Want to Join Our Team?
             </h3>
             <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
-              We're always looking for passionate individuals to join our mission. 
+              We're always looking for passionate individuals to join our mission.
               Be part of something bigger.
             </p>
             <a
