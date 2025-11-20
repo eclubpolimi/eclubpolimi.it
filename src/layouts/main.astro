@@ -8,7 +8,6 @@ import '../styles/global.css';
 // Import components
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import ThemeToggle from '../components/ThemeToggle';
 import {fetchSiteImagesFromContentful} from '../lib/contentful';
 
 const siteImages = await fetchSiteImagesFromContentful();
@@ -25,27 +24,19 @@ const brandingLogo = siteImages.find((asset) => asset.key?.toLowerCase() === 'br
     <meta name="description" content="Entrepreneurship Club Polimi - Fostering innovation and entrepreneurship at Politecnico di Milano" />
     <meta name="theme-color" content="#ffffff" />
     <title>E-Club Polimi</title>
-    
-    <!-- Dark mode script (runs before page render to prevent flash) -->
     <script is:inline>
-      (function() {
-        const theme = localStorage.getItem("theme");
-        if (theme === "dark") {
-          document.documentElement.classList.add("dark");
-        } else {
-          document.documentElement.classList.remove("dark");
-        }
-      })();
+      document.documentElement.classList.remove('dark');
+      try { localStorage.removeItem('theme'); } catch (e) {}
     </script>
   </head>
   
-  <body class="bg-white dark:bg-gray-900 text-black dark:text-white min-h-screen transition-colors duration-300">
-    <div class="flex flex-col min-h-screen transition-colors duration-300">
+  <body class="bg-white text-black min-h-[100dvh]">
+    <div class="flex flex-col min-h-[100dvh]">
       <!-- Navigation -->
       <Navbar client:load currentPath={Astro.url.pathname} brandingLogo={brandingLogo} />
       
       <!-- Main content -->
-      <main class="flex-grow transition-colors duration-300">
+      <main class="flex-grow">
         <slot />
       </main>
       
@@ -54,6 +45,5 @@ const brandingLogo = siteImages.find((asset) => asset.key?.toLowerCase() === 'br
     </div>
     
     <!-- Theme toggle button -->
-    <ThemeToggle client:load />
   </body>
 </html>

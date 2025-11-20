@@ -213,18 +213,21 @@ const BOARD_ROLE_ORDER = [
 
 const prioritizeCoordinators = (members: CarouselMember[]) => {
   const coordinators: CarouselMember[] = [];
+  const viceCoordinators: CarouselMember[] = [];
   const others: CarouselMember[] = [];
 
   members.forEach((member) => {
     const role = member.role?.toLowerCase() ?? '';
-    if (role.includes('coordinator')) {
+    if (role.includes('vice coordinator')) {
+      viceCoordinators.push(member);
+    } else if (role.includes('coordinator')) {
       coordinators.push(member);
     } else {
       others.push(member);
     }
   });
 
-  return [...coordinators, ...others];
+  return [...coordinators, ...viceCoordinators, ...others];
 };
 
 const arrangeMembersForSection = (title: string, members: CarouselMember[]) => {
@@ -317,13 +320,13 @@ function TeamSectionBlock({
   return (
     <section className="space-y-6">
       <div>
-        <h3 className="text-3xl font-bold text-gray-900 dark:text-white">{title}</h3>
-        <div className="mt-4 h-[3px] bg-gray-200 dark:bg-gray-700 rounded-full" />
+        <h3 className="text-3xl font-bold text-gray-900">{title}</h3>
+        <div className="mt-4 h-[3px] bg-gray-200 rounded-full" />
         {sectionDescription && (
-          <div className="mt-4 space-y-2 text-gray-600 dark:text-gray-300 break-words">
+          <div className="mt-4 space-y-2 text-gray-600 break-words">
             {sectionDescription.html ? (
               <div
-                className="prose prose-sm text-gray-600 dark:text-gray-300 max-w-none break-words"
+                className="prose prose-sm text-gray-600 max-w-none break-words"
                 dangerouslySetInnerHTML={{ __html: sectionDescription.html }}
               />
             ) : (
@@ -374,7 +377,6 @@ export default function OurTeamSection(props: OurTeamSectionProps = {}) {
   const missionIntro = missionDescription?.intro ?? DEFAULT_MISSION_INTRO;
   const missionHtml = missionDescription?.html ?? markdownToHtml(missionIntro);
   const heroImageLight = heroImage?.imageLightMode?.url ?? heroImage?.url ?? undefined;
-  const heroImageDark = heroImage?.imageDarkMode?.url ?? heroImageLight;
   const heroAlt =
     heroImage?.imageLightMode?.description ??
     heroImage?.imageDarkMode?.description ??
@@ -382,11 +384,11 @@ export default function OurTeamSection(props: OurTeamSectionProps = {}) {
     heroImage?.imageDarkMode?.title ??
     'Our Team Hero Image';
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-20 px-5 transition-colors duration-300 overflow-x-hidden">
+    <div className="min-h-screen bg-gray-50 py-20 px-5 transition-colors duration-300 overflow-x-hidden">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16 animate-fade-in">
-          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
+          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
             Our Team
           </h1>
         </div>
@@ -398,9 +400,6 @@ export default function OurTeamSection(props: OurTeamSectionProps = {}) {
             <div className="w-full h-96 rounded-2xl shadow-xl overflow-hidden bg-gradient-to-br from-[#2B5DAA] to-[#1e3a5f] flex items-center justify-center">
               {heroImageLight ? (
                 <picture className="w-full h-full">
-                  {heroImageDark && (
-                    <source media="(prefers-color-scheme: dark)" srcSet={heroImageDark} />
-                  )}
                   <img
                     src={heroImageLight}
                     alt={heroAlt}
@@ -426,18 +425,18 @@ export default function OurTeamSection(props: OurTeamSectionProps = {}) {
             {/* Right side - Text content */}
             <div className="space-y-8">
               {/* Introductory text without title */}
-              {/* <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+              {/* <p className="text-lg text-gray-700 leading-relaxed">
                 We are a student-driven association dedicated to fostering entrepreneurship, innovation, and collaboration within our university and beyond.
               </p> */}
 
               {/* Our Mission section */}
               <div>
-                <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+                <h2 className="text-3xl font-bold text-gray-900 mb-4">
                   Our Mission
                 </h2>
                 {missionHtml ? (
                   <div
-                    className="prose prose-base text-gray-700 dark:text-gray-300 max-w-none prose-p:leading-relaxed prose-headings:text-gray-900 dark:prose-headings:text-white text-left"
+                    className="prose prose-base text-gray-700 max-w-none prose-p:leading-relaxed prose-headings:text-gray-900 text-left"
                     dangerouslySetInnerHTML={{ __html: missionHtml }}
                   />
                 ) : null}
@@ -448,7 +447,7 @@ export default function OurTeamSection(props: OurTeamSectionProps = {}) {
 
         {/* E-Club Teams Title */}
         {/* <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
             E-Club Teams
           </h2>
         </div> */}
@@ -467,7 +466,7 @@ export default function OurTeamSection(props: OurTeamSectionProps = {}) {
 
         {/* Call to Action */}
         <div className="mt-20 text-center animate-fade-in-delay-3">
-          <div className="bg-gradient-to-br from-[#2B5DAA] to-[#1e3a5f] dark:from-[#1a2942] dark:to-[#0d1829] rounded-2xl p-12 shadow-xl">
+          <div className="bg-gradient-to-br from-[#2B5DAA] to-[#1e3a5f] rounded-2xl p-12 shadow-xl">
             <h3 className="text-3xl font-bold text-white mb-4">
               Want to Join Our Team?
             </h3>
