@@ -1,69 +1,27 @@
 ---
-import MainLayout from '../layouts/main.astro';
-import EventTimeline from './events/EventTimeline.tsx';
+import MainLayout from "../layouts/main.astro";
+import EventTimeline from "./events/EventTimeline.tsx";
+import { fetchEventsFromContentful } from "../lib/contentful";
 
-const events = [
-  {
-    date: "October 24, 2022",
-    title: "In-company visit at Moviri",
-    description: "Moviri, an international tech company based in Milan. It was such a pleasure to be hosted and have the opportunity to listen to their story, from the beginnings to the success. Thanks to Moviri, we learnt to never give up!",
-    year: 2022
-  },
-  {
-    date: "November 12, 2022",
-    title: "Business game held by Con4us",
-    description: "In E-Club we like to face new challenges. We had the opportunity to join new people from other clubs and universities for one day and to compete in teams against each others by creating a new service in Con4us app. The theme was about connection between students, one of the main goal of Con4us.",
-    year: 2022
-  },
-  {
-    date: "October 24, 2024",
-    title: "Meeting the Club Aperitivo",
-    description: "E-Club Polimi opens its 2024/25 recruitment to students eager to learn, network, and build, inviting new members to meet the teams that are behind running the club and see if they would make a good fit.",
-    year: 2024
-  },
-  {
-    date: "November 23, 2024",
-    title: "Can You Pitch It? Social Impact Pitch Night",
-    description: "Fast-paced competition at Leonardo Campus where multidisciplinary teams developed SDG-focused solutions through workshops, mentoring, and a final jury pitch, co-hosted with Enactus PoliMi, SIT PoliMi, and Starting Finance as part of E-Club's Learn • Network • Build path from idea to validation.",
-    year: 2024
-  },
-  {
-    date: "May 5, 2025",
-    title: "La Dolce Venture: Cross-Campus Founder Night",
-    description: "Cross-campus entrepreneurship night at Palazzo Bocconi celebrating talent across Milan. Co-hosted with Innovis VC, E-Club Bocconi, SIT PoliMi and BAINSA, the event connected engineering and business communities and sparked founder matches through high-energy conversations.",
-    year: 2025
-  },
-  {
-    date: "May 14, 2025",
-    title: "Meet the Startup: Ibrida",
-    description: "Meet the Startup: Ibrida, the Milan-born \"bread beer\" that upcycles unsold loaves into a neighborhood brew and shows how circular economy can become a brand and product strategy. An E-Club Polimi session that connects design-led sustainability with entrepreneurial execution.",
-    year: 2025
-  },
-  {
-    date: "May 20, 2025",
-    title: "Campari Museum Visit (Day 1)",
-    description: "Guided visit to Galleria Campari that dives into a century of advertising, packaging, and brand storytelling, turning a global aperitivo icon into a live case study for founders on positioning and community building. An E-Club Polimi outing that links design heritage to go-to-market strategy and product culture.",
-    year: 2025
-  },
-  {
-    date: "May 22, 2025",
-    title: "Campari Museum Visit (Day 2)",
-    description: "Second session at Galleria Campari focused on how creative operations in a heritage brand, from campaigns to experiential spaces, translate into lean experiments for student ventures. Curated by E-Club Polimi to transform Milan's aperitivo culture into lessons in brand-led innovation.",
-    year: 2025
-  },
-  {
-    date: "May 26, 2025",
-    title: "ADI Design Museum Visit (Day 1)",
-    description: "Guided visit to the ADI Design Museum that explores how Italian design principles inform product strategy, branding, and venture building. An E-Club Polimi experience that bridges design culture with entrepreneurial skills through the Compasso d'Oro collection.",
-    year: 2025
-  },
-  {
-    date: "May 29, 2025",
-    title: "ADI Design Museum Visit (Day 2)",
-    description: "A second visit to the ADI Design Museum focusing on how Italy's design heritage shapes founder decisions from problem framing to product-market fit. For those who couldn't make it on the first visit!",
-    year: 2025
-  }
-];
+const rawEvents = await fetchEventsFromContentful();
+
+const events = (rawEvents ?? [])
+  .map((item) => {
+    const dateObj = item?.date ? new Date(item.date) : null;
+    const isValidDate = dateObj && !isNaN(dateObj.getTime());
+    const displayDate = isValidDate
+      ? dateObj.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })
+      : item?.date ?? "TBD";
+
+    return {
+      title: item?.title ?? "Untitled Event",
+      description: item?.description ?? "",
+      date: displayDate,
+      year: isValidDate ? dateObj.getFullYear() : 0,
+      isoDate: item?.date ?? null,
+    };
+  })
+  .filter((e) => e.title && e.date && e.description);
 ---
 
 <MainLayout>

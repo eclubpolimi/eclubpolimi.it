@@ -1,6 +1,6 @@
 import { e as createComponent, k as renderComponent, r as renderTemplate } from '../chunks/astro/server_C27Lqkz0.mjs';
 import 'kleur/colors';
-import { $ as $$Main } from '../chunks/main_BjLudWTY.mjs';
+import { f as fetchTeamMembersFromContentful, a as fetchTeamDescriptionsFromContentful, b as fetchSiteImagesFromContentful, $ as $$Main } from '../chunks/main_1fEQDcjL.mjs';
 import { jsx, jsxs, Fragment } from 'react/jsx-runtime';
 import { Instagram, Linkedin } from 'lucide-react';
 import { marked } from 'marked';
@@ -400,118 +400,6 @@ function OurTeamSection(props = {}) {
       )
     ] }) })
   ] }) });
-}
-
-const SPACE = "b9kw9yhwywsl";
-const ENVIRONMENT = "master";
-const DELIVERY_TOKEN = "wgKnrYfqcWciYTkzILWxU-Ob3PkvGvOMm3IEzGHE_yI";
-const TEAM_QUERY = (
-  /* GraphQL */
-  `
-  query DriversQuery {
-    driverCollection {
-      items {
-        nameSurname
-        team
-        role
-        email
-        instagramLink
-        linkedinLink
-        image {
-          url
-        }
-      }
-    }
-  }
-`
-);
-const TEAM_DESCRIPTION_QUERY = (
-  /* GraphQL */
-  `
-  query TeamDescriptions {
-    decriptionParagraphCollection(limit: 50) {
-      items {
-        textArea
-        textField
-      }
-    }
-  }
-`
-);
-const SITE_IMAGE_QUERY = (
-  /* GraphQL */
-  `
-  query SiteImageAssets {
-    siteImageAssetCollection(limit: 50) {
-      items {
-        key
-        url
-        imageLightMode {
-          url
-          description
-          title
-        }
-        imageDarkMode {
-          url
-          description
-          title
-        }
-      }
-    }
-  }
-`
-);
-async function fetchTeamMembersFromContentful() {
-  const url = `https://graphql.contentful.com/content/v1/spaces/${SPACE}/environments/${ENVIRONMENT}`;
-  const response = await fetch(url, {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${DELIVERY_TOKEN}`,
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({ query: TEAM_QUERY })
-  });
-  if (!response.ok) {
-    const errorText = await response.text();
-    console.error("[Contentful] Failed to fetch team members:", errorText);
-    return [];
-  }
-  const payload = await response.json();
-  const items = payload?.data?.driverCollection?.items ?? [];
-  console.log("[Contentful] First driver returned:", items[0]);
-  return items;
-}
-async function fetchTeamDescriptionsFromContentful() {
-  const url = `https://graphql.contentful.com/content/v1/spaces/${SPACE}/environments/${ENVIRONMENT}`;
-  const response = await fetch(url, {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${DELIVERY_TOKEN}`,
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({ query: TEAM_DESCRIPTION_QUERY })
-  });
-  if (!response.ok) {
-    return [];
-  }
-  const payload = await response.json();
-  return payload?.data?.decriptionParagraphCollection?.items ?? [];
-}
-async function fetchSiteImagesFromContentful() {
-  const url = `https://graphql.contentful.com/content/v1/spaces/${SPACE}/environments/${ENVIRONMENT}`;
-  const response = await fetch(url, {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${DELIVERY_TOKEN}`,
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({ query: SITE_IMAGE_QUERY })
-  });
-  if (!response.ok) {
-    return [];
-  }
-  const payload = await response.json();
-  return payload?.data?.siteImageAssetCollection?.items ?? [];
 }
 
 const $$OurTeam = createComponent(async ($$result, $$props, $$slots) => {

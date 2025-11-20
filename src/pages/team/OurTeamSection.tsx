@@ -1,6 +1,7 @@
 import TeamMemberCard from '../../components/TeamMemberCard';
 import {marked} from 'marked';
 import sanitizeHtml from 'sanitize-html';
+import type {SiteImageAsset} from '../../lib/contentful';
 
 type ContentfulTeamMember = {
   nameSurname?: string | null;
@@ -47,21 +48,6 @@ type OurTeamSectionProps = {
   teamMembers?: ContentfulTeamMember[];
   teamDescriptions?: ContentfulTeamDescription[];
   heroImage?: SiteImageAsset;
-};
-
-type SiteImageAsset = {
-  key?: string | null;
-  url?: string | null;
-  imageLightMode?: {
-    url?: string | null;
-    description?: string | null;
-    title?: string | null;
-  } | null;
-  imageDarkMode?: {
-    url?: string | null;
-    description?: string | null;
-    title?: string | null;
-  } | null;
 };
 
 // Team data organized by department

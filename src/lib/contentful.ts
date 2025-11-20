@@ -20,6 +20,18 @@ const TEAM_QUERY = /* GraphQL */ `
   }
 `;
 
+const EVENT_QUERY = /* GraphQL */ `
+  query Events {
+    eventCollection(order: date_DESC, limit: 100) {
+      items {
+        title
+        date
+        description
+      }
+    }
+  }
+`;
+
 const TEAM_DESCRIPTION_QUERY = /* GraphQL */ `
   query TeamDescriptions {
     decriptionParagraphCollection(limit: 50) {
@@ -51,6 +63,27 @@ const SITE_IMAGE_QUERY = /* GraphQL */ `
     }
   }
 `;
+
+export type SiteImageAsset = {
+  key?: string | null;
+  url?: string | null;
+  imageLightMode?: {
+    url?: string | null;
+    description?: string | null;
+    title?: string | null;
+  } | null;
+  imageDarkMode?: {
+    url?: string | null;
+    description?: string | null;
+    title?: string | null;
+  } | null;
+};
+
+export type EventEntry = {
+  title?: string | null;
+  date?: string | null;
+  description?: string | null;
+};
 
 export async function fetchTeamMembersFromContentful() {
   if (!SPACE || !DELIVERY_TOKEN) {
@@ -108,7 +141,7 @@ export async function fetchTeamDescriptionsFromContentful() {
   return payload?.data?.decriptionParagraphCollection?.items ?? [];
 }
 
-export async function fetchSiteImagesFromContentful() {
+export async function fetchSiteImagesFromContentful(): Promise<SiteImageAsset[]> {
   if (!SPACE || !DELIVERY_TOKEN) {
     return [];
   }
@@ -130,4 +163,33 @@ export async function fetchSiteImagesFromContentful() {
 
   const payload = await response.json();
   return payload?.data?.siteImageAssetCollection?.items ?? [];
+}
+
+export async function fetchEventsFromContentful(): Promise<EventEntry[]> {
+  if (!SPACE || !DELIVERY_TOKEN) {
+    console.warn(
+      '[Contentful] Missing CONTENTFUL_SPACE_ID or CONTENTFUL_DELIVERY_TOKEN env variables'
+    );
+    return [];
+  }
+
+  const url = `https://graphql.contentful.com/content/v1/spaces/${SPACE}/environments/${ENVIRONMENT}`;
+
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${DELIVERY_TOKEN}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({query: EVENT_QUERY}),
+  });
+
+  if (!response.ok) {
+    const errorText = await response.text();
+    console.error('[Contentful] Failed to fetch events:', errorText);
+    return [];
+  }
+
+  const payload = await response.json();
+  return payload?.data?.eventCollection?.items ?? [];
 }

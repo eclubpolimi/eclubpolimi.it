@@ -1,6 +1,6 @@
 import { e as createComponent, k as renderComponent, r as renderTemplate } from '../chunks/astro/server_C27Lqkz0.mjs';
 import 'kleur/colors';
-import { $ as $$Main } from '../chunks/main_BjLudWTY.mjs';
+import { $ as $$Main } from '../chunks/main_1fEQDcjL.mjs';
 export { renderers } from '../renderers.mjs';
 
 const $$Events = createComponent(($$result, $$props, $$slots) => {

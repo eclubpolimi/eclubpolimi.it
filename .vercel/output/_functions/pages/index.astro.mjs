@@ -1,6 +1,6 @@
 import { e as createComponent, k as renderComponent, r as renderTemplate } from '../chunks/astro/server_C27Lqkz0.mjs';
 import 'kleur/colors';
-import { b as baseUrl, $ as $$Main } from '../chunks/main_BjLudWTY.mjs';
+import { c as baseUrl, $ as $$Main } from '../chunks/main_1fEQDcjL.mjs';
 import { jsxs, jsx } from 'react/jsx-runtime';
 import { useState } from 'react';
 export { renderers } from '../renderers.mjs';
