@@ -4,7 +4,7 @@ import Hero from "./home/Hero";
 import CoreValues from "./home/CoreValues";
 import WhatWeDo from "./home/WhatWeDo";
 import Sponsors from "./home/Sponsors";
-import { fetchSponsorsFromContentful } from "../lib/contentful";
+import { fetchSponsorsFromContentful, fetchSiteVideosFromContentful } from "../lib/contentful";
 
 // Whitelist the sponsor names you want to show
 const allowedSponsorNames = [
@@ -16,10 +16,16 @@ const allowedSponsorNames = [
 const sponsors = (await fetchSponsorsFromContentful()).filter((s) =>
   allowedSponsorNames.includes((s.name ?? "").trim()),
 );
+
+const siteVideos = await fetchSiteVideosFromContentful();
+const heroVideoAsset = siteVideos.find(
+  (asset) => (asset.videoName ?? "").toLowerCase() === "hero_video"
+);
+const heroVideoUrl = heroVideoAsset?.video?.url ?? undefined;
 ---
 
 <MainLayout>
-  <Hero client:load />
+  <Hero client:load heroVideoUrl={heroVideoUrl} />
   <CoreValues client:load />
   <WhatWeDo client:load />
   <Sponsors client:load sponsors={sponsors} />
