@@ -30,8 +30,8 @@ const brandingLogo = siteImages.find((asset) => asset.key?.toLowerCase() === 'br
     </script>
   </head>
   
-  <body class="bg-white text-black min-h-screen">
-    <div class="flex flex-col min-h-screen">
+  <body class="bg-white text-black min-h-[100dvh]">
+    <div class="flex flex-col min-h-[100dvh]">
       <!-- Navigation -->
       <Navbar client:load currentPath={Astro.url.pathname} brandingLogo={brandingLogo} />
       

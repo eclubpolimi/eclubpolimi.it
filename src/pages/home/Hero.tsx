@@ -2,14 +2,17 @@ import { baseUrl } from '../../lib/base-url';
 
 export default function Hero() {
   const scrollToContent = () => {
+    const next =
+      document.querySelector('[data-hero-next]') as HTMLElement | null;
+    const viewportHeight = window.visualViewport?.height ?? window.innerHeight;
     window.scrollTo({
-      top: window.innerHeight,
-      behavior: 'smooth'
+      top: next ? next.offsetTop : viewportHeight,
+      behavior: 'smooth',
     });
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#2B5DAA] to-[#1e3a5f] dark:from-[#1a2942] dark:to-[#0d1829] text-white flex items-center justify-center relative overflow-hidden transition-colors duration-300 pt-16 md:pt-20">
+    <div className="min-h-[100dvh] bg-gradient-to-br from-[#2B5DAA] to-[#1e3a5f] text-white flex items-center justify-center relative overflow-hidden pt-16 md:pt-20">
       {/* Decorative background elements */}
       <div className="absolute inset-0 overflow-hidden opacity-10">
         <div className="absolute top-20 left-10 w-72 h-72 bg-white rounded-full blur-3xl"></div>
