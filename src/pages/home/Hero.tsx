@@ -1,6 +1,13 @@
 import { baseUrl } from '../../lib/base-url';
 
-export default function Hero() {
+type HeroProps = {
+  heroVideoUrl?: string;
+};
+
+const fallbackVideo =
+  'https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4'; // Replace with your own hero video
+
+export default function Hero({ heroVideoUrl }: HeroProps) {
   const scrollToContent = () => {
     const next = document.querySelector('[data-hero-next]') as HTMLElement | null;
     const viewportHeight = Math.max(
@@ -14,7 +21,25 @@ export default function Hero() {
   };
 
   return (
-    <div className="min-h-screen min-h-[100dvh] bg-gradient-to-br from-[#2B5DAA] to-[#1e3a5f] text-white flex items-center justify-center relative overflow-hidden pt-16 md:pt-20 overscroll-y-none">
+    <div
+      className="min-h-screen text-white flex items-center justify-center relative overflow-hidden pt-16 md:pt-20 overscroll-y-none"
+      style={{ minHeight: 'calc(var(--vh, 1vh) * 100)' }}
+    >
+      {/* Background video */}
+      <div className="absolute inset-0 -z-20 overflow-hidden">
+        <video
+          className="w-full h-full object-cover"
+          autoPlay
+          loop
+          muted
+          playsInline
+          src={heroVideoUrl ?? fallbackVideo}
+        />
+      </div>
+
+      {/* Color overlay to keep blue tone */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#2B5DAA] to-[#1e3a5f] opacity-70 -z-10" />
+
       {/* Decorative background elements */}
       <div className="absolute inset-0 overflow-hidden opacity-10">
         <div className="absolute top-20 left-10 w-72 h-72 bg-white rounded-full blur-3xl"></div>

@@ -85,6 +85,22 @@ const SPONSOR_QUERY = /* GraphQL */ `
   }
 `;
 
+const SITE_VIDEO_QUERY = /* GraphQL */ `
+  query SiteVideoAssets {
+    siteVideoAssetCollection(limit: 20) {
+      items {
+        videoName
+        video {
+          url
+          contentType
+          description
+          fileName
+        }
+      }
+    }
+  }
+`;
+
 export type SiteImageAsset = {
   key?: string | null;
   url?: string | null;
@@ -118,6 +134,16 @@ export type SponsorEntry = {
     url?: string | null;
     description?: string | null;
     title?: string | null;
+  } | null;
+};
+
+export type SiteVideoAsset = {
+  videoName?: string | null;
+  video?: {
+    url?: string | null;
+    contentType?: string | null;
+    description?: string | null;
+    fileName?: string | null;
   } | null;
 };
 
@@ -252,4 +278,28 @@ export async function fetchSponsorsFromContentful(): Promise<SponsorEntry[]> {
 
   const payload = await response.json();
   return payload?.data?.sponsorCollection?.items ?? [];
+}
+
+export async function fetchSiteVideosFromContentful(): Promise<SiteVideoAsset[]> {
+  if (!SPACE || !DELIVERY_TOKEN) {
+    return [];
+  }
+
+  const url = `https://graphql.contentful.com/content/v1/spaces/${SPACE}/environments/${ENVIRONMENT}`;
+
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${DELIVERY_TOKEN}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ query: SITE_VIDEO_QUERY }),
+  });
+
+  if (!response.ok) {
+    return [];
+  }
+
+  const payload = await response.json();
+  return payload?.data?.siteVideoAssetCollection?.items ?? [];
 }
