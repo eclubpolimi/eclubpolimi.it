@@ -11,7 +11,7 @@ eclubpolimi/
 │   │   ├── Footer.tsx          # Site footer with links
 │   │   ├── Navbar.tsx          # Navigation with dropdown menu
 │   │   ├── TeamMemberCard.tsx  # Team member display card
-│   │   └── ThemeToggle.tsx     # Dark mode toggle button
+│   │   └── ThemeToggle.tsx     # Dark mode toggle button (removed)
 │   │
 │   ├── pages/                   # Astro pages (file-based routing)
 │   │   ├── home/               # Home page components
@@ -87,7 +87,7 @@ eclubpolimi/
 ```
 Main Layout (main.astro)
 ├── Navbar.tsx
-├── ThemeToggle.tsx
+├── ThemeToggle.tsx (removed)
 └── Footer.tsx
 
 Home Page (index.astro)

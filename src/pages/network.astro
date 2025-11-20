@@ -37,7 +37,6 @@ const heroAsset = siteImages.find(
   (asset) => (asset.key ?? "").toLowerCase() === "netwok_hero_image",
 );
 const heroLight = heroAsset?.imageLightMode?.url ?? heroAsset?.url ?? undefined;
-const heroDark = heroAsset?.imageDarkMode?.url ?? heroLight;
 const heroAlt =
   heroAsset?.imageLightMode?.description ??
   heroAsset?.imageLightMode?.title ??
@@ -47,9 +46,7 @@ const heroAlt =
 ---
 
 <MainLayout>
-  <div
-    class="min-h-[100svh] md:min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300"
-  >
+  <div class="min-h-[100svh] md:min-h-screen bg-white">
     <!-- Hero Section with Image - Full Screen -->
     <section
       style="background-color: #224371;"
@@ -70,20 +67,12 @@ const heroAlt =
         >
           {
             heroLight ? (
-              <picture class="w-full h-full">
-                {heroDark && (
-                  <source
-                    media="(prefers-color-scheme: dark)"
-                    srcSet={heroDark}
-                  />
-                )}
-                <img
-                  src={heroLight}
-                  alt={heroAlt}
-                  class="w-full h-full object-cover object-top"
-                  loading="lazy"
-                />
-              </picture>
+              <img
+                src={heroLight}
+                alt={heroAlt}
+                class="w-full h-full object-cover object-top"
+                loading="lazy"
+              />
             ) : (
               <div class="text-center p-8">
                 <svg
@@ -135,10 +124,10 @@ const heroAlt =
     </section>
 
     <!-- Network Logo Section -->
-    <section class="py-14 md:py-20 px-4 md:px-5 bg-white dark:bg-gray-900">
+    <section class="py-14 md:py-20 px-4 md:px-5 bg-white">
       <div class="max-w-6xl mx-auto">
         <h2
-          class="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-10 md:mb-12 text-center"
+          class="text-3xl md:text-5xl font-bold text-gray-900 mb-10 md:mb-12 text-center"
         >
           <div class="flex flex-col items-center">
             <span class="uppercase">E-CLUB</span>
@@ -164,7 +153,7 @@ const heroAlt =
 
         <!-- Single Box Container for Partner Whitelist -->
         <div
-          class="max-w-5xl mx-auto bg-white dark:bg-gray-800 rounded-2xl p-6 md:p-10 shadow-xl border-4 transition-all duration-300"
+          class="max-w-5xl mx-auto bg-white rounded-2xl p-6 md:p-10 shadow-xl border-4 transition-all duration-300"
           style="border-color: #FC5834;"
         >
           <div
@@ -174,7 +163,6 @@ const heroAlt =
               partnerWhitelist.length > 0 ? (
                 partnerWhitelist.map((sponsor) => {
                   const logoLight = sponsor.logo?.url ?? undefined;
-                  const logoDark = sponsor.logoDark?.url ?? logoLight;
                   const alt =
                     sponsor.logo?.description ??
                     sponsor.logo?.title ??
@@ -196,22 +184,14 @@ const heroAlt =
                       }
                       class="flex flex-col items-center justify-center transition-all duration-300 hover:scale-105 group text-center space-y-2"
                     >
-                      <div class="w-36 h-36 md:w-40 md:h-40 bg-gray-50 dark:bg-gray-700 rounded-xl flex items-center justify-center shadow-md">
+                      <div class="w-36 h-36 md:w-40 md:h-40 bg-gray-50 rounded-xl flex items-center justify-center shadow-md">
                         {logoLight ? (
-                          <picture class="w-full flex items-center justify-center px-4 py-2">
-                            {logoDark && (
-                              <source
-                                media="(prefers-color-scheme: dark)"
-                                srcSet={logoDark}
-                              />
-                            )}
-                            <img
-                              src={logoLight}
-                              alt={alt}
-                              class="max-h-24 max-w-[180px] md:max-w-[200px] object-contain"
-                              loading="lazy"
-                            />
-                          </picture>
+                          <img
+                            src={logoLight}
+                            alt={alt}
+                            class="max-h-24 max-w-[180px] md:max-w-[200px] object-contain px-4 py-2"
+                            loading="lazy"
+                          />
                         ) : (
                           <div class="text-center text-gray-400 group-hover:text-[#FC5834] transition-colors duration-300">
                             <svg
@@ -231,14 +211,14 @@ const heroAlt =
                           </div>
                         )}
                       </div>
-                      <p class="text-center text-gray-700 dark:text-gray-300 font-semibold text-lg group-hover:text-[#FC5834] transition-colors duration-300">
+                      <p class="text-center text-gray-700 font-semibold text-lg group-hover:text-[#FC5834] transition-colors duration-300">
                         {displayName}
                       </p>
                     </a>
                   );
                 })
               ) : (
-                <div class="col-span-3 text-center text-gray-500 dark:text-gray-400">
+                <div class="col-span-3 text-center text-gray-500">
                   No partners found.
                 </div>
               )
@@ -316,16 +296,16 @@ const heroAlt =
     </section>
 
     <!-- Entrepreneurship Clubs in Italy Section -->
-    <section class="py-20 px-5 bg-white dark:bg-gray-900">
+    <section class="py-20 px-5 bg-white">
       <div class="max-w-4xl mx-auto">
         <h2
-          class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-8 text-center"
+          class="text-4xl md:text-5xl font-bold text-gray-900 mb-8 text-center"
         >
           Entrepreneurship Clubs in Italy
         </h2>
         <div class="prose prose-lg max-w-none">
           <p
-            class="text-base md:text-xl text-gray-700 dark:text-gray-300 leading-relaxed text-justify"
+            class="text-base md:text-xl text-gray-700 leading-relaxed text-justify"
           >
             The first Entrepreneurship Club was founded in 2011 in Bocconi
             University in Milan. The core values (Learn, Network, Build)
