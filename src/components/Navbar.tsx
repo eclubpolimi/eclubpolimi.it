@@ -75,7 +75,7 @@ export default function Navbar({ currentPath = '/', brandingLogo }: NavbarProps)
           {logoLight ? (
             <picture className="h-12 flex items-center">
               {logoDark && <source media="(prefers-color-scheme: dark)" srcSet={logoDark} />}
-              <img src={logoLight} alt={logoAlt} className="h-16 w-auto object-contain max-w-full" loading="lazy" />
+              <img src={logoLight} alt={logoAlt} className="h-9 w-auto object-contain max-w-full" loading="lazy" />
             </picture>
           ) : (
             <span className="text-2xl font-bold text-white">
