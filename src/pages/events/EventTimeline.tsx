@@ -117,7 +117,7 @@ export default function EventTimeline({ events }: EventTimelineProps) {
   );
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-28 pb-20 px-4 md:px-5">
+    <div className="pb-20 px-4 md:px-5">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         {/* <div className="text-center mb-16 px-2">

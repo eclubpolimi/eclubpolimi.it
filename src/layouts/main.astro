@@ -46,7 +46,7 @@ const faviconUrl = faviconSponsor?.logo?.url ?? '/favicon.ico';
       <Navbar client:load currentPath={Astro.url.pathname} brandingLogo={brandingLogo} />
       
       <!-- Main content -->
-      <main class="flex-grow">
+      <main class="flex-grow pt-24">
         <slot />
       </main>
       

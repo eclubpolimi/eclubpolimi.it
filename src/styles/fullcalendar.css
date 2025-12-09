@@ -1,0 +1,85 @@
+/* FullCalendar overrides to match eclubpolimi theme */
+:root {
+    --fc-accent: var(--accent);
+    --fc-accent-foreground: var(--accent-foreground);
+    --fc-primary: var(--primary);
+    --fc-border: var(--border);
+    --fc-bg: transparent;
+}
+
+/* Toolbar */
+.eclub-calendar .fc .fc-toolbar {
+    margin-bottom: 0.5rem;
+}
+
+.eclub-calendar .fc .fc-toolbar-title {
+    font-family: var(--heading-font);
+    font-size: 1.125rem;
+    color: var(--foreground);
+}
+
+.eclub-calendar .fc .fc-button {
+    background: var(--card);
+    color: var(--card-foreground);
+    border: 1px solid var(--border);
+    padding: 0.375rem 0.5rem;
+    border-radius: 0.375rem;
+    box-shadow: none;
+}
+
+.eclub-calendar .fc .fc-button:hover {
+    background: color-mix(in srgb, var(--card) 85%, black 5%);
+}
+
+.eclub-calendar .fc .fc-button-primary {
+    background: var(--primary);
+    color: var(--primary-foreground);
+}
+
+/* Grid */
+.eclub-calendar .fc .fc-col-header-cell {
+    background: transparent;
+    border: none;
+    color: var(--muted-foreground);
+    font-weight: 600;
+}
+
+.eclub-calendar .fc .fc-daygrid-day {
+    border: 1px solid transparent;
+}
+
+.eclub-calendar .fc .fc-daygrid-day:hover {
+    background: rgba(0, 0, 0, 0.02);
+}
+
+.eclub-calendar .fc .fc-day-today {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.02), rgba(0, 0, 0, 0.01));
+    outline: 1px solid var(--primary);
+}
+
+/* Events */
+.eclub-calendar .fc .fc-event {
+    background: var(--fc-accent);
+    color: var(--fc-accent-foreground);
+    border: none;
+    padding: 0.125rem 0.25rem;
+    font-size: 0.85rem;
+    border-radius: 6px;
+}
+
+.eclub-calendar .fc .fc-event-title {
+    font-weight: 600;
+}
+
+/* Timegrid specific */
+.eclub-calendar .fc .fc-timegrid-slot-lane {
+    border-top: 1px dashed rgba(0, 0, 0, 0.04);
+}
+
+/* Make toolbar compact on small screens */
+@media (max-width: 640px) {
+    .eclub-calendar .fc .fc-toolbar .fc-toolbar-chunk {
+        display: block;
+        text-align: center;
+    }
+}
