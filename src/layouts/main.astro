@@ -1,59 +1,80 @@
 ---
 // Import fonts and global styles
-import '../../generated/fonts.css';
-import '../../generated/webflow.css';
-import '../site-components/global.css';
-import '../styles/global.css';
+import "../../generated/fonts.css";
+import "../../generated/webflow.css";
+import "../site-components/global.css";
+import "../styles/global.css";
 
 // Import components
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
-import {fetchSiteImagesFromContentful, fetchSponsorsFromContentful} from '../lib/contentful';
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import {
+  fetchSiteImagesFromContentful,
+  fetchSponsorsFromContentful,
+} from "../lib/contentful";
 
 const siteImages = await fetchSiteImagesFromContentful();
-const brandingLogo = siteImages.find((asset) => asset.key?.toLowerCase() === 'branding_logo_white');
+const brandingLogo = siteImages.find(
+  (asset) => asset.key?.toLowerCase() === "branding_logo_white",
+);
 const sponsors = await fetchSponsorsFromContentful();
 const faviconSponsor = sponsors.find(
-  (s) => (s.name ?? '').trim().toLowerCase() === 'e_club_polimi'
+  (s) => (s.name ?? "").trim().toLowerCase() === "e_club_polimi",
 );
-const faviconUrl = faviconSponsor?.logo?.url ?? '/favicon.ico';
+const faviconUrl = faviconSponsor?.logo?.url ?? "/favicon.ico";
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/png" href={faviconUrl} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="description" content="Entrepreneurship Club Polimi - Fostering innovation and entrepreneurship at Politecnico di Milano" />
+    <meta
+      name="description"
+      content="Entrepreneurship Club Polimi - Fostering innovation and entrepreneurship at Politecnico di Milano"
+    />
     <meta name="theme-color" content="#ffffff" />
     <title>E-Club Polimi</title>
     <script is:inline>
       // Force light mode
-      document.documentElement.classList.remove('dark');
-      try { localStorage.removeItem('theme'); } catch (e) {}
+      document.documentElement.classList.remove("dark");
+      try {
+        localStorage.removeItem("theme");
+      } catch (e) {}
       // Lock a stable viewport height for this session (no resize listener)
-      const initialVh = (window.innerHeight || document.documentElement.clientHeight) * 0.01;
-      document.documentElement.style.setProperty('--vh-static', `${initialVh}px`);
-      document.documentElement.style.setProperty('--vh-static-px', `${initialVh * 100}px`);
+      const initialVh =
+        (window.innerHeight || document.documentElement.clientHeight) * 0.01;
+      document.documentElement.style.setProperty(
+        "--vh-static",
+        `${initialVh}px`,
+      );
+      document.documentElement.style.setProperty(
+        "--vh-static-px",
+        `${initialVh * 100}px`,
+      );
     </script>
   </head>
-  
+
   <body class="bg-white text-black min-h-[100dvh]">
     <div class="flex flex-col min-h-[100dvh]">
       <!-- Navigation -->
-      <Navbar client:load currentPath={Astro.url.pathname} brandingLogo={brandingLogo} />
-      
+      <Navbar
+        client:load
+        currentPath={Astro.url.pathname}
+        brandingLogo={brandingLogo}
+      />
+
       <!-- Main content -->
-      <main class="flex-grow pt-24">
+      <main class="flex-grow pt-10">
         <slot />
       </main>
-      
+
       <!-- Footer -->
       <Footer client:load brandingLogo={brandingLogo} />
     </div>
-    
+
     <!-- Theme toggle button -->
   </body>
 </html>
