@@ -36,7 +36,7 @@ const events = (rawEvents ?? [])
 <MainLayout>
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
     <div>
-      <h2 class="text-2xl font-semibold mb-4">Google Calendar</h2>
+      <h2 class="text-2xl font-semibold pt-10 mb-4">E-Club Calendar</h2>
       <div class="bg-white rounded-md shadow overflow-hidden">
         <div class="w-full">
           <iframe
@@ -51,7 +51,7 @@ const events = (rawEvents ?? [])
     </div>
 
     <div class="mt-12">
-      <h2 class="text-2xl font-semibold mb-4">Events Timeline</h2>
+      <!-- <h2 class="text-2xl font-semibold mb-4">Events Timeline</h2> -->
       <EventTimeline events={events} client:only="react" />
     </div>
   </div>
