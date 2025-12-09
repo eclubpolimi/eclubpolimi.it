@@ -22,7 +22,7 @@ export default function Hero({ heroVideoUrl }: HeroProps) {
 
   return (
     <div
-      className="min-h-screen text-white flex items-center justify-center relative overflow-hidden pt-16 md:pt-20 overscroll-y-none"
+      className="min-h-screen text-white flex items-center justify-center relative overflow-hidden pt-24 overscroll-y-none"
       style={{ minHeight: 'var(--vh-static-px, 100vh)' }}
     >
       {/* Background video */}
