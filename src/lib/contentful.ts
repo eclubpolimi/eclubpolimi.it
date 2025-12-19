@@ -147,159 +147,58 @@ export type SiteVideoAsset = {
   } | null;
 };
 
-export async function fetchTeamMembersFromContentful() {
+async function fetchFromContentful<T>(query: string, collection: string): Promise<T[]> {
   if (!SPACE || !DELIVERY_TOKEN) {
-    console.warn(
-      '[Contentful] Missing CONTENTFUL_SPACE_ID or CONTENTFUL_DELIVERY_TOKEN env variables'
-    );
+    console.error('[Contentful] Missing CONTENTFUL_SPACE_ID or CONTENTFUL_DELIVERY_TOKEN env variables');
     return [];
   }
 
   const url = `https://graphql.contentful.com/content/v1/spaces/${SPACE}/environments/${ENVIRONMENT}`;
 
-  const response = await fetch(url, {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${DELIVERY_TOKEN}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ query: TEAM_QUERY }),
-  });
+  try {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${DELIVERY_TOKEN}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ query }),
+    });
 
-  if (!response.ok) {
-    const errorText = await response.text();
-    console.error('[Contentful] Failed to fetch team members:', errorText);
+    if (!response.ok) {
+      const errorText = await response.text();
+      console.error(`[Contentful] Failed to fetch ${collection}:`, errorText);
+      return [];
+    }
+
+    const payload = await response.json();
+    return payload?.data?.[collection]?.items ?? [];
+  } catch (error) {
+    console.error(`[Contentful] Error fetching ${collection}:`, error);
     return [];
   }
-
-  const payload = await response.json();
-  const items = payload?.data?.driverCollection?.items ?? [];
-  console.log('[Contentful] First driver returned:', items[0]);
-
-  return items;
 }
 
-export async function fetchTeamDescriptionsFromContentful() {
-  if (!SPACE || !DELIVERY_TOKEN) {
-    return [];
-  }
-
-  const url = `https://graphql.contentful.com/content/v1/spaces/${SPACE}/environments/${ENVIRONMENT}`;
-
-  const response = await fetch(url, {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${DELIVERY_TOKEN}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({query: TEAM_DESCRIPTION_QUERY}),
-  });
-
-  if (!response.ok) {
-    return [];
-  }
-
-  const payload = await response.json();
-  return payload?.data?.decriptionParagraphCollection?.items ?? [];
+export function fetchTeamMembersFromContentful() {
+  return fetchFromContentful(TEAM_QUERY, 'driverCollection');
 }
 
-export async function fetchSiteImagesFromContentful(): Promise<SiteImageAsset[]> {
-  if (!SPACE || !DELIVERY_TOKEN) {
-    return [];
-  }
-
-  const url = `https://graphql.contentful.com/content/v1/spaces/${SPACE}/environments/${ENVIRONMENT}`;
-
-  const response = await fetch(url, {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${DELIVERY_TOKEN}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({query: SITE_IMAGE_QUERY}),
-  });
-
-  if (!response.ok) {
-    return [];
-  }
-
-  const payload = await response.json();
-  return payload?.data?.siteImageAssetCollection?.items ?? [];
+export function fetchTeamDescriptionsFromContentful() {
+  return fetchFromContentful(TEAM_DESCRIPTION_QUERY, 'decriptionParagraphCollection');
 }
 
-export async function fetchEventsFromContentful(): Promise<EventEntry[]> {
-  if (!SPACE || !DELIVERY_TOKEN) {
-    console.warn(
-      '[Contentful] Missing CONTENTFUL_SPACE_ID or CONTENTFUL_DELIVERY_TOKEN env variables'
-    );
-    return [];
-  }
-
-  const url = `https://graphql.contentful.com/content/v1/spaces/${SPACE}/environments/${ENVIRONMENT}`;
-
-  const response = await fetch(url, {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${DELIVERY_TOKEN}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({query: EVENT_QUERY}),
-  });
-
-  if (!response.ok) {
-    const errorText = await response.text();
-    console.error('[Contentful] Failed to fetch events:', errorText);
-    return [];
-  }
-
-  const payload = await response.json();
-  return payload?.data?.eventCollection?.items ?? [];
+export function fetchSiteImagesFromContentful(): Promise<SiteImageAsset[]> {
+  return fetchFromContentful(SITE_IMAGE_QUERY, 'siteImageAssetCollection');
 }
 
-export async function fetchSponsorsFromContentful(): Promise<SponsorEntry[]> {
-  if (!SPACE || !DELIVERY_TOKEN) {
-    return [];
-  }
-
-  const url = `https://graphql.contentful.com/content/v1/spaces/${SPACE}/environments/${ENVIRONMENT}`;
-
-  const response = await fetch(url, {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${DELIVERY_TOKEN}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({query: SPONSOR_QUERY}),
-  });
-
-  if (!response.ok) {
-    return [];
-  }
-
-  const payload = await response.json();
-  return payload?.data?.sponsorCollection?.items ?? [];
+export function fetchEventsFromContentful(): Promise<EventEntry[]> {
+  return fetchFromContentful(EVENT_QUERY, 'eventCollection');
 }
 
-export async function fetchSiteVideosFromContentful(): Promise<SiteVideoAsset[]> {
-  if (!SPACE || !DELIVERY_TOKEN) {
-    return [];
-  }
+export function fetchSponsorsFromContentful(): Promise<SponsorEntry[]> {
+  return fetchFromContentful(SPONSOR_QUERY, 'sponsorCollection');
+}
 
-  const url = `https://graphql.contentful.com/content/v1/spaces/${SPACE}/environments/${ENVIRONMENT}`;
-
-  const response = await fetch(url, {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${DELIVERY_TOKEN}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ query: SITE_VIDEO_QUERY }),
-  });
-
-  if (!response.ok) {
-    return [];
-  }
-
-  const payload = await response.json();
-  return payload?.data?.siteVideoAssetCollection?.items ?? [];
+export function fetchSiteVideosFromContentful(): Promise<SiteVideoAsset[]> {
+  return fetchFromContentful(SITE_VIDEO_QUERY, 'siteVideoAssetCollection');
 }
