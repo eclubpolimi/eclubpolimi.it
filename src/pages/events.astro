@@ -1,9 +1,15 @@
 ---
 import MainLayout from "../layouts/main.astro";
 import EventTimeline from "./events/EventTimeline.tsx";
-import { fetchEventsFromContentful } from "../lib/contentful";
+import {
+  fetchEventsFromContentful,
+  fetchSiteImagesFromContentful,
+  type SiteImageAsset,
+} from "../lib/contentful";
+import EventHighlightGallery from "../components/EventHighlightGallery.tsx";
 
 const rawEvents = await fetchEventsFromContentful();
+const highlightPhotos = await fetchSiteImagesFromContentful();
 
 const events = (rawEvents ?? [])
   .map((item) => {
@@ -36,10 +42,15 @@ const events = (rawEvents ?? [])
 <MainLayout>
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
     <div class="mt-12">
-      <!-- <h2 class="text-2xl font-semibold mb-4">Events Timeline</h2> -->
-      <p class="mb-4">
-        <!-- To see our full event schedule, check out the <a href="/calendar" class="text-blue-500 hover:underline">E-Club Calendar</a>. -->
-      </p>
+      <h2 class="text-2xl font-semibold mb-4">All our events</h2>
+      <EventHighlightGallery
+        highlightPhotos={highlightPhotos.filter((photo: SiteImageAsset) =>
+          photo.key?.includes("event_hightlight_"),
+        )}
+        client:only="react"
+      />
+    </div>
+    <div class="mt-12">
       <EventTimeline events={events} client:only="react" />
     </div>
   </div>
