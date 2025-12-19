@@ -34,6 +34,7 @@ export default function Navbar({ currentPath = '/', brandingLogo }: NavbarProps)
     { label: 'Home', href: `${baseUrl}/`, match: '/' },
     { label: 'Our Team', href: `${baseUrl}/our-team`, match: '/our-team' },
     { label: 'Events', href: `${baseUrl}/events`, match: '/events' },
+    { label: 'Calendar', href: `${baseUrl}/calendar`, match: '/calendar' },
     { label: 'Network', href: `${baseUrl}/network`, match: '/network' },
   ];
 
