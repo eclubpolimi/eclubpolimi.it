@@ -1,8 +1,8 @@
-export async function refreshAccessToken() {
+export async function refreshAccessToken(refreshTokenArg?: string) {
     const client_id = process.env.GOOGLE_CLIENT_ID;
     const client_secret = process.env.GOOGLE_CLIENT_SECRET;
-    const refreshToken = process.env.GOOGLE_REFRESH_TOKEN;
-    if (!client_id || !client_secret || !refreshToken) throw new Error('Missing GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET or GOOGLE_REFRESH_TOKEN');
+    const refreshToken = refreshTokenArg || process.env.GOOGLE_REFRESH_TOKEN;
+    if (!client_id || !client_secret || !refreshToken) throw new Error('Missing GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET or refresh token');
 
     const params = new URLSearchParams();
     params.set('client_id', client_id);
@@ -36,4 +36,10 @@ export async function saveRefreshToken(refreshToken: string) {
     // 3. Environment variable update (requires restart)
 
     return { success: true };
+}
+
+export async function readRefreshToken(): Promise<string | null> {
+    // Prefer an env var (set in deployment). Return null if not available.
+    const token = process.env.GOOGLE_REFRESH_TOKEN ?? null;
+    return token;
 }
