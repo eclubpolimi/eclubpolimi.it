@@ -1,12 +1,12 @@
 ---
 import MainLayout from "../layouts/main.astro";
-import EventTimeline from "./events/EventTimeline.tsx";
+import EventTimeline from "../components/events/_EventTimeline.tsx";
 import {
   fetchEventsFromContentful,
   fetchSiteImagesFromContentful,
   type SiteImageAsset,
 } from "../lib/contentful";
-import EventHighlightGallery from "../components/EventHighlightGallery.tsx";
+import EventHighlightGallery from "../components/shared/EventHighlightGallery.tsx";
 
 const rawEvents = await fetchEventsFromContentful();
 const highlightPhotos = await fetchSiteImagesFromContentful();
