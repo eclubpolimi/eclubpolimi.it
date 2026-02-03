@@ -1,35 +1,8 @@
-import fs from 'fs/promises';
-import path from 'path';
-
-const TOKEN_PATH = path.resolve('./data/google_tokens.json');
-
-type StoredTokens = {
-    refresh_token?: string;
-    scope?: string;
-    token_type?: string;
-    expiry_date?: number;
-};
-
-export async function saveRefreshToken(refreshToken: string) {
-    const data: StoredTokens = { refresh_token: refreshToken };
-    await fs.mkdir(path.dirname(TOKEN_PATH), { recursive: true });
-    await fs.writeFile(TOKEN_PATH, JSON.stringify(data, null, 2), 'utf8');
-}
-
-export async function readRefreshToken(): Promise<string | null> {
-    try {
-        const raw = await fs.readFile(TOKEN_PATH, 'utf8');
-        const parsed = JSON.parse(raw) as StoredTokens;
-        return parsed.refresh_token ?? null;
-    } catch (e) {
-        return null;
-    }
-}
-
-export async function refreshAccessToken(refreshToken: string) {
+export async function refreshAccessToken(refreshTokenArg?: string) {
     const client_id = process.env.GOOGLE_CLIENT_ID;
     const client_secret = process.env.GOOGLE_CLIENT_SECRET;
-    if (!client_id || !client_secret) throw new Error('Missing GOOGLE_CLIENT_ID or GOOGLE_CLIENT_SECRET');
+    const refreshToken = refreshTokenArg || process.env.GOOGLE_REFRESH_TOKEN;
+    if (!client_id || !client_secret || !refreshToken) throw new Error('Missing GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET or refresh token');
 
     const params = new URLSearchParams();
     params.set('client_id', client_id);
@@ -49,4 +22,24 @@ export async function refreshAccessToken(refreshToken: string) {
     const data = await res.json();
     // data.access_token, expires_in
     return data;
+}
+
+export async function saveRefreshToken(refreshToken: string) {
+    // In a production environment, you would store this securely
+    // For now, this is a placeholder that logs the token
+    // The actual implementation depends on your infrastructure
+    console.log('Refresh token received (should be stored securely):', refreshToken.substring(0, 20) + '...');
+
+    // If you need to store this persistently, consider:
+    // 1. Database storage (recommended for production)
+    // 2. File system (if using a persistent volume)
+    // 3. Environment variable update (requires restart)
+
+    return { success: true };
+}
+
+export async function readRefreshToken(): Promise<string | null> {
+    // Prefer an env var (set in deployment). Return null if not available.
+    const token = process.env.GOOGLE_REFRESH_TOKEN ?? null;
+    return token;
 }

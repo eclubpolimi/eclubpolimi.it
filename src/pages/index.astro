@@ -1,10 +1,13 @@
 ---
 import MainLayout from "../layouts/main.astro";
-import Hero from "./home/Hero";
-import CoreValues from "./home/CoreValues";
-import WhatWeDo from "./home/WhatWeDo";
-import Sponsors from "./home/Sponsors";
-import { fetchSponsorsFromContentful, fetchSiteVideosFromContentful } from "../lib/contentful";
+import Hero from "../components/home/_Hero";
+import CoreValues from "../components/home/_CoreValues";
+import WhatWeDo from "../components/home/_WhatWeDo";
+import Sponsors from "../components/home/_Sponsors";
+import {
+  fetchSponsorsFromContentful,
+  fetchSiteVideosFromContentful,
+} from "../lib/contentful";
 
 // Whitelist the sponsor names you want to show
 const allowedSponsorNames = [
@@ -19,7 +22,7 @@ const sponsors = (await fetchSponsorsFromContentful()).filter((s) =>
 
 const siteVideos = await fetchSiteVideosFromContentful();
 const heroVideoAsset = siteVideos.find(
-  (asset) => (asset.videoName ?? "").toLowerCase() === "hero_video"
+  (asset) => (asset.videoName ?? "").toLowerCase() === "hero_video",
 );
 const heroVideoUrl = heroVideoAsset?.video?.url ?? undefined;
 ---

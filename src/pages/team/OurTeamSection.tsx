@@ -262,7 +262,7 @@ const arrangeMembersForSection = (title: string, members: CarouselMember[]) => {
 };
 
 const parseDescriptionText = (
-  text?: string | null
+  text?: string | null,
 ): DescriptionContent | undefined => {
   const html = markdownToHtml(text);
   if (!html) return undefined;
@@ -270,7 +270,7 @@ const parseDescriptionText = (
 };
 
 const buildDescriptionsFromContentful = (
-  entries?: ContentfulTeamDescription[]
+  entries?: ContentfulTeamDescription[],
 ) => {
   const map: Record<string, DescriptionContent> = {};
   entries?.forEach((entry) => {
@@ -296,7 +296,7 @@ const mapMemberToCarousel = (member: ContentfulTeamMember): CarouselMember => ({
 });
 
 const buildTeamSections = (
-  members?: ContentfulTeamMember[]
+  members?: ContentfulTeamMember[],
 ): TeamSectionData[] => {
   if (!members?.length) return [];
 
