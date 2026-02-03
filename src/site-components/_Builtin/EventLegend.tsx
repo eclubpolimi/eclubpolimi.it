@@ -1,10 +1,9 @@
 /*Event Legend component for the colors of the events*/
 /*List of events*/
 const EventTypes = [
-  { eventType: "Talk", color: "#5957cbff" },
-  { eventType: "Company Visit", color: "#FC3F1A" },
-  { eventType: "Network Aperitive", color: "#F2A541" },
-  { eventType: "Startup Showcase", color: "#032c84ff" },
+  { eventType: "Polimi Events", color: "#5957cbff" },
+  { eventType: "External Events", color: "#FC3F1A" },
+  { eventType: "Meetings", color: "#032c84ff" }
 ];
 //"flex flex-wrap items-center gap-x-6 gap-y-2 mb-4"
 export default function EventLegend() {
