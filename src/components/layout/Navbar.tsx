@@ -162,14 +162,14 @@ export default function Navbar({ currentPath = '/', brandingLogo }: NavbarProps)
                                         </div>
                                     </a>
                                     <a
-                                        href={`${baseUrl}/usc-2026`}
+                                        href={`https://www.unistartupchallenge.com/`}
                                         className="block px-4 py-3 text-gray-700 hover:bg-gray-100 transition-colors duration-200"
                                         onClick={() => setIsDropdownOpen(false)}
                                     >
                                         <div className="flex items-center justify-between">
                                             <span>USC 2026</span>
                                             <span className="text-xs px-2 py-1 bg-[#FC3F1A] text-white rounded-full">
-                                                Coming Soon
+                                                Applying
                                             </span>
                                         </div>
                                     </a>
@@ -263,7 +263,8 @@ export default function Navbar({ currentPath = '/', brandingLogo }: NavbarProps)
                                 {[
                                     { label: 'USC 2024', href: `${baseUrl}/usc-2024` },
                                     { label: 'USC 2025', href: `${baseUrl}/usc-2025` },
-                                    { label: 'USC 2026', href: `${baseUrl}/usc-2026` },
+                                    // { label: 'USC 2026', href: `${baseUrl}/usc-2026` },
+                                    { label: 'USC 2026', href: `https://www.unistartupchallenge.com/` },
                                 ].map((item) => (
                                     <a
                                         key={item.href}
