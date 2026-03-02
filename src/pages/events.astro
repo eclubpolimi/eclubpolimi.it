@@ -28,6 +28,7 @@ const events = (rawEvents ?? [])
       description: item?.description ?? "",
       date: displayDate,
       year: isValidDate ? dateObj.getFullYear() : 0,
+      isoDate: item?.date ? item.date.split("T")[0] : null,
       start: item?.date ?? null,
       end: item?.endDate ?? null,
       extendedProps: {
