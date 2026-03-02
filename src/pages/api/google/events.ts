@@ -41,6 +41,8 @@ export const GET: APIRoute = async ({ request }) => {
                 allDay: !!ev.start?.date && !ev.start?.dateTime,
                 status: ev.status,
                 calendarId: calId,
+                /*Event Color*/
+                colorId: ev.colorId ?? null,
                 extendedProps: { description: ev.description, location: ev.location, googleEvent: ev },
             }));
             results.push(...mapped);
