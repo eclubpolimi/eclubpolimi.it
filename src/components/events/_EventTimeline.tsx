@@ -17,16 +17,30 @@ export default function EventTimeline({ events }: EventTimelineProps) {
     const gradientOrange = 'from-[#FF7A18] to-[#FF3D00]';
     const accent = '#FC3F1A';
 
-    const startOfToday = new Date();
-    startOfToday.setHours(0, 0, 0, 0);
+    // Get today's date in UTC to avoid timezone issues
+    const today = new Date();
+    const startOfToday = new Date(Date.UTC(today.getUTCFullYear(), today.getUTCMonth(), today.getUTCDate()));
 
     const upcomingEvents: Event[] = [];
     const pastEvents: Event[] = [];
 
     events.forEach((e) => {
-        const d = e.isoDate ? new Date(e.isoDate) : null;
-        const valid = d && !isNaN(d.getTime());
-        if (valid && d.getTime() >= startOfToday.getTime()) {
+        if (!e.isoDate) {
+            pastEvents.push(e);
+            return;
+        }
+        // Parse ISO date string (YYYY-MM-DD) as UTC midnight
+        const parts = e.isoDate.split('-');
+        if (parts.length !== 3) {
+            pastEvents.push(e);
+            return;
+        }
+        const d = new Date(Date.UTC(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10)));
+        if (isNaN(d.getTime())) {
+            pastEvents.push(e);
+            return;
+        }
+        if (d.getTime() >= startOfToday.getTime()) {
             upcomingEvents.push(e);
         } else {
             pastEvents.push(e);
