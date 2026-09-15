@@ -107,9 +107,20 @@ export default function Footer({ brandingLogo }: { brandingLogo?: import('../../
                 </div>
             </div>
 
-            <div className="w-full max-w-screen-xl mx-auto border-t border-white/20 py-6 text-center">
+            <div className="w-full max-w-screen-xl mx-auto border-t border-white/20 py-6 flex flex-col sm:flex-row items-center justify-between gap-2">
                 <p className="text-sm text-white/60">
                     © {new Date().getFullYear()} E-Club Polimi. All rights reserved.
+                </p>
+                <p className="text-[11px] text-white/40">
+                    Redesigned & Developed by{' '}
+                    <a
+                        href="https://yuweidesign.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-white/80 transition-colors underline underline-offset-2"
+                    >
+                        Yuwei Li
+                    </a>
                 </p>
             </div>
         </footer>

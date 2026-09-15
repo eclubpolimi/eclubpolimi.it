@@ -323,26 +323,33 @@ function TeamSectionBlock({
     const sectionDescription = description ?? TEAM_DESCRIPTIONS[title];
 
     return (
-        <section className="space-y-6">
-            <div>
-                <h3 className="text-3xl font-bold text-gray-900">{title}</h3>
-                <div className="mt-4 h-[3px] bg-gray-200 rounded-full" />
+        <section className="space-y-8">
+            <div className="max-w-2xl">
+                <p className="text-sm uppercase tracking-[0.2em] text-brand-deep font-semibold mb-3">
+                    Team
+                </p>
+                <h3 className="text-2xl md:text-3xl font-bold text-gray-900 tracking-tight">{title}</h3>
                 {sectionDescription && (
-                    <div className="mt-4 space-y-2 text-gray-600 break-words">
+                    <div className="mt-3 text-gray-600 break-words">
                         {sectionDescription.html ? (
                             <div
-                                className="prose prose-sm text-gray-600 max-w-none break-words"
+                                className="text-base text-gray-600 max-w-none break-words leading-relaxed"
                                 dangerouslySetInnerHTML={{ __html: sectionDescription.html }}
                             />
                         ) : (
                             <>
                                 {sectionDescription.intro && (
-                                    <p className="text-base break-words">{sectionDescription.intro}</p>
+                                    <p className="text-base break-words leading-relaxed">{sectionDescription.intro}</p>
                                 )}
                                 {sectionDescription.bullets && sectionDescription.bullets.length > 0 && (
-                                    <ul className="list-disc list-inside space-y-1 text-sm break-words">
+                                    <ul className="mt-3 flex flex-wrap gap-2">
                                         {sectionDescription.bullets.map((bullet) => (
-                                            <li key={bullet}>{bullet}</li>
+                                            <li
+                                                key={bullet}
+                                                className="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-700"
+                                            >
+                                                {bullet}
+                                            </li>
                                         ))}
                                     </ul>
                                 )}
@@ -352,18 +359,23 @@ function TeamSectionBlock({
                 )}
             </div>
 
-            <div className="grid gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-                {members.map((member, index) => (
-                    <div key={`${member.name}-${index}`} className="flex justify-center">
+            <div className="grid gap-x-6 gap-y-12 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+                {members.map((member, index) => {
+                    const roleLower = member.role.toLowerCase();
+                    const isLead =
+                        roleLower.includes('coordinator') && !roleLower.includes('vice');
+                    return (
                         <TeamMemberCard
+                            key={`${member.name}-${index}`}
                             name={member.name}
                             role={member.role}
                             photo={member.photo}
                             instagramLink={member.instagramLink}
                             linkedinLink={member.linkedinLink}
+                            isLead={isLead}
                         />
-                    </div>
-                ))}
+                    );
+                })}
             </div>
         </section>
     );

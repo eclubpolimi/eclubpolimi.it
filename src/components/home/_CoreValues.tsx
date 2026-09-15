@@ -1,17 +1,22 @@
-import { useState } from "react";
+import { useEffect, useRef } from 'react';
+
+// Must match the `top` style on the cards below (5.5rem + i * step).
+const STICKY_BASE_PX = 88;
+const STICKY_STEP_PX = 14;
 
 const values = [
     {
         title: 'Learn',
-        badge: '20+ Events Annually',
-        tags: 'Events • Workshops • Speaker Sessions • Knowledge • Skills',
+        index: '01',
+        stat: '20+',
+        statLabel: 'Events Annually',
         accent: 'brand' as const,
         description:
-            "Attend workshops, speaker sessions, and hands-on events led by founders and industry professionals. Apply what you learn by working in teams with peers from Politecnico di Milano and other universities, collaborating across different fields to tackle real challenges.",
+            "Workshops, speaker sessions, and hands-on events led by founders and industry professionals. Apply what you learn in cross-disciplinary teams with peers from Politecnico di Milano and beyond.",
         icon: (
             <svg
                 viewBox="0 0 24 24"
-                className="w-7 h-7"
+                className="w-6 h-6"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth={1.8}
@@ -27,15 +32,16 @@ const values = [
     },
     {
         title: 'Network',
-        badge: '60+ Active Members',
-        tags: 'Connections • Collaborations • Community • Mentors • Co-founders',
+        index: '02',
+        stat: '60+',
+        statLabel: 'Active Members',
         accent: 'iris' as const,
         description:
-            "Connect with a diverse community of students, mentors, and industry experts. Build relationships, share ideas, and find potential co-founders and collaborators across disciplines.",
+            "A diverse community of students, mentors, and industry experts. Build relationships, share ideas, and find co-founders and collaborators across disciplines.",
         icon: (
             <svg
                 viewBox="0 0 24 24"
-                className="w-7 h-7"
+                className="w-6 h-6"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth={1.8}
@@ -52,15 +58,16 @@ const values = [
     },
     {
         title: 'Build',
-        badge: '50+ Projects Launched',
-        tags: 'Ideas • Innovation • Projects • Impact • Solutions',
+        index: '03',
+        stat: '50+',
+        statLabel: 'Projects Launched',
         accent: 'brand' as const,
         description:
-            "Turn knowledge and connections into action. Experiment, prototype, and develop projects with your team—creating solutions that are scalable, meaningful, and impactful.",
+            "Turn knowledge and connections into action. Experiment, prototype, and ship projects with your team — solutions that are scalable, meaningful, and impactful.",
         icon: (
             <svg
                 viewBox="0 0 24 24"
-                className="w-7 h-7"
+                className="w-6 h-6"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth={1.8}
@@ -77,125 +84,125 @@ const values = [
     },
 ];
 
-const accentStyles = {
-    brand: {
-        chip: 'bg-brand-soft text-brand-ink',
-        bar: 'bg-brand',
-        dot: 'bg-brand',
-    },
-    iris: {
-        chip: 'bg-accent-iris-soft text-accent-iris',
-        bar: 'bg-accent-iris',
-        dot: 'bg-accent-iris',
-    },
+const chipStyles = {
+    brand: 'bg-brand-soft text-brand-ink',
+    iris: 'bg-accent-iris-soft text-accent-iris',
 } as const;
 
 export default function CoreValues() {
-    const [activeIndex, setActiveIndex] = useState<number | null>(null);
+    const cardRefs = useRef<(HTMLElement | null)[]>([]);
 
-    const handleToggle = (index: number) => {
-        // Toggle on tap; other cards stay collapsed
-        setActiveIndex((prev) => (prev === index ? null : index));
-    };
+    // Scroll-driven stacking: cards beneath the top one shrink + dim.
+    useEffect(() => {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        let raf = 0;
+        const update = () => {
+            raf = 0;
+            const tops = cardRefs.current.map((el) =>
+                el ? el.getBoundingClientRect().top : Infinity
+            );
+            let active = 0;
+            tops.forEach((top, i) => {
+                if (top <= STICKY_BASE_PX + i * STICKY_STEP_PX + 4) active = i;
+            });
+            cardRefs.current.forEach((el, i) => {
+                if (!el) return;
+                const depth = active - i;
+                if (depth <= 0) {
+                    el.style.transform = '';
+                    el.style.filter = '';
+                } else {
+                    const scale = Math.max(0.92, 1 - depth * 0.04);
+                    const brightness = Math.max(0.72, 1 - depth * 0.14);
+                    el.style.transform = `scale(${scale})`;
+                    el.style.filter = `brightness(${brightness})`;
+                }
+            });
+        };
+        const onScroll = () => {
+            if (!raf) raf = requestAnimationFrame(update);
+        };
+        update();
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', onScroll);
+        return () => {
+            window.removeEventListener('scroll', onScroll);
+            window.removeEventListener('resize', onScroll);
+            if (raf) cancelAnimationFrame(raf);
+        };
+    }, []);
 
     return (
-        <section data-hero-next className="relative overflow-hidden bg-gradient-to-b from-gray-50 via-white to-gray-50 section-pad">
-            <div className="relative container-site">
-                <header className="text-center space-y-4 mb-12">
-                    <p className="text-sm uppercase tracking-[0.2em] text-brand-deep font-semibold">
+        <section data-hero-next className="bg-white section-pad overflow-clip">
+            <div className="container-site">
+                <header className="max-w-2xl mb-10 md:mb-14 animate-fade-up">
+                    <p className="text-sm uppercase tracking-[0.2em] text-brand-deep font-semibold mb-4">
                         What drives us
                     </p>
-                    <h2 className="text-3xl md:text-5xl font-bold text-gray-900">
+                    <h2 className="text-3xl md:text-5xl font-bold text-gray-900 tracking-tight">
                         Our Core Values &amp; Mission
                     </h2>
-                    <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
+                    <p className="text-lg text-gray-600 mt-4 leading-relaxed">
                         Three ways to grow with E-Club: learn skills, meet people, ship ideas.
+                        Scroll — each one stacks.
                     </p>
                 </header>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-                    {values.map((value, index) => {
-                        const isActive = activeIndex === index;
-                        const styles = accentStyles[value.accent];
-                        return (
-                            <article
-                                key={value.title}
-                                className="relative bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 transition-shadow duration-300 hover:shadow-2xl flex flex-col"
-                                onMouseEnter={() => setActiveIndex(index)}
-                                onMouseLeave={() => setActiveIndex(null)}
+                <div className="space-y-5 md:space-y-6 pb-10">
+                    {values.map((value, i) => (
+                        <article
+                            key={value.title}
+                            ref={(el) => {
+                                cardRefs.current[i] = el;
+                            }}
+                            className="stack-card sticky rounded-3xl border border-gray-200 bg-white shadow-xl min-h-[62svh] md:min-h-[60vh] p-8 md:p-12 flex flex-col overflow-hidden"
+                            style={{ top: `calc(5.5rem + ${i * STICKY_STEP_PX}px)` }}
+                        >
+                            <span
+                                className="pointer-events-none select-none absolute -top-4 right-4 md:right-8 text-[96px] md:text-[160px] leading-none font-extrabold text-gray-100"
+                                aria-hidden="true"
                             >
-                                <div
-                                    className={`h-1 w-full ${styles.bar}`}
-                                />
-                                <div className="p-6 md:p-7 space-y-6 flex flex-col flex-grow">
-                                    <div className="flex items-start justify-between">
-                                        <div
-                                            className={`w-14 h-14 rounded-xl flex items-center justify-center ${styles.chip}`}
-                                        >
-                                            {value.icon}
-                                        </div>
-                                        <span
-                                            className={`w-3 h-3 rounded-full block mt-1 ${styles.dot}`}
-                                        />
-                                    </div>
+                                {value.index}
+                            </span>
 
-                                    <div className="space-y-3">
-                                        <h3 className="text-2xl font-semibold text-gray-900">
-                                            {value.title}
-                                        </h3>
-                                        <span
-                                            className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold ${styles.chip}`}
-                                        >
-                                            {value.badge}
+                            <div className="relative flex items-center gap-4">
+                                <span
+                                    className={`flex h-12 w-12 items-center justify-center rounded-xl ${chipStyles[value.accent]}`}
+                                    aria-hidden="true"
+                                >
+                                    {value.icon}
+                                </span>
+                                <p className="text-sm font-bold tracking-[0.25em] text-brand">
+                                    {value.index}
+                                </p>
+                            </div>
+
+                            <div className="relative mt-6 md:mt-8">
+                                <h3 className="text-4xl md:text-6xl font-bold text-gray-900 tracking-tight">
+                                    {value.title}
+                                </h3>
+                                <p className="mt-4 md:mt-5 text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl">
+                                    {value.description}
+                                </p>
+                            </div>
+
+                            <div className="relative mt-auto pt-8">
+                                <div className="flex items-end justify-between border-t border-gray-200 pt-6">
+                                    <p>
+                                        <span className="text-3xl md:text-4xl font-bold text-gray-900">
+                                            {value.stat}
+                                        </span>{' '}
+                                        <span className="text-sm text-gray-500">
+                                            {value.statLabel}
                                         </span>
-                                        <p className="text-base text-gray-600 leading-7">
-                                            {value.tags}
-                                        </p>
-                                    </div>
-
-                                    <div
-                                        className="expandable"
-                                        data-open={isActive}
-                                        id={`core-value-${value.title.toLowerCase()}-desc`}
-                                    >
-                                        <div>
-                                            <p className="text-sm md:text-base text-gray-600 leading-6 pt-2">
-                                                {value.description}
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    <div className="flex items-center justify-between text-sm mt-auto pt-2">
-                                        <span
-                                            className={`w-10 h-1 rounded-full ${styles.bar}`}
-                                        />
-                                        <button
-                                            type="button"
-                                            onClick={() => handleToggle(index)}
-                                            aria-expanded={isActive}
-                                            aria-controls={`core-value-${value.title.toLowerCase()}-desc`}
-                                            aria-label={`${isActive ? 'Hide' : 'Show'} details about ${value.title}`}
-                                            className="p-1 rounded-full hover:bg-gray-100 transition-colors"
-                                        >
-                                            <svg
-                                                className={`w-5 h-5 text-gray-500 transition-transform duration-300 ${isActive ? 'rotate-180' : 'rotate-0'
-                                                    }`}
-                                                viewBox="0 0 24 24"
-                                                fill="none"
-                                                stroke="currentColor"
-                                                strokeWidth="1.8"
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                aria-hidden="true"
-                                            >
-                                                <path d="M6 9l6 6 6-6" />
-                                            </svg>
-                                        </button>
-                                    </div>
+                                    </p>
+                                    <p className="hidden sm:block text-sm font-semibold text-gray-400">
+                                        {i + 1} / {values.length}
+                                    </p>
                                 </div>
-                            </article>
-                        );
-                    })}
+                            </div>
+                        </article>
+                    ))}
                 </div>
             </div>
         </section>
