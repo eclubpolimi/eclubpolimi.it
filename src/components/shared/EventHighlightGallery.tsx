@@ -23,8 +23,8 @@ const EventHighlightGallery: React.FC<EventHighlightGalleryProps> = ({ highlight
     }
 
     // 使用扩展的数组来创建无缝循环效果
-    // 结构: [...last 3张, ...all, ...first 3张]
-    const cloneCount = 3;
+    // 结构: [...last N张, ...all, ...first N张]，N 取 min(3, 总数)，避免照片不足时越界
+    const cloneCount = Math.min(3, highlightPhotos.length);
     const clonedStart = Array.from({ length: cloneCount }, (_, i) =>
         highlightPhotos[highlightPhotos.length - cloneCount + i]
     );
@@ -191,7 +191,7 @@ const EventHighlightGallery: React.FC<EventHighlightGalleryProps> = ({ highlight
                             key={index}
                             onClick={() => goToSlide(index)}
                             className={`rounded-full transition-all duration-300 ${isActive
-                                ? 'bg-[#FC3F1A] w-3 h-3'
+                                ? 'bg-brand w-3 h-3'
                                 : 'bg-gray-300 hover:bg-gray-400 w-2 h-2'
                                 }`}
                             aria-label={`Go to slide ${index + 1}`}

@@ -64,8 +64,8 @@ export default function TeamMemberCard({
         .trim();
 
     const cardClasses = [
-        'w-full flex flex-col rounded-2xl bg-white dark:bg-gray-900 shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border',
-        isCoordinator ? 'border-[#8ac7ff]/70' : 'border-white/60 dark:border-gray-800',
+        'w-full h-full flex flex-col bg-white shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden',
+        isCoordinator ? 'rounded-[13px]' : 'rounded-2xl border border-white/60',
     ]
         .join(' ')
         .trim();
@@ -74,7 +74,7 @@ export default function TeamMemberCard({
         <div className={wrapperClasses}>
             <div className={cardClasses}>
                 {/* 图片区域 */}
-                <div className="relative w-full aspect-square overflow-hidden rounded-[16px] bg-gradient-to-b from-gray-200 to-gray-300 dark:from-gray-800 dark:to-gray-900">
+                <div className="relative w-full aspect-square overflow-hidden rounded-[16px] bg-gradient-to-b from-gray-200 to-gray-300">
                     {photo ? (
                         <img
                             src={photo}
@@ -83,8 +83,19 @@ export default function TeamMemberCard({
                             loading="lazy"
                         />
                     ) : (
-                        <div className="w-full h-full flex items-center justify-center text-4xl text-gray-500 bg-white/40">
-                            👤
+                        <div className="w-full h-full flex items-center justify-center bg-brand-soft" aria-hidden="true">
+                            <svg
+                                viewBox="0 0 24 24"
+                                className="w-12 h-12 text-brand-ink"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth={1.8}
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                            >
+                                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+                                <circle cx="12" cy="7" r="4" />
+                            </svg>
                         </div>
                     )}
 
@@ -122,10 +133,10 @@ export default function TeamMemberCard({
 
                 {/* 名字 + 职位，保持你原来的白色底设计 */}
                 <div className="px-4 pt-0 pb-4">
-                    <h5 className="text-xs font-semibold text-gray-900 dark:text-white leading-tight uppercase tracking-wide">
+                    <h5 className="text-xs font-semibold text-gray-900 leading-tight uppercase tracking-wide">
                         {name}
                     </h5>
-                    <p className="mt-1 text-sm text-[#2B5DAA] dark:text-[#8FB7FF]">
+                    <p className="mt-1 text-sm text-brand-navy-flat">
                         {role}
                     </p>
                 </div>

@@ -1,6 +1,7 @@
 import TeamMemberCard from '../shared/TeamMemberCard';
 import { marked } from 'marked';
 import sanitizeHtml from 'sanitize-html';
+import { baseUrl } from '../../lib/base-url';
 import type { SiteImageAsset } from '../../lib/contentful';
 
 type ContentfulTeamMember = {
@@ -388,17 +389,17 @@ export default function OurTeamSection(props: OurTeamSectionProps = {}) {
         <div className="min-h-screen bg-gray-50 py-20 px-5 transition-colors duration-300 overflow-x-hidden">
             <div className="max-w-7xl mx-auto">
                 {/* Header */}
-                <div className="text-center mb-16 animate-fade-in">
+                <div className="text-center mb-16 animate-fade-up">
                     <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
                         Our Team
                     </h1>
                 </div>
 
                 {/* Mission Section with Image */}
-                <div className="mb-20 animate-fade-in-delay">
+                <div className="mb-20 animate-fade-up-1">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                         {/* Left side - Image */}
-                        <div className="w-full h-96 rounded-2xl shadow-xl overflow-hidden bg-gradient-to-br from-[#2B5DAA] to-[#1e3a5f] flex items-center justify-center">
+                        <div className="w-full h-96 rounded-2xl shadow-xl overflow-hidden bg-gradient-to-br from-brand-navy to-brand-navy-deep flex items-center justify-center">
                             {heroImageLight ? (
                                 <picture className="w-full h-full">
                                     <img
@@ -466,19 +467,18 @@ export default function OurTeamSection(props: OurTeamSectionProps = {}) {
                 </div>
 
                 {/* Call to Action */}
-                <div className="mt-20 text-center animate-fade-in-delay-3">
-                    <div className="bg-gradient-to-br from-[#2B5DAA] to-[#1e3a5f] rounded-2xl p-12 shadow-xl">
+                <div className="mt-20 text-center animate-fade-up-2">
+                    <div className="bg-gradient-to-br from-brand-navy to-brand-navy-deep rounded-2xl p-12 shadow-xl">
                         <h3 className="text-3xl font-bold text-white mb-4">
                             Want to Join Our Team?
                         </h3>
-                        <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
+                        <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
                             We're always looking for passionate individuals to join our mission.
                             Be part of something bigger.
                         </p>
                         <a
-                            href="/join"
-                            style={{ backgroundColor: '#FC3F1A' }}
-                            className="inline-block text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 hover:opacity-90"
+                            href={`${baseUrl}/join`}
+                            className="bg-brand hover:bg-brand-deep inline-block text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
                         >
                             Join E-Club Polimi
                         </a>

@@ -5,17 +5,23 @@ const values = [
         title: 'Learn',
         badge: '20+ Events Annually',
         tags: 'Events • Workshops • Speaker Sessions • Knowledge • Skills',
-        accent: '#FF6B35',
-        accentSoft: '#FFE8DC',
+        accent: 'brand' as const,
         description:
             "Attend workshops, speaker sessions, and hands-on events led by founders and industry professionals. Apply what you learn by working in teams with peers from Politecnico di Milano and other universities, collaborating across different fields to tackle real challenges.",
         icon: (
             <svg
                 viewBox="0 0 24 24"
-                className="w-12 h-12 text-[#FF6B35]"
-                fill="currentColor"
+                className="w-7 h-7"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={1.8}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
             >
-                <path d="M12 2a7 7 0 00-3.5 13.07V18a1.5 1.5 0 103 0v-1h1v1a1.5 1.5 0 103 0v-2.93A7 7 0 0012 2zm-1 18.5a.5.5 0 11-1 0V19h1zm5 0a.5.5 0 11-1 0V19h1zm-4.5-5.5a.5.5 0 01.5-.5h1a.5.5 0 010 1h-1a.5.5 0 01-.5-.5zm3.934-2.203A5.978 5.978 0 0112 15a5.978 5.978 0 01-3.434-1.203A5.984 5.984 0 016 9a6 6 0 1112 0 5.984 5.984 0 01-2.566 4.797z" />
+                <path d="M22 10 12 5 2 10l10 5 10-5z" />
+                <path d="M6 12v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5" />
+                <path d="M22 10v6" />
             </svg>
         ),
     },
@@ -23,38 +29,66 @@ const values = [
         title: 'Network',
         badge: '60+ Active Members',
         tags: 'Connections • Collaborations • Community • Mentors • Co-founders',
-        accent: '#514FC4',
-        accentSoft: '#EBEAFE',
+        accent: 'iris' as const,
         description:
             "Connect with a diverse community of students, mentors, and industry experts. Build relationships, share ideas, and find potential co-founders and collaborators across disciplines.",
         icon: (
             <svg
                 viewBox="0 0 24 24"
-                className="w-12 h-12 text-[#514FC4]"
-                fill="currentColor"
+                className="w-7 h-7"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={1.8}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
             >
-                <path d="M8 11a4 4 0 114-4 4 4 0 01-4 4zm0-6a2 2 0 102 2 2 2 0 00-2-2zm8 6a3 3 0 10-3-3 3 3 0 003 3zm4 2a3 3 0 10-3-3 3 3 0 003 3zm-4.88.953A4.977 4.977 0 0112 13a4.977 4.977 0 00-3.12.953 5.966 5.966 0 00-2.22 4.047.999.999 0 00.994 1.077h8.672a1 1 0 00.994-1.077 5.966 5.966 0 00-2.22-4.047zM12 15a3.006 3.006 0 012.816 2H9.184A3.006 3.006 0 0112 15zm7.65 4.977a1 1 0 01-.994 1.023h-2.077a7.962 7.962 0 00-.731-3h2.808a1 1 0 01.994 1.023zm-11.306 1.023H5.267a1 1 0 01-.994-1.023A4.973 4.973 0 015.88 17.13a7.964 7.964 0 00-.731 3z" />
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
             </svg>
         ),
     },
     {
         title: 'Build',
-        badge: '50+ Possibility Launched',
+        badge: '50+ Projects Launched',
         tags: 'Ideas • Innovation • Projects • Impact • Solutions',
-        accent: '#FF6B35',
-        accentSoft: '#FFE8DC',
+        accent: 'brand' as const,
         description:
-            "Turn knowledge and connections into action. Experiment, prototype, and develop projects with your team—creating solutions that are scalable, meaningful, and impactful.", icon: (
-                <svg
-                    viewBox="0 0 24 24"
-                    className="w-12 h-12 text-[#FF6B35]"
-                    fill="currentColor"
-                >
-                    <path d="M12 2a1 1 0 00-.894.553l-2 4A1 1 0 0010 8h1v4a1 1 0 002 0V8h1a1 1 0 00.894-1.447l-2-4A1 1 0 0012 2zM6 10a1 1 0 00-.8 1.6L7.5 14H5a1 1 0 00-.894.553l-2 4A1 1 0 003 20h5a1 1 0 00.894-1.447L6.618 16H9a1 1 0 00.8-1.6L7.5 12H9a1 1 0 100-2zm12 0a1 1 0 00-1 1v2h-1.5a1 1 0 00-.894 1.447L16.382 16H15a1 1 0 100 2h2.382L15.106 18.553A1 1 0 0016 20h5a1 1 0 00.894-1.447l-2-4A1 1 0 0019 14h-2.5l1.3-1.6A1 1 0 0018 10z" />
-                </svg>
-            ),
+            "Turn knowledge and connections into action. Experiment, prototype, and develop projects with your team—creating solutions that are scalable, meaningful, and impactful.",
+        icon: (
+            <svg
+                viewBox="0 0 24 24"
+                className="w-7 h-7"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={1.8}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+            >
+                <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
+                <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
+                <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
+                <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+            </svg>
+        ),
     },
 ];
+
+const accentStyles = {
+    brand: {
+        chip: 'bg-brand-soft text-brand-ink',
+        bar: 'bg-brand',
+        dot: 'bg-brand',
+    },
+    iris: {
+        chip: 'bg-accent-iris-soft text-accent-iris',
+        bar: 'bg-accent-iris',
+        dot: 'bg-accent-iris',
+    },
+} as const;
 
 export default function CoreValues() {
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -65,99 +99,98 @@ export default function CoreValues() {
     };
 
     return (
-        <section data-hero-next className="relative overflow-hidden bg-gradient-to-b from-gray-50 via-white to-gray-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-900 py-16 md:py-20">
-            <div className="relative px-5 md:px-12 max-w-6xl mx-auto">
+        <section data-hero-next className="relative overflow-hidden bg-gradient-to-b from-gray-50 via-white to-gray-50 section-pad">
+            <div className="relative container-site">
                 <header className="text-center space-y-4 mb-12">
-                    <h2 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white">
+                    <p className="text-sm uppercase tracking-[0.2em] text-brand-deep font-semibold">
+                        What drives us
+                    </p>
+                    <h2 className="text-3xl md:text-5xl font-bold text-gray-900">
                         Our Core Values &amp; Mission
                     </h2>
-                    <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300">
-                        Events • Workshops • Speaker Sessions • Knowledge • Skills
-                    </p>
-                    <p className="text-sm md:text-base text-gray-500 dark:text-gray-400">
-                        Click or hover over each card to discover more
+                    <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
+                        Three ways to grow with E-Club: learn skills, meet people, ship ideas.
                     </p>
                 </header>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
                     {values.map((value, index) => {
                         const isActive = activeIndex === index;
+                        const styles = accentStyles[value.accent];
                         return (
                             <article
                                 key={value.title}
-                                className="relative bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden border border-gray-100 dark:border-gray-700 transition-colors duration-200 flex flex-col self-start"
-                                style={{ boxShadow: '0 8px 24px rgba(0,0,0,0.06)' }}
+                                className="relative bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 transition-shadow duration-300 hover:shadow-2xl flex flex-col"
                                 onMouseEnter={() => setActiveIndex(index)}
                                 onMouseLeave={() => setActiveIndex(null)}
-                                onClick={() => handleToggle(index)}
                             >
                                 <div
-                                    className="h-1 w-full"
-                                    style={{ backgroundColor: value.accentSoft }}
+                                    className={`h-1 w-full ${styles.bar}`}
                                 />
-                                <div className="p-6 md:p-7 space-y-6">
+                                <div className="p-6 md:p-7 space-y-6 flex flex-col flex-grow">
                                     <div className="flex items-start justify-between">
                                         <div
-                                            className="w-14 h-14 rounded-xl flex items-center justify-center"
-                                            style={{ backgroundColor: value.accentSoft }}
+                                            className={`w-14 h-14 rounded-xl flex items-center justify-center ${styles.chip}`}
                                         >
                                             {value.icon}
                                         </div>
                                         <span
-                                            className="w-3 h-3 rounded-full block mt-1"
-                                            style={{ backgroundColor: value.accent }}
+                                            className={`w-3 h-3 rounded-full block mt-1 ${styles.dot}`}
                                         />
                                     </div>
 
                                     <div className="space-y-3">
-                                        <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">
+                                        <h3 className="text-2xl font-semibold text-gray-900">
                                             {value.title}
                                         </h3>
                                         <span
-                                            className="inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold"
-                                            style={{
-                                                backgroundColor: value.accentSoft,
-                                                color: value.accent,
-                                            }}
+                                            className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold ${styles.chip}`}
                                         >
                                             {value.badge}
                                         </span>
-                                        <p className="text-base text-gray-600 dark:text-gray-300 leading-7">
+                                        <p className="text-base text-gray-600 leading-7">
                                             {value.tags}
                                         </p>
                                     </div>
 
                                     <div
-                                        className="overflow-hidden transition-all duration-300 ease-in-out"
-                                        style={{
-                                            maxHeight: isActive ? '200px' : '0px',
-                                            opacity: isActive ? 1 : 0,
-                                            paddingTop: isActive ? '8px' : '0px',
-                                        }}
-                                        aria-hidden={!isActive}
+                                        className="expandable"
+                                        data-open={isActive}
+                                        id={`core-value-${value.title.toLowerCase()}-desc`}
                                     >
-                                        <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 leading-6">
-                                            {value.description}
-                                        </p>
+                                        <div>
+                                            <p className="text-sm md:text-base text-gray-600 leading-6 pt-2">
+                                                {value.description}
+                                            </p>
+                                        </div>
                                     </div>
 
-                                    <div className="flex items-center justify-between text-sm mt-auto">
+                                    <div className="flex items-center justify-between text-sm mt-auto pt-2">
                                         <span
-                                            className="w-10 h-1 rounded-full"
-                                            style={{ backgroundColor: value.accent }}
+                                            className={`w-10 h-1 rounded-full ${styles.bar}`}
                                         />
-                                        <svg
-                                            className={`w-5 h-5 text-gray-500 transition-transform duration-300 ${isActive ? 'rotate-180' : 'rotate-0'
-                                                }`}
-                                            viewBox="0 0 24 24"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            strokeWidth="1.8"
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
+                                        <button
+                                            type="button"
+                                            onClick={() => handleToggle(index)}
+                                            aria-expanded={isActive}
+                                            aria-controls={`core-value-${value.title.toLowerCase()}-desc`}
+                                            aria-label={`${isActive ? 'Hide' : 'Show'} details about ${value.title}`}
+                                            className="p-1 rounded-full hover:bg-gray-100 transition-colors"
                                         >
-                                            <path d="M6 9l6 6 6-6" />
-                                        </svg>
+                                            <svg
+                                                className={`w-5 h-5 text-gray-500 transition-transform duration-300 ${isActive ? 'rotate-180' : 'rotate-0'
+                                                    }`}
+                                                viewBox="0 0 24 24"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                strokeWidth="1.8"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                aria-hidden="true"
+                                            >
+                                                <path d="M6 9l6 6 6-6" />
+                                            </svg>
+                                        </button>
                                     </div>
                                 </div>
                             </article>
