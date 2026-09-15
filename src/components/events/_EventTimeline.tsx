@@ -13,9 +13,8 @@ interface EventTimelineProps {
 }
 
 export default function EventTimeline({ events }: EventTimelineProps) {
-    const gradient = 'from-[#2B5DAA] to-[#1e3a5f]';
+    const gradient = 'from-brand-navy to-brand-navy-deep';
     const gradientOrange = 'from-[#FF7A18] to-[#FF3D00]';
-    const accent = '#FC3F1A';
 
     // Get today's date in UTC to avoid timezone issues
     const today = new Date();
@@ -63,11 +62,7 @@ export default function EventTimeline({ events }: EventTimelineProps) {
                         {/* Center dot per event (desktop only) */}
                         <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 top-2 z-10">
                             <div
-                                className="w-4 h-4 rounded-full"
-                                style={{
-                                    backgroundColor: accent,
-                                    boxShadow: '0 0 0 6px rgba(255,255,255,0.6)',
-                                }}
+                                className="w-4 h-4 rounded-full bg-brand ring-8 ring-brand-soft"
                             />
                         </div>
 
@@ -145,9 +140,23 @@ export default function EventTimeline({ events }: EventTimelineProps) {
                 {/* Coming Soon banner (top) */}
                 <div className="mb-16">
                     <div className={`relative overflow-hidden rounded-2xl p-8 md:p-10 shadow-xl bg-gradient-to-r ${gradient}`}>
-                        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_top_left,#fff,transparent_40%)]" />
                         <div className="relative z-10 text-center text-white">
-                            <div className="text-5xl md:text-6xl mb-4 leading-none">🚀</div>
+                            <div className="mb-4 flex justify-center" aria-hidden="true">
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    className="w-12 h-12 md:w-14 md:h-14 text-white/90"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth={1.8}
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                >
+                                    <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
+                                    <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
+                                    <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
+                                    <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+                                </svg>
+                            </div>
                             <h2 className="text-2xl md:text-3xl font-bold mb-2">More events coming soon</h2>
                             <p className="text-white/90 max-w-2xl mx-auto mb-6">
                                 Stay tuned for our next workshops and visits. Join E-Club to get first access.
@@ -175,7 +184,7 @@ export default function EventTimeline({ events }: EventTimelineProps) {
                                 className={`hidden md:block absolute left-1/2 top-12 h-[calc(100%-12px)] w-1 bg-gradient-to-b ${gradient} rounded-full -translate-x-1/2`}
                             />
                             <div className="mb-8 text-center relative">
-                                <span className="hidden md:inline-flex px-5 py-2 rounded-full text-sm font-semibold text-white shadow-md bg-gradient-to-r from-[#FF7A18] to-[#FF3D00]">
+                                <span className={`hidden md:inline-flex px-5 py-2 rounded-full text-sm font-semibold text-white shadow-md bg-gradient-to-r ${gradientOrange}`}>
                                     Upcoming Events
                                 </span>
                             </div>
@@ -190,7 +199,7 @@ export default function EventTimeline({ events }: EventTimelineProps) {
                                 className={`hidden md:block absolute left-1/2 top-12 h-[calc(100%-12px)] w-1 bg-gradient-to-b ${gradient} rounded-full -translate-x-1/2`}
                             />
                             <div className="mb-8 text-center relative">
-                                <span className="hidden md:inline-flex px-5 py-2 rounded-full text-sm font-semibold text-white shadow-md bg-gradient-to-r from-[#1e3a5f] to-[#2B5DAA]">
+                                <span className={`hidden md:inline-flex px-5 py-2 rounded-full text-sm font-semibold text-white shadow-md bg-gradient-to-r ${gradient}`}>
                                     Past Events
                                 </span>
                             </div>
@@ -211,7 +220,7 @@ export default function EventTimeline({ events }: EventTimelineProps) {
                     <div className="flex flex-col sm:flex-row gap-4 justify-center px-2">
                         <a
                             href={`${baseUrl}/join`}
-                            className="inline-block text-white px-6 md:px-8 py-3 md:py-4 rounded-full text-base md:text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 bg-gradient-to-r from-[#2B5DAA] to-[#1e3a5f]"
+                            className="inline-block text-white px-6 md:px-8 py-3 md:py-4 rounded-full text-base md:text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 bg-gradient-to-r from-brand-navy to-brand-navy-deep"
                         >
                             Join Us Now
                         </a>

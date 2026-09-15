@@ -22,9 +22,9 @@ const EventHighlightGallery: React.FC<EventHighlightGalleryProps> = ({ highlight
         return null;
     }
 
-    // 使用扩展的数组来创建无缝循环效果
-    // 结构: [...last 3张, ...all, ...first 3张]
-    const cloneCount = 3;
+    // Seamless loop: [...last N, ...all, ...first N], N = min(3, total) so
+    // small galleries can't index out of bounds.
+    const cloneCount = Math.min(3, highlightPhotos.length);
     const clonedStart = Array.from({ length: cloneCount }, (_, i) =>
         highlightPhotos[highlightPhotos.length - cloneCount + i]
     );
@@ -49,10 +49,11 @@ const EventHighlightGallery: React.FC<EventHighlightGalleryProps> = ({ highlight
 
     const goToSlide = (index: number) => {
         setIsAutoPlay(false);
-        setCurrentIndex(index + cloneCount); // +cloneCount because extended array has cloneCount itemsarray has cloneCount items before
+        // Offset by cloneCount: the extended array starts with cloneCount clones.
+        setCurrentIndex(index + cloneCount);
     };
 
-    // 处理无缝循环
+    // Seamless loop handling
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentIndex((prev) => prev + 1);
@@ -65,30 +66,30 @@ const EventHighlightGallery: React.FC<EventHighlightGalleryProps> = ({ highlight
         return () => clearInterval(interval);
     }, [isAutoPlay]);
 
-    // 监听窗口大小变化，更新移动端状态
+    // Track viewport size for responsive slide widths
     useEffect(() => {
         const handleResize = () => {
             setIsMobile(window.innerWidth < 768);
         };
 
-        // 初始化
+        // Init
         handleResize();
 
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-    // 当到达克隆图片时，立即跳转到真实图片
+    // Jump to the real slide when landing on a clone
     useEffect(() => {
         if (currentIndex < cloneCount) {
-            // 到达前面的克隆，跳到末尾的真实图片
+            // Leading clones → corresponding real slide at the end
             const timer = setTimeout(() => {
                 setIsTransitioning(false);
                 setCurrentIndex(cloneCount + highlightPhotos.length - cloneCount + (currentIndex - 0));
             }, 700);
             return () => clearTimeout(timer);
         } else if (currentIndex >= cloneCount + highlightPhotos.length) {
-            // 到达后面的克隆，跳到开头的真实图片
+            // Trailing clones → corresponding real slide at the start
             const timer = setTimeout(() => {
                 setIsTransitioning(false);
                 setCurrentIndex(cloneCount + (currentIndex - cloneCount - highlightPhotos.length));
@@ -100,8 +101,8 @@ const EventHighlightGallery: React.FC<EventHighlightGalleryProps> = ({ highlight
         }
     }, [currentIndex, extendedPhotos.length, highlightPhotos.length, cloneCount]);
 
-    // 计算偏移：使中间的图片居中
-    // 响应式：桌面端320px，移动端280px
+    // Center the active slide.
+    // Desktop 320px slides, mobile 280px.
     const imageWidth = isMobile ? 280 : 320;
     const gap = isMobile ? 12 : 16;
     const itemWidth = imageWidth + gap;
@@ -113,9 +114,9 @@ const EventHighlightGallery: React.FC<EventHighlightGalleryProps> = ({ highlight
             onMouseEnter={() => setIsAutoPlay(false)}
             onMouseLeave={() => setIsAutoPlay(true)}
         >
-            {/* 轮播容器 */}
+            {/* Carousel container */}
             <div className="relative group">
-                {/* 左按钮 */}
+                {/* Prev button */}
                 <button
                     onClick={handlePrev}
                     className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-10 bg-black/60 hover:bg-black/80 text-white p-1.5 md:p-2 rounded-full opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300"
@@ -123,7 +124,7 @@ const EventHighlightGallery: React.FC<EventHighlightGalleryProps> = ({ highlight
                     <ChevronLeft size={20} className="md:w-6 md:h-6" />
                 </button>
 
-                {/* 右按钮 */}
+                {/* Next button */}
                 <button
                     onClick={handleNext}
                     className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-10 bg-black/60 hover:bg-black/80 text-white p-1.5 md:p-2 rounded-full opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300"
@@ -131,7 +132,7 @@ const EventHighlightGallery: React.FC<EventHighlightGalleryProps> = ({ highlight
                     <ChevronRight size={20} className="md:w-6 md:h-6" />
                 </button>
 
-                {/* 轮播视图 */}
+                {/* Carousel viewport */}
                 <div
                     className="flex overflow-hidden"
                     style={{
@@ -178,7 +179,7 @@ const EventHighlightGallery: React.FC<EventHighlightGalleryProps> = ({ highlight
                 </div>
             </div>
 
-            {/* 指示点 */}
+            {/* Dots */}
             <div className="flex justify-center gap-2 mt-4 md:mt-6">
                 {highlightPhotos.map((_, index) => {
                     // 计算当前居中的真实图片索引
@@ -191,7 +192,7 @@ const EventHighlightGallery: React.FC<EventHighlightGalleryProps> = ({ highlight
                             key={index}
                             onClick={() => goToSlide(index)}
                             className={`rounded-full transition-all duration-300 ${isActive
-                                ? 'bg-[#FC3F1A] w-3 h-3'
+                                ? 'bg-brand w-3 h-3'
                                 : 'bg-gray-300 hover:bg-gray-400 w-2 h-2'
                                 }`}
                             aria-label={`Go to slide ${index + 1}`}

@@ -1,168 +1,208 @@
-import { useState } from "react";
+import { useEffect, useRef } from 'react';
+
+// Must match the `top` style on the cards below (5.5rem + i * step).
+const STICKY_BASE_PX = 88;
+const STICKY_STEP_PX = 14;
 
 const values = [
     {
         title: 'Learn',
-        badge: '20+ Events Annually',
-        tags: 'Events • Workshops • Speaker Sessions • Knowledge • Skills',
-        accent: '#FF6B35',
-        accentSoft: '#FFE8DC',
+        index: '01',
+        stat: '20+',
+        statLabel: 'Events Annually',
+        accent: 'brand' as const,
         description:
-            "Attend workshops, speaker sessions, and hands-on events led by founders and industry professionals. Apply what you learn by working in teams with peers from Politecnico di Milano and other universities, collaborating across different fields to tackle real challenges.",
+            "Workshops, speaker sessions, and hands-on events led by founders and industry professionals. Apply what you learn in cross-disciplinary teams with peers from Politecnico di Milano and beyond.",
         icon: (
             <svg
                 viewBox="0 0 24 24"
-                className="w-12 h-12 text-[#FF6B35]"
-                fill="currentColor"
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={1.8}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
             >
-                <path d="M12 2a7 7 0 00-3.5 13.07V18a1.5 1.5 0 103 0v-1h1v1a1.5 1.5 0 103 0v-2.93A7 7 0 0012 2zm-1 18.5a.5.5 0 11-1 0V19h1zm5 0a.5.5 0 11-1 0V19h1zm-4.5-5.5a.5.5 0 01.5-.5h1a.5.5 0 010 1h-1a.5.5 0 01-.5-.5zm3.934-2.203A5.978 5.978 0 0112 15a5.978 5.978 0 01-3.434-1.203A5.984 5.984 0 016 9a6 6 0 1112 0 5.984 5.984 0 01-2.566 4.797z" />
+                <path d="M22 10 12 5 2 10l10 5 10-5z" />
+                <path d="M6 12v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5" />
+                <path d="M22 10v6" />
             </svg>
         ),
     },
     {
         title: 'Network',
-        badge: '60+ Active Members',
-        tags: 'Connections • Collaborations • Community • Mentors • Co-founders',
-        accent: '#514FC4',
-        accentSoft: '#EBEAFE',
+        index: '02',
+        stat: '60+',
+        statLabel: 'Active Members',
+        accent: 'iris' as const,
         description:
-            "Connect with a diverse community of students, mentors, and industry experts. Build relationships, share ideas, and find potential co-founders and collaborators across disciplines.",
+            "A diverse community of students, mentors, and industry experts. Build relationships, share ideas, and find co-founders and collaborators across disciplines.",
         icon: (
             <svg
                 viewBox="0 0 24 24"
-                className="w-12 h-12 text-[#514FC4]"
-                fill="currentColor"
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={1.8}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
             >
-                <path d="M8 11a4 4 0 114-4 4 4 0 01-4 4zm0-6a2 2 0 102 2 2 2 0 00-2-2zm8 6a3 3 0 10-3-3 3 3 0 003 3zm4 2a3 3 0 10-3-3 3 3 0 003 3zm-4.88.953A4.977 4.977 0 0112 13a4.977 4.977 0 00-3.12.953 5.966 5.966 0 00-2.22 4.047.999.999 0 00.994 1.077h8.672a1 1 0 00.994-1.077 5.966 5.966 0 00-2.22-4.047zM12 15a3.006 3.006 0 012.816 2H9.184A3.006 3.006 0 0112 15zm7.65 4.977a1 1 0 01-.994 1.023h-2.077a7.962 7.962 0 00-.731-3h2.808a1 1 0 01.994 1.023zm-11.306 1.023H5.267a1 1 0 01-.994-1.023A4.973 4.973 0 015.88 17.13a7.964 7.964 0 00-.731 3z" />
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
             </svg>
         ),
     },
     {
         title: 'Build',
-        badge: '50+ Possibility Launched',
-        tags: 'Ideas • Innovation • Projects • Impact • Solutions',
-        accent: '#FF6B35',
-        accentSoft: '#FFE8DC',
+        index: '03',
+        stat: '50+',
+        statLabel: 'Projects Launched',
+        accent: 'brand' as const,
         description:
-            "Turn knowledge and connections into action. Experiment, prototype, and develop projects with your team—creating solutions that are scalable, meaningful, and impactful.", icon: (
-                <svg
-                    viewBox="0 0 24 24"
-                    className="w-12 h-12 text-[#FF6B35]"
-                    fill="currentColor"
-                >
-                    <path d="M12 2a1 1 0 00-.894.553l-2 4A1 1 0 0010 8h1v4a1 1 0 002 0V8h1a1 1 0 00.894-1.447l-2-4A1 1 0 0012 2zM6 10a1 1 0 00-.8 1.6L7.5 14H5a1 1 0 00-.894.553l-2 4A1 1 0 003 20h5a1 1 0 00.894-1.447L6.618 16H9a1 1 0 00.8-1.6L7.5 12H9a1 1 0 100-2zm12 0a1 1 0 00-1 1v2h-1.5a1 1 0 00-.894 1.447L16.382 16H15a1 1 0 100 2h2.382L15.106 18.553A1 1 0 0016 20h5a1 1 0 00.894-1.447l-2-4A1 1 0 0019 14h-2.5l1.3-1.6A1 1 0 0018 10z" />
-                </svg>
-            ),
+            "Turn knowledge and connections into action. Experiment, prototype, and ship projects with your team — solutions that are scalable, meaningful, and impactful.",
+        icon: (
+            <svg
+                viewBox="0 0 24 24"
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={1.8}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+            >
+                <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
+                <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
+                <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
+                <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+            </svg>
+        ),
     },
 ];
 
-export default function CoreValues() {
-    const [activeIndex, setActiveIndex] = useState<number | null>(null);
+const chipStyles = {
+    brand: 'bg-brand-soft text-brand-ink',
+    iris: 'bg-accent-iris-soft text-accent-iris',
+} as const;
 
-    const handleToggle = (index: number) => {
-        // Toggle on tap; other cards stay collapsed
-        setActiveIndex((prev) => (prev === index ? null : index));
-    };
+export default function CoreValues() {
+    const cardRefs = useRef<(HTMLElement | null)[]>([]);
+
+    // Scroll-driven stacking: cards beneath the top one shrink + dim.
+    useEffect(() => {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        let raf = 0;
+        const update = () => {
+            raf = 0;
+            const tops = cardRefs.current.map((el) =>
+                el ? el.getBoundingClientRect().top : Infinity
+            );
+            let active = 0;
+            tops.forEach((top, i) => {
+                if (top <= STICKY_BASE_PX + i * STICKY_STEP_PX + 4) active = i;
+            });
+            cardRefs.current.forEach((el, i) => {
+                if (!el) return;
+                const depth = active - i;
+                if (depth <= 0) {
+                    el.style.transform = '';
+                    el.style.filter = '';
+                } else {
+                    const scale = Math.max(0.92, 1 - depth * 0.04);
+                    const brightness = Math.max(0.72, 1 - depth * 0.14);
+                    el.style.transform = `scale(${scale})`;
+                    el.style.filter = `brightness(${brightness})`;
+                }
+            });
+        };
+        const onScroll = () => {
+            if (!raf) raf = requestAnimationFrame(update);
+        };
+        update();
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', onScroll);
+        return () => {
+            window.removeEventListener('scroll', onScroll);
+            window.removeEventListener('resize', onScroll);
+            if (raf) cancelAnimationFrame(raf);
+        };
+    }, []);
 
     return (
-        <section data-hero-next className="relative overflow-hidden bg-gradient-to-b from-gray-50 via-white to-gray-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-900 py-16 md:py-20">
-            <div className="relative px-5 md:px-12 max-w-6xl mx-auto">
-                <header className="text-center space-y-4 mb-12">
-                    <h2 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white">
+        <section data-hero-next className="bg-white section-pad overflow-clip">
+            <div className="container-site">
+                <header className="max-w-2xl mb-10 md:mb-14 animate-fade-up">
+                    <p className="text-sm uppercase tracking-[0.2em] text-brand-deep font-semibold mb-4">
+                        What drives us
+                    </p>
+                    <h2 className="text-3xl md:text-5xl font-bold text-gray-900 tracking-tight">
                         Our Core Values &amp; Mission
                     </h2>
-                    <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300">
-                        Events • Workshops • Speaker Sessions • Knowledge • Skills
-                    </p>
-                    <p className="text-sm md:text-base text-gray-500 dark:text-gray-400">
-                        Click or hover over each card to discover more
+                    <p className="text-lg text-gray-600 mt-4 leading-relaxed">
+                        Three ways to grow with E-Club: learn skills, meet people, ship ideas.
+                        Scroll — each one stacks.
                     </p>
                 </header>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-                    {values.map((value, index) => {
-                        const isActive = activeIndex === index;
-                        return (
-                            <article
-                                key={value.title}
-                                className="relative bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden border border-gray-100 dark:border-gray-700 transition-colors duration-200 flex flex-col self-start"
-                                style={{ boxShadow: '0 8px 24px rgba(0,0,0,0.06)' }}
-                                onMouseEnter={() => setActiveIndex(index)}
-                                onMouseLeave={() => setActiveIndex(null)}
-                                onClick={() => handleToggle(index)}
+                <div className="space-y-5 md:space-y-6 pb-10">
+                    {values.map((value, i) => (
+                        <article
+                            key={value.title}
+                            ref={(el) => {
+                                cardRefs.current[i] = el;
+                            }}
+                            className="stack-card sticky rounded-3xl border border-gray-200 bg-white shadow-xl min-h-[62svh] md:min-h-[60vh] p-8 md:p-12 flex flex-col overflow-hidden"
+                            style={{ top: `calc(5.5rem + ${i * STICKY_STEP_PX}px)` }}
+                        >
+                            <span
+                                className="pointer-events-none select-none absolute -top-4 right-4 md:right-8 text-[96px] md:text-[160px] leading-none font-extrabold text-gray-100"
+                                aria-hidden="true"
                             >
-                                <div
-                                    className="h-1 w-full"
-                                    style={{ backgroundColor: value.accentSoft }}
-                                />
-                                <div className="p-6 md:p-7 space-y-6">
-                                    <div className="flex items-start justify-between">
-                                        <div
-                                            className="w-14 h-14 rounded-xl flex items-center justify-center"
-                                            style={{ backgroundColor: value.accentSoft }}
-                                        >
-                                            {value.icon}
-                                        </div>
-                                        <span
-                                            className="w-3 h-3 rounded-full block mt-1"
-                                            style={{ backgroundColor: value.accent }}
-                                        />
-                                    </div>
+                                {value.index}
+                            </span>
 
-                                    <div className="space-y-3">
-                                        <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">
-                                            {value.title}
-                                        </h3>
-                                        <span
-                                            className="inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold"
-                                            style={{
-                                                backgroundColor: value.accentSoft,
-                                                color: value.accent,
-                                            }}
-                                        >
-                                            {value.badge}
+                            <div className="relative flex items-center gap-4">
+                                <span
+                                    className={`flex h-12 w-12 items-center justify-center rounded-xl ${chipStyles[value.accent]}`}
+                                    aria-hidden="true"
+                                >
+                                    {value.icon}
+                                </span>
+                                <p className="text-sm font-bold tracking-[0.25em] text-brand">
+                                    {value.index}
+                                </p>
+                            </div>
+
+                            <div className="relative mt-6 md:mt-8">
+                                <h3 className="text-4xl md:text-6xl font-bold text-gray-900 tracking-tight">
+                                    {value.title}
+                                </h3>
+                                <p className="mt-4 md:mt-5 text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl">
+                                    {value.description}
+                                </p>
+                            </div>
+
+                            <div className="relative mt-auto pt-8">
+                                <div className="flex items-end justify-between border-t border-gray-200 pt-6">
+                                    <p>
+                                        <span className="text-3xl md:text-4xl font-bold text-gray-900">
+                                            {value.stat}
+                                        </span>{' '}
+                                        <span className="text-sm text-gray-500">
+                                            {value.statLabel}
                                         </span>
-                                        <p className="text-base text-gray-600 dark:text-gray-300 leading-7">
-                                            {value.tags}
-                                        </p>
-                                    </div>
-
-                                    <div
-                                        className="overflow-hidden transition-all duration-300 ease-in-out"
-                                        style={{
-                                            maxHeight: isActive ? '200px' : '0px',
-                                            opacity: isActive ? 1 : 0,
-                                            paddingTop: isActive ? '8px' : '0px',
-                                        }}
-                                        aria-hidden={!isActive}
-                                    >
-                                        <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 leading-6">
-                                            {value.description}
-                                        </p>
-                                    </div>
-
-                                    <div className="flex items-center justify-between text-sm mt-auto">
-                                        <span
-                                            className="w-10 h-1 rounded-full"
-                                            style={{ backgroundColor: value.accent }}
-                                        />
-                                        <svg
-                                            className={`w-5 h-5 text-gray-500 transition-transform duration-300 ${isActive ? 'rotate-180' : 'rotate-0'
-                                                }`}
-                                            viewBox="0 0 24 24"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            strokeWidth="1.8"
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                        >
-                                            <path d="M6 9l6 6 6-6" />
-                                        </svg>
-                                    </div>
+                                    </p>
+                                    <p className="hidden sm:block text-sm font-semibold text-gray-400">
+                                        {i + 1} / {values.length}
+                                    </p>
                                 </div>
-                            </article>
-                        );
-                    })}
+                            </div>
+                        </article>
+                    ))}
                 </div>
             </div>
         </section>

@@ -1,6 +1,5 @@
 ---
-// Import fonts and global styles
-import "../../generated/fonts.css";
+// Import global styles (fonts load via curated <link> in <head>)
 import "../../generated/webflow.css";
 import "../site-components/global.css";
 import "../styles/global.css";
@@ -30,6 +29,12 @@ const faviconUrl = "/favicon.ico";
       content="Entrepreneurship Club Polimi - Fostering innovation and entrepreneurship at Politecnico di Milano"
     />
     <meta name="theme-color" content="#ffffff" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <title>E-Club Polimi</title>
     <script is:inline>
       // Force light mode

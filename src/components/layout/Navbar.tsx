@@ -62,9 +62,6 @@ export default function Navbar({ currentPath = '/', brandingLogo }: NavbarProps)
         }`;
 
     const challengeActive = activePath.startsWith('/usc-');
-    const joinActive = isActive('/join');
-    const joinBaseColor = '#FC3F1A';
-    const joinHoverColor = '#E0371A';
     const logoLight = brandingLogo?.imageLightMode?.url ?? brandingLogo?.url ?? undefined;
     const logoDark = brandingLogo?.imageDarkMode?.url ?? logoLight;
     const logoAlt =
@@ -168,16 +165,7 @@ export default function Navbar({ currentPath = '/', brandingLogo }: NavbarProps)
                     {/* Join button */}
                     <a
                         href={`${baseUrl}/join`}
-                        className="px-5 py-2 rounded-lg font-semibold text-white transition-all duration-300"
-                        style={{
-                            backgroundColor: joinActive ? joinHoverColor : joinBaseColor,
-                        }}
-                        onMouseEnter={(e) => {
-                            (e.currentTarget as HTMLElement).style.backgroundColor = joinHoverColor;
-                        }}
-                        onMouseLeave={(e) => {
-                            (e.currentTarget as HTMLElement).style.backgroundColor = joinActive ? joinHoverColor : joinBaseColor;
-                        }}
+                        className="bg-brand hover:bg-brand-deep px-5 py-2 rounded-lg font-semibold text-white transition-all duration-300"
                     >
                         Join
                     </a>
@@ -254,16 +242,7 @@ export default function Navbar({ currentPath = '/', brandingLogo }: NavbarProps)
                     {/* Join button - mobile */}
                     <a
                         href={`${baseUrl}/join`}
-                        className="block w-full px-4 py-2.5 text-center rounded-lg font-semibold text-white mt-3 transition-all hover:shadow-lg hover:scale-105"
-                        style={{
-                            backgroundColor: joinBaseColor,
-                        }}
-                        onMouseEnter={(e) => {
-                            (e.currentTarget as HTMLElement).style.backgroundColor = joinHoverColor;
-                        }}
-                        onMouseLeave={(e) => {
-                            (e.currentTarget as HTMLElement).style.backgroundColor = joinBaseColor;
-                        }}
+                        className="bg-brand hover:bg-brand-deep block w-full px-4 py-2.5 text-center rounded-lg font-semibold text-white mt-3 transition-all hover:shadow-lg hover:scale-105"
                     >
                         Join
                     </a>
