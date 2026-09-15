@@ -95,6 +95,10 @@ const markdownToHtml = (markdown?: string | null): string | undefined => {
             ...sanitizeHtml.defaults.allowedAttributes,
             img: ['src', 'alt', 'title'],
         },
+        allowedSchemes: ['http', 'https', 'mailto'],
+        allowedSchemesByTag: {
+            img: ['http', 'https'],
+        },
     });
     // Convert list items to paragraphs to avoid unintended <li> rendering from markdown bullets.
     return sanitized
@@ -366,9 +370,6 @@ function TeamSectionBlock({
 
 export default function OurTeamSection(props: OurTeamSectionProps = {}) {
     const { teamMembers, teamDescriptions, heroImage } = props;
-    if (teamMembers && teamMembers.length > 0) {
-        console.log('[OurTeamSection] First team member received:', teamMembers[0]);
-    }
     const sectionsToRender = buildTeamSections(teamMembers);
     const visibleSections = sectionsToRender.length ? sectionsToRender : FALLBACK_SECTIONS;
     const descriptionOverrides = buildDescriptionsFromContentful(teamDescriptions);

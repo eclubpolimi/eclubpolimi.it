@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import {
     Dialog,
@@ -17,7 +17,6 @@ const EventHighlightGallery: React.FC<EventHighlightGalleryProps> = ({ highlight
     const [isAutoPlay, setIsAutoPlay] = useState(true);
     const [isTransitioning, setIsTransitioning] = useState(true);
     const [isMobile, setIsMobile] = useState(false);
-    const autoPlayIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
     if (!highlightPhotos || highlightPhotos.length === 0) {
         return null;
@@ -152,7 +151,6 @@ const EventHighlightGallery: React.FC<EventHighlightGalleryProps> = ({ highlight
                     >
                         {extendedPhotos.map((photo, index) => {
                             const isClone = index === 0 || index === extendedPhotos.length - 1;
-                            const originalIndex = isClone ? (index === 0 ? highlightPhotos.length - 1 : 0) : index - 1;
                             const photoKey = `${photo.key}-${isClone ? 'clone-' + index : index}`;
 
                             return (
@@ -160,7 +158,7 @@ const EventHighlightGallery: React.FC<EventHighlightGalleryProps> = ({ highlight
                                     <DialogTrigger asChild>
                                         <div className={`flex-shrink-0 ${isMobile ? 'w-72 h-40' : 'w-80 h-48'} bg-white rounded-lg shadow-md overflow-hidden cursor-pointer hover:shadow-xl md:hover:scale-105 transition-all duration-300`}>
                                             <img
-                                                src={photo.imageLightMode?.url}
+                                                src={photo.imageLightMode?.url ?? undefined}
                                                 alt={photo.imageLightMode?.description || 'Gallery image'}
                                                 className="w-full h-full object-cover"
                                             />
@@ -168,7 +166,7 @@ const EventHighlightGallery: React.FC<EventHighlightGalleryProps> = ({ highlight
                                     </DialogTrigger>
                                     <DialogContent className="max-w-4xl max-h-[85vh] flex items-center justify-center">
                                         <img
-                                            src={photo.imageLightMode?.url}
+                                            src={photo.imageLightMode?.url ?? undefined}
                                             alt={photo.imageLightMode?.description || 'Gallery image'}
                                             className="max-w-full max-h-full object-contain"
                                         />

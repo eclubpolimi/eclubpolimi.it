@@ -1,17 +1,11 @@
 ---
 import MainLayout from "../layouts/main.astro";
-import Sponsors from "../components/home/_Sponsors";
 import {
   fetchSponsorsFromContentful,
   fetchSiteImagesFromContentful,
 } from "../lib/contentful";
 
-// Partner whitelist: home sponsors + any name containing "e_club_"
-const allowedSponsorNames = [
-  "sponsor_polihub",
-  "sponsor_astra",
-  "sponsor_polimi",
-];
+// Partner whitelist: any sponsor name containing "e_club_"
 const allSponsors = await fetchSponsorsFromContentful();
 const formatSponsorName = (raw?: string | null) => {
   if (!raw) return "Sponsor";
@@ -26,10 +20,6 @@ const partnerWhitelist = allSponsors.filter((s) => {
   const name = (s.name ?? "").trim();
   return name.toLowerCase().includes("e_club_");
 });
-
-const sponsors = (await fetchSponsorsFromContentful()).filter((s) =>
-  allowedSponsorNames.includes((s.name ?? "").trim()),
-);
 
 // Hero image from Contentful (key: netwok_hero_image)
 const siteImages = await fetchSiteImagesFromContentful();
@@ -327,8 +317,6 @@ const heroAlt =
       </div>
     </section>
 
-    <!-- Sponsors Section (Contentful-synced, partner whitelist) -->
-    <Sponsors client:load sponsors={sponsors} />
   </div>
 
   <style>

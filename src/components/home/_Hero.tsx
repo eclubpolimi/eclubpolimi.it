@@ -22,13 +22,13 @@ export default function Hero({ heroVideoUrl }: HeroProps) {
 
     return (
         <div
-            className="min-h-screen text-white flex items-center justify-center relative overflow-hidden pt-24 overscroll-y-none"
+            className="min-h-screen text-white flex items-center justify-center relative overflow-hidden pt-24"
             style={{ minHeight: 'var(--vh-static-px, 100vh)' }}
         >
             {/* Background video */}
-            <div className="absolute inset-0 -z-20 overflow-hidden">
+            <div className="absolute inset-0 z-0 overflow-hidden">
                 <video
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover pointer-events-none"
                     autoPlay
                     loop
                     muted
@@ -38,7 +38,7 @@ export default function Hero({ heroVideoUrl }: HeroProps) {
             </div>
 
             {/* Color overlay to keep blue tone */}
-            <div className="absolute inset-0 bg-gradient-to-br from-[#2B5DAA] to-[#1e3a5f] opacity-70 -z-10" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[#2B5DAA] to-[#1e3a5f] opacity-70 z-[1] pointer-events-none" />
 
             {/* Decorative background elements */}
             <div className="absolute inset-0 overflow-hidden opacity-10">

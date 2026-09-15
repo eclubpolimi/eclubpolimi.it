@@ -12,7 +12,6 @@ const [teamMembers, teamDescriptions, siteImages] = await Promise.all([
   fetchTeamDescriptionsFromContentful(),
   fetchSiteImagesFromContentful(),
 ]);
-console.log("[Our Team Page] First Contentful team member:", teamMembers?.[0]);
 
 const heroAsset = siteImages?.find(
   (asset) => asset.key?.toLowerCase() === "driver_hero_background",

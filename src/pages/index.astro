@@ -3,22 +3,7 @@ import MainLayout from "../layouts/main.astro";
 import Hero from "../components/home/_Hero";
 import CoreValues from "../components/home/_CoreValues";
 import WhatWeDo from "../components/home/_WhatWeDo";
-import Sponsors from "../components/home/_Sponsors";
-import {
-  fetchSponsorsFromContentful,
-  fetchSiteVideosFromContentful,
-} from "../lib/contentful";
-
-// Whitelist the sponsor names you want to show
-const allowedSponsorNames = [
-  "sponsor_polihub",
-  "sponsor_astra",
-  "sponsor_polimi",
-];
-
-const sponsors = (await fetchSponsorsFromContentful()).filter((s) =>
-  allowedSponsorNames.includes((s.name ?? "").trim()),
-);
+import { fetchSiteVideosFromContentful } from "../lib/contentful";
 
 const siteVideos = await fetchSiteVideosFromContentful();
 const heroVideoAsset = siteVideos.find(
@@ -31,5 +16,4 @@ const heroVideoUrl = heroVideoAsset?.video?.url ?? undefined;
   <Hero client:load heroVideoUrl={heroVideoUrl} />
   <CoreValues client:load />
   <WhatWeDo client:load />
-  <!-- <Sponsors client:load sponsors={sponsors} /> -->
 </MainLayout>

@@ -8,20 +8,14 @@ import "../styles/global.css";
 // Import components
 import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
-import {
-  fetchSiteImagesFromContentful,
-  fetchSponsorsFromContentful,
-} from "../lib/contentful";
+import { fetchSiteImagesFromContentful } from "../lib/contentful";
 
 const siteImages = await fetchSiteImagesFromContentful();
 const brandingLogo = siteImages.find(
   (asset) => asset.key?.toLowerCase() === "branding_logo_white",
 );
-const sponsors = await fetchSponsorsFromContentful();
-const faviconSponsor = sponsors.find(
-  (s) => (s.name ?? "").trim().toLowerCase() === "e_club_polimi",
-);
-const faviconUrl = faviconSponsor?.logo?.url ?? "/favicon.ico";
+// Static favicon served from /public (avoids a Contentful fetch on every page request)
+const faviconUrl = "/favicon.ico";
 ---
 
 <!doctype html>

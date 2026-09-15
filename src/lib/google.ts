@@ -24,11 +24,10 @@ export async function refreshAccessToken(refreshTokenArg?: string) {
     return data;
 }
 
-export async function saveRefreshToken(refreshToken: string) {
+export async function saveRefreshToken(_refreshToken: string) {
     // In a production environment, you would store this securely
-    // For now, this is a placeholder that logs the token
+    // For now, this is a placeholder
     // The actual implementation depends on your infrastructure
-    console.log('Refresh token received (should be stored securely):', refreshToken.substring(0, 20) + '...');
 
     // If you need to store this persistently, consider:
     // 1. Database storage (recommended for production)

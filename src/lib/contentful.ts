@@ -116,6 +116,26 @@ export type SiteImageAsset = {
   } | null;
 };
 
+export type TeamMemberEntry = {
+  nameSurname?: string | null;
+  team?: string | null;
+  role?: string | null;
+  email?: string | null;
+  instagramLink?: string | null;
+  linkedinLink?: string | null;
+  quote?: string | null;
+  quoteAuthor?: string | null;
+  image?: {
+    url?: string | null;
+    description?: string | null;
+  } | null;
+};
+
+export type TeamDescriptionEntry = {
+  textArea?: string | null;
+  textField?: string | null;
+};
+
 export type EventEntry = {
   title?: string | null;
   date?: string | null;
@@ -179,12 +199,12 @@ async function fetchFromContentful<T>(query: string, collection: string): Promis
   }
 }
 
-export function fetchTeamMembersFromContentful() {
-  return fetchFromContentful(TEAM_QUERY, 'driverCollection');
+export function fetchTeamMembersFromContentful(): Promise<TeamMemberEntry[]> {
+  return fetchFromContentful<TeamMemberEntry>(TEAM_QUERY, 'driverCollection');
 }
 
-export function fetchTeamDescriptionsFromContentful() {
-  return fetchFromContentful(TEAM_DESCRIPTION_QUERY, 'decriptionParagraphCollection');
+export function fetchTeamDescriptionsFromContentful(): Promise<TeamDescriptionEntry[]> {
+  return fetchFromContentful<TeamDescriptionEntry>(TEAM_DESCRIPTION_QUERY, 'decriptionParagraphCollection');
 }
 
 export function fetchSiteImagesFromContentful(): Promise<SiteImageAsset[]> {
