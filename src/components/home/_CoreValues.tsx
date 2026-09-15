@@ -65,7 +65,7 @@ export default function CoreValues() {
     };
 
     return (
-        <section className="relative overflow-hidden bg-gradient-to-b from-gray-50 via-white to-gray-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-900 py-16 md:py-20">
+        <section data-hero-next className="relative overflow-hidden bg-gradient-to-b from-gray-50 via-white to-gray-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-900 py-16 md:py-20">
             <div className="relative px-5 md:px-12 max-w-6xl mx-auto">
                 <header className="text-center space-y-4 mb-12">
                     <h2 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white">

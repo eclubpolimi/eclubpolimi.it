@@ -1,7 +1,7 @@
 import type { APIRoute } from 'astro';
 import { refreshAccessToken } from '../../../lib/google';
 
-export const GET: APIRoute = async ({ request }) => {
+export const GET: APIRoute = async () => {
     try {
         const token = await refreshAccessToken();
         const access = token.access_token;
