@@ -56,6 +56,8 @@ const partnerBenefits = [
 
 const formUrl =
   "https://docs.google.com/forms/d/1qzIRmfCmcqeDGpZFGiV3XX3aICm4fMtDmLdzCJ4ABo0/viewform?chromeless=1&edit_requested=true";
+
+const mailTo = "mailto:info@eclubpolimi.it";
 ---
 
 <MainLayout>
@@ -68,7 +70,9 @@ const formUrl =
         aria-hidden="true"
       >
       </div>
-      <div class="relative max-w-6xl mx-auto px-5 pt-32 pb-16 md:pt-40 md:pb-20 text-center">
+      <div
+        class="relative max-w-6xl mx-auto px-5 pt-32 pb-16 md:pt-40 md:pb-20 text-center"
+      >
         <p
           class="inline-flex items-center px-4 py-1.5 rounded-full text-xs md:text-sm font-semibold tracking-wide uppercase bg-white/10 backdrop-blur-sm border border-white/25 text-white mb-6 animate-fade-up"
         >
@@ -79,11 +83,15 @@ const formUrl =
         >
           Join E-Club Polimi
         </h1>
-        <p class="text-lg md:text-xl text-white/85 max-w-2xl mx-auto mt-5 animate-fade-up-2">
+        <p
+          class="text-lg md:text-xl text-white/85 max-w-2xl mx-auto mt-5 animate-fade-up-2"
+        >
           Become part of Milan's most dynamic entrepreneurial community — as a
           student driver or as a partner.
         </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8 animate-fade-up-3">
+        <div
+          class="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8 animate-fade-up-3"
+        >
           <a
             href="#student"
             class="bg-brand hover:bg-brand-deep text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 min-h-[48px] inline-flex items-center justify-center"
@@ -106,7 +114,9 @@ const formUrl =
         preserveAspectRatio="none"
         aria-hidden="true"
       >
-        <path d="M0,32 C240,64 480,0 720,24 C960,48 1200,16 1440,32 L1440,64 L0,64 Z"></path>
+        <path
+          d="M0,32 C240,64 480,0 720,24 C960,48 1200,16 1440,32 L1440,64 L0,64 Z"
+        ></path>
       </svg>
     </section>
 
@@ -114,10 +124,14 @@ const formUrl =
     <section id="student" class="py-16 md:py-24 px-5 bg-white scroll-mt-20">
       <div class="max-w-6xl mx-auto">
         <div class="max-w-2xl mb-10 md:mb-14">
-          <p class="text-sm uppercase tracking-[0.2em] text-brand-deep font-semibold mb-3">
+          <p
+            class="text-sm uppercase tracking-[0.2em] text-brand-deep font-semibold mb-3"
+          >
             For students
           </p>
-          <h2 class="text-3xl md:text-5xl font-bold text-gray-900 tracking-tight">
+          <h2
+            class="text-3xl md:text-5xl font-bold text-gray-900 tracking-tight"
+          >
             Become a Driver
           </h2>
           <p class="text-lg text-gray-600 mt-4 leading-relaxed">
@@ -127,7 +141,9 @@ const formUrl =
         </div>
 
         <!-- Bento grid: 1 feature + compact tiles -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5"
+        >
           <!-- Feature tile -->
           <div
             class="sm:col-span-2 lg:row-span-2 rounded-2xl p-8 md:p-10 bg-brand-navy-flat text-white relative overflow-hidden flex flex-col justify-between min-h-[320px]"
@@ -139,7 +155,9 @@ const formUrl =
               01
             </div>
             <div class="relative">
-              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-white/15 text-white">
+              <span
+                class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-white/15 text-white"
+              >
                 Most loved
               </span>
               <h3 class="text-2xl md:text-3xl font-bold mt-4">
@@ -160,48 +178,134 @@ const formUrl =
             </a>
           </div>
 
-          {studentBenefits.slice(1).map((b, i) => (
-            <div
-              class="group rounded-2xl p-6 bg-gray-50 border border-gray-100 hover:border-brand/40 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
-            >
-              <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-soft text-brand-ink transition-colors duration-300 group-hover:bg-brand group-hover:text-white">
-                {b.icon === "ticket" && (
-                  <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z" /><path d="M13 5v2" /><path d="M13 17v2" /><path d="M13 11v2" /></svg>
-                )}
-                {b.icon === "users" && (
-                  <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg>
-                )}
-                {b.icon === "cap" && (
-                  <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10 12 5 2 10l10 5 10-5z" /><path d="M6 12v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5" /><path d="M22 10v6" /></svg>
-                )}
-                {b.icon === "rocket" && (
-                  <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" /><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" /><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" /><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" /></svg>
-                )}
-                {b.icon === "wrench" && (
-                  <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" /></svg>
-                )}
-                {b.icon === "trend" && (
-                  <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 7l-8.5 8.5-5-5L2 17" /><path d="M16 7h6v6" /></svg>
-                )}
-              </span>
-              <h4 class="font-semibold text-gray-900 mt-4">
-                {String(i + 2).padStart(2, "0")} · {b.title}
-              </h4>
-              <p class="text-sm text-gray-600 mt-1.5 leading-relaxed">{b.text}</p>
-            </div>
-          ))}
+          {
+            studentBenefits.slice(1).map((b, i) => (
+              <div class="group rounded-2xl p-6 bg-gray-50 border border-gray-100 hover:border-brand/40 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-soft text-brand-ink transition-colors duration-300 group-hover:bg-brand group-hover:text-white">
+                  {b.icon === "ticket" && (
+                    <svg
+                      viewBox="0 0 24 24"
+                      class="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z" />
+                      <path d="M13 5v2" />
+                      <path d="M13 17v2" />
+                      <path d="M13 11v2" />
+                    </svg>
+                  )}
+                  {b.icon === "users" && (
+                    <svg
+                      viewBox="0 0 24 24"
+                      class="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                      <circle cx="9" cy="7" r="4" />
+                      <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                    </svg>
+                  )}
+                  {b.icon === "cap" && (
+                    <svg
+                      viewBox="0 0 24 24"
+                      class="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M22 10 12 5 2 10l10 5 10-5z" />
+                      <path d="M6 12v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5" />
+                      <path d="M22 10v6" />
+                    </svg>
+                  )}
+                  {b.icon === "rocket" && (
+                    <svg
+                      viewBox="0 0 24 24"
+                      class="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
+                      <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
+                      <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
+                      <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+                    </svg>
+                  )}
+                  {b.icon === "wrench" && (
+                    <svg
+                      viewBox="0 0 24 24"
+                      class="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+                    </svg>
+                  )}
+                  {b.icon === "trend" && (
+                    <svg
+                      viewBox="0 0 24 24"
+                      class="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M22 7l-8.5 8.5-5-5L2 17" />
+                      <path d="M16 7h6v6" />
+                    </svg>
+                  )}
+                </span>
+                <h4 class="font-semibold text-gray-900 mt-4">
+                  {String(i + 2).padStart(2, "0")} · {b.title}
+                </h4>
+                <p class="text-sm text-gray-600 mt-1.5 leading-relaxed">
+                  {b.text}
+                </p>
+              </div>
+            ))
+          }
         </div>
       </div>
     </section>
 
     <!-- Partner path -->
     <section id="partner" class="py-16 md:py-24 px-5 bg-gray-50 scroll-mt-20">
-      <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+      <div
+        class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-10 lg:gap-16 items-center"
+      >
         <div>
-          <p class="text-sm uppercase tracking-[0.2em] text-brand-deep font-semibold mb-3">
+          <p
+            class="text-sm uppercase tracking-[0.2em] text-brand-deep font-semibold mb-3"
+          >
             For organizations
           </p>
-          <h2 class="text-3xl md:text-5xl font-bold text-gray-900 tracking-tight">
+          <h2
+            class="text-3xl md:text-5xl font-bold text-gray-900 tracking-tight"
+          >
             Partner with Us
           </h2>
           <p class="text-lg text-gray-600 mt-4 leading-relaxed">
@@ -209,7 +313,7 @@ const formUrl =
             expertise, mentor students, or contribute to our community.
           </p>
           <a
-            href={formUrl}
+            href={mailTo}
             target="_blank"
             rel="noopener noreferrer"
             class="mt-8 inline-flex items-center justify-center bg-brand-navy-flat hover:bg-brand-navy text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 min-h-[48px]"
@@ -219,20 +323,22 @@ const formUrl =
         </div>
 
         <ol class="space-y-0 divide-y divide-gray-200 border-y border-gray-200">
-          {partnerBenefits.map((b, i) => (
-            <li class="flex gap-5 py-6 group">
-              <span
-                class="text-sm font-bold tracking-widest text-gray-300 group-hover:text-brand transition-colors duration-300 pt-1"
-                aria-hidden="true"
-              >
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <div>
-                <h4 class="font-semibold text-lg text-gray-900">{b.title}</h4>
-                <p class="text-gray-600 mt-1 leading-relaxed">{b.text}</p>
-              </div>
-            </li>
-          ))}
+          {
+            partnerBenefits.map((b, i) => (
+              <li class="flex gap-5 py-6 group">
+                <span
+                  class="text-sm font-bold tracking-widest text-gray-300 group-hover:text-brand transition-colors duration-300 pt-1"
+                  aria-hidden="true"
+                >
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <div>
+                  <h4 class="font-semibold text-lg text-gray-900">{b.title}</h4>
+                  <p class="text-gray-600 mt-1 leading-relaxed">{b.text}</p>
+                </div>
+              </li>
+            ))
+          }
         </ol>
       </div>
     </section>
